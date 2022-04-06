@@ -1,3 +1,4 @@
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -17,6 +18,10 @@ public class LoginPageController {
     @FXML
     TextField captchaTextfield;
     @FXML
-    Button LoginButton;
+    Button loginButton;
 
+
+    void loginButtonOnAction(ActionEvent actionEvent) {
+        
+    }
 }

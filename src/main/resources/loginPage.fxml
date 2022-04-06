@@ -8,15 +8,15 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginPageController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ceecec;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginPageController">
    <children>
-      <Button fx:id="LoginButton" layoutX="356.0" layoutY="250.0" mnemonicParsing="false" text="Log in" />
+      <Button fx:id="loginButton" layoutX="356.0" layoutY="250.0" mnemonicParsing="false" onAction="#loginButtonOnAction" text="Log in" />
       <TextField fx:id="usernameTextfield" layoutX="220.0" layoutY="122.0" maxWidth="160.0" minWidth="160.0" prefWidth="160.0" promptText="Username" />
       <TextField fx:id="passwordTextfield" layoutX="220.0" layoutY="160.0" maxWidth="160.0" minWidth="160.0" prefWidth="160.0" promptText="Password" />
       <Text fx:id="errorText" fill="RED" layoutX="220.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" />
       <ImageView fx:id="captchaImage" fitHeight="40.0" fitWidth="90.0" layoutX="220.0" layoutY="197.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../../../Desktop/background/back.jpg" />
+            <Image url="@Captcha/Captcha-1.png" />
          </image>
       </ImageView>
       <TextField fx:id="captchaTextfield" layoutX="314.0" layoutY="204.0" maxWidth="65.0" minWidth="65.0" prefHeight="26.0" prefWidth="65.0" promptText="Captcha" />
