@@ -10,13 +10,14 @@ public class Student extends User{
     protected String registrationTime;
     protected StudentLevel studentLevel;
     protected EducationStatus educationStatus;
+    protected String yearOfEntry;
 
     protected ArrayList<ReportCard> reportCards;
     protected ArrayList<Request> requests;
     protected ArrayList<Course> courses;
 
 
-    Student(String password, String displayName, Field field, College college, String studentNumber, StudentLevel studentLevel) {
+    Student(String password, String displayName, Field field, College college, String studentNumber, StudentLevel studentLevel, String yearOfEntry) {
         super(password, displayName, field, college);
 
         this.studentNumber = studentNumber;
@@ -26,13 +27,14 @@ public class Student extends User{
         registrationTime = null;
         this.studentLevel = studentLevel;
         educationStatus = EducationStatus.STUDYING;
+        this.yearOfEntry = yearOfEntry;
 
         reportCards = new ArrayList<>();
         requests = new ArrayList<>();
         courses = new ArrayList<>();
     }
 
-    
+
 
     // getters and setters
 
@@ -116,6 +118,14 @@ public class Student extends User{
         this.studentLevel = studentLevel;
     }
 
+
+    public String getYearOfEntry() {
+        return yearOfEntry;
+    }
+
+    public void setYearOfEntry(String yearOfEntry) {
+        this.yearOfEntry = yearOfEntry;
+    }
 
 
 
