@@ -11,6 +11,7 @@ public class Student extends User{
     protected Field field;
     protected College college;
     protected StudentLevel studentLevel;
+    protected StudentStatus studentStatus;
 
     protected ArrayList<ReportCard> reportCards;
     protected ArrayList<Request> requests;
@@ -79,6 +80,15 @@ public class Student extends User{
 
     public void setCollege(College college) {
         this.college = college;
+    }
+
+
+    public StudentStatus getStudentStatus() {
+        return studentStatus;
+    }
+
+    public void setStudentStatus(StudentStatus studentStatus) {
+        this.studentStatus = studentStatus;
     }
 
 
