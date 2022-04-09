@@ -3,6 +3,7 @@ package models;
 import java.util.ArrayList;
 
 public class Student extends User{
+    protected String studentNumber;
     protected String educationStatus;
     protected Teacher supervisor;
     protected String registrationLicense;
@@ -12,7 +13,17 @@ public class Student extends User{
     protected ArrayList<Request> requests;
     protected ArrayList<Course> courses;
 
+
     // getters and setters
+
+    public String getStudentNumber() {
+        return studentNumber;
+    }
+
+    public void setStudentNumber(String studentNumber) {
+        this.studentNumber = studentNumber;
+    }
+
 
     public String getEducationStatus() {
         return educationStatus;
