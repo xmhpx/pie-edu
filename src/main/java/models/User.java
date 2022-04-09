@@ -13,6 +13,7 @@ public class User {
     protected String phoneNumber;
     protected String homeAddress;
     protected String postalCode;
+    protected UITheme preferredUITheme = UITheme.light;
 
     //getters and setters
 
@@ -90,5 +91,14 @@ public class User {
 
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
+    }
+
+
+    public UITheme getPreferredUITheme() {
+        return preferredUITheme;
+    }
+
+    public void setPreferredUITheme(UITheme preferredUITheme) {
+        this.preferredUITheme = preferredUITheme;
     }
 }
