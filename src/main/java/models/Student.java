@@ -15,6 +15,21 @@ public class Student extends User{
     protected ArrayList<Request> requests;
     protected ArrayList<Course> courses;
 
+    Student(String password, String displayName, Field field, College college, String studentNumber, StudentLevel studentLevel) {
+        super(password, displayName, field, college);
+
+        this.studentNumber = studentNumber;
+        status = "";
+        supervisor = null;
+        registrationLicense = null;
+        registrationTime = null;
+        this.studentLevel = studentLevel;
+        educationStatus = EducationStatus.STUDYING;
+
+        reportCards = new ArrayList<>();
+        requests = new ArrayList<>();
+        courses = new ArrayList<>();
+    }
 
 
     // getters and setters
