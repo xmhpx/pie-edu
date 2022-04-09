@@ -19,7 +19,6 @@ public class User {
     protected College college;
 
 
-
     User(String password, String displayName, Field field, College college){
         id = nextId++;
         this.password = password;
@@ -34,6 +33,7 @@ public class User {
         this.field = field;
         this.college = college;
     }
+
 
 
     //getters and setters

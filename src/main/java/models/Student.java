@@ -15,6 +15,7 @@ public class Student extends User{
     protected ArrayList<Request> requests;
     protected ArrayList<Course> courses;
 
+
     Student(String password, String displayName, Field field, College college, String studentNumber, StudentLevel studentLevel) {
         super(password, displayName, field, college);
 
@@ -31,6 +32,7 @@ public class Student extends User{
         courses = new ArrayList<>();
     }
 
+    
 
     // getters and setters
 

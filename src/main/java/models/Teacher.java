@@ -4,12 +4,14 @@ public class Teacher extends User{
     protected String teacherNumber;
     protected TeacherLevel teacherLevel;
 
+
     Teacher(String password, String displayName, Field field, College college, String teacherNumber, TeacherLevel teacherLevel) {
         super(password, displayName, field, college);
 
         this.teacherNumber = teacherNumber;
         this.teacherLevel = teacherLevel;
     }
+
 
 
     // getters and setters
