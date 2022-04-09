@@ -9,6 +9,7 @@ public class Student extends User{
     protected String registrationLicense;
     protected String registrationTime;
     protected Field field;
+    protected College college;
 
     protected ArrayList<ReportCard> reportCards;
     protected ArrayList<Request> requests;
@@ -70,6 +71,15 @@ public class Student extends User{
         this.field = field;
     }
 
+
+    public College getCollege() {
+        return college;
+    }
+
+    public void setCollege(College college) {
+        this.college = college;
+    }
+    
 
     public ArrayList<ReportCard> getReportCards() {
         return reportCards;
