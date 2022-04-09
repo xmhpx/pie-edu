@@ -10,6 +10,7 @@ public class Student extends User{
     protected String registrationTime;
     protected Field field;
     protected College college;
+    protected StudentLevel studentLevel;
 
     protected ArrayList<ReportCard> reportCards;
     protected ArrayList<Request> requests;
@@ -79,7 +80,16 @@ public class Student extends User{
     public void setCollege(College college) {
         this.college = college;
     }
-    
+
+
+    public StudentLevel getStudentLevel() {
+        return studentLevel;
+    }
+
+    public void setStudentLevel(StudentLevel studentLevel) {
+        this.studentLevel = studentLevel;
+    }
+
 
     public ArrayList<ReportCard> getReportCards() {
         return reportCards;
