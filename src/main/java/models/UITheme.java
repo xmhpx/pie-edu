@@ -1,6 +1,6 @@
 package models;
 
-public enum UIThemes {
+public enum UITheme {
     light,
     dark
 }
