@@ -1,4 +1,4 @@
-package models;
+package models.teacher;
 
 public enum TeacherLevel {
     ASSISTANT_PROFESSOR,

@@ -1,15 +1,19 @@
-package models;
+package models.student;
+
+import models.*;
+import models.teacher.Teacher;
+import models.universityitems.*;
 
 import java.util.ArrayList;
 
-public class Student extends User{
+public class Student extends User {
     protected String studentNumber;
     protected String status;
     protected Teacher supervisor;
     protected String registrationLicense;
     protected String registrationTime;
     protected StudentLevel studentLevel;
-    protected EducationStatus educationStatus;
+    protected StudentEducationStatus educationStatus;
     protected String yearOfEntry;
 
     protected ArrayList<ReportCard> reportCards;
@@ -26,7 +30,7 @@ public class Student extends User{
         registrationLicense = null;
         registrationTime = null;
         this.studentLevel = studentLevel;
-        educationStatus = EducationStatus.STUDYING;
+        educationStatus = StudentEducationStatus.STUDYING;
         this.yearOfEntry = yearOfEntry;
 
         reportCards = new ArrayList<>();
@@ -101,11 +105,11 @@ public class Student extends User{
     }
 
 
-    public EducationStatus getStudentStatus() {
+    public StudentEducationStatus getStudentStatus() {
         return educationStatus;
     }
 
-    public void setStudentStatus(EducationStatus educationStatus) {
+    public void setStudentStatus(StudentEducationStatus educationStatus) {
         this.educationStatus = educationStatus;
     }
 

@@ -1,4 +1,4 @@
-package models;
+package models.student;
 
 public enum StudentLevel {
     UNDERGRADUATE,

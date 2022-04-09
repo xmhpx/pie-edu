@@ -1,6 +1,9 @@
 package models;
 
 
+import models.universityitems.College;
+import models.universityitems.Field;
+
 import java.time.LocalDateTime;
 
 public class User {

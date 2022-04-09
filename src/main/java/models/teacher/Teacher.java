@@ -1,6 +1,10 @@
-package models;
+package models.teacher;
 
-public class Teacher extends User{
+import models.universityitems.College;
+import models.universityitems.Field;
+import models.User;
+
+public class Teacher extends User {
     protected String teacherNumber;
     protected TeacherLevel teacherLevel;
 
