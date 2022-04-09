@@ -58,11 +58,11 @@ public class Student extends User{
         this.reportCards = reportCards;
     }
 
-    public void addReportCards(ReportCard reportCard){
+    public void addToReportCards(ReportCard reportCard){
         reportCards.add(reportCard);
     }
 
-    public void removeReportCards(ReportCard reportCard){
+    public void removeFromReportCards(ReportCard reportCard){
         reportCards.remove(reportCard);
     }
 
@@ -75,11 +75,11 @@ public class Student extends User{
         this.requests = requests;
     }
 
-    public void addReportCards(Request request){
+    public void addToReportCards(Request request){
         requests.add(request);
     }
 
-    public void removeReportCards(Request request){
+    public void removeFromReportCards(Request request){
         requests.remove(request);
     }
 
@@ -92,11 +92,11 @@ public class Student extends User{
         this.courses = courses;
     }
 
-    public void addCourses(Course course){
+    public void addToCourses(Course course){
         courses.add(course);
     }
 
-    public void removeCourses(Course course){
+    public void removeFromCourses(Course course){
         courses.remove(course);
     }
 }
