@@ -8,6 +8,7 @@ public class Student extends User{
     protected Teacher supervisor;
     protected String registrationLicense;
     protected String registrationTime;
+    protected Field field;
 
     protected ArrayList<ReportCard> reportCards;
     protected ArrayList<Request> requests;
@@ -58,6 +59,15 @@ public class Student extends User{
 
     public void setRegistrationTime(String registrationTime) {
         this.registrationTime = registrationTime;
+    }
+
+
+    public Field getField() {
+        return field;
+    }
+
+    public void setField(Field field) {
+        this.field = field;
     }
 
 
