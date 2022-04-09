@@ -14,6 +14,8 @@ public class User {
     protected String homeAddress;
     protected String postalCode;
     protected UITheme preferredUITheme;
+    protected Field field;
+    protected College college;
 
 
 

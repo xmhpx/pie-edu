@@ -8,8 +8,6 @@ public class Student extends User{
     protected Teacher supervisor;
     protected String registrationLicense;
     protected String registrationTime;
-    protected Field field;
-    protected College college;
     protected StudentLevel studentLevel;
     protected EducationStatus educationStatus;
 
