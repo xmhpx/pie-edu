@@ -15,6 +15,8 @@ public class User {
     protected String postalCode;
     protected UITheme preferredUITheme;
 
+
+
     //getters and setters
 
     public int getId() {

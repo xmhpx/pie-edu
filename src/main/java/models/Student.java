@@ -18,6 +18,7 @@ public class Student extends User{
     protected ArrayList<Course> courses;
 
 
+
     // getters and setters
 
     public String getStudentNumber() {
@@ -99,6 +100,8 @@ public class Student extends User{
     public void setStudentLevel(StudentLevel studentLevel) {
         this.studentLevel = studentLevel;
     }
+
+
 
 
     public ArrayList<ReportCard> getReportCards() {
