@@ -21,7 +21,8 @@ public class LoginPageController {
     Button loginButton;
 
 
+    @FXML
     void loginButtonOnAction(ActionEvent actionEvent) {
-        
+
     }
 }
