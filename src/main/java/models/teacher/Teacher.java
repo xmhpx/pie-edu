@@ -9,7 +9,7 @@ public class Teacher extends User {
     protected TeacherLevel teacherLevel;
 
 
-    Teacher(String password, String displayName, Field field, College college, String teacherNumber, TeacherLevel teacherLevel) {
+    public Teacher(String password, String displayName, Field field, College college, String teacherNumber, TeacherLevel teacherLevel) {
         super(password, displayName, field, college);
 
         this.teacherNumber = teacherNumber;
