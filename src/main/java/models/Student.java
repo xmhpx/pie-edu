@@ -8,9 +8,9 @@ public class Student extends User{
     protected String registrationLicense;
     protected String registrationTime;
 
-
     protected ArrayList<ReportCard> reportCards;
     protected ArrayList<Request> requests;
+    protected ArrayList<Course> courses;
 
     // getters and setters
 
@@ -81,6 +81,23 @@ public class Student extends User{
 
     public void removeReportCards(Request request){
         requests.remove(request);
+    }
+
+
+    public ArrayList<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(ArrayList<Course> courses) {
+        this.courses = courses;
+    }
+
+    public void addCourses(Course course){
+        courses.add(course);
+    }
+
+    public void removeCourses(Course course){
+        courses.remove(course);
     }
 
 }
