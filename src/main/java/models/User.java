@@ -4,6 +4,7 @@ package models;
 import java.time.LocalDateTime;
 
 public class User {
+    protected static int nextId = 1;
     protected int id;
     protected String password;
     protected LocalDateTime lastVisit;
@@ -17,6 +18,22 @@ public class User {
     protected Field field;
     protected College college;
 
+
+
+    User(String password, String displayName, Field field, College college){
+        id = nextId++;
+        this.password = password;
+        lastVisit = null;
+        profileImagePath = null;
+        this.displayName = displayName;
+        email = null;
+        phoneNumber = null;
+        homeAddress = null;
+        postalCode = null;
+        preferredUITheme = null;
+        this.field = field;
+        this.college = college;
+    }
 
 
     //getters and setters
