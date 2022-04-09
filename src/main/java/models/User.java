@@ -13,7 +13,7 @@ public class User {
     protected String phoneNumber;
     protected String homeAddress;
     protected String postalCode;
-    protected UITheme preferredUITheme = UITheme.light;
+    protected UITheme preferredUITheme;
 
     //getters and setters
 
