@@ -99,5 +99,4 @@ public class Student extends User{
     public void removeCourses(Course course){
         courses.remove(course);
     }
-
 }
