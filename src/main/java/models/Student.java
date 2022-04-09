@@ -4,14 +4,14 @@ import java.util.ArrayList;
 
 public class Student extends User{
     protected String studentNumber;
-    protected String educationStatus;
+    protected String status;
     protected Teacher supervisor;
     protected String registrationLicense;
     protected String registrationTime;
     protected Field field;
     protected College college;
     protected StudentLevel studentLevel;
-    protected StudentStatus studentStatus;
+    protected EducationStatus educationStatus;
 
     protected ArrayList<ReportCard> reportCards;
     protected ArrayList<Request> requests;
@@ -30,11 +30,11 @@ public class Student extends User{
 
 
     public String getEducationStatus() {
-        return educationStatus;
+        return status;
     }
 
-    public void setEducationStatus(String educationStatus) {
-        this.educationStatus = educationStatus;
+    public void setEducationStatus(String status) {
+        this.status = status;
     }
 
 
@@ -83,12 +83,12 @@ public class Student extends User{
     }
 
 
-    public StudentStatus getStudentStatus() {
-        return studentStatus;
+    public EducationStatus getStudentStatus() {
+        return educationStatus;
     }
 
-    public void setStudentStatus(StudentStatus studentStatus) {
-        this.studentStatus = studentStatus;
+    public void setStudentStatus(EducationStatus educationStatus) {
+        this.educationStatus = educationStatus;
     }
 
 
