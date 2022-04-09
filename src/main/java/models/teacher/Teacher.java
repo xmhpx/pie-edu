@@ -7,13 +7,15 @@ import models.User;
 public class Teacher extends User {
     protected String teacherNumber;
     protected TeacherLevel teacherLevel;
+    protected TeacherType teacherType;
 
 
-    public Teacher(String password, String displayName, Field field, College college, String teacherNumber, TeacherLevel teacherLevel) {
+    public Teacher(String password, String displayName, Field field, College college, String teacherNumber, TeacherLevel teacherLevel, TeacherType teacherType) {
         super(password, displayName, field, college);
 
         this.teacherNumber = teacherNumber;
         this.teacherLevel = teacherLevel;
+        this.teacherType = teacherType;
     }
 
 
@@ -35,5 +37,14 @@ public class Teacher extends User {
 
     public void setTeacherLevel(TeacherLevel teacherLevel) {
         this.teacherLevel = teacherLevel;
+    }
+
+
+    public TeacherType getTeacherType() {
+        return teacherType;
+    }
+
+    public void setTeacherType(TeacherType teacherType) {
+        this.teacherType = teacherType;
     }
 }
