@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 public class User {
     protected static int nextId = 1;
     protected int id;
-    protected String password;
+    protected int hashedPassword;
     protected LocalDateTime lastVisit;
     protected String profileImagePath;
     protected String displayName;
@@ -24,7 +24,7 @@ public class User {
 
     public User(String password, String displayName, Field field, College college){
         id = nextId++;
-        this.password = password;
+        this.hashedPassword = password.hashCode();
         lastVisit = null;
         profileImagePath = null;
         this.displayName = displayName;
@@ -46,12 +46,12 @@ public class User {
     }
 
 
-    public String getPassword() {
-        return password;
+    public int getHashedPassword() {
+        return hashedPassword;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.hashedPassword = password.hashCode();
     }
 
 
