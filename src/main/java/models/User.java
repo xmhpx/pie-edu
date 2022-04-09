@@ -10,13 +10,16 @@ public class User {
     protected String profileImagePath;
     protected String displayName;
     protected String email;
-
+    protected String phoneNumber;
+    protected String homeAddress;
+    protected String postalCode;
 
     //getters and setters
 
     public int getId() {
         return id;
     }
+
 
     public String getPassword() {
         return password;
@@ -26,6 +29,7 @@ public class User {
         this.password = password;
     }
 
+
     public LocalDateTime getLastVisit() {
         return lastVisit;
     }
@@ -33,6 +37,7 @@ public class User {
     public void setLastVisit(LocalDateTime lastVisit) {
         this.lastVisit = lastVisit;
     }
+
 
     public String getProfileImagePath() {
         return profileImagePath;
@@ -42,6 +47,7 @@ public class User {
         this.profileImagePath = profileImagePath;
     }
 
+
     public String getDisplayName() {
         return displayName;
     }
@@ -50,11 +56,39 @@ public class User {
         this.displayName = displayName;
     }
 
+
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+
+    public String getHomeAddress() {
+        return homeAddress;
+    }
+
+    public void setHomeAddress(String homeAddress) {
+        this.homeAddress = homeAddress;
+    }
+
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
     }
 }
