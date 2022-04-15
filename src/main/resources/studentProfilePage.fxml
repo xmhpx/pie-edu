@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
@@ -17,7 +19,6 @@
       <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="710.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
       <Text layoutX="719.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
       <Text layoutX="721.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
-      <Text layoutX="333.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vaziat Tahsil" />
       <MenuBar layoutX="14.0" layoutY="14.0" nodeOrientation="LEFT_TO_RIGHT">
         <menus>
             <Menu mnemonicParsing="false" text="Home">
@@ -58,8 +59,15 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
       </MenuBar>
-      <Text layoutX="338.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supervisor" />
-      <Text layoutX="314.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration License" />
-      <Text layoutX="320.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration Time" />
+      <TextField layoutX="315.0" layoutY="159.0" prefHeight="26.0" prefWidth="170.0" promptText="Current Password" />
+      <TextField layoutX="315.0" layoutY="199.0" prefHeight="26.0" prefWidth="170.0" promptText="New Password" />
+      <Button layoutX="374.0" layoutY="313.0" mnemonicParsing="false" text="Change Password" />
+      <TextField layoutX="315.0" layoutY="230.0" prefHeight="26.0" prefWidth="170.0" promptText="Repeat New Password" />
+      <ImageView fx:id="captchaImage" fitHeight="40.0" fitWidth="90.0" layoutX="317.0" layoutY="266.0" pickOnBounds="true">
+         <image>
+            <Image url="@Captcha/Captcha-1.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="captchaTextfield" layoutX="420.0" layoutY="273.0" maxWidth="65.0" minWidth="65.0" prefHeight="26.0" prefWidth="65.0" promptText="Captcha" />
    </children>
 </AnchorPane>
