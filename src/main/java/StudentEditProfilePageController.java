@@ -1,2 +1,2 @@
-public class StudentProfilePageController {
+public class StudentEditProfilePageController {
 }
