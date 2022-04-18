@@ -17,6 +17,18 @@ public class Course {
     protected ArrayList<Reference<Student>> studentsReference;
 
 
+    Course(String name, Reference<College> collegeReference, Reference<Teacher> teacherReference, String holdingSemester, String courseId, int semesterCreditHours){
+        this.name = name;
+        this.collegeReference = collegeReference;
+        this.teacherReference = teacherReference;
+        this.holdingSemester = holdingSemester;
+        this.courseId = courseId;
+        this.semesterCreditHours = semesterCreditHours;
+        this.studentsReference = new ArrayList<>();
+    }
+
+
+
     // getters and setters
 
     public String getName() {
