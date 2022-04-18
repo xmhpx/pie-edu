@@ -1,15 +1,16 @@
 package models.universityitems;
 
+import models.student.Student;
 import models.teacher.Teacher;
 
 import java.lang.ref.Reference;
 
 public class RecommendationLetterRequest extends Request{
-    private Reference<Teacher> teacherReference;
+    protected Reference<Teacher> teacherReference;
 
 
-    RecommendationLetterRequest(String title, String body, Reference<Teacher> teacherReference) {
-        super(title, body);
+    RecommendationLetterRequest(String title, String body, Reference<Student> sender, Reference<Teacher> teacherReference) {
+        super(title, body, sender);
         this.teacherReference = teacherReference;
     }
 

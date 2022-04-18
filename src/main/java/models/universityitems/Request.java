@@ -1,13 +1,23 @@
 package models.universityitems;
 
+import models.student.Student;
+
+import java.lang.ref.Reference;
+
 public class Request {
-    private String title;
-    private String body;
+    protected String title;
+    protected String body;
+    protected String status;
+    protected String respond;
+    protected Reference<Student> sender;
 
 
-    Request(String title, String body){
+    Request(String title, String body, Reference<Student> sender){
         this.title = title;
         this.body = body;
+        status = "sent";
+        respond = "";
+        this.sender = sender;
     }
 
 
@@ -29,5 +39,32 @@ public class Request {
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+
+    public String getRespond() {
+        return respond;
+    }
+
+    public void setRespond(String respond) {
+        this.respond = respond;
+    }
+
+
+    public Reference<Student> getSender() {
+        return sender;
+    }
+
+    public void setSender(Reference<Student> sender) {
+        this.sender = sender;
     }
 }
