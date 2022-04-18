@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 public class User {
     protected static int nextId = 1;
     protected int id;
+    protected int age;
     protected int hashedPassword;
     protected LocalDateTime lastVisit;
     protected String profileImagePath;
@@ -23,7 +24,7 @@ public class User {
     protected Reference<College> college;
 
 
-    public User(String password, String displayName, Reference<Field> field, Reference<College> college){
+    public User(String password, String displayName, Reference<Field> field, Reference<College> college, int age){
         id = nextId++;
         this.hashedPassword = password.hashCode();
         lastVisit = null;
@@ -36,6 +37,7 @@ public class User {
         preferredUITheme = null;
         this.field = field;
         this.college = college;
+        this.age = age;
     }
 
 
@@ -143,5 +145,14 @@ public class User {
 
     public void setCollege(Reference<College> college) {
         this.college = college;
+    }
+
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }
