@@ -2,6 +2,7 @@ import models.User;
 import models.professor.Professor;
 import models.student.Student;
 import models.universityitems.College;
+import models.universityitems.Course;
 import models.universityitems.Field;
 import models.universityitems.ReportCard;
 import models.universityitems.requests.Request;
@@ -24,36 +25,51 @@ public class Backend {
     private ArrayList<Professor> professors;
     private ArrayList<Student> students;
     private ArrayList<Request> requests;
-
     private ArrayList<College> colleges;
+    private ArrayList<Course> courses;
     private ArrayList<Field> fields;
     private ArrayList<ReportCard> reportCards;
 
 
     Backend(){
-        professors = new ArrayList<>();
-        students = new ArrayList<>();
-        requests = new ArrayList<>();
-        colleges = new ArrayList<>();
-        fields = new ArrayList<>();
-        reportCards = new ArrayList<>();
-
-        String jsonString = "{\"name\":\"Mahesh\", \"age\":21}";
-
         GsonBuilder builder = new GsonBuilder();
         builder.setPrettyPrinting();
-
         Gson gson = builder.create();
-        Student student = gson.fromJson(jsonString, Student.class);
-        System.out.println(student);
 
-        jsonString = gson.toJson(student);
-        System.out.println(jsonString);
+        String professorsJson = "";
+        String studentsJson = "";
+        String requestsJson = "";
+        String collegesJson = "";
+        String courseJson = "";
+        String fieldsJson = "";
+        String reportCardsJson = "";
+
+        professors = gson.fromJson(professorsJson, new ArrayList<Professor>(){}.getClass());
+        students = gson.fromJson(studentsJson, new ArrayList<Student>(){}.getClass());
+        requests = gson.fromJson(requestsJson, new ArrayList<Request>(){}.getClass());
+        colleges = gson.fromJson(collegesJson, new ArrayList<College>(){}.getClass());
+        courses = gson.fromJson(courseJson, new ArrayList<Course>(){}.getClass());
+        fields = gson.fromJson(fieldsJson, new ArrayList<Field>(){}.getClass());
+        reportCards = gson.fromJson(reportCardsJson, new ArrayList<ReportCard>(){}.getClass());
+
+        //TODO retract jsons
     }
 
 
     void close(){
+        GsonBuilder builder = new GsonBuilder();
+        builder.setPrettyPrinting();
+        Gson gson = builder.create();
 
+        String professorsJson = gson.toJson(professors);
+        String studentsJson = gson.toJson(students);
+        String requestsJson = gson.toJson(requests);
+        String collegesJson = gson.toJson(colleges);
+        String coursesJson = gson.toJson(courses);
+        String fieldsJson = gson.toJson(fields);
+        String reportCardsJson = gson.toJson(reportCards);
+
+        //TODO store jsons
     }
 
 
@@ -162,5 +178,14 @@ public class Backend {
 
     public void setReportCards(ArrayList<ReportCard> reportCards) {
         this.reportCards = reportCards;
+    }
+
+
+    public ArrayList<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(ArrayList<Course> courses) {
+        this.courses = courses;
     }
 }
