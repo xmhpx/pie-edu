@@ -1,6 +1,7 @@
-package models.universityitems;
+package models.universityitems.requests;
 
 import models.student.Student;
+import models.universityitems.College;
 
 import java.lang.ref.Reference;
 

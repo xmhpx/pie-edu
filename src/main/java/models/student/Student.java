@@ -3,6 +3,7 @@ package models.student;
 import models.*;
 import models.teacher.Teacher;
 import models.universityitems.*;
+import models.universityitems.requests.Request;
 
 import java.lang.ref.Reference;
 import java.util.ArrayList;

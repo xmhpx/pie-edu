@@ -1,4 +1,4 @@
-package models.universityitems;
+package models.universityitems.requests;
 
 import models.student.Student;
 
