@@ -9,8 +9,9 @@ public class DissertationDefenseRequest extends Request{
     protected LocalDateTime dissertationDefenceTime;
 
 
-    DissertationDefenseRequest(String title, String body, Reference<Student> sender) {
+    DissertationDefenseRequest(String title, String body, Reference<Student> sender, LocalDateTime dissertationDefenceTime) {
         super(title, body, sender);
+        this.dissertationDefenceTime = dissertationDefenceTime;
     }
 
 
