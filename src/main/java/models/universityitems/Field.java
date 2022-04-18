@@ -4,7 +4,7 @@ import java.lang.ref.Reference;
 
 public class Field {
     protected String name;
-    private Reference<College> collegeReference;
+    protected Reference<College> collegeReference;
 
 
     Field(String name, Reference<College> collegeReference){
