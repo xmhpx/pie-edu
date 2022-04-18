@@ -1,4 +1,4 @@
-package models.logic;
+package logic;
 
 public class LogicCenter {
     static LogicCenter logicCenterInstance;
