@@ -24,6 +24,7 @@ public class Field {
         this.name = name;
     }
 
+
     public Reference<College> getCollegeReference() {
         return collegeReference;
     }
