@@ -3,12 +3,55 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class StudentHomePageController {
+
+    @FXML
+    MenuItem coursesListMenuItem;
+
+    @FXML
+    MenuItem professorsListMenuItem;
+
+    @FXML
+    MenuItem weeklyScheduleMenuItem;
+
+    @FXML
+    MenuItem examListMenuItem;
+
+    @FXML
+    MenuItem recommendationLetterRequestMenuItem;
+
+    @FXML
+    MenuItem minorMenuItem;
+
+    @FXML
+    MenuItem certificateStudentRequestMenuItem;
+
+    @FXML
+    MenuItem withdrawalMenuItem;
+
+    @FXML
+    MenuItem studentsEducationStatusMenuItem;
+
+    @FXML
+    MenuItem viewProfileMenuItem;
+
+    @FXML
+    MenuItem editPasswordMenuItem;
+
+    @FXML
+    MenuItem editProfileMenuItem;
+
+    @FXML
+    MenuItem temporaryScoresMenuItem;
+
+    @FXML
+    MenuItem homeMenuItem;
 
     @FXML
     AnchorPane anchorPane;
