@@ -5,9 +5,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Calendar;
 
 public class StudentHomePageController {
 
@@ -53,8 +55,43 @@ public class StudentHomePageController {
     @FXML
     MenuItem homeMenuItem;
 
+
+    @FXML
+    Text currentTimeText;
+
+    @FXML
+    Text lastTimeLoggedInText;
+
     @FXML
     AnchorPane anchorPane;
+
+    @FXML
+    public void initialize() {
+
+//        lastTimeLoggedInText.setText("Last Time Logged In : " + student.getLastVisit());
+
+        Thread clock = new Thread() {
+            public void run() {
+                for (int i = 1; i < 10; i++) {
+                    Calendar cal = Calendar.getInstance();
+
+                    int second = cal.get(Calendar.SECOND);
+                    int minute = cal.get(Calendar.MINUTE);
+                    int hour = cal.get(Calendar.HOUR);
+                    //System.out.println(hour + ":" + (minute) + ":" + second);
+                    currentTimeText.setText("Current Time : " + hour + ":" + (minute) + ":" + second);
+
+                    try {
+                        sleep(1000);
+                    } catch (InterruptedException ex) {
+                        //...
+                    }
+                }
+            }
+        };
+
+        clock.start();
+    }
 
 
     void changeScene(Scene scene){
@@ -65,7 +102,7 @@ public class StudentHomePageController {
 
 
     public void goToHomePage(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("studentHomePage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("studentpages/studentHomePage.fxml"));
         Parent root = loader.load();
 
         Scene scene = new Scene(root);
