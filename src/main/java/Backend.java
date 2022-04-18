@@ -30,6 +30,7 @@ public class Backend {
     private ArrayList<Field> fields;
     private ArrayList<ReportCard> reportCards;
 
+    //TODO how to store all subclasses of Request??
 
     Backend(){
         GsonBuilder builder = new GsonBuilder();
