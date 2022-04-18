@@ -5,6 +5,9 @@ import models.student.Student;
 import java.lang.ref.Reference;
 
 public class Request {
+    protected static int nextId = 1;
+
+    protected int id;
     protected String title;
     protected String body;
     protected String status;
@@ -13,6 +16,7 @@ public class Request {
 
 
     Request(String title, String body, Reference<Student> sender){
+        id = nextId++;
         this.title = title;
         this.body = body;
         status = "sent";

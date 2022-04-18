@@ -5,6 +5,9 @@ import models.student.Student;
 import java.lang.ref.Reference;
 
 public class ReportCard {
+    protected static int nextId = 1;
+
+    protected int id;
     protected Reference<Course> courseReference;
     protected Reference<Student> studentReference;
     protected ReportCardStatus status;
@@ -12,6 +15,7 @@ public class ReportCard {
 
 
     ReportCard(Reference<Course> courseReference, Reference<Student> studentReference, String score){
+        id = nextId++;
         this.courseReference = courseReference;
         this.studentReference = studentReference;
         status = ReportCardStatus.TAKEN;

@@ -7,6 +7,9 @@ import java.lang.ref.Reference;
 import java.util.ArrayList;
 
 public class Course {
+    protected static int nextId = 1;
+
+    protected int id;
     protected String name;
     protected Reference<College> collegeReference;
     protected Reference<Professor> professorReference;
@@ -18,6 +21,7 @@ public class Course {
 
 
     Course(String name, Reference<College> collegeReference, Reference<Professor> professorReference, String holdingSemester, String courseId, int semesterCreditHours){
+        id = nextId++;
         this.name = name;
         this.collegeReference = collegeReference;
         this.professorReference = professorReference;
