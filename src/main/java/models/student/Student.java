@@ -1,7 +1,7 @@
 package models.student;
 
 import models.*;
-import models.teacher.Teacher;
+import models.professor.Professor;
 import models.universityitems.*;
 import models.universityitems.requests.Request;
 
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Student extends User {
     protected String studentNumber;
     protected String status;
-    protected Reference<Teacher> supervisorReference;
+    protected Reference<Professor> supervisorReference;
     protected String registrationLicense;
     protected String registrationTime;
     protected StudentLevel studentLevel;
@@ -62,11 +62,11 @@ public class Student extends User {
     }
 
 
-    public Reference<Teacher> getSupervisorReference() {
+    public Reference<Professor> getSupervisorReference() {
         return supervisorReference;
     }
 
-    public void setSupervisorReference(Reference<Teacher> supervisorReference) {
+    public void setSupervisorReference(Reference<Professor> supervisorReference) {
         this.supervisorReference = supervisorReference;
     }
 

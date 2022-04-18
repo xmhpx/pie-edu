@@ -1,6 +1,6 @@
-package models.teacher;
+package models.professor;
 
-public enum TeacherType {
+public enum ProfessorType {
     NORMAL,
     EDUCATIONAL_ASSISTANT,
     DEAN_OF_THE_FACULTY

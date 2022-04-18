@@ -1,6 +1,6 @@
-package models.teacher;
+package models.professor;
 
-public enum TeacherLevel {
+public enum ProfessorLevel {
     ASSISTANT_PROFESSOR,
     ASSOCIATE_PROFESSOR,
     FULL_PROFESSOR

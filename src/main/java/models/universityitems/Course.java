@@ -1,7 +1,7 @@
 package models.universityitems;
 
 import models.student.Student;
-import models.teacher.Teacher;
+import models.professor.Professor;
 
 import java.lang.ref.Reference;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class Course {
     protected String name;
     protected Reference<College> collegeReference;
-    protected Reference<Teacher> teacherReference;
+    protected Reference<Professor> professorReference;
     protected String holdingSemester;
     protected String courseId;
     protected int semesterCreditHours;
@@ -17,10 +17,10 @@ public class Course {
     protected ArrayList<Reference<Student>> studentsReference;
 
 
-    Course(String name, Reference<College> collegeReference, Reference<Teacher> teacherReference, String holdingSemester, String courseId, int semesterCreditHours){
+    Course(String name, Reference<College> collegeReference, Reference<Professor> professorReference, String holdingSemester, String courseId, int semesterCreditHours){
         this.name = name;
         this.collegeReference = collegeReference;
-        this.teacherReference = teacherReference;
+        this.professorReference = professorReference;
         this.holdingSemester = holdingSemester;
         this.courseId = courseId;
         this.semesterCreditHours = semesterCreditHours;
@@ -49,12 +49,12 @@ public class Course {
     }
 
 
-    public Reference<Teacher> getTeacherReference() {
-        return teacherReference;
+    public Reference<Professor> getProfessorReference() {
+        return professorReference;
     }
 
-    public void setTeacherReference(Reference<Teacher> teacherReference) {
-        this.teacherReference = teacherReference;
+    public void setProfessorReference(Reference<Professor> professorReference) {
+        this.professorReference = professorReference;
     }
 
 
