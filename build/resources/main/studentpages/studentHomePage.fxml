@@ -22,27 +22,27 @@
         <menus>
             <Menu mnemonicParsing="false" text="Home">
                 <items>
-                    <MenuItem mnemonicParsing="false" onAction="#goToHomePage" text="Home" />
+                    <MenuItem fx:id="homeMenuItem" mnemonicParsing="false" onAction="#goToHomePage" text="Home" />
                 </items>
             </Menu>
 
             <Menu mnemonicParsing="false" text="Registration">
             <items>
-                <MenuItem mnemonicParsing="false" text="Courses List" />
-                <MenuItem mnemonicParsing="false" text="Professors List" />
+                <MenuItem fx:id="coursesListMenuItem" mnemonicParsing="false" text="Courses List" />
+                <MenuItem fx:id="professorsListMenuItem" mnemonicParsing="false" text="Professors List" />
             </items>
           </Menu>
 
           <Menu mnemonicParsing="false" text="Educational Services">
             <items>
-                <MenuItem mnemonicParsing="false" text="Weekly Schedule" />
-                <MenuItem mnemonicParsing="false" text="Exams List" />
+                <MenuItem fx:id="weeklyScheduleMenuItem" mnemonicParsing="false" text="Weekly Schedule" />
+                <MenuItem fx:id="examListMenuItem" mnemonicParsing="false" text="Exams List" />
                 <Menu mnemonicParsing="false" text="Requests">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Recommendation Letter Request" />
-                        <MenuItem mnemonicParsing="false" text="Certificate student Request" />
-                        <MenuItem mnemonicParsing="false" text="Minor" />
-                        <MenuItem mnemonicParsing="false" text="Withdrawal" />
+                        <MenuItem fx:id="recommendationLetterRequestMenuItem" mnemonicParsing="false" text="Recommendation Letter Request" />
+                        <MenuItem fx:id="certificateStudentRequestMenuItem" mnemonicParsing="false" text="Certificate student Request" />
+                        <MenuItem fx:id="minorMenuItem" mnemonicParsing="false" text="Minor" />
+                        <MenuItem fx:id="withdrawalMenuItem" mnemonicParsing="false" text="Withdrawal" />
                     </items>
                 </Menu>
             </items>
@@ -50,16 +50,16 @@
 
           <Menu mnemonicParsing="false" text="Report Card Affairs">
             <items>
-                <MenuItem mnemonicParsing="false" text="Temporary Scores" />
-                <MenuItem mnemonicParsing="false" text="Student's Education Status" />
+                <MenuItem fx:id="temporaryScoresMenuItem" mnemonicParsing="false" text="Temporary Scores" />
+                <MenuItem fx:id="studentsEducationStatusMenuItem" mnemonicParsing="false" text="Student's Education Status" />
             </items>
           </Menu>
 
             <Menu mnemonicParsing="false" text="Profile">
                 <items>
-                    <MenuItem mnemonicParsing="false" text="View" />
-                    <MenuItem mnemonicParsing="false" text="Edit Password" />
-                    <MenuItem mnemonicParsing="false" text="Edit Profile" />
+                    <MenuItem fx:id="viewProfileMenuItem" mnemonicParsing="false" text="View Profile" />
+                    <MenuItem fx:id="editPasswordMenuItem" mnemonicParsing="false" text="Edit Password" />
+                    <MenuItem fx:id="editProfileMenuItem" mnemonicParsing="false" text="Edit Profile" />
                 </items>
             </Menu>
 

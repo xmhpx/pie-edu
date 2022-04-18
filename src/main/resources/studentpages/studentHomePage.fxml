@@ -17,7 +17,6 @@
       <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="710.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
       <Text layoutX="719.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
       <Text layoutX="721.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
-      <Text layoutX="333.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vaziat Tahsil" />
       <MenuBar layoutX="14.0" layoutY="14.0" nodeOrientation="LEFT_TO_RIGHT">
         <menus>
             <Menu mnemonicParsing="false" text="Home">
@@ -73,5 +72,6 @@
       <Text layoutX="338.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supervisor" />
       <Text layoutX="314.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration License" />
       <Text layoutX="320.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration Time" />
+       <Text layoutX="333.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Education Status" />
    </children>
 </AnchorPane>
