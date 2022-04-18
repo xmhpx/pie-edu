@@ -4,12 +4,13 @@ import models.*;
 import models.teacher.Teacher;
 import models.universityitems.*;
 
+import java.lang.ref.Reference;
 import java.util.ArrayList;
 
 public class Student extends User {
     protected String studentNumber;
     protected String status;
-    protected Teacher supervisor;
+    protected Reference<Teacher> supervisorReference;
     protected String registrationLicense;
     protected String registrationTime;
     protected StudentLevel studentLevel;
@@ -21,12 +22,12 @@ public class Student extends User {
     protected ArrayList<Course> courses;
 
 
-    public Student(String password, String displayName, Field field, College college, String studentNumber, StudentLevel studentLevel, String yearOfEntry) {
+    public Student(String password, String displayName, Reference<Field> field, Reference<College> college, String studentNumber, StudentLevel studentLevel, String yearOfEntry) {
         super(password, displayName, field, college);
 
         this.studentNumber = studentNumber;
         status = "";
-        supervisor = null;
+        supervisorReference = null;
         registrationLicense = null;
         registrationTime = null;
         this.studentLevel = studentLevel;
@@ -60,12 +61,12 @@ public class Student extends User {
     }
 
 
-    public Teacher getSupervisor() {
-        return supervisor;
+    public Reference<Teacher> getSupervisorReference() {
+        return supervisorReference;
     }
 
-    public void setSupervisor(Teacher supervisor) {
-        this.supervisor = supervisor;
+    public void setSupervisorReference(Reference<Teacher> supervisorReference) {
+        this.supervisorReference = supervisorReference;
     }
 
 
@@ -84,24 +85,6 @@ public class Student extends User {
 
     public void setRegistrationTime(String registrationTime) {
         this.registrationTime = registrationTime;
-    }
-
-
-    public Field getField() {
-        return field;
-    }
-
-    public void setField(Field field) {
-        this.field = field;
-    }
-
-
-    public College getCollege() {
-        return college;
-    }
-
-    public void setCollege(College college) {
-        this.college = college;
     }
 
 

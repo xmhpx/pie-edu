@@ -4,6 +4,7 @@ package models;
 import models.universityitems.College;
 import models.universityitems.Field;
 
+import java.lang.ref.Reference;
 import java.time.LocalDateTime;
 
 public class User {
@@ -18,11 +19,11 @@ public class User {
     protected String homeAddress;
     protected String postalCode;
     protected UITheme preferredUITheme;
-    protected Field field;
-    protected College college;
+    protected Reference<Field> field;
+    protected Reference<College> college;
 
 
-    public User(String password, String displayName, Field field, College college){
+    public User(String password, String displayName, Reference<Field> field, Reference<College> college){
         id = nextId++;
         this.hashedPassword = password.hashCode();
         lastVisit = null;
@@ -124,5 +125,23 @@ public class User {
 
     public void setPreferredUITheme(UITheme preferredUITheme) {
         this.preferredUITheme = preferredUITheme;
+    }
+
+
+    public Reference<Field> getField() {
+        return field;
+    }
+
+    public void setField(Reference<Field> field) {
+        this.field = field;
+    }
+
+
+    public Reference<College> getCollege() {
+        return college;
+    }
+
+    public void setCollege(Reference<College> college) {
+        this.college = college;
     }
 }

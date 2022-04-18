@@ -2,7 +2,7 @@ package models.universityitems;
 
 public class College {
     protected String name;
-    
+
 
     // getters and setters
 

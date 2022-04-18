@@ -4,13 +4,15 @@ import models.universityitems.College;
 import models.universityitems.Field;
 import models.User;
 
+import java.lang.ref.Reference;
+
 public class Teacher extends User {
     protected String teacherNumber;
     protected TeacherLevel teacherLevel;
     protected TeacherType teacherType;
 
 
-    public Teacher(String password, String displayName, Field field, College college, String teacherNumber, TeacherLevel teacherLevel, TeacherType teacherType) {
+    public Teacher(String password, String displayName, Reference<Field> field, Reference<College> college, String teacherNumber, TeacherLevel teacherLevel, TeacherType teacherType) {
         super(password, displayName, field, college);
 
         this.teacherNumber = teacherNumber;
