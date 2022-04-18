@@ -1,4 +1,4 @@
 package pagecontrollers.studentpages;
 
-public class StudentHomePageController extends StudentPageControllerInterface{
+public class StudentHomePageController extends StudentPageController {
 }
