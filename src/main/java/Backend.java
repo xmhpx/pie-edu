@@ -32,7 +32,7 @@ public class Backend {
 
     //TODO how to store all subclasses of Request??
 
-    Backend(){
+    private Backend(){
         GsonBuilder builder = new GsonBuilder();
         builder.setPrettyPrinting();
         Gson gson = builder.create();
