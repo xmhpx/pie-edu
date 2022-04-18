@@ -7,6 +7,7 @@ import models.universityitems.Field;
 import models.universityitems.ReportCard;
 import models.universityitems.requests.Request;
 
+import java.io.*;
 import java.util.ArrayList;
 
 import com.google.gson.Gson;
@@ -15,7 +16,7 @@ import com.google.gson.GsonBuilder;
 public class Backend {
     private static Backend backend;
 
-    public static Backend getInstance(){
+    public static Backend getInstance() throws FileNotFoundException {
         if(backend == null)backend = new Backend();
         return backend;
     }
@@ -32,35 +33,85 @@ public class Backend {
 
     //TODO how to store all subclasses of Request??
 
-    private Backend(){
+    private Backend() throws FileNotFoundException {
         GsonBuilder builder = new GsonBuilder();
         builder.setPrettyPrinting();
         Gson gson = builder.create();
 
-        String professorsJson = "";
-        String studentsJson = "";
-        String requestsJson = "";
-        String collegesJson = "";
-        String courseJson = "";
-        String fieldsJson = "";
-        String reportCardsJson = "";
 
-        professors = gson.fromJson(professorsJson, new ArrayList<Professor>(){}.getClass());
-        students = gson.fromJson(studentsJson, new ArrayList<Student>(){}.getClass());
-        requests = gson.fromJson(requestsJson, new ArrayList<Request>(){}.getClass());
-        colleges = gson.fromJson(collegesJson, new ArrayList<College>(){}.getClass());
-        courses = gson.fromJson(courseJson, new ArrayList<Course>(){}.getClass());
-        fields = gson.fromJson(fieldsJson, new ArrayList<Field>(){}.getClass());
-        reportCards = gson.fromJson(reportCardsJson, new ArrayList<ReportCard>(){}.getClass());
+        BufferedReader professorReader = null;
+        try {
+            professorReader = new BufferedReader(
+                    new FileReader("professors.json"));
+        }
+        catch (FileNotFoundException ignored){}
 
-        //TODO retract jsons
+
+        BufferedReader studentReader = null;
+        try {
+            studentReader = new BufferedReader(
+                    new FileReader("students.json"));
+        }
+        catch (FileNotFoundException ignored){}
+
+
+        BufferedReader requestReader = null;
+        try {
+            requestReader = new BufferedReader(
+                    new FileReader("requests.json"));
+        }
+        catch (FileNotFoundException ignored){}
+
+
+        BufferedReader collegeReader = null;
+        try {
+            collegeReader = new BufferedReader(
+                    new FileReader("colleges.json"));
+        }
+        catch (FileNotFoundException ignored){}
+
+
+        BufferedReader courseReader = null;
+        try {
+            courseReader = new BufferedReader(
+                    new FileReader("courses.json"));
+        }
+        catch (FileNotFoundException ignored){}
+
+
+        BufferedReader fieldReader = null;
+        try {
+            fieldReader = new BufferedReader(
+                    new FileReader("fields.json"));
+        }
+        catch (FileNotFoundException ignored){}
+
+
+        BufferedReader reportCardReader = null;
+        try {
+            reportCardReader = new BufferedReader(
+                    new FileReader("reportCards.json"));
+        }
+        catch (FileNotFoundException ignored){}
+
+
+        professors = gson.fromJson(professorReader, new ArrayList<Professor>(){}.getClass());
+        students = gson.fromJson(studentReader, new ArrayList<Student>(){}.getClass());
+        requests = gson.fromJson(requestReader, new ArrayList<Request>(){}.getClass());
+        colleges = gson.fromJson(collegeReader, new ArrayList<College>(){}.getClass());
+        courses = gson.fromJson(courseReader, new ArrayList<Course>(){}.getClass());
+        fields = gson.fromJson(fieldReader, new ArrayList<Field>(){}.getClass());
+        reportCards = gson.fromJson(reportCardReader, new ArrayList<ReportCard>(){}.getClass());
+
+        //TODO handle FileNotFoundException smh
     }
 
 
-    void close(){
+    void close() throws IOException {
         GsonBuilder builder = new GsonBuilder();
         builder.setPrettyPrinting();
         Gson gson = builder.create();
+
 
         String professorsJson = gson.toJson(professors);
         String studentsJson = gson.toJson(students);
@@ -70,7 +121,34 @@ public class Backend {
         String fieldsJson = gson.toJson(fields);
         String reportCardsJson = gson.toJson(reportCards);
 
-        //TODO store jsons
+
+        FileWriter professorWriter = new FileWriter("professors.json");
+        professorWriter.write(professorsJson);
+        professorWriter.close();
+
+        FileWriter studentWriter = new FileWriter("students.json");
+        studentWriter.write(studentsJson);
+        studentWriter.close();
+
+        FileWriter requestWriter = new FileWriter("requests.json");
+        requestWriter.write(requestsJson);
+        requestWriter.close();
+
+        FileWriter collegeWriter = new FileWriter("colleges.json");
+        collegeWriter.write(collegesJson);
+        collegeWriter.close();
+
+        FileWriter courseWriter = new FileWriter("courses.json");
+        courseWriter.write(coursesJson);
+        courseWriter.close();
+
+        FileWriter fieldWriter = new FileWriter("fields.json");
+        fieldWriter.write(fieldsJson);
+        fieldWriter.close();
+
+        FileWriter reportCardWriter = new FileWriter("reportCards.json");
+        reportCardWriter.write(reportCardsJson);
+        reportCardWriter.close();
     }
 
 
