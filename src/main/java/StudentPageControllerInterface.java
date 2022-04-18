@@ -92,14 +92,19 @@ public class StudentPageControllerInterface {
         clock.start();
     }
 
-
     void goToStudentPage(String str) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("studentpages/"+str));
+        goToPage("studentpages/"+str);
+    }
+
+
+    void goToPage(String str) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(str));
         Parent root = loader.load();
 
         Scene scene = new Scene(root);
         changeScene(scene);
     }
+
 
     void changeScene(Scene scene){
         Stage primaryStage = (Stage) anchorPane.getScene().getWindow();
