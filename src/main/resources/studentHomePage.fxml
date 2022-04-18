@@ -28,29 +28,38 @@
 
             <Menu mnemonicParsing="false" text="Registration">
             <items>
-                <MenuItem mnemonicParsing="false" text="Item 1" />
-                <MenuItem mnemonicParsing="false" text="Item 1" />
+                <MenuItem mnemonicParsing="false" text="Courses List" />
+                <MenuItem mnemonicParsing="false" text="Professors List" />
             </items>
           </Menu>
 
           <Menu mnemonicParsing="false" text="Educational Services">
             <items>
-                <MenuItem mnemonicParsing="false" text="Item 1" />
-                <MenuItem mnemonicParsing="false" text="Item 1" />
+                <MenuItem mnemonicParsing="false" text="Weekly Schedule" />
+                <MenuItem mnemonicParsing="false" text="Exams List" />
+                <Menu mnemonicParsing="false" text="Requests">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Recommendation Letter Request" />
+                        <MenuItem mnemonicParsing="false" text="Certificate student Request" />
+                        <MenuItem mnemonicParsing="false" text="Minor" />
+                        <MenuItem mnemonicParsing="false" text="Withdrawal" />
+                    </items>
+                </Menu>
             </items>
           </Menu>
 
           <Menu mnemonicParsing="false" text="Report Card Affairs">
             <items>
-                <MenuItem mnemonicParsing="false" text="Item 1" />
-                <MenuItem mnemonicParsing="false" text="Item 1" />
+                <MenuItem mnemonicParsing="false" text="Temporary Scores" />
+                <MenuItem mnemonicParsing="false" text="Student's Education Status" />
             </items>
           </Menu>
 
             <Menu mnemonicParsing="false" text="Profile">
                 <items>
-                    <MenuItem mnemonicParsing="false" text="Item 1" />
-                    <MenuItem mnemonicParsing="false" text="Item 1" />
+                    <MenuItem mnemonicParsing="false" text="View" />
+                    <MenuItem mnemonicParsing="false" text="Edit Password" />
+                    <MenuItem mnemonicParsing="false" text="Edit Profile" />
                 </items>
             </Menu>
 
