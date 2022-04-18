@@ -1,4 +1,3 @@
-import models.User;
 import models.professor.Professor;
 import models.student.Student;
 import models.universityitems.College;
@@ -14,7 +13,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 public class Backend {
-    private static Backend backend;
+    private static Backend backend = null;
 
     public static Backend getInstance() throws FileNotFoundException {
         if(backend == null)backend = new Backend();
@@ -32,6 +31,7 @@ public class Backend {
     private ArrayList<ReportCard> reportCards;
 
     //TODO how to store all subclasses of Request??
+
 
     private Backend() throws FileNotFoundException {
         GsonBuilder builder = new GsonBuilder();
@@ -107,7 +107,7 @@ public class Backend {
     }
 
 
-    void close() throws IOException {
+    void save() throws IOException {
         GsonBuilder builder = new GsonBuilder();
         builder.setPrettyPrinting();
         Gson gson = builder.create();
