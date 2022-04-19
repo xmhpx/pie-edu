@@ -1,7 +1,5 @@
 package models.universityitems.requests;
 
-import models.professor.Professor;
-
 public class Request {
     protected static int nextId = 30001;
     protected String type = "Request";
@@ -10,7 +8,7 @@ public class Request {
     protected String title;
     protected String body;
     protected String status;
-    protected String respond;
+    protected String response;
     protected int senderId;
 
 
@@ -20,7 +18,7 @@ public class Request {
         setTitle(title);
         setBody(body);
         setStatus("sent");
-        setRespond("");
+        setResponse("");
         setSenderId(senderId);
     }
 
@@ -74,12 +72,12 @@ public class Request {
     }
 
 
-    public String getRespond() {
-        return respond;
+    public String getResponse() {
+        return response;
     }
 
-    public void setRespond(String respond) {
-        this.respond = respond;
+    public void setResponse(String response) {
+        this.response = response;
     }
 
 
