@@ -3,6 +3,9 @@ package models.professor;
 import models.User;
 
 public class Professor extends User {
+    protected static int nextId = 10001;
+
+    protected int id;
     protected String professorNumber;
     protected ProfessorLevel professorLevel;
     protected ProfessorType professorType;
@@ -11,6 +14,7 @@ public class Professor extends User {
     public Professor(String password, String displayName, int fieldId, int collegeId, String professorNumber, ProfessorLevel professorLevel, ProfessorType professorType, int age) {
         super(password, displayName, fieldId, collegeId, age);
 
+        id = nextId++;
         this.professorNumber = professorNumber;
         this.professorLevel = professorLevel;
         this.professorType = professorType;
@@ -19,6 +23,11 @@ public class Professor extends User {
 
 
     // getters and setters
+
+    public int getId() {
+        return id;
+    }
+
 
     public String getProfessorNumber() {
         return professorNumber;

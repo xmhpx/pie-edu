@@ -1,7 +1,7 @@
 package models.universityitems;
 
 public class Field {
-    protected static int nextId = 1;
+    protected static int nextId = 60001;
 
     protected int id;
     protected String name;
@@ -17,6 +17,11 @@ public class Field {
 
 
     // getters and setters
+
+    public int getId() {
+        return id;
+    }
+
 
     public String getName() {
         return name;

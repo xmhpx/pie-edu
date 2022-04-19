@@ -1,7 +1,7 @@
 package models.universityitems;
 
 public class College {
-    protected static int nextId = 1;
+    protected static int nextId = 40001;
 
     protected int id;
     protected String name;
@@ -15,6 +15,11 @@ public class College {
 
 
     // getters and setters
+
+    public int getId() {
+        return id;
+    }
+
 
     public String getName() {
         return name;

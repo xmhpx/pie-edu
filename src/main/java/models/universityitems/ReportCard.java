@@ -1,7 +1,7 @@
 package models.universityitems;
 
 public class ReportCard {
-    protected static int nextId = 1;
+    protected static int nextId = 70001;
 
     protected int id;
     protected int courseId;
@@ -21,6 +21,11 @@ public class ReportCard {
 
 
     // getters and setters
+
+    public int getId() {
+        return id;
+    }
+
 
     public int getCourseId() {
         return courseId;

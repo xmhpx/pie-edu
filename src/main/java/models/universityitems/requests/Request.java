@@ -1,7 +1,7 @@
 package models.universityitems.requests;
 
 public class Request {
-    protected static int nextId = 1;
+    protected static int nextId = 30001;
 
     protected int id;
     protected String title;
@@ -23,6 +23,11 @@ public class Request {
 
 
     // getters and setters
+
+    public int getId() {
+        return id;
+    }
+
 
     public String getTitle() {
         return title;

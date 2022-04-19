@@ -8,6 +8,9 @@ import models.universityitems.requests.Request;
 import java.util.ArrayList;
 
 public class Student extends User {
+    protected static int nextId = 20001;
+
+    protected int id;
     protected String studentNumber;
     protected String status;
     protected int supervisorId;
@@ -25,6 +28,7 @@ public class Student extends User {
     public Student(String password, String displayName, int fieldId, int collegeId, String studentNumber, StudentLevel studentLevel, String yearOfEntry, int age) {
         super(password, displayName, fieldId, collegeId, age);
 
+        id = nextId++;
         this.studentNumber = studentNumber;
         status = "";
         supervisorId = 0;
@@ -42,6 +46,11 @@ public class Student extends User {
 
 
     // getters and setters
+
+    public int getId() {
+        return id;
+    }
+
 
     public String getStudentNumber() {
         return studentNumber;

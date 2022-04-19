@@ -3,8 +3,6 @@ package models;
 import java.time.LocalDateTime;
 
 public class User {
-    protected static int nextId = 1;
-    protected int id;
     protected int age;
     protected int hashedPassword;
     protected LocalDateTime lastVisit;
@@ -20,7 +18,6 @@ public class User {
 
 
     public User(String password, String displayName, int fieldId, int collegeId, int age){
-        id = nextId++;
         this.hashedPassword = password.hashCode();
         lastVisit = null;
         profileImagePath = null;
@@ -38,11 +35,6 @@ public class User {
 
 
     //getters and setters
-
-    public int getId() {
-        return id;
-    }
-
 
     public int getHashedPassword() {
         return hashedPassword;

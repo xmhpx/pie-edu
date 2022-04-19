@@ -3,7 +3,7 @@ package models.universityitems;
 import java.util.ArrayList;
 
 public class Course {
-    protected static int nextId = 1;
+    protected static int nextId = 50001;
 
     protected int id;
     protected String name;
@@ -30,6 +30,11 @@ public class Course {
 
 
     // getters and setters
+
+    public int getId() {
+        return id;
+    }
+
 
     public String getName() {
         return name;
