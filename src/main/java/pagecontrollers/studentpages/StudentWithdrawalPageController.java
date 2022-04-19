@@ -4,6 +4,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 import logic.Backend;
+import logic.LoggedInUserHolder;
 import models.universityitems.requests.Request;
 import models.universityitems.requests.WithdrawalRequest;
 
@@ -18,7 +19,7 @@ public class StudentWithdrawalPageController extends StudentPageController {
         ObservableList<WithdrawalRequest> data = tableView.getItems();
         data.clear();
         for(Request request : backend.getRequests()){
-            if(request instanceof WithdrawalRequest){
+            if(request instanceof WithdrawalRequest && request.getSenderId() == LoggedInUserHolder.getUser().getId()){
                 data.add((WithdrawalRequest) request);
             }
         }
