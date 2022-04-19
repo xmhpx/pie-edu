@@ -1,7 +1,6 @@
 package models.student;
 
 import models.*;
-import models.professor.Professor;
 import models.universityitems.*;
 import models.universityitems.requests.Request;
 
@@ -20,9 +19,9 @@ public class Student extends User {
     protected StudentLevel studentLevel;
     protected String yearOfEntry;
 
-    protected ArrayList<ReportCard> reportCards;
-    protected ArrayList<Request> requests;
-    protected ArrayList<Course> courses;
+    protected ArrayList<Integer> reportCardIds;
+    protected ArrayList<Integer> requestIds;
+    protected ArrayList<Integer> courseIds;
 
     public Student(){
         this("", "", 0, 0, "", StudentLevel.UNDERGRADUATE, "", 0);
@@ -44,9 +43,9 @@ public class Student extends User {
         setEducationStatus(educationStatus);
         setYearOfEntry(yearOfEntry);
 
-        setReportCards(new ArrayList<>());
-        setRequests(new ArrayList<>());
-        setCourses(new ArrayList<>());
+        setReportCardIds(new ArrayList<>());
+        setRequestIds(new ArrayList<>());
+        setCourseIds(new ArrayList<>());
     }
 
 
@@ -140,53 +139,53 @@ public class Student extends User {
 
 
 
-    public ArrayList<ReportCard> getReportCards() {
-        return reportCards;
+    public ArrayList<Integer> getReportCardIds() {
+        return reportCardIds;
     }
 
-    public void setReportCards(ArrayList<ReportCard> reportCards) {
-        this.reportCards = reportCards;
+    public void setReportCardIds(ArrayList<Integer> reportCardIds) {
+        this.reportCardIds = reportCardIds;
     }
 
-    public void addToReportCards(ReportCard reportCard){
-        reportCards.add(reportCard);
+    public void addToReportCards(int reportCardId){
+        reportCardIds.add(reportCardId);
     }
 
-    public void removeFromReportCards(ReportCard reportCard){
-        reportCards.remove(reportCard);
-    }
-
-
-    public ArrayList<Request> getRequests() {
-        return requests;
-    }
-
-    public void setRequests(ArrayList<Request> requests) {
-        this.requests = requests;
-    }
-
-    public void addToReportCards(Request request){
-        requests.add(request);
-    }
-
-    public void removeFromReportCards(Request request){
-        requests.remove(request);
+    public void removeFromReportCards(int reportCardId){
+        reportCardIds.remove(reportCardId);
     }
 
 
-    public ArrayList<Course> getCourses() {
-        return courses;
+    public ArrayList<Integer> getRequestIds() {
+        return requestIds;
     }
 
-    public void setCourses(ArrayList<Course> courses) {
-        this.courses = courses;
+    public void setRequestIds(ArrayList<Integer> requestIds) {
+        this.requestIds = requestIds;
     }
 
-    public void addToCourses(Course course){
-        courses.add(course);
+    public void addToRequest(int requestId){
+        requestIds.add(requestId);
     }
 
-    public void removeFromCourses(Course course){
-        courses.remove(course);
+    public void removeFromRequest(int requestId){
+        requestIds.remove(requestId);
+    }
+
+
+    public ArrayList<Integer> getCourseIds() {
+        return courseIds;
+    }
+
+    public void setCourseIds(ArrayList<Integer> courseIds) {
+        this.courseIds = courseIds;
+    }
+
+    public void addToCourses(int course){
+        courseIds.add(course);
+    }
+
+    public void removeFromCourses(int course){
+        courseIds.remove(course);
     }
 }
