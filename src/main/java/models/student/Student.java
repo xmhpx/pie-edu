@@ -24,8 +24,8 @@ public class Student extends User {
     protected ArrayList<Course> courses;
 
 
-    public Student(String password, String displayName, int fieldId, int collegeId, String studentNumber, StudentLevel studentLevel, String yearOfEntry, int age) {
-        super(password, displayName, fieldId, collegeId, age);
+    public Student(String password, String name, int fieldId, int collegeId, String studentNumber, StudentLevel studentLevel, String yearOfEntry, int age) {
+        super(password, name, fieldId, collegeId, age);
 
         id = nextId++;
         this.studentNumber = studentNumber;

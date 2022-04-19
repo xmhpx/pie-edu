@@ -93,7 +93,7 @@
                         </cellValueFactory>
                     </TableColumn>
                     <TableColumn text="Professor Name" prefWidth="150" maxWidth="250">
-                        <cellValueFactory><PropertyValueFactory property="displayName" />
+                        <cellValueFactory><PropertyValueFactory property="name" />
                         </cellValueFactory>
                     </TableColumn>
                     <TableColumn text="College Id" prefWidth="100" maxWidth="70">

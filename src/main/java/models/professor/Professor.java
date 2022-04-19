@@ -16,8 +16,8 @@ public class Professor extends User {
     }
 
 
-    public Professor(String password, String displayName, int fieldId, int collegeId, String professorNumber, ProfessorLevel professorLevel, ProfessorType professorType, int age) {
-        super(password, displayName, fieldId, collegeId, age);
+    public Professor(String password, String name, int fieldId, int collegeId, String professorNumber, ProfessorLevel professorLevel, ProfessorType professorType, int age) {
+        super(password, name, fieldId, collegeId, age);
 
         id = nextId++;
         this.professorNumber = professorNumber;

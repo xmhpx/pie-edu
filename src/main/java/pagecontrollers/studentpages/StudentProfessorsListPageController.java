@@ -26,7 +26,9 @@ public class StudentProfessorsListPageController extends StudentPageController {
         Backend backend = Backend.getInstance();
         ObservableList<Professor> data = tableView.getItems();
         data.clear();
+        backend.addProfessor(new Professor("password", "MohammadHossein Paydar",
+                60001, 50001, "123456", ProfessorLevel.FULL_PROFESSOR,
+                ProfessorType.DEAN_OF_THE_FACULTY, -17));
         data.addAll(backend.getProfessors());
-//        data.add(new Professor("password", "MohammadHossein Paydar", 60001, 50001, "123456", ProfessorLevel.FULL_PROFESSOR, ProfessorType.DEAN_OF_THE_FACULTY, -17));
     }
 }
