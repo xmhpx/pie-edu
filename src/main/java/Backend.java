@@ -95,13 +95,13 @@ public class Backend {
         catch (FileNotFoundException ignored){}
 
 
-        professors = gson.fromJson(professorReader, new ArrayList<Professor>(){}.getClass());
-        students = gson.fromJson(studentReader, new ArrayList<Student>(){}.getClass());
-        requests = gson.fromJson(requestReader, new ArrayList<Request>(){}.getClass());
-        colleges = gson.fromJson(collegeReader, new ArrayList<College>(){}.getClass());
-        courses = gson.fromJson(courseReader, new ArrayList<Course>(){}.getClass());
-        fields = gson.fromJson(fieldReader, new ArrayList<Field>(){}.getClass());
-        reportCards = gson.fromJson(reportCardReader, new ArrayList<ReportCard>(){}.getClass());
+        setProfessors(gson.fromJson(professorReader, new ArrayList<Professor>(){}.getClass()));
+        setStudents(gson.fromJson(studentReader, new ArrayList<Student>(){}.getClass()));
+        setRequests(gson.fromJson(requestReader, new ArrayList<Request>(){}.getClass()));
+        setColleges(gson.fromJson(collegeReader, new ArrayList<College>(){}.getClass()));
+        setCourses(gson.fromJson(courseReader, new ArrayList<Course>(){}.getClass()));
+        setFields(gson.fromJson(fieldReader, new ArrayList<Field>(){}.getClass()));
+        setReportCards(gson.fromJson(reportCardReader, new ArrayList<ReportCard>(){}.getClass()));
 
         //TODO handle FileNotFoundException smh
     }
