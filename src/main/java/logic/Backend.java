@@ -110,7 +110,7 @@ public class Backend {
     }
 
 
-    void save() throws IOException {
+    public void save() throws IOException {
         GsonBuilder builder = new GsonBuilder();
         builder.setPrettyPrinting();
         Gson gson = builder.create();
