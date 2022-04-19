@@ -59,7 +59,7 @@ public class StudentViewProfilePageController extends StudentPageController {
 
             emailText.setText("Email : " + student.getEmail());
 
-            averageScoreText.setText("//TODO"); //TODO
+            averageScoreText.setText(String.valueOf(student.getAverage()));
 
             College college = backend.getCollege(student.getCollegeId());
             String collegeName = "None";
