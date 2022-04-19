@@ -7,7 +7,7 @@ public class User {
     protected int hashedPassword;
     protected LocalDateTime lastVisit;
     protected String profileImagePath;
-    protected String displayName;
+    protected String name;
     protected String email;
     protected String phoneNumber;
     protected String homeAddress;
@@ -17,11 +17,11 @@ public class User {
     protected int collegeId;
 
 
-    public User(String password, String displayName, int fieldId, int collegeId, int age){
+    public User(String password, String name, int fieldId, int collegeId, int age){
         this.hashedPassword = password.hashCode();
         lastVisit = null;
         profileImagePath = null;
-        this.displayName = displayName;
+        this.name = name;
         email = null;
         phoneNumber = null;
         homeAddress = null;
@@ -63,12 +63,12 @@ public class User {
     }
 
 
-    public String getDisplayName() {
-        return displayName;
+    public String getName() {
+        return name;
     }
 
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
+    public void setName(String name) {
+        this.name = name;
     }
 
 
