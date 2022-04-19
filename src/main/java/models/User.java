@@ -3,6 +3,8 @@ package models;
 import java.time.LocalDateTime;
 
 public class User {
+    protected String type = "User";
+
     protected int age;
     protected int hashedPassword;
     protected LocalDateTime lastVisit;

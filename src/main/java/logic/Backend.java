@@ -124,6 +124,7 @@ public class Backend {
         builder.setPrettyPrinting();
         Gson gson = builder.create();
 
+        //TODO serializing throws exception
 
         String professorsJson = gson.toJson(professors);
         String studentsJson = gson.toJson(students);

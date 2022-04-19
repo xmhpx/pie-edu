@@ -18,6 +18,7 @@ public class Professor extends User {
 
     public Professor(String password, String name, int fieldId, int collegeId, String professorNumber, ProfessorLevel professorLevel, ProfessorType professorType, int age) {
         super(password, name, fieldId, collegeId, age);
+        type = "Professor";
 
         id = nextId++;
         this.professorNumber = professorNumber;

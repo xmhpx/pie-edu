@@ -26,6 +26,7 @@ public class Student extends User {
 
     public Student(String password, String name, int fieldId, int collegeId, String studentNumber, StudentLevel studentLevel, String yearOfEntry, int age) {
         super(password, name, fieldId, collegeId, age);
+        type = "Student";
 
         id = nextId++;
         this.studentNumber = studentNumber;
