@@ -4,15 +4,15 @@ import models.universityitems.Field;
 
 public class MinorRequest extends Request{
     protected int destinationCollegeId;
-    protected Field minorField;
+    protected int minorFieldId;
 
 
-    MinorRequest(String title, String body, int senderId, int destinationCollegeId, Field minorField) {
+    MinorRequest(String title, String body, int senderId, int destinationCollegeId, int minorFieldId) {
         super(title, body, senderId);
         type = "MinorRequest";
 
         setDestinationCollegeId(destinationCollegeId);
-        setMinorField(minorField);
+        setMinorFieldId(minorFieldId);
     }
 
 
@@ -28,11 +28,11 @@ public class MinorRequest extends Request{
     }
 
 
-    public Field getMinorField() {
-        return minorField;
+    public int getMinorFieldId() {
+        return minorFieldId;
     }
 
-    public void setMinorField(Field minorField) {
-        this.minorField = minorField;
+    public void setMinorFieldId(int minorFieldId) {
+        this.minorFieldId = minorFieldId;
     }
 }
