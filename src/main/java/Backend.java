@@ -190,6 +190,7 @@ public class Backend {
     }
 
 
+
     public ArrayList<Student> getStudents() {
         return students;
     }
@@ -224,6 +225,7 @@ public class Backend {
     }
 
 
+
     public ArrayList<Request> getRequests() {
         return requests;
     }
@@ -231,6 +233,32 @@ public class Backend {
     public void setRequests(ArrayList<Request> requests) {
         this.requests = requests;
     }
+
+    public boolean hasRequest(int id){
+        for(Request request : requests) {
+            if(request.getId() == id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Request getRequest(int id){
+        for(Request request : requests) {
+            if(request.getId() == id) {
+                return request;
+            }
+        }
+        return null;
+    }
+
+    public void removeRequest(int id){
+        Request request = getRequest(id);
+        if(request != null){
+            requests.remove(request);
+        }
+    }
+
 
 
     public ArrayList<College> getColleges() {
@@ -241,6 +269,32 @@ public class Backend {
         this.colleges = colleges;
     }
 
+    public boolean hasCollege(int id){
+        for(College college : colleges) {
+            if(college.getId() == id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public College getCollege(int id){
+        for(College college : colleges) {
+            if(college.getId() == id) {
+                return college;
+            }
+        }
+        return null;
+    }
+
+    public void removeCollege(int id){
+        College college = getCollege(id);
+        if(college != null){
+            colleges.remove(college);
+        }
+    }
+
+
 
     public ArrayList<Field> getFields() {
         return fields;
@@ -249,6 +303,32 @@ public class Backend {
     public void setFields(ArrayList<Field> fields) {
         this.fields = fields;
     }
+
+    public boolean hasField(int id){
+        for(Field field : fields) {
+            if(field.getId() == id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Field getField(int id){
+        for(Field field : fields) {
+            if(field.getId() == id) {
+                return field;
+            }
+        }
+        return null;
+    }
+
+    public void removeField(int id){
+        Field field = getField(id);
+        if(field != null){
+            fields.remove(field);
+        }
+    }
+
 
 
     public ArrayList<ReportCard> getReportCards() {
@@ -259,6 +339,32 @@ public class Backend {
         this.reportCards = reportCards;
     }
 
+    public boolean hasReportCard(int id){
+        for(ReportCard reportCard : reportCards) {
+            if(reportCard.getId() == id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public ReportCard getReportCard(int id){
+        for(ReportCard reportCard : reportCards) {
+            if(reportCard.getId() == id) {
+                return reportCard;
+            }
+        }
+        return null;
+    }
+
+    public void removeReportCard(int id){
+        ReportCard reportCard = getReportCard(id);
+        if(reportCard != null){
+            reportCards.remove(reportCard);
+        }
+    }
+
+
 
     public ArrayList<Course> getCourses() {
         return courses;
@@ -266,5 +372,30 @@ public class Backend {
 
     public void setCourses(ArrayList<Course> courses) {
         this.courses = courses;
+    }
+
+    public boolean hasCourse(int id){
+        for(Course course : courses) {
+            if(course.getId() == id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Course getCourse(int id){
+        for(Course course : courses) {
+            if(course.getId() == id) {
+                return course;
+            }
+        }
+        return null;
+    }
+
+    public void removeCourse(int id){
+        Course course = getCourse(id);
+        if(course != null){
+            courses.remove(course);
+        }
     }
 }
