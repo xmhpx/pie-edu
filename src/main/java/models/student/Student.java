@@ -1,7 +1,6 @@
 package models.student;
 
 import models.*;
-import models.professor.Professor;
 import models.universityitems.*;
 import models.universityitems.requests.Request;
 

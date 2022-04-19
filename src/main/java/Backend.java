@@ -398,4 +398,57 @@ public class Backend {
             courses.remove(course);
         }
     }
+
+
+    public boolean hasId(int id){
+        if(id > 70000){
+            return hasReportCard(id);
+        }
+        else if(id > 60000){
+            return hasField(id);
+        }
+        else if(id > 50000){
+            return hasCourse(id);
+        }
+        else if(id > 40000){
+            return hasCollege(id);
+        }
+        else if(id > 30000){
+            return hasRequest(id);
+        }
+        else if(id > 20000){
+            return hasStudent(id);
+        }
+        else if(id > 10000){
+            return hasProfessor(id);
+        }
+
+        return false;
+    }
+
+    public Object getById(int id){
+        if(id > 70000){
+            return getReportCard(id);
+        }
+        else if(id > 60000){
+            return getField(id);
+        }
+        else if(id > 50000){
+            return getCourse(id);
+        }
+        else if(id > 40000){
+            return getCollege(id);
+        }
+        else if(id > 30000){
+            return getRequest(id);
+        }
+        else if(id > 20000){
+            return getStudent(id);
+        }
+        else if(id > 10000){
+            return getProfessor(id);
+        }
+
+        return null;
+    }
 }
