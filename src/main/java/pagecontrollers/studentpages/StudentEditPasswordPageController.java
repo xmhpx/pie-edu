@@ -1,4 +1,4 @@
 package pagecontrollers.studentpages;
 
-public class StudentEditPasswordPageController {
+public class StudentEditPasswordPageController extends StudentPageController {
 }

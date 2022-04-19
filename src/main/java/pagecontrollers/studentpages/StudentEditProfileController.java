@@ -1,4 +1,4 @@
 package pagecontrollers.studentpages;
 
-public class StudentEditProfileController {
+public class StudentEditProfileController extends StudentPageController {
 }

@@ -94,7 +94,7 @@ public class StudentPageController {
         clock.start();
     }
 
-    
+
     void goToStudentPage(String str) throws IOException {
         goToPage("/studentpages/"+str);
     }
