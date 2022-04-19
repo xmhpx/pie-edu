@@ -19,6 +19,5 @@ public class StudentCoursesListPageController extends StudentPageController {
         ObservableList<Course> data = tableView.getItems();
         data.clear();
         data.addAll(backend.getCourses());
-        
     }
 }

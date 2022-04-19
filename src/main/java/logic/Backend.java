@@ -1,5 +1,6 @@
 package logic;
 
+import com.google.gson.reflect.TypeToken;
 import models.professor.Professor;
 import models.student.Student;
 import models.universityitems.College;
@@ -9,6 +10,7 @@ import models.universityitems.ReportCard;
 import models.universityitems.requests.Request;
 
 import java.io.*;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 import com.google.gson.Gson;
@@ -43,7 +45,8 @@ public class Backend {
         try {
             BufferedReader professorReader = new BufferedReader(
                     new FileReader("professors.json"));
-            setProfessors(gson.fromJson(professorReader, new ArrayList<Professor>(){}.getClass()));
+            Type professorArrayListType = new TypeToken<ArrayList<Professor>>() {}.getType();
+            setProfessors(gson.fromJson(professorReader, professorArrayListType));
         }
         catch (FileNotFoundException ignored){}
 
@@ -51,7 +54,8 @@ public class Backend {
         try {
             BufferedReader studentReader = new BufferedReader(
                     new FileReader("students.json"));
-            setStudents(gson.fromJson(studentReader, new ArrayList<Student>(){}.getClass()));
+            Type studentArrayListType = new TypeToken<ArrayList<Student>>() {}.getType();
+            setStudents(gson.fromJson(studentReader, studentArrayListType));
         }
         catch (FileNotFoundException ignored){}
 
@@ -59,7 +63,8 @@ public class Backend {
         try {
             BufferedReader requestReader = new BufferedReader(
                     new FileReader("requests.json"));
-            setRequests(gson.fromJson(requestReader, new ArrayList<Request>(){}.getClass()));
+            Type requestArrayListType = new TypeToken<ArrayList<Request>>() {}.getType();
+            setRequests(gson.fromJson(requestReader, requestArrayListType));
         }
         catch (FileNotFoundException ignored){}
 
@@ -67,7 +72,8 @@ public class Backend {
         try {
             BufferedReader collegeReader = new BufferedReader(
                     new FileReader("colleges.json"));
-            setColleges(gson.fromJson(collegeReader, new ArrayList<College>(){}.getClass()));
+            Type collegeArrayListType = new TypeToken<ArrayList<College>>() {}.getType();
+            setColleges(gson.fromJson(collegeReader, collegeArrayListType));
         }
         catch (FileNotFoundException ignored){}
 
@@ -75,7 +81,8 @@ public class Backend {
         try {
             BufferedReader courseReader = new BufferedReader(
                     new FileReader("courses.json"));
-            setCourses(gson.fromJson(courseReader, new ArrayList<Course>(){}.getClass()));
+            Type courseArrayListType = new TypeToken<ArrayList<Course>>() {}.getType();
+            setCourses(gson.fromJson(courseReader, courseArrayListType));
         }
         catch (FileNotFoundException ignored){}
 
@@ -83,7 +90,8 @@ public class Backend {
         try {
             BufferedReader fieldReader = new BufferedReader(
                     new FileReader("fields.json"));
-            setFields(gson.fromJson(fieldReader, new ArrayList<Field>(){}.getClass()));
+            Type fieldArrayListType = new TypeToken<ArrayList<Field>>() {}.getType();
+            setFields(gson.fromJson(fieldReader, fieldArrayListType));
         }
         catch (FileNotFoundException ignored){}
 
@@ -91,9 +99,11 @@ public class Backend {
         try {
             BufferedReader reportCardReader = new BufferedReader(
                     new FileReader("reportCards.json"));
-            setReportCards(gson.fromJson(reportCardReader, new ArrayList<ReportCard>(){}.getClass()));
+            Type reportCardArrayListType = new TypeToken<ArrayList<ReportCard>>() {}.getType();
+            setReportCards(gson.fromJson(reportCardReader, reportCardArrayListType));
         }
         catch (FileNotFoundException ignored){}
+
 
         if(professors == null){
             setProfessors(new ArrayList<>());
@@ -113,9 +123,6 @@ public class Backend {
         if(reportCards == null){
             setReportCards(new ArrayList<>());
         }
-
-
-        //TODO handle FileNotFoundException smh
     }
 
 
@@ -123,8 +130,6 @@ public class Backend {
         GsonBuilder builder = new GsonBuilder();
         builder.setPrettyPrinting();
         Gson gson = builder.create();
-
-        //TODO serializing throws exception
 
         String professorsJson = gson.toJson(professors);
         String studentsJson = gson.toJson(students);
