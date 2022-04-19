@@ -3,7 +3,7 @@ package models.universityitems;
 import java.util.ArrayList;
 
 public class Course {
-    protected static int nextId = 50001;
+    private static int nextId = 50001;
 
     protected int id;
     protected String name;
@@ -12,14 +12,15 @@ public class Course {
     protected String holdingSemester;
     protected int courseId;
     protected int semesterCreditHours;
+    protected String examDate;
 
     protected ArrayList<Integer> studentsId;
 
     public Course(){
-        this("", 0, 0, "", 0, 0);
+        this("", 0, 0, "", 0, 0, "");
     }
 
-    public Course(String name, int collegeId, int professorId, String holdingSemester, int courseId, int semesterCreditHours){
+    public Course(String name, int collegeId, int professorId, String holdingSemester, int courseId, int semesterCreditHours, String examDate){
         id = nextId++;
 
         setName(name);
@@ -29,6 +30,7 @@ public class Course {
         setCourseId(courseId);
         setSemesterCreditHours(semesterCreditHours);
         setStudentsId(new ArrayList<>());
+        setExamDate(examDate);
     }
 
 
@@ -100,5 +102,13 @@ public class Course {
 
     public void setStudentsId(ArrayList<Integer> studentsId) {
         this.studentsId = studentsId;
+    }
+
+    public String getExamDate() {
+        return examDate;
+    }
+
+    public void setExamDate(String examDate) {
+        this.examDate = examDate;
     }
 }
