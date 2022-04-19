@@ -8,15 +8,26 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RequestDeserializer implements JsonDeserializer<Request> {
+    private static RequestDeserializer requestDeserializer;
+
+    public static RequestDeserializer getInstance(){
+        if(requestDeserializer == null)requestDeserializer = new RequestDeserializer();
+        return requestDeserializer;
+    }
+
+
+
     private final String requestTypeElementName;
     private final Gson gson;
     private final Map<String, Class<? extends Request>> requestTypes;
 
-    
-    public RequestDeserializer(String requestTypeElementName) {
-        this.requestTypeElementName = requestTypeElementName;
+
+
+    public RequestDeserializer() {
+        this.requestTypeElementName = "type";
         this.gson = new Gson();
         this.requestTypes = new HashMap<>();
+
     }
 
     public void addRequestType(String requestTypeName, Class<? extends Request> requestType) {

@@ -7,7 +7,7 @@ import models.universityitems.College;
 import models.universityitems.Course;
 import models.universityitems.Field;
 import models.universityitems.ReportCard;
-import models.universityitems.requests.Request;
+import models.universityitems.requests.*;
 
 import java.io.*;
 import java.lang.reflect.Type;
@@ -34,12 +34,21 @@ public class Backend {
     private ArrayList<Field> fields;
     private ArrayList<ReportCard> reportCards;
 
-    //TODO how to store all subclasses of Request??
-
 
     private Backend() {
+        RequestDeserializer requestDeserializer = RequestDeserializer.getInstance();
+
+        requestDeserializer.addRequestType("CertificateStudentRequest", CertificateStudentRequest.class);
+        requestDeserializer.addRequestType("DissertationDefenseRequest", DissertationDefenseRequest.class);
+        requestDeserializer.addRequestType("DormRequest", DormRequest.class);
+        requestDeserializer.addRequestType("MinorRequest", MinorRequest.class);
+        requestDeserializer.addRequestType("RecommendationLetterRequest", RecommendationLetterRequest.class);
+        requestDeserializer.addRequestType("Request", Request.class);
+        requestDeserializer.addRequestType("WithdrawalRequest", WithdrawalRequest.class);
+
+
         GsonBuilder builder = new GsonBuilder();
-        builder.setPrettyPrinting();
+        builder.setPrettyPrinting().registerTypeAdapter(Request.class, requestDeserializer);
         Gson gson = builder.create();
 
         try {
@@ -110,6 +119,9 @@ public class Backend {
         }
         if(students == null){
             setStudents(new ArrayList<>());
+        }
+        if(requests == null){
+            setRequests(new ArrayList<>());
         }
         if(colleges == null){
             setColleges(new ArrayList<>());
