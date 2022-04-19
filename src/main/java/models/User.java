@@ -8,6 +8,7 @@ public class User {
 
     protected int age;
     protected int hashedPassword;
+    protected String nationalIdNumber;
     protected String lastVisit;
     protected String profileImagePath;
     protected String name;
@@ -20,23 +21,24 @@ public class User {
     protected int collegeId;
 
     public User(){
-        this("", "", 0, 0, 0);
+        this("", "", 0, 0, 0, "");
     }
 
 
-    public User(String password, String name, int fieldId, int collegeId, int age){
-        this.hashedPassword = password.hashCode();
-        lastVisit = "";
-        profileImagePath = null;
-        this.name = name;
-        email = null;
-        phoneNumber = null;
-        homeAddress = null;
-        postalCode = null;
-        preferredUITheme = null;
-        this.fieldId = fieldId;
-        this.collegeId = collegeId;
-        this.age = age;
+    public User(String password, String name, int fieldId, int collegeId, int age, String nationalIdNumber){
+        setPassword(password);
+        setLastVisit("");
+        setProfileImagePath(null);
+        setName(name);
+        setEmail("");
+        setPhoneNumber("");
+        setHomeAddress("");
+        setPostalCode("");
+        setPreferredUITheme(null);
+        setFieldId(fieldId);
+        setCollegeId(collegeId);
+        setAge(age);
+        setNationalIdNumber(nationalIdNumber);
     }
 
 
@@ -157,5 +159,13 @@ public class User {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public String getNationalIdNumber() {
+        return nationalIdNumber;
+    }
+
+    public void setNationalIdNumber(String nationalIdNumber) {
+        this.nationalIdNumber = nationalIdNumber;
     }
 }
