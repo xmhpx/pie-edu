@@ -1,3 +1,5 @@
+package logic;
+
 import models.professor.Professor;
 import models.student.Student;
 import models.universityitems.College;
