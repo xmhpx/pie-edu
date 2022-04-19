@@ -17,7 +17,7 @@ import com.google.gson.GsonBuilder;
 public class Backend {
     private static Backend backend = null;
 
-    public static Backend getInstance() throws FileNotFoundException {
+    public static Backend getInstance() {
         if(backend == null)backend = new Backend();
         return backend;
     }
@@ -35,7 +35,7 @@ public class Backend {
     //TODO how to store all subclasses of Request??
 
 
-    private Backend() throws FileNotFoundException {
+    private Backend() {
         GsonBuilder builder = new GsonBuilder();
         builder.setPrettyPrinting();
         Gson gson = builder.create();
