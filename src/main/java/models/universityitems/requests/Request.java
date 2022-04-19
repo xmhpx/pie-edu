@@ -42,6 +42,11 @@ public class Request {
     }
 
 
+    public String getType() {
+        return type;
+    }
+
+
     public String getTitle() {
         return title;
     }
@@ -85,4 +90,5 @@ public class Request {
     public void setSenderId(int senderId) {
         this.senderId = senderId;
     }
+
 }

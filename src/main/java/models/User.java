@@ -43,6 +43,11 @@ public class User {
 
     //getters and setters
 
+    public String getType() {
+        return type;
+    }
+
+
     public int getHashedPassword() {
         return hashedPassword;
     }
