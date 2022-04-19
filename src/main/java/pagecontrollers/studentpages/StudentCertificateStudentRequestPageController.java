@@ -17,7 +17,6 @@ public class StudentCertificateStudentRequestPageController extends StudentPageC
     @Override
     public void initialize(){
         super.initialize();
-        Backend backend = Backend.getInstance();
         ObservableList<CertificateStudentRequest> data = tableView.getItems();
         data.clear();
         User user = LoggedInUserHolder.getUser();

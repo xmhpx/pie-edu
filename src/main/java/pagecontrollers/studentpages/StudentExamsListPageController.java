@@ -18,7 +18,6 @@ public class StudentExamsListPageController extends StudentPageController {
     @Override
     public void initialize(){
         super.initialize();
-        Backend backend = Backend.getInstance();
         ObservableList<Course> data = tableView.getItems();
         data.clear();
         User user = LoggedInUserHolder.getUser();

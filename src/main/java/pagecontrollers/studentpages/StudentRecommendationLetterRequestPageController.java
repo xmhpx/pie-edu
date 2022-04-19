@@ -18,7 +18,6 @@ public class StudentRecommendationLetterRequestPageController extends StudentPag
     @Override
     public void initialize(){
         super.initialize();
-        Backend backend = Backend.getInstance();
         ObservableList<RecommendationLetterRequest> data = tableView.getItems();
         data.clear();
         User user = LoggedInUserHolder.getUser();
