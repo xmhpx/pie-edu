@@ -47,6 +47,10 @@ public class User {
         return type;
     }
 
+    public int getId(){
+        return 0;
+    }
+
 
     public int getHashedPassword() {
         return hashedPassword;

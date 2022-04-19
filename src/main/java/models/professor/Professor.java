@@ -40,7 +40,7 @@ public class Professor extends User {
         return nextId;
     }
 
-
+    @Override
     public int getId() {
         return id;
     }
