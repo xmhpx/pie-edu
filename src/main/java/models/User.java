@@ -1,5 +1,6 @@
 package models;
 
+import java.text.DateFormat;
 import java.time.LocalDateTime;
 
 public class User {
@@ -7,7 +8,7 @@ public class User {
 
     protected int age;
     protected int hashedPassword;
-    protected LocalDateTime lastVisit;
+    protected String lastVisit;
     protected String profileImagePath;
     protected String name;
     protected String email;
@@ -25,7 +26,7 @@ public class User {
 
     public User(String password, String name, int fieldId, int collegeId, int age){
         this.hashedPassword = password.hashCode();
-        lastVisit = null;
+        lastVisit = "";
         profileImagePath = null;
         this.name = name;
         email = null;
@@ -51,11 +52,11 @@ public class User {
     }
 
 
-    public LocalDateTime getLastVisit() {
+    public String getLastVisit() {
         return lastVisit;
     }
 
-    public void setLastVisit(LocalDateTime lastVisit) {
+    public void setLastVisit(String lastVisit) {
         this.lastVisit = lastVisit;
     }
 
