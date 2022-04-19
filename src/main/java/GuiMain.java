@@ -5,7 +5,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import logic.Backend;
 import logic.LoggedInUserHolder;
-import models.User;
 import models.student.Student;
 import models.student.StudentLevel;
 

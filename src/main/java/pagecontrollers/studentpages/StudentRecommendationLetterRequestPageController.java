@@ -7,7 +7,6 @@ import logic.Backend;
 import logic.LoggedInUserHolder;
 import models.User;
 import models.student.Student;
-import models.universityitems.Course;
 import models.universityitems.requests.RecommendationLetterRequest;
 import models.universityitems.requests.Request;
 
@@ -18,11 +17,13 @@ public class StudentRecommendationLetterRequestPageController extends StudentPag
     @Override
     public void initialize(){
         super.initialize();
+        Backend backend = Backend.getInstance();
         ObservableList<RecommendationLetterRequest> data = tableView.getItems();
         data.clear();
         User user = LoggedInUserHolder.getUser();
         if(user instanceof Student student) {
-            for(Request request : student.getRequests()) {
+            for(int requestId : student.getRequestIds()) {
+                Request request = backend.getRequest(requestId);
                 if(request instanceof RecommendationLetterRequest)data.add((RecommendationLetterRequest) request);
             }
         }

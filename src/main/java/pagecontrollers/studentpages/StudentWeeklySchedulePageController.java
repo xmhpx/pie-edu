@@ -21,7 +21,9 @@ public class StudentWeeklySchedulePageController extends StudentPageController{
         data.clear();
         User user = LoggedInUserHolder.getUser();
         if(user instanceof Student student) {
-            data.addAll(student.getCourses());
+            for(int courseId : student.getCourseIds()) {
+                data.add(backend.getCourse(courseId));
+            }
         }
     }
 }

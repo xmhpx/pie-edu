@@ -8,8 +8,7 @@ import logic.LoggedInUserHolder;
 import models.User;
 import models.student.Student;
 import models.universityitems.Course;
-import models.universityitems.requests.RecommendationLetterRequest;
-import models.universityitems.requests.Request;
+
 
 
 public class StudentCoursesListPageController extends StudentPageController {
@@ -20,11 +19,14 @@ public class StudentCoursesListPageController extends StudentPageController {
     @Override
     public void initialize(){
         super.initialize();
+        Backend backend = Backend.getInstance();
         ObservableList<Course> data = tableView.getItems();
         data.clear();
         User user = LoggedInUserHolder.getUser();
         if(user instanceof Student student) {
-            data.addAll(student.getCourses());
+            for(int courseId : student.getCourseIds()) {
+                data.add(backend.getCourse(courseId));
+            }
         }
     }
 }

@@ -17,11 +17,13 @@ public class StudentMinorPageController extends StudentPageController {
     @Override
     public void initialize(){
         super.initialize();
+        Backend backend = Backend.getInstance();
         ObservableList<MinorRequest> data = tableView.getItems();
         data.clear();
         User user = LoggedInUserHolder.getUser();
         if(user instanceof Student student) {
-            for(Request request : student.getRequests()) {
+            for(int requestId : student.getRequestIds()) {
+                Request request = backend.getRequest(requestId);
                 if(request instanceof MinorRequest)data.add((MinorRequest) request);
             }
         }
