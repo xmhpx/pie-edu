@@ -220,12 +220,12 @@ public class Backend {
         return null;
     }
 
-    public void addProfessor(Professor professor){
+    public void addToProfessors(Professor professor){
         if(hasProfessor(professor.getId()))return;
         professors.add(professor);
     }
 
-    public void removeProfessor(int id){
+    public void removeFromProfessors(int id){
         Professor professor = getProfessor(id);
         if(professor != null){
             professors.remove(professor);
@@ -260,12 +260,12 @@ public class Backend {
         return null;
     }
 
-    public void addStudent(Student student){
+    public void addToStudents(Student student){
         if(hasStudent(student.getId()))return;
         students.add(student);
     }
 
-    public void removeStudent(int id){
+    public void removeFromStudents(int id){
         Student student = getStudent(id);
         if(student != null){
             students.remove(student);
@@ -300,12 +300,12 @@ public class Backend {
         return null;
     }
 
-    public void addRequest(Request request){
+    public void addToRequests(Request request){
         if(hasRequest(request.getId()))return;
         requests.add(request);
     }
 
-    public void removeRequest(int id){
+    public void removeFromRequests(int id){
         Request request = getRequest(id);
         if(request != null){
             requests.remove(request);
@@ -340,12 +340,12 @@ public class Backend {
         return null;
     }
 
-    public void addCollege(College college){
+    public void addToColleges(College college){
         if(hasCollege(college.getId()))return;
         colleges.add(college);
     }
 
-    public void removeCollege(int id){
+    public void removeFromColleges(int id){
         College college = getCollege(id);
         if(college != null){
             colleges.remove(college);
@@ -380,12 +380,12 @@ public class Backend {
         return null;
     }
 
-    public void addCourse(Course course){
+    public void addToCourses(Course course){
         if(hasCourse(course.getId()))return;
         courses.add(course);
     }
 
-    public void removeCourse(int id){
+    public void removeFromCourses(int id){
         Course course = getCourse(id);
         if(course != null){
             courses.remove(course);
@@ -420,12 +420,12 @@ public class Backend {
         return null;
     }
 
-    public void addField(Field field){
+    public void addToFields(Field field){
         if(hasField(field.getId()))return;
         fields.add(field);
     }
 
-    public void removeField(int id){
+    public void removeFromFields(int id){
         Field field = getField(id);
         if(field != null){
             fields.remove(field);
@@ -460,12 +460,12 @@ public class Backend {
         return null;
     }
 
-    public void addReportCard(ReportCard reportCard){
+    public void addToReportCards(ReportCard reportCard){
         if(hasReportCard(reportCard.getId()))return;
         reportCards.add(reportCard);
     }
 
-    public void removeReportCard(int id){
+    public void removeFromReportCards(int id){
         ReportCard reportCard = getReportCard(id);
         if(reportCard != null){
             reportCards.remove(reportCard);
@@ -527,49 +527,49 @@ public class Backend {
 
     public void add(Object obj){
         if(obj instanceof Professor){
-            addProfessor((Professor) obj);
+            addToProfessors((Professor) obj);
         }
         else if(obj instanceof Student){
-            addStudent((Student) obj);
+            addToStudents((Student) obj);
         }
         else if(obj instanceof Request){
-            addRequest((Request) obj);
+            addToRequests((Request) obj);
         }
         else if(obj instanceof College){
-            addCollege((College) obj);
+            addToColleges((College) obj);
         }
         else if(obj instanceof Course){
-            addCourse((Course) obj);
+            addToCourses((Course) obj);
         }
         else if(obj instanceof Field){
-            addField((Field) obj);
+            addToFields((Field) obj);
         }
         else if(obj instanceof ReportCard){
-            addReportCard((ReportCard) obj);
+            addToReportCards((ReportCard) obj);
         }
     }
 
     public void remove(int id){
         if(id > 70000){
-            removeReportCard(id);
+            removeFromReportCards(id);
         }
         else if(id > 60000){
-            removeField(id);
+            removeFromFields(id);
         }
         else if(id > 50000){
-            removeCourse(id);
+            removeFromCourses(id);
         }
         else if(id > 40000){
-            removeCollege(id);
+            removeFromColleges(id);
         }
         else if(id > 30000){
-            removeRequest(id);
+            removeFromRequests(id);
         }
         else if(id > 20000){
-            removeStudent(id);
+            removeFromStudents(id);
         }
         else if(id > 10000){
-            removeProfessor(id);
+            removeFromProfessors(id);
         }
     }
 }
