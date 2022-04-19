@@ -1,5 +1,7 @@
 package models.universityitems;
 
+import models.professor.Professor;
+
 public class ReportCard {
     protected static int nextId = 70001;
 
@@ -22,6 +24,15 @@ public class ReportCard {
 
 
     // getters and setters
+
+    public static void setNextId(int nextId) {
+        ReportCard.nextId = nextId;
+    }
+
+    public static int getNextId() {
+        return nextId;
+    }
+
 
     public int getId() {
         return id;

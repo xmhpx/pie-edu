@@ -31,6 +31,16 @@ public class Professor extends User {
 
     // getters and setters
 
+
+    public static void setNextId(int nextId) {
+        Professor.nextId = nextId;
+    }
+
+    public static int getNextId() {
+        return nextId;
+    }
+
+
     public int getId() {
         return id;
     }

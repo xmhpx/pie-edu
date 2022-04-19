@@ -1,5 +1,7 @@
 package models.universityitems.requests;
 
+import models.professor.Professor;
+
 public class Request {
     protected static int nextId = 30001;
     protected String type = "Request";
@@ -25,6 +27,15 @@ public class Request {
 
 
     // getters and setters
+
+    public static void setNextId(int nextId) {
+        Request.nextId = nextId;
+    }
+
+    public static int getNextId() {
+        return nextId;
+    }
+
 
     public int getId() {
         return id;

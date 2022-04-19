@@ -1,5 +1,7 @@
 package models.universityitems;
 
+import models.professor.Professor;
+
 public class Field {
     protected static int nextId = 60001;
 
@@ -18,6 +20,15 @@ public class Field {
 
 
     // getters and setters
+
+    public static void setNextId(int nextId) {
+        Field.nextId = nextId;
+    }
+
+    public static int getNextId() {
+        return nextId;
+    }
+
 
     public int getId() {
         return id;

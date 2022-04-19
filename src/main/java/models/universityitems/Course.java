@@ -1,5 +1,7 @@
 package models.universityitems;
 
+import models.professor.Professor;
+
 import java.util.ArrayList;
 
 public class Course {
@@ -36,6 +38,15 @@ public class Course {
 
 
     // getters and setters
+
+    public static void setNextId(int nextId) {
+        Course.nextId = nextId;
+    }
+
+    public static int getNextId() {
+        return nextId;
+    }
+
 
     public int getId() {
         return id;

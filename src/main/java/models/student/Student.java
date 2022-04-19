@@ -1,6 +1,7 @@
 package models.student;
 
 import models.*;
+import models.professor.Professor;
 import models.universityitems.*;
 import models.universityitems.requests.Request;
 
@@ -51,6 +52,15 @@ public class Student extends User {
 
 
     // getters and setters
+
+    public static void setNextId(int nextId) {
+        Student.nextId = nextId;
+    }
+
+    public static int getNextId() {
+        return nextId;
+    }
+
 
     public int getId() {
         return id;
