@@ -40,15 +40,6 @@ public class Backend {
         builder.setPrettyPrinting();
         Gson gson = builder.create();
 
-        professors = new ArrayList<>();
-        students = new ArrayList<>();
-        requests = new ArrayList<>();
-        colleges = new ArrayList<>();
-        courses = new ArrayList<>();
-        fields = new ArrayList<>();
-        reportCards = new ArrayList<>();
-
-
         try {
             BufferedReader professorReader = new BufferedReader(
                     new FileReader("professors.json"));
@@ -104,6 +95,24 @@ public class Backend {
         }
         catch (FileNotFoundException ignored){}
 
+        if(professors == null){
+            setProfessors(new ArrayList<>());
+        }
+        if(students == null){
+            setStudents(new ArrayList<>());
+        }
+        if(colleges == null){
+            setColleges(new ArrayList<>());
+        }
+        if(courses == null){
+            setCourses(new ArrayList<>());
+        }
+        if(fields == null){
+            setFields(new ArrayList<>());
+        }
+        if(reportCards == null){
+            setReportCards(new ArrayList<>());
+        }
 
 
         //TODO handle FileNotFoundException smh
