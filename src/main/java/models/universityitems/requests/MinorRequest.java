@@ -1,19 +1,15 @@
 package models.universityitems.requests;
 
-import models.student.Student;
-import models.universityitems.College;
 import models.universityitems.Field;
 
-import java.lang.ref.Reference;
-
 public class MinorRequest extends Request{
-    protected Reference<College> destinationCollegeReference;
+    protected int destinationCollegeId;
     protected Field minorField;
 
 
-    MinorRequest(String title, String body, Reference<Student> sender, Reference<College> destinationCollegeReference, Field minorField) {
-        super(title, body, sender);
-        this.destinationCollegeReference = destinationCollegeReference;
+    MinorRequest(String title, String body, int senderId, int destinationCollegeId, Field minorField) {
+        super(title, body, senderId);
+        this.destinationCollegeId = destinationCollegeId;
         this.minorField = minorField;
     }
 
@@ -21,12 +17,12 @@ public class MinorRequest extends Request{
 
     // getters and setters
 
-    public Reference<College> getDestinationCollegeReference() {
-        return destinationCollegeReference;
+    public int getDestinationCollegeId() {
+        return destinationCollegeId;
     }
 
-    public void setDestinationCollegeReference(Reference<College> destinationCollegeReference) {
-        this.destinationCollegeReference = destinationCollegeReference;
+    public void setDestinationCollegeId(int destinationCollegeId) {
+        this.destinationCollegeId = destinationCollegeId;
     }
 
 

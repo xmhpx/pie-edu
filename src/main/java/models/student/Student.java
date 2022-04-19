@@ -5,13 +5,12 @@ import models.professor.Professor;
 import models.universityitems.*;
 import models.universityitems.requests.Request;
 
-import java.lang.ref.Reference;
 import java.util.ArrayList;
 
 public class Student extends User {
     protected String studentNumber;
     protected String status;
-    protected Reference<Professor> supervisorReference;
+    protected int supervisorId;
     protected String registrationLicense;
     protected String registrationTime;
     protected StudentLevel studentLevel;
@@ -23,12 +22,12 @@ public class Student extends User {
     protected ArrayList<Course> courses;
 
 
-    public Student(String password, String displayName, Reference<Field> field, Reference<College> college, String studentNumber, StudentLevel studentLevel, String yearOfEntry) {
-        super(password, displayName, field, college);
+    public Student(String password, String displayName, int fieldId, int collegeId, String studentNumber, StudentLevel studentLevel, String yearOfEntry, int age) {
+        super(password, displayName, fieldId, collegeId, age);
 
         this.studentNumber = studentNumber;
         status = "";
-        supervisorReference = null;
+        supervisorId = 0;
         registrationLicense = null;
         registrationTime = null;
         this.studentLevel = studentLevel;
@@ -62,12 +61,12 @@ public class Student extends User {
     }
 
 
-    public Reference<Professor> getSupervisorReference() {
-        return supervisorReference;
+    public int getSupervisorId() {
+        return supervisorId;
     }
 
-    public void setSupervisorReference(Reference<Professor> supervisorReference) {
-        this.supervisorReference = supervisorReference;
+    public void setSupervisorId(int supervisorId) {
+        this.supervisorId = supervisorId;
     }
 
 

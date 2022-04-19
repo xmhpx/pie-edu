@@ -1,19 +1,17 @@
 package models.universityitems;
 
-import java.lang.ref.Reference;
-
 public class Field {
     protected static int nextId = 1;
 
     protected int id;
     protected String name;
-    protected Reference<College> collegeReference;
+    protected int collegeId;
 
 
-    Field(String name, Reference<College> collegeReference){
+    Field(String name, int collegeId){
         id = nextId++;
         this.name = name;
-        this.collegeReference = collegeReference;
+        this.collegeId = collegeId;
     }
 
 
@@ -29,11 +27,11 @@ public class Field {
     }
 
 
-    public Reference<College> getCollegeReference() {
-        return collegeReference;
+    public int getCollegeId() {
+        return collegeId;
     }
 
-    public void setCollegeReference(Reference<College> collegeReference) {
-        this.collegeReference = collegeReference;
+    public void setCollegeId(int collegeId) {
+        this.collegeId = collegeId;
     }
 }

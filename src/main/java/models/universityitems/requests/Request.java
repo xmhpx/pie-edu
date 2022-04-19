@@ -1,9 +1,5 @@
 package models.universityitems.requests;
 
-import models.student.Student;
-
-import java.lang.ref.Reference;
-
 public class Request {
     protected static int nextId = 1;
 
@@ -12,16 +8,16 @@ public class Request {
     protected String body;
     protected String status;
     protected String respond;
-    protected Reference<Student> sender;
+    protected int senderId;
 
 
-    Request(String title, String body, Reference<Student> sender){
+    Request(String title, String body, int senderId){
         id = nextId++;
         this.title = title;
         this.body = body;
         status = "sent";
         respond = "";
-        this.sender = sender;
+        this.senderId = senderId;
     }
 
 
@@ -64,11 +60,11 @@ public class Request {
     }
 
 
-    public Reference<Student> getSender() {
-        return sender;
+    public int getSenderId() {
+        return senderId;
     }
 
-    public void setSender(Reference<Student> sender) {
-        this.sender = sender;
+    public void setSenderId(int senderId) {
+        this.senderId = senderId;
     }
 }

@@ -1,9 +1,5 @@
 package models.universityitems;
 
-import models.student.Student;
-import models.professor.Professor;
-
-import java.lang.ref.Reference;
 import java.util.ArrayList;
 
 public class Course {
@@ -11,24 +7,24 @@ public class Course {
 
     protected int id;
     protected String name;
-    protected Reference<College> collegeReference;
-    protected Reference<Professor> professorReference;
+    protected int collegeId;
+    protected int professorId;
     protected String holdingSemester;
-    protected String courseId;
+    protected int courseId;
     protected int semesterCreditHours;
 
-    protected ArrayList<Reference<Student>> studentsReference;
+    protected ArrayList<Integer> studentsId;
 
 
-    Course(String name, Reference<College> collegeReference, Reference<Professor> professorReference, String holdingSemester, String courseId, int semesterCreditHours){
+    Course(String name, int collegeId, int professorId, String holdingSemester, int courseId, int semesterCreditHours){
         id = nextId++;
         this.name = name;
-        this.collegeReference = collegeReference;
-        this.professorReference = professorReference;
+        this.collegeId = collegeId;
+        this.professorId = professorId;
         this.holdingSemester = holdingSemester;
         this.courseId = courseId;
         this.semesterCreditHours = semesterCreditHours;
-        this.studentsReference = new ArrayList<>();
+        this.studentsId = new ArrayList<>();
     }
 
 
@@ -44,21 +40,21 @@ public class Course {
     }
 
 
-    public Reference<College> getCollegeReference() {
-        return collegeReference;
+    public int getCollegeId() {
+        return collegeId;
     }
 
-    public void setCollegeReference(Reference<College> collegeReference) {
-        this.collegeReference = collegeReference;
+    public void setCollegeId(int collegeId) {
+        this.collegeId = collegeId;
     }
 
 
-    public Reference<Professor> getProfessorReference() {
-        return professorReference;
+    public int getProfessorId() {
+        return professorId;
     }
 
-    public void setProfessorReference(Reference<Professor> professorReference) {
-        this.professorReference = professorReference;
+    public void setProfessorId(int professorId) {
+        this.professorId = professorId;
     }
 
 
@@ -71,11 +67,11 @@ public class Course {
     }
 
 
-    public String getCourseId() {
+    public int getCourseId() {
         return courseId;
     }
 
-    public void setCourseId(String courseId) {
+    public void setCourseId(int courseId) {
         this.courseId = courseId;
     }
 
@@ -89,11 +85,11 @@ public class Course {
     }
 
 
-    public ArrayList<Reference<Student>> getStudentsReference() {
-        return studentsReference;
+    public ArrayList<Integer> getStudentsId() {
+        return studentsId;
     }
 
-    public void setStudentsReference(ArrayList<Reference<Student>> studentsReference) {
-        this.studentsReference = studentsReference;
+    public void setStudentsId(ArrayList<Integer> studentsId) {
+        this.studentsId = studentsId;
     }
 }

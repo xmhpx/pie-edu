@@ -1,10 +1,6 @@
 package models.professor;
 
-import models.universityitems.College;
-import models.universityitems.Field;
 import models.User;
-
-import java.lang.ref.Reference;
 
 public class Professor extends User {
     protected String professorNumber;
@@ -12,8 +8,8 @@ public class Professor extends User {
     protected ProfessorType professorType;
 
 
-    public Professor(String password, String displayName, Reference<Field> field, Reference<College> college, String professorNumber, ProfessorLevel professorLevel, ProfessorType professorType) {
-        super(password, displayName, field, college);
+    public Professor(String password, String displayName, int fieldId, int collegeId, String professorNumber, ProfessorLevel professorLevel, ProfessorType professorType, int age) {
+        super(password, displayName, fieldId, collegeId, age);
 
         this.professorNumber = professorNumber;
         this.professorLevel = professorLevel;

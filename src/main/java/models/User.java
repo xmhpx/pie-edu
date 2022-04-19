@@ -1,10 +1,5 @@
 package models;
 
-
-import models.universityitems.College;
-import models.universityitems.Field;
-
-import java.lang.ref.Reference;
 import java.time.LocalDateTime;
 
 public class User {
@@ -20,11 +15,11 @@ public class User {
     protected String homeAddress;
     protected String postalCode;
     protected UITheme preferredUITheme;
-    protected Reference<Field> field;
-    protected Reference<College> college;
+    protected int fieldId;
+    protected int collegeId;
 
 
-    public User(String password, String displayName, Reference<Field> field, Reference<College> college, int age){
+    public User(String password, String displayName, int fieldId, int collegeId, int age){
         id = nextId++;
         this.hashedPassword = password.hashCode();
         lastVisit = null;
@@ -35,8 +30,8 @@ public class User {
         homeAddress = null;
         postalCode = null;
         preferredUITheme = null;
-        this.field = field;
-        this.college = college;
+        this.fieldId = fieldId;
+        this.collegeId = collegeId;
         this.age = age;
     }
 
@@ -130,21 +125,21 @@ public class User {
     }
 
 
-    public Reference<Field> getField() {
-        return field;
+    public int getFieldId() {
+        return fieldId;
     }
 
-    public void setField(Reference<Field> field) {
-        this.field = field;
+    public void setFieldId(int fieldId) {
+        this.fieldId = fieldId;
     }
 
 
-    public Reference<College> getCollege() {
-        return college;
+    public int getCollegeId() {
+        return collegeId;
     }
 
-    public void setCollege(Reference<College> college) {
-        this.college = college;
+    public void setCollegeId(int collegeId) {
+        this.collegeId = collegeId;
     }
 
 

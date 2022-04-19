@@ -1,28 +1,23 @@
 package models.universityitems.requests;
 
-import models.student.Student;
-import models.professor.Professor;
-
-import java.lang.ref.Reference;
-
 public class RecommendationLetterRequest extends Request{
-    protected Reference<Professor> professorReference;
+    protected int professorId;
 
 
-    RecommendationLetterRequest(String title, String body, Reference<Student> sender, Reference<Professor> professorReference) {
-        super(title, body, sender);
-        this.professorReference = professorReference;
+    RecommendationLetterRequest(String title, String body, int senderId, int professorId) {
+        super(title, body, senderId);
+        this.professorId = professorId;
     }
 
 
 
     // getters and setters
 
-    public Reference<Professor> getProfessorReference() {
-        return professorReference;
+    public int getProfessorId() {
+        return professorId;
     }
 
-    public void setProfessorReference(Reference<Professor> professorReference) {
-        this.professorReference = professorReference;
+    public void setProfessorId(int professorId) {
+        this.professorId = professorId;
     }
 }

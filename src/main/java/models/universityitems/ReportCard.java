@@ -1,23 +1,19 @@
 package models.universityitems;
 
-import models.student.Student;
-
-import java.lang.ref.Reference;
-
 public class ReportCard {
     protected static int nextId = 1;
 
     protected int id;
-    protected Reference<Course> courseReference;
-    protected Reference<Student> studentReference;
+    protected int courseId;
+    protected int studentId;
     protected ReportCardStatus status;
     protected String score;
 
 
-    ReportCard(Reference<Course> courseReference, Reference<Student> studentReference, String score){
+    ReportCard(int courseId, int studentId, String score){
         id = nextId++;
-        this.courseReference = courseReference;
-        this.studentReference = studentReference;
+        this.courseId = courseId;
+        this.studentId = studentId;
         status = ReportCardStatus.TAKEN;
         this.score = score;
     }
@@ -26,21 +22,21 @@ public class ReportCard {
 
     // getters and setters
 
-    public Reference<Course> getCourseReference() {
-        return courseReference;
+    public int getCourseId() {
+        return courseId;
     }
 
-    public void setCourseReference(Reference<Course> courseReference) {
-        this.courseReference = courseReference;
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
     }
 
 
-    public Reference<Student> getStudentReference() {
-        return studentReference;
+    public int getStudentId() {
+        return studentId;
     }
 
-    public void setStudentReference(Reference<Student> studentReference) {
-        this.studentReference = studentReference;
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
     }
 
 
