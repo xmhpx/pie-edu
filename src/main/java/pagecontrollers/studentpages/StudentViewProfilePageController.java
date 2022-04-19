@@ -70,8 +70,8 @@ public class StudentViewProfilePageController extends StudentPageController {
 
             Professor professor = backend.getProfessor(student.getSupervisorId());
             String professorName = "None";
-            if(college != null){
-                professorName = college.getName();
+            if(professor != null){
+                professorName = professor.getName();
             }
             supervisorText.setText("Professor : " + professorName);
 
