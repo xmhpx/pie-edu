@@ -73,7 +73,7 @@ public class StudentPageController {
 
         Thread clock = new Thread() {
             public void run() {
-                for (int i = 1; i < 10; i++) {
+                for (int i = 1; i < 5; i++) {
                     Calendar cal = Calendar.getInstance();
 
                     int second = cal.get(Calendar.SECOND);
@@ -83,11 +83,12 @@ public class StudentPageController {
                     currentTimeText.setText("Current Time : " + hour + ":" + (minute) + ":" + second);
 
                     try {
-                        sleep(1000);
+                        sleep(990);
                     } catch (InterruptedException ex) {
                         //...
                     }
                 }
+                currentTimeText.setText("Reload To See Current Time");
             }
         };
 
