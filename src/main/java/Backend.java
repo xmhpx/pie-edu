@@ -510,4 +510,28 @@ public class Backend {
             addReportCard((ReportCard) obj);
         }
     }
+
+    public void remove(int id){
+        if(id > 70000){
+            removeReportCard(id);
+        }
+        else if(id > 60000){
+            removeField(id);
+        }
+        else if(id > 50000){
+            removeCourse(id);
+        }
+        else if(id > 40000){
+            removeCollege(id);
+        }
+        else if(id > 30000){
+            removeRequest(id);
+        }
+        else if(id > 20000){
+            removeStudent(id);
+        }
+        else if(id > 10000){
+            removeProfessor(id);
+        }
+    }
 }
