@@ -7,7 +7,6 @@ import logic.Backend;
 import models.universityitems.Course;
 
 public class StudentExamsListPageController extends StudentPageController {
-
     @FXML
     TableView<Course> tableView;
 
