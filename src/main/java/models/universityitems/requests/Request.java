@@ -2,6 +2,7 @@ package models.universityitems.requests;
 
 public class Request {
     protected static int nextId = 30001;
+    protected String type = "Request";
 
     protected int id;
     protected String title;
@@ -13,11 +14,12 @@ public class Request {
 
     Request(String title, String body, int senderId){
         id = nextId++;
-        this.title = title;
-        this.body = body;
-        status = "sent";
-        respond = "";
-        this.senderId = senderId;
+
+        setTitle(title);
+        setBody(body);
+        setStatus("sent");
+        setRespond("");
+        setSenderId(senderId);
     }
 
 

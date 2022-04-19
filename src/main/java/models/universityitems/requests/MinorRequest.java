@@ -9,8 +9,10 @@ public class MinorRequest extends Request{
 
     MinorRequest(String title, String body, int senderId, int destinationCollegeId, Field minorField) {
         super(title, body, senderId);
-        this.destinationCollegeId = destinationCollegeId;
-        this.minorField = minorField;
+        type = "MinorRequest";
+
+        setDestinationCollegeId(destinationCollegeId);
+        setMinorField(minorField);
     }
 
 

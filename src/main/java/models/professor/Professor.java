@@ -21,9 +21,10 @@ public class Professor extends User {
         type = "Professor";
 
         id = nextId++;
-        this.professorNumber = professorNumber;
-        this.professorLevel = professorLevel;
-        this.professorType = professorType;
+
+        setProfessorNumber(professorNumber);
+        setProfessorLevel(professorLevel);
+        setProfessorType(professorType);
     }
 
 

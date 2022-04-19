@@ -10,8 +10,9 @@ public class Field {
 
     Field(String name, int collegeId){
         id = nextId++;
-        this.name = name;
-        this.collegeId = collegeId;
+
+        setName(name);
+        setCollegeId(collegeId);
     }
 
 

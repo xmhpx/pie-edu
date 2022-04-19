@@ -10,8 +10,9 @@ public class College {
 
     College(String name, int deanOfFacultyId) {
         id = nextId++;
-        this.name = name;
-        this.deanOfFacultyId = deanOfFacultyId;
+
+        setName(name);
+        setDeanOfFacultyId(deanOfFacultyId);
     }
 
 

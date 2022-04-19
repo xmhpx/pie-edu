@@ -6,7 +6,9 @@ public class RecommendationLetterRequest extends Request{
 
     RecommendationLetterRequest(String title, String body, int senderId, int professorId) {
         super(title, body, senderId);
-        this.professorId = professorId;
+        type = "RecommendationLetterRequest";
+
+        setProfessorId(professorId);
     }
 
 

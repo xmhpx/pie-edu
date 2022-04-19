@@ -12,10 +12,11 @@ public class ReportCard {
 
     ReportCard(int courseId, int studentId, String score){
         id = nextId++;
-        this.courseId = courseId;
-        this.studentId = studentId;
-        status = ReportCardStatus.TAKEN;
-        this.score = score;
+
+        setCourseId(courseId);
+        setStudentId(studentId);
+        setStatus(ReportCardStatus.TAKEN);
+        setScore(score);
     }
 
 

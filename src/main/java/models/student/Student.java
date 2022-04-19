@@ -15,8 +15,8 @@ public class Student extends User {
     protected int supervisorId;
     protected String registrationLicense;
     protected String registrationTime;
-    protected StudentLevel studentLevel;
     protected StudentEducationStatus educationStatus;
+    protected StudentLevel studentLevel;
     protected String yearOfEntry;
 
     protected ArrayList<ReportCard> reportCards;
@@ -33,18 +33,19 @@ public class Student extends User {
         type = "Student";
 
         id = nextId++;
-        this.studentNumber = studentNumber;
-        status = "";
-        supervisorId = 0;
-        registrationLicense = null;
-        registrationTime = null;
-        this.studentLevel = studentLevel;
-        educationStatus = StudentEducationStatus.STUDYING;
-        this.yearOfEntry = yearOfEntry;
 
-        reportCards = new ArrayList<>();
-        requests = new ArrayList<>();
-        courses = new ArrayList<>();
+        setStudentNumber(studentNumber);
+        setStatus("");
+        setSupervisorId(0);
+        setRegistrationLicense(null);
+        setRegistrationTime(null);
+        setStudentLevel(studentLevel);
+        setEducationStatus(educationStatus);
+        setYearOfEntry(yearOfEntry);
+
+        setReportCards(new ArrayList<>());
+        setRequests(new ArrayList<>());
+        setCourses(new ArrayList<>());
     }
 
 
@@ -65,11 +66,11 @@ public class Student extends User {
     }
 
 
-    public String getEducationStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setEducationStatus(String status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -101,11 +102,11 @@ public class Student extends User {
     }
 
 
-    public StudentEducationStatus getStudentStatus() {
+    public StudentEducationStatus getEducationStatus() {
         return educationStatus;
     }
 
-    public void setStudentStatus(StudentEducationStatus educationStatus) {
+    public void setEducationStatus(StudentEducationStatus educationStatus) {
         this.educationStatus = educationStatus;
     }
 

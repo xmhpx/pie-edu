@@ -3,23 +3,25 @@ package models.universityitems.requests;
 import java.time.LocalDateTime;
 
 public class DissertationDefenseRequest extends Request{
-    protected LocalDateTime dissertationDefenceTime;
+    protected String dissertationDefenceTime;
 
 
-    DissertationDefenseRequest(String title, String body, int senderId, LocalDateTime dissertationDefenceTime) {
+    DissertationDefenseRequest(String title, String body, int senderId, String dissertationDefenceTime) {
         super(title, body, senderId);
-        this.dissertationDefenceTime = dissertationDefenceTime;
+        type = "DissertationDefenceTime";
+
+        setDissertationDefenceTime(dissertationDefenceTime);
     }
 
 
 
     // getters and setters
 
-    public LocalDateTime getDissertationDefenceTime() {
+    public String getDissertationDefenceTime() {
         return dissertationDefenceTime;
     }
 
-    public void setDissertationDefenceTime(LocalDateTime dissertationDefenceTime) {
+    public void setDissertationDefenceTime(String dissertationDefenceTime) {
         this.dissertationDefenceTime = dissertationDefenceTime;
     }
 }

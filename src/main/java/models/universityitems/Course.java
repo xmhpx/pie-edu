@@ -21,13 +21,14 @@ public class Course {
 
     public Course(String name, int collegeId, int professorId, String holdingSemester, int courseId, int semesterCreditHours){
         id = nextId++;
-        this.name = name;
-        this.collegeId = collegeId;
-        this.professorId = professorId;
-        this.holdingSemester = holdingSemester;
-        this.courseId = courseId;
-        this.semesterCreditHours = semesterCreditHours;
-        this.studentsId = new ArrayList<>();
+
+        setName(name);
+        setCollegeId(collegeId);
+        setProfessorId(professorId);
+        setHoldingSemester(holdingSemester);
+        setCourseId(courseId);
+        setSemesterCreditHours(semesterCreditHours);
+        setStudentsId(new ArrayList<>());
     }
 
 
