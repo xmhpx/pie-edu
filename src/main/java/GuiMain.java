@@ -5,6 +5,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import logic.Backend;
 
+import java.io.IOException;
+
 public class GuiMain extends Application{
     public static void main(String[] args){
         launch(args);
@@ -21,7 +23,7 @@ public class GuiMain extends Application{
     }
 
     @Override
-    public void stop(){
+    public void stop() throws IOException {
         Backend.getInstance().save();
     }
 
