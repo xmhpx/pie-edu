@@ -5,7 +5,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -62,6 +65,18 @@ public class StudentPageController {
 
     @FXML
     Text lastTimeLoggedInText;
+
+    @FXML
+    Button logOutButton;
+
+    @FXML
+    ImageView UIProfileImageView;
+
+    @FXML
+    Text UINameText;
+
+    @FXML
+    Text UIEmailText;
 
     @FXML
     AnchorPane anchorPane;
@@ -198,5 +213,10 @@ public class StudentPageController {
     @FXML
     void goToStudentEditProfilePage(ActionEvent actionEvent) throws IOException {
         goToStudentPage("studentEditProfilePage.fxml");
+    }
+
+    @FXML
+    public void logOutButtonClick(MouseEvent mouseEvent) {
+
     }
 }

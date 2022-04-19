@@ -12,11 +12,11 @@
 <AnchorPane fx:id="anchorPane" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #ceecec;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pagecontrollers.studentpages.StudentViewProfilePageController">
    <children>
       <Text fx:id="currentTimeText" layoutX="14.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentTime" wrappingWidth="78.13671875" />
-      <Button layoutX="706.0" layoutY="133.0" mnemonicParsing="false" text="Log Out" />
+      <Button fx:id="logOutButton" layoutX="706.0" layoutY="133.0" mnemonicParsing="false" text="Log Out" onMouseClicked="#logOutButtonClick"/>
       <Text fx:id="lastTimeLoggedInText" layoutX="208.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Time Logged In : LastTimeLoggedIn" />
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="710.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
-      <Text layoutX="719.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
-      <Text layoutX="721.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
+      <ImageView fx:id="UIProfileImageView" fitHeight="50.0" fitWidth="50.0" layoutX="710.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
+      <Text fx:id="UINameText" layoutX="719.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
+      <Text fx:id="UIEmailText" layoutX="721.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
       <MenuBar layoutX="14.0" layoutY="14.0" nodeOrientation="LEFT_TO_RIGHT">
         <menus>
             <Menu mnemonicParsing="false" text="Home">
@@ -66,7 +66,16 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
       </MenuBar>
-
-      <Text layoutX="338.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View Profile" />
+      <Text fx:id="nameText" layoutX="383.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
+      <Text fx:id="nationalIdNumberText" layoutX="347.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="National Id Number" />
+      <Text fx:id="phoneNumberText" layoutX="358.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number" />
+      <Text fx:id="studentNumberText" layoutX="355.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Number" />
+      <Text fx:id="emailText" layoutX="385.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
+      <Text fx:id="averageScoreText" layoutX="361.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Average Score" />
+      <Text fx:id="collegeText" layoutX="380.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="College" />
+      <Text fx:id="supervisorText" layoutX="371.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supervisor" />
+      <Text fx:id="yearOfEntranceText" layoutX="355.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Year Of Entrance" />
+      <Text fx:id="studentLevelText" layoutX="364.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Level" />
+      <Text fx:id="educationStatusText" layoutX="354.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Education Status" />
    </children>
 </AnchorPane>
