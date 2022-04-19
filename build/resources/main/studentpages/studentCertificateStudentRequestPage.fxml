@@ -5,68 +5,105 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
 <AnchorPane fx:id="anchorPane" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #ceecec;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pagecontrollers.studentpages.StudentCertificateStudentRequestPageController">
-   <children>
-      <Text fx:id="currentTimeText" layoutX="14.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentTime" wrappingWidth="78.13671875" />
-      <Button layoutX="706.0" layoutY="133.0" mnemonicParsing="false" text="Log Out" />
-      <Text fx:id="lastTimeLoggedInText" layoutX="208.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Time Logged In : LastTimeLoggedIn" />
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="710.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
-      <Text layoutX="719.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
-      <Text layoutX="721.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
-      <MenuBar layoutX="14.0" layoutY="14.0" nodeOrientation="LEFT_TO_RIGHT">
-        <menus>
-            <Menu mnemonicParsing="false" text="Home">
-                <items>
-                    <MenuItem fx:id="homeMenuItem" mnemonicParsing="false" onAction="#goToStudentHomePage" text="Home" />
-                </items>
-            </Menu>
-
-            <Menu mnemonicParsing="false" text="Registration">
-            <items>
-                <MenuItem fx:id="coursesListMenuItem" mnemonicParsing="false" onAction="#goToStudentCoursesListPage" text="Courses List" />
-                <MenuItem fx:id="professorsListMenuItem" mnemonicParsing="false" onAction="#goToStudentProfessorsListPage" text="Professors List" />
-            </items>
-          </Menu>
-
-          <Menu mnemonicParsing="false" text="Educational Services">
-            <items>
-                <MenuItem fx:id="weeklyScheduleMenuItem" mnemonicParsing="false" onAction="#goToStudentWeeklySchedulePage" text="Weekly Schedule" />
-                <MenuItem fx:id="examListMenuItem" mnemonicParsing="false" onAction="#goToStudentExamsListPage" text="Exams List" />
-                <Menu mnemonicParsing="false" text="Requests">
+    <children>
+        <Text fx:id="currentTimeText" layoutX="14.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentTime" wrappingWidth="78.13671875" />
+        <Button layoutX="706.0" layoutY="133.0" mnemonicParsing="false" text="Log Out" />
+        <Text fx:id="lastTimeLoggedInText" layoutX="208.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Time Logged In : LastTimeLoggedIn" />
+        <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="633.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" />
+        <Text layoutX="719.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
+        <Text layoutX="721.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
+        <MenuBar layoutX="14.0" layoutY="14.0" nodeOrientation="LEFT_TO_RIGHT">
+            <menus>
+                <Menu mnemonicParsing="false" text="Home">
                     <items>
-                        <MenuItem fx:id="recommendationLetterRequestMenuItem" mnemonicParsing="false" onAction="#goToStudentRecommendationLetterRequestPage" text="Recommendation Letter Request" />
-                        <MenuItem fx:id="certificateStudentRequestMenuItem" mnemonicParsing="false" onAction="#goToStudentCertificateStudentRequestPage" text="Certificate Student Request" />
-                        <MenuItem fx:id="minorMenuItem" mnemonicParsing="false" onAction="#goToStudentMinorPage" text="Minor" />
-                        <MenuItem fx:id="withdrawalMenuItem" mnemonicParsing="false" onAction="#goToStudentWithdrawalPage" text="Withdrawal" />
+                        <MenuItem fx:id="homeMenuItem" mnemonicParsing="false" onAction="#goToStudentHomePage" text="Home" />
                     </items>
                 </Menu>
-            </items>
-          </Menu>
 
-          <Menu mnemonicParsing="false" text="Report Card Affairs">
-            <items>
-                <MenuItem fx:id="temporaryScoresMenuItem" mnemonicParsing="false" onAction="#goToStudentTemporaryScoresPage" text="Temporary Scores" />
-                <MenuItem fx:id="educationStatusMenuItem" mnemonicParsing="false" onAction="#goToStudentEducationStatusPage" text="Education Status" />
-            </items>
-          </Menu>
+                <Menu mnemonicParsing="false" text="Registration">
+                    <items>
+                        <MenuItem fx:id="coursesListMenuItem" mnemonicParsing="false" onAction="#goToStudentCoursesListPage" text="Courses List" />
+                        <MenuItem fx:id="professorsListMenuItem" mnemonicParsing="false" onAction="#goToStudentProfessorsListPage" text="Professors List" />
+                    </items>
+                </Menu>
 
-            <Menu mnemonicParsing="false" text="Profile">
+                <Menu mnemonicParsing="false" text="Educational Services">
+                    <items>
+                        <MenuItem fx:id="weeklyScheduleMenuItem" mnemonicParsing="false" onAction="#goToStudentWeeklySchedulePage" text="Weekly Schedule" />
+                        <MenuItem fx:id="examListMenuItem" mnemonicParsing="false" onAction="#goToStudentExamsListPage" text="Exams List" />
+                        <Menu mnemonicParsing="false" text="Requests">
+                            <items>
+                                <MenuItem fx:id="recommendationLetterRequestMenuItem" mnemonicParsing="false" onAction="#goToStudentRecommendationLetterRequestPage" text="Recommendation Letter Request" />
+                                <MenuItem fx:id="certificateStudentRequestMenuItem" mnemonicParsing="false" onAction="#goToStudentCertificateStudentRequestPage" text="Certificate Student Request" />
+                                <MenuItem fx:id="minorMenuItem" mnemonicParsing="false" onAction="#goToStudentMinorPage" text="Minor" />
+                                <MenuItem fx:id="withdrawalMenuItem" mnemonicParsing="false" onAction="#goToStudentWithdrawalPage" text="Withdrawal" />
+                            </items>
+                        </Menu>
+                    </items>
+                </Menu>
+
+                <Menu mnemonicParsing="false" text="Report Card Affairs">
+                    <items>
+                        <MenuItem fx:id="temporaryScoresMenuItem" mnemonicParsing="false" onAction="#goToStudentTemporaryScoresPage" text="Temporary Scores" />
+                        <MenuItem fx:id="educationStatusMenuItem" mnemonicParsing="false" onAction="#goToStudentEducationStatusPage" text="Education Status" />
+                    </items>
+                </Menu>
+
+                <Menu mnemonicParsing="false" text="Profile">
+                    <items>
+                        <MenuItem fx:id="viewProfileMenuItem" mnemonicParsing="false" onAction="#goToStudentViewProfilePage" text="View Profile" />
+                        <MenuItem fx:id="editPasswordMenuItem" mnemonicParsing="false" onAction="#goToStudentEditPasswordPage" text="Edit Password" />
+                        <MenuItem fx:id="editProfileMenuItem" mnemonicParsing="false" onAction="#goToStudentEditProfilePage" text="Edit Profile" />
+                    </items>
+                </Menu>
+            </menus>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+        </MenuBar>
+
+        <Text layoutX="338.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Certificate Student Requests" />
+
+        <GridPane alignment="CENTER" hgap="10.0" layoutX="0.0" layoutY="80.0" maxHeight="500.0" maxWidth="700.0" minHeight="0.0" minWidth="700.0" prefHeight="300.0" prefWidth="700.0" vgap="10.0">
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+            <TableView fx:id="tableView" GridPane.columnIndex="0"
+                       GridPane.rowIndex="1">
+                <columns>
+                    <TableColumn text="Title" prefWidth="100" maxWidth="250">
+                        <cellValueFactory><PropertyValueFactory property="title" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Body" prefWidth="360" maxWidth="500">
+                        <cellValueFactory><PropertyValueFactory property="body" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Status" prefWidth="100" maxWidth="100">
+                        <cellValueFactory><PropertyValueFactory property="status" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Response" prefWidth="100" maxWidth="500">
+                        <cellValueFactory><PropertyValueFactory property="response" />
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
                 <items>
-                    <MenuItem fx:id="viewProfileMenuItem" mnemonicParsing="false" onAction="#goToStudentViewProfilePage" text="View Profile" />
-                    <MenuItem fx:id="editPasswordMenuItem" mnemonicParsing="false" onAction="#goToStudentEditPasswordPage" text="Edit Password" />
-                    <MenuItem fx:id="editProfileMenuItem" mnemonicParsing="false" onAction="#goToStudentEditProfilePage" text="Edit Profile" />
+                    <FXCollections fx:factory="observableArrayList">
+                    </FXCollections>
                 </items>
-            </Menu>
-        </menus>
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </padding>
-      </MenuBar>
-
-      <Text layoutX="338.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Certificate Student Request" />
-   </children>
+            </TableView>
+        </GridPane>
+    </children>
 </AnchorPane>
