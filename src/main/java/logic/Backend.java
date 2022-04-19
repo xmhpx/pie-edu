@@ -135,6 +135,14 @@ public class Backend {
         if(reportCards == null){
             setReportCards(new ArrayList<>());
         }
+
+        Professor.setNextId(Professor.getNextId()+professors.size());
+        Student.setNextId(Student.getNextId()+students.size());
+        Request.setNextId(Request.getNextId()+requests.size());
+        College.setNextId(College.getNextId()+colleges.size());
+        Course.setNextId(Course.getNextId()+courses.size());
+        Field.setNextId(Field.getNextId()+fields.size());
+        ReportCard.setNextId(ReportCard.getNextId()+reportCards.size());
     }
 
 
