@@ -73,7 +73,7 @@
             </padding>
         </MenuBar>
 
-        <Text layoutX="330.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Temporary Scores List" />
+        <Text layoutX="335.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Education Status" />
 
         <GridPane alignment="CENTER" hgap="10.0" layoutX="40.0" layoutY="80.0" maxHeight="500.0" maxWidth="700.0" minHeight="0.0" minWidth="700.0" prefHeight="300.0" prefWidth="700.0" vgap="10.0">
             <padding>
