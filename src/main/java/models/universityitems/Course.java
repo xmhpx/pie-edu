@@ -15,8 +15,11 @@ public class Course {
 
     protected ArrayList<Integer> studentsId;
 
+    public Course(){
+        this("", 0, 0, "", 0, 0);
+    }
 
-    Course(String name, int collegeId, int professorId, String holdingSemester, int courseId, int semesterCreditHours){
+    public Course(String name, int collegeId, int professorId, String holdingSemester, int courseId, int semesterCreditHours){
         id = nextId++;
         this.name = name;
         this.collegeId = collegeId;
