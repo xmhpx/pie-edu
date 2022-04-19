@@ -1,6 +1,7 @@
 package models.student;
 
 import logic.Backend;
+import logic.LogicCenter;
 import models.*;
 import models.universityitems.*;
 import models.universityitems.requests.Request;
@@ -51,26 +52,7 @@ public class Student extends User {
 
 
     public double getAverage(){
-        Backend backend = Backend.getInstance();
-        int numberOfScores = 0;
-        double sumOfScores = 0;
-
-        for(int reportCardId : reportCardIds){
-            ReportCard reportCard = backend.getReportCard(reportCardId);
-            if(reportCard != null){
-                if(reportCard.getStatus() == ReportCardStatus.CREDITED || reportCard.getStatus() == ReportCardStatus.FAILED){
-                    try {
-                        double score = Double.parseDouble(reportCard.getScore());
-                        sumOfScores += score;
-                        numberOfScores++;
-                    }
-                    catch (NumberFormatException ignored){}
-                }
-            }
-        }
-
-        if(numberOfScores == 0)return -1;
-        return sumOfScores/numberOfScores;
+        return LogicCenter.getAverageOfReportCardIds(reportCardIds);
     }
 
 
