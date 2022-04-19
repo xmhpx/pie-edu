@@ -23,6 +23,10 @@ public class Student extends User {
     protected ArrayList<Request> requests;
     protected ArrayList<Course> courses;
 
+    public Student(){
+        this("", "", 0, 0, "", StudentLevel.UNDERGRADUATE, "", 0);
+    }
+
 
     public Student(String password, String name, int fieldId, int collegeId, String studentNumber, StudentLevel studentLevel, String yearOfEntry, int age) {
         super(password, name, fieldId, collegeId, age);

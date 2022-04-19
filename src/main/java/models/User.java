@@ -18,6 +18,10 @@ public class User {
     protected int fieldId;
     protected int collegeId;
 
+    public User(){
+        this("", "", 0, 0, 0);
+    }
+
 
     public User(String password, String name, int fieldId, int collegeId, int age){
         this.hashedPassword = password.hashCode();
