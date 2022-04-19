@@ -40,70 +40,71 @@ public class Backend {
         builder.setPrettyPrinting();
         Gson gson = builder.create();
 
+        professors = new ArrayList<>();
+        students = new ArrayList<>();
+        requests = new ArrayList<>();
+        colleges = new ArrayList<>();
+        courses = new ArrayList<>();
+        fields = new ArrayList<>();
+        reportCards = new ArrayList<>();
 
-        BufferedReader professorReader = null;
+
         try {
-            professorReader = new BufferedReader(
+            BufferedReader professorReader = new BufferedReader(
                     new FileReader("professors.json"));
+            setProfessors(gson.fromJson(professorReader, new ArrayList<Professor>(){}.getClass()));
         }
         catch (FileNotFoundException ignored){}
 
 
-        BufferedReader studentReader = null;
         try {
-            studentReader = new BufferedReader(
+            BufferedReader studentReader = new BufferedReader(
                     new FileReader("students.json"));
+            setStudents(gson.fromJson(studentReader, new ArrayList<Student>(){}.getClass()));
         }
         catch (FileNotFoundException ignored){}
 
 
-        BufferedReader requestReader = null;
         try {
-            requestReader = new BufferedReader(
+            BufferedReader requestReader = new BufferedReader(
                     new FileReader("requests.json"));
+            setRequests(gson.fromJson(requestReader, new ArrayList<Request>(){}.getClass()));
         }
         catch (FileNotFoundException ignored){}
 
 
-        BufferedReader collegeReader = null;
         try {
-            collegeReader = new BufferedReader(
+            BufferedReader collegeReader = new BufferedReader(
                     new FileReader("colleges.json"));
+            setColleges(gson.fromJson(collegeReader, new ArrayList<College>(){}.getClass()));
         }
         catch (FileNotFoundException ignored){}
 
 
-        BufferedReader courseReader = null;
         try {
-            courseReader = new BufferedReader(
+            BufferedReader courseReader = new BufferedReader(
                     new FileReader("courses.json"));
+            setCourses(gson.fromJson(courseReader, new ArrayList<Course>(){}.getClass()));
         }
         catch (FileNotFoundException ignored){}
 
 
-        BufferedReader fieldReader = null;
         try {
-            fieldReader = new BufferedReader(
+            BufferedReader fieldReader = new BufferedReader(
                     new FileReader("fields.json"));
+            setFields(gson.fromJson(fieldReader, new ArrayList<Field>(){}.getClass()));
         }
         catch (FileNotFoundException ignored){}
 
 
-        BufferedReader reportCardReader = null;
         try {
-            reportCardReader = new BufferedReader(
+            BufferedReader reportCardReader = new BufferedReader(
                     new FileReader("reportCards.json"));
+            setReportCards(gson.fromJson(reportCardReader, new ArrayList<ReportCard>(){}.getClass()));
         }
         catch (FileNotFoundException ignored){}
 
 
-        setProfessors(gson.fromJson(professorReader, new ArrayList<Professor>(){}.getClass()));
-        setStudents(gson.fromJson(studentReader, new ArrayList<Student>(){}.getClass()));
-        setRequests(gson.fromJson(requestReader, new ArrayList<Request>(){}.getClass()));
-        setColleges(gson.fromJson(collegeReader, new ArrayList<College>(){}.getClass()));
-        setCourses(gson.fromJson(courseReader, new ArrayList<Course>(){}.getClass()));
-        setFields(gson.fromJson(fieldReader, new ArrayList<Field>(){}.getClass()));
-        setReportCards(gson.fromJson(reportCardReader, new ArrayList<ReportCard>(){}.getClass()));
 
         //TODO handle FileNotFoundException smh
     }
