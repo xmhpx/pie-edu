@@ -22,11 +22,6 @@ public class StudentCoursesListPageController extends StudentPageController {
         Backend backend = Backend.getInstance();
         ObservableList<Course> data = tableView.getItems();
         data.clear();
-        User user = LoggedInUserHolder.getUser();
-        if(user instanceof Student student) {
-            for(int courseId : student.getCourseIds()) {
-                data.add(backend.getCourse(courseId));
-            }
-        }
+        data.addAll(backend.getCourses());
     }
 }
