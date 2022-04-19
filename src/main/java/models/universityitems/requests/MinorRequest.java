@@ -1,7 +1,5 @@
 package models.universityitems.requests;
 
-import models.universityitems.Field;
-
 public class MinorRequest extends Request{
     protected int destinationCollegeId;
     protected int minorFieldId;
