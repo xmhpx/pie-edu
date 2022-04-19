@@ -110,9 +110,6 @@
               </columns>
               <items>
                   <FXCollections fx:factory="observableArrayList">
-                      <Course name="course1" collegeId="0" professorId="0" holdingSemester="14001" courseId="14001001" semesterCreditHours="3"/>
-                      <Course name="course2" collegeId="0" professorId="0" holdingSemester="14001" courseId="14001001" semesterCreditHours="3"/>
-                      <Course name="course3" collegeId="0" professorId="0" holdingSemester="14001" courseId="14001001" semesterCreditHours="3"/>
                   </FXCollections>
               </items>
           </TableView>
