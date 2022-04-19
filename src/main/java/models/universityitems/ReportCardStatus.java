@@ -1,6 +1,6 @@
 package models.universityitems;
 
-enum ReportCardStatus {
+public enum ReportCardStatus {
     TAKEN,
     WITHDRAWN,
     TEMPORARILY_SCORED,
