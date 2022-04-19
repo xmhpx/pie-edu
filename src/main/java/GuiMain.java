@@ -21,7 +21,7 @@ public class GuiMain extends Application{
         Parent root = loader.load();
 
         Scene scene = new Scene(root);
-        LoggedInUserHolder.setUser(new Student("password", "name", 0, 0, "400109221", StudentLevel.PHD_STUDENT, "1400", 17));
+        LoggedInUserHolder.setUser(new Student("password", "name", 0, 0, "400109221", StudentLevel.PHD_STUDENT, "1400", 17, "0927132036"));
         primaryStage.setScene(scene);
         primaryStage.show();
     }
