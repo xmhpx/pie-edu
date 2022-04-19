@@ -73,7 +73,7 @@
             </padding>
         </MenuBar>
 
-        <Text layoutX="338.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course List" />
+        <Text layoutX="338.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exams List" />
 
         <GridPane alignment="CENTER" hgap="10.0" layoutX="70.0" layoutY="80.0" maxHeight="500.0" maxWidth="600.0" minHeight="0.0" minWidth="600.0" prefHeight="300.0" prefWidth="600.0" vgap="10.0">
             <padding>
