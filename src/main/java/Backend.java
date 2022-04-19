@@ -182,6 +182,11 @@ public class Backend {
         return null;
     }
 
+    public void addProfessor(Professor professor){
+        if(hasProfessor(professor.getId()))return;
+        professors.add(professor);
+    }
+
     public void removeProfessor(int id){
         Professor professor = getProfessor(id);
         if(professor != null){
@@ -215,6 +220,11 @@ public class Backend {
             }
         }
         return null;
+    }
+
+    public void addStudent(Student student){
+        if(hasStudent(student.getId()))return;
+        students.add(student);
     }
 
     public void removeStudent(int id){
@@ -252,6 +262,11 @@ public class Backend {
         return null;
     }
 
+    public void addRequest(Request request){
+        if(hasRequest(request.getId()))return;
+        requests.add(request);
+    }
+
     public void removeRequest(int id){
         Request request = getRequest(id);
         if(request != null){
@@ -287,10 +302,55 @@ public class Backend {
         return null;
     }
 
+    public void addCollege(College college){
+        if(hasCollege(college.getId()))return;
+        colleges.add(college);
+    }
+
     public void removeCollege(int id){
         College college = getCollege(id);
         if(college != null){
             colleges.remove(college);
+        }
+    }
+
+
+
+    public ArrayList<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(ArrayList<Course> courses) {
+        this.courses = courses;
+    }
+
+    public boolean hasCourse(int id){
+        for(Course course : courses) {
+            if(course.getId() == id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Course getCourse(int id){
+        for(Course course : courses) {
+            if(course.getId() == id) {
+                return course;
+            }
+        }
+        return null;
+    }
+
+    public void addCourse(Course course){
+        if(hasCourse(course.getId()))return;
+        courses.add(course);
+    }
+
+    public void removeCourse(int id){
+        Course course = getCourse(id);
+        if(course != null){
+            courses.remove(course);
         }
     }
 
@@ -320,6 +380,11 @@ public class Backend {
             }
         }
         return null;
+    }
+
+    public void addField(Field field){
+        if(hasField(field.getId()))return;
+        fields.add(field);
     }
 
     public void removeField(int id){
@@ -357,45 +422,15 @@ public class Backend {
         return null;
     }
 
+    public void addReportCard(ReportCard reportCard){
+        if(hasReportCard(reportCard.getId()))return;
+        reportCards.add(reportCard);
+    }
+
     public void removeReportCard(int id){
         ReportCard reportCard = getReportCard(id);
         if(reportCard != null){
             reportCards.remove(reportCard);
-        }
-    }
-
-
-
-    public ArrayList<Course> getCourses() {
-        return courses;
-    }
-
-    public void setCourses(ArrayList<Course> courses) {
-        this.courses = courses;
-    }
-
-    public boolean hasCourse(int id){
-        for(Course course : courses) {
-            if(course.getId() == id) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public Course getCourse(int id){
-        for(Course course : courses) {
-            if(course.getId() == id) {
-                return course;
-            }
-        }
-        return null;
-    }
-
-    public void removeCourse(int id){
-        Course course = getCourse(id);
-        if(course != null){
-            courses.remove(course);
         }
     }
 
@@ -450,5 +485,29 @@ public class Backend {
         }
 
         return null;
+    }
+
+    public void add(Object obj){
+        if(obj instanceof Professor){
+            addProfessor((Professor) obj);
+        }
+        else if(obj instanceof Student){
+            addStudent((Student) obj);
+        }
+        else if(obj instanceof Request){
+            addRequest((Request) obj);
+        }
+        else if(obj instanceof College){
+            addCollege((College) obj);
+        }
+        else if(obj instanceof Course){
+            addCourse((Course) obj);
+        }
+        else if(obj instanceof Field){
+            addField((Field) obj);
+        }
+        else if(obj instanceof ReportCard){
+            addReportCard((ReportCard) obj);
+        }
     }
 }
