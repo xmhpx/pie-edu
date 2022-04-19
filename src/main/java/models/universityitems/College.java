@@ -5,11 +5,13 @@ public class College {
 
     protected int id;
     protected String name;
+    protected int deanOfFacultyId;
 
 
-    College(String name) {
+    College(String name, int deanOfFacultyId) {
         id = nextId++;
         this.name = name;
+        this.deanOfFacultyId = deanOfFacultyId;
     }
 
 
@@ -27,5 +29,14 @@ public class College {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+
+    public int getDeanOfFacultyId() {
+        return deanOfFacultyId;
+    }
+
+    public void setDeanOfFacultyId(int deanOfFacultyId) {
+        this.deanOfFacultyId = deanOfFacultyId;
     }
 }
