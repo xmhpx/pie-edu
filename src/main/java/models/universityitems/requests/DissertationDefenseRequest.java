@@ -6,7 +6,7 @@ public class DissertationDefenseRequest extends Request{
     protected String dissertationDefenceTime;
 
 
-    DissertationDefenseRequest(String title, String body, int senderId, String dissertationDefenceTime) {
+    public DissertationDefenseRequest(String title, String body, int senderId, String dissertationDefenceTime) {
         super(title, body, senderId);
         type = "DissertationDefenceTime";
 

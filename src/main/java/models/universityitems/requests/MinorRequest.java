@@ -5,7 +5,7 @@ public class MinorRequest extends Request{
     protected int minorFieldId;
 
 
-    MinorRequest(String title, String body, int senderId, int destinationCollegeId, int minorFieldId) {
+    public MinorRequest(String title, String body, int senderId, int destinationCollegeId, int minorFieldId) {
         super(title, body, senderId);
         type = "MinorRequest";
 

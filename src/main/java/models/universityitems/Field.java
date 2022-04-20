@@ -10,7 +10,7 @@ public class Field {
     protected int collegeId;
 
 
-    Field(String name, int collegeId){
+    public Field(String name, int collegeId){
         id = nextId++;
 
         setName(name);

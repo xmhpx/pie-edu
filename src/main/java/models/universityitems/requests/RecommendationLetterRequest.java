@@ -4,7 +4,7 @@ public class RecommendationLetterRequest extends Request{
     protected int professorId;
 
 
-    RecommendationLetterRequest(String title, String body, int senderId, int professorId) {
+    public RecommendationLetterRequest(String title, String body, int senderId, int professorId) {
         super(title, body, senderId);
         type = "RecommendationLetterRequest";
 

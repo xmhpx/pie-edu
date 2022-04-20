@@ -12,7 +12,7 @@ public class ReportCard {
     protected String score;
 
 
-    ReportCard(int courseId, int studentId, String score){
+    public ReportCard(int courseId, int studentId, String score){
         id = nextId++;
 
         setCourseId(courseId);

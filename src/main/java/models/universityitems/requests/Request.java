@@ -12,7 +12,7 @@ public class Request {
     protected int senderId;
 
 
-    Request(String title, String body, int senderId){
+    public Request(String title, String body, int senderId){
         id = nextId++;
 
         setTitle(title);

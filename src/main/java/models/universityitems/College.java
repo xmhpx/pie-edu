@@ -10,7 +10,7 @@ public class College {
     protected int deanOfFacultyId;
 
 
-    College(String name, int deanOfFacultyId) {
+    public College(String name, int deanOfFacultyId) {
         id = nextId++;
 
         setName(name);
