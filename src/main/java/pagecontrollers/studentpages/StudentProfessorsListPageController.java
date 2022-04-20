@@ -9,6 +9,8 @@ import models.professor.Professor;
 
 public class StudentProfessorsListPageController extends StudentPageController {
 
+    public static final String fxmlFileName = "studentProfessorsListPage.fxml";
+
     @FXML
     TableView<Professor> tableView;
 

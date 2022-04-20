@@ -9,6 +9,9 @@ import models.universityitems.requests.Request;
 import models.universityitems.requests.WithdrawalRequest;
 
 public class StudentWithdrawalPageController extends StudentPageController {
+
+    public static final String fxmlFileName = "studentWithdrawalPage.fxml";
+
     @FXML
     TableView<WithdrawalRequest> tableView;
 

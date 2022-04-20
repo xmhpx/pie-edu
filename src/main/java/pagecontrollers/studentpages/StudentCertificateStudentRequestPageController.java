@@ -18,6 +18,8 @@ import java.io.IOException;
 
 public class StudentCertificateStudentRequestPageController extends StudentPageController {
 
+    public static final String fxmlFileName = "studentCertificateStudentRequestPage.fxml";
+
     @FXML
     TableView<CertificateStudentRequest> tableView;
 
@@ -82,7 +84,7 @@ public class StudentCertificateStudentRequestPageController extends StudentPageC
 
     private void reload(){
         try {
-            goToStudentPage("studentCertificateStudentRequestPage.fxml");
+            goToStudentPage(fxmlFileName);
         } catch (IOException e) {
             error("some backend problem happened, try again");
         }

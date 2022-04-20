@@ -11,6 +11,9 @@ import models.universityitems.requests.RecommendationLetterRequest;
 import models.universityitems.requests.Request;
 
 public class StudentRecommendationLetterRequestPageController extends StudentPageController {
+
+    public static final String fxmlFileName = "studentRecommendationLetterRequestPage.fxml";
+
     @FXML
     TableView<RecommendationLetterRequest> tableView;
 

@@ -8,6 +8,8 @@ import models.universityitems.Course;
 
 public class StudentCoursesListPageController extends StudentPageController {
 
+    public static final String fxmlFileName = "studentCoursesListPage.fxml";
+
     @FXML
     TableView<Course> tableView;
 

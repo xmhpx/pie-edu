@@ -11,6 +11,9 @@ import models.universityitems.ReportCard;
 import models.universityitems.ReportCardStatus;
 
 public class StudentTemporaryScoresPageController extends StudentPageController {
+
+    public static final String fxmlFileName = "studentTemporaryScoresPage.fxml";
+
     @FXML
     TableView<ReportCard> tableView;
 

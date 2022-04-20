@@ -11,6 +11,9 @@ import models.universityitems.College;
 
 
 public class StudentViewProfilePageController extends StudentPageController {
+
+    public static final String fxmlFileName = "studentViewProfilePage.fxml";
+
     @FXML
     Text nameText;
 

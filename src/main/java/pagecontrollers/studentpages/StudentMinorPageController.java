@@ -11,6 +11,9 @@ import models.universityitems.requests.MinorRequest;
 import models.universityitems.requests.Request;
 
 public class StudentMinorPageController extends StudentPageController {
+
+    public static final String fxmlFileName = "studentMinorPage.fxml";
+
     @FXML
     TableView<MinorRequest> tableView;
 

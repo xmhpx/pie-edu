@@ -10,6 +10,9 @@ import models.student.Student;
 import models.universityitems.Course;
 
 public class StudentWeeklySchedulePageController extends StudentPageController {
+
+    public static final String fxmlFileName = "studentWeeklySchedulePage.fxml";
+
     @FXML
     TableView<Course> tableView;
 

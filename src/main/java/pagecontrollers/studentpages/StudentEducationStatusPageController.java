@@ -10,6 +10,9 @@ import models.student.Student;
 import models.universityitems.ReportCard;
 
 public class StudentEducationStatusPageController extends StudentPageController {
+
+    public static final String fxmlFileName = "studentEducationStatusPage.fxml";
+
     @FXML
     TableView<ReportCard> tableView;
 
