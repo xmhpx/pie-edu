@@ -1,15 +1,19 @@
 package models;
 
 public class Captcha {
-    private String imagePath;
-    private String correctAnswer;
+    protected static int nextId = 1;
+
+    protected int id;
+    protected String imagePath;
+    protected String correctAnswer;
 
 
     Captcha(String imagePath, String correctAnswer){
+        id = nextId++;
+
         setImagePath(imagePath);
         setCorrectAnswer(correctAnswer);
     }
-
 
 
     public boolean isCorrect(String answer){
@@ -19,6 +23,19 @@ public class Captcha {
 
 
     // getters and setters
+
+
+    public static int getNextId() {
+        return nextId;
+    }
+
+    public static void setNextId(int nextId) {
+        Captcha.nextId = nextId;
+    }
+
+    public int getId() {
+        return id;
+    }
 
 
     public String getImagePath() {
@@ -37,4 +54,5 @@ public class Captcha {
     public void setCorrectAnswer(String correctAnswer) {
         this.correctAnswer = correctAnswer;
     }
+
 }
