@@ -15,7 +15,6 @@ import models.professor.Professor;
 import models.student.Student;
 
 import java.io.IOException;
-import java.util.Random;
 
 public class LoginPageController extends BasicPageController {
 

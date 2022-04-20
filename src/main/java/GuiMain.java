@@ -18,13 +18,13 @@ public class GuiMain extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Backend backend = Backend.getInstance();
-        backend.addToStudents(new Student("password", "MohammadHossein Paydar", 1, 1, "400109221", StudentLevel.UNDERGRADUATE, "1400", 17, "0927132036"));
+//        Backend backend = Backend.getInstance();
+//        backend.addToStudents(new Student("password", "MohammadHossein Paydar", 1, 1, "400109221", StudentLevel.UNDERGRADUATE, "1400", 17, "0927132036"));
         FXMLLoader loader = new FXMLLoader(getClass().getResource("loginPage.fxml"));
         Parent root = loader.load();
 
         Scene scene = new Scene(root);
-//        LoggedInUserHolder.setUser(new Student("password", "name", 0, 0, "400109221", StudentLevel.PHD_STUDENT, "1400", 17, "0927132036"));
+//      LoggedInUserHolder.setUser(new Student("password", "name", 0, 0, "400109221", StudentLevel.PHD_STUDENT, "1400", 17, "0927132036"));
         primaryStage.setScene(scene);
         primaryStage.show();
     }

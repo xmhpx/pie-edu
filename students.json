@@ -7,7 +7,12 @@
     "studentLevel": "UNDERGRADUATE",
     "yearOfEntry": "1400",
     "reportCardIds": [],
-    "requestIds": [],
+    "requestIds": [
+      30001,
+      30002,
+      30003,
+      30004
+    ],
     "courseIds": [],
     "type": "Student",
     "age": 17,
