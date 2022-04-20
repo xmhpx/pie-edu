@@ -2,6 +2,7 @@ package logic;
 
 import com.google.gson.reflect.TypeToken;
 import models.Captcha;
+import models.User;
 import models.professor.Professor;
 import models.student.Student;
 import models.universityitems.College;
@@ -644,5 +645,21 @@ public class Backend {
         else if(id > 0){
             removeFromCaptchas(id);
         }
+    }
+
+    public User getUserObjByUserPass(String studentOrProfessorNumber, String password) {
+        for(Student student : students){
+            if(student.getStudentNumber().equals(studentOrProfessorNumber) &&
+                    student.getHashedPassword() == password.hashCode()){
+                return student;
+            }
+        }
+        for(Professor professor : professors){
+            if(professor.getProfessorNumber().equals(studentOrProfessorNumber) &&
+                    professor.getHashedPassword() == password.hashCode()){
+                return professor;
+            }
+        }
+        return null;
     }
 }

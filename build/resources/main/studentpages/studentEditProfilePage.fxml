@@ -80,7 +80,7 @@
             </image>
         </ImageView>
         <TextField fx:id="captchaTextfield" layoutX="405.0" layoutY="270.0" maxWidth="65.0" minWidth="65.0" prefHeight="26.0" prefWidth="65.0" promptText="Captcha" />
-      <TextField layoutX="300.0" layoutY="189.0" prefHeight="26.0" prefWidth="170.0" promptText="New Display Name" />
+      <TextField layoutX="300.0" layoutY="189.0" prefHeight="26.0" prefWidth="170.0" promptText="New Name" />
       <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="420.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
          <effect>
             <ImageInput />

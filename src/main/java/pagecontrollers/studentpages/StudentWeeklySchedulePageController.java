@@ -9,7 +9,7 @@ import models.User;
 import models.student.Student;
 import models.universityitems.Course;
 
-public class StudentWeeklySchedulePageController extends StudentPageController{
+public class StudentWeeklySchedulePageController extends StudentPageController {
     @FXML
     TableView<Course> tableView;
 

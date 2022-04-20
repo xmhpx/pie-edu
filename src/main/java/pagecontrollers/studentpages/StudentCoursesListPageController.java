@@ -4,12 +4,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 import logic.Backend;
-import logic.LoggedInUserHolder;
-import models.User;
-import models.student.Student;
 import models.universityitems.Course;
-
-
 
 public class StudentCoursesListPageController extends StudentPageController {
 

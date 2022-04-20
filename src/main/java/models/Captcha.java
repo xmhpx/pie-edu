@@ -8,7 +8,7 @@ public class Captcha {
     protected String correctAnswer;
 
 
-    Captcha(String imagePath, String correctAnswer){
+    public Captcha(String imagePath, String correctAnswer){
         id = nextId++;
 
         setImagePath(imagePath);
