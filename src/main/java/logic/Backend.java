@@ -14,6 +14,7 @@ import models.universityitems.requests.*;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Random;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -661,5 +662,14 @@ public class Backend {
             }
         }
         return null;
+    }
+
+    public Captcha getRandomCaptcha() {
+        Random random = new Random();
+        if(captchas.size() == 1){
+            return captchas.get(0);
+        }
+        int index = random.nextInt(captchas.size()-1);
+        return captchas.get(index);
     }
 }

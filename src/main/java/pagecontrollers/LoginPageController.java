@@ -15,6 +15,7 @@ import models.professor.Professor;
 import models.student.Student;
 
 import java.io.IOException;
+import java.util.Random;
 
 public class LoginPageController extends BasicPageController {
 
@@ -95,6 +96,6 @@ public class LoginPageController extends BasicPageController {
     }
 
     private void setRandomCaptcha(){
-        captcha = backend.getCaptcha(1);
+        captcha = backend.getRandomCaptcha();
     }
 }
