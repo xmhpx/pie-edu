@@ -59,12 +59,12 @@ public class Student extends User {
 
     // getters and setters
 
-    public static void setNextId(int nextId) {
-        Student.nextId = nextId;
-    }
-
     public static int getNextId() {
         return nextId;
+    }
+
+    public static void setNextId(int nextId) {
+        Student.nextId = nextId;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package logic;
 
 import com.google.gson.reflect.TypeToken;
+import models.Captcha;
 import models.professor.Professor;
 import models.student.Student;
 import models.universityitems.College;
@@ -33,6 +34,7 @@ public class Backend {
     private ArrayList<Course> courses;
     private ArrayList<Field> fields;
     private ArrayList<ReportCard> reportCards;
+    private ArrayList<Captcha> captchas;
 
 
     private Backend() {
@@ -114,6 +116,15 @@ public class Backend {
         catch (FileNotFoundException ignored){}
 
 
+        try {
+            BufferedReader captchaReader = new BufferedReader(
+                    new FileReader("captchas.json"));
+            Type captchaArrayListType = new TypeToken<ArrayList<Captcha>>() {}.getType();
+            setCaptchas(gson.fromJson(captchaReader, captchaArrayListType));
+        }
+        catch (FileNotFoundException ignored){}
+
+
         if(professors == null){
             setProfessors(new ArrayList<>());
         }
@@ -135,6 +146,9 @@ public class Backend {
         if(reportCards == null){
             setReportCards(new ArrayList<>());
         }
+        if(captchas == null){
+            setCaptchas(new ArrayList<>());
+        }
 
         Professor.setNextId(Professor.getNextId()+professors.size());
         Student.setNextId(Student.getNextId()+students.size());
@@ -143,6 +157,7 @@ public class Backend {
         Course.setNextId(Course.getNextId()+courses.size());
         Field.setNextId(Field.getNextId()+fields.size());
         ReportCard.setNextId(ReportCard.getNextId()+reportCards.size());
+        Captcha.setNextId(Captcha.getNextId()+captchas.size());
     }
 
 
@@ -158,6 +173,7 @@ public class Backend {
         String coursesJson = gson.toJson(courses);
         String fieldsJson = gson.toJson(fields);
         String reportCardsJson = gson.toJson(reportCards);
+        String captchasJson = gson.toJson(captchas);
 
 
         FileWriter professorWriter = new FileWriter("professors.json");
@@ -187,6 +203,10 @@ public class Backend {
         FileWriter reportCardWriter = new FileWriter("reportCards.json");
         reportCardWriter.write(reportCardsJson);
         reportCardWriter.close();
+
+        FileWriter captchaWriter = new FileWriter("captchas.json");
+        captchaWriter.write(captchasJson);
+        captchaWriter.close();
     }
 
 
@@ -473,6 +493,47 @@ public class Backend {
     }
 
 
+    public ArrayList<Captcha> getCaptchas() {
+        return captchas;
+    }
+
+    public void setCaptchas(ArrayList<Captcha> captchas) {
+        this.captchas = captchas;
+    }
+
+    public boolean hasCaptcha(int id){
+        for(Captcha captcha : captchas) {
+            if(captcha.getId() == id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Captcha getCaptcha(int id){
+        for(Captcha captcha : captchas) {
+            if(captcha.getId() == id) {
+                return captcha;
+            }
+        }
+        return null;
+    }
+
+    public void addToCaptchas(Captcha captcha){
+        if(hasCaptcha(captcha.getId()))return;
+        captchas.add(captcha);
+    }
+
+    public void removeFromCaptchas(int id){
+        Captcha captcha = getCaptcha(id);
+        if(captcha != null){
+            captchas.remove(captcha);
+        }
+    }
+
+
+
+
     public boolean hasId(int id){
         if(id > 70000){
             return hasReportCard(id);
@@ -494,6 +555,9 @@ public class Backend {
         }
         else if(id > 10000){
             return hasProfessor(id);
+        }
+        else if(id > 0){
+            return hasCaptcha(id);
         }
 
         return false;
@@ -521,6 +585,9 @@ public class Backend {
         else if(id > 10000){
             return getProfessor(id);
         }
+        else if(id > 0){
+            return getCaptcha(id);
+        }
 
         return null;
     }
@@ -547,6 +614,9 @@ public class Backend {
         else if(obj instanceof ReportCard){
             addToReportCards((ReportCard) obj);
         }
+        else if(obj instanceof Captcha){
+            addToCaptchas((Captcha) obj);
+        }
     }
 
     public void remove(int id){
@@ -570,6 +640,9 @@ public class Backend {
         }
         else if(id > 10000){
             removeFromProfessors(id);
+        }
+        else if(id > 0){
+            removeFromCaptchas(id);
         }
     }
 }
