@@ -32,13 +32,19 @@ public class StudentPageController extends LoggedInPageController {
     protected MenuItem recommendationLetterRequestMenuItem;
 
     @FXML
-    protected MenuItem minorMenuItem;
+    protected MenuItem minorRequestMenuItem;
+
+    @FXML
+    protected MenuItem dormRequestMenuItem;
+
+    @FXML
+    protected MenuItem dissertationDefenceRequestMenuItem;
 
     @FXML
     protected MenuItem certificateStudentRequestMenuItem;
 
     @FXML
-    protected MenuItem withdrawalMenuItem;
+    protected MenuItem withdrawalRequestMenuItem;
 
     @FXML
     protected MenuItem educationStatusMenuItem;
@@ -108,14 +114,24 @@ public class StudentPageController extends LoggedInPageController {
 
 
     @FXML
-    protected void goToStudentMinorPage(ActionEvent actionEvent) throws IOException {
-        goToStudentPage("studentMinorPage.fxml");
+    protected void goToStudentMinorRequestPage(ActionEvent actionEvent) throws IOException {
+        goToStudentPage("studentMinorRequestPage.fxml");
+    }
+
+    @FXML
+    protected void goToStudentDormRequestPage(ActionEvent actionEvent) throws IOException {
+        goToStudentPage("studentDormRequestPage.fxml");
+    }
+
+    @FXML
+    protected void goToStudentDissertationDefenceRequestPage(ActionEvent actionEvent) throws IOException {
+        goToStudentPage("studentDissertationDefenceRequestPage.fxml");
     }
 
 
     @FXML
-    protected void goToStudentWithdrawalPage(ActionEvent actionEvent) throws IOException {
-        goToStudentPage("studentWithdrawalPage.fxml");
+    protected void goToStudentWithdrawalRequestPage(ActionEvent actionEvent) throws IOException {
+        goToStudentPage("studentWithdrawalRequestPage.fxml");
     }
 
 
