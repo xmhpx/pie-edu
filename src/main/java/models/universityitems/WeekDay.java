@@ -1,6 +1,6 @@
 package models.universityitems;
 
-public enum WeekDays {
+public enum WeekDay {
     SUNDAY,
     MONDAY,
     TUESDAY,
