@@ -83,12 +83,6 @@ public class ProfessorPageController extends LoggedInPageController {
 
 
     @FXML
-    protected void goToProfessorWeeklySchedulePage(ActionEvent actionEvent) throws IOException {
-        goToProfessorPage("professorWeeklySchedulePage.fxml");
-    }
-
-
-    @FXML
     protected void goToProfessorExamsListPage(ActionEvent actionEvent) throws IOException {
         goToProfessorPage("professorExamsListPage.fxml");
     }
@@ -97,12 +91,6 @@ public class ProfessorPageController extends LoggedInPageController {
     @FXML
     protected void goToProfessorRecommendationLetterRequestPage(ActionEvent actionEvent) throws IOException {
         goToProfessorPage("professorRecommendationLetterRequestPage.fxml");
-    }
-
-
-    @FXML
-    protected void goToProfessorCertificateStudentRequestPage(ActionEvent actionEvent) throws IOException {
-        goToProfessorPage("professorCertificateStudentRequestPage.fxml");
     }
 
 
