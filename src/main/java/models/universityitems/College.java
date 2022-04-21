@@ -1,7 +1,5 @@
 package models.universityitems;
 
-import models.professor.Professor;
-
 public class College {
     protected static int nextId = 40001;
 

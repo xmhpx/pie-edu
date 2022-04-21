@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "id": 40001,
+    "name": "College Name 1",
+    "deanOfFacultyId": 10001
+  },
+  {
+    "id": 40002,
+    "name": "College Name 2",
+    "deanOfFacultyId": 10002
+  }
+]

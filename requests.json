@@ -34,5 +34,27 @@
     "status": "sent",
     "response": "",
     "senderId": 20001
+  },
+  {
+    "destinationCollegeId": 40001,
+    "minorFieldId": 60001,
+    "type": "MinorRequest",
+    "id": 30005,
+    "title": "cs",
+    "body": "cscs",
+    "status": "sent",
+    "response": "",
+    "senderId": 20001
+  },
+  {
+    "destinationCollegeId": 40002,
+    "minorFieldId": 60003,
+    "type": "MinorRequest",
+    "id": 30006,
+    "title": "ce",
+    "body": "",
+    "status": "sent",
+    "response": "",
+    "senderId": 20001
   }
 ]
