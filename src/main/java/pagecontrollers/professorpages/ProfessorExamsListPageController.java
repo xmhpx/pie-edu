@@ -6,6 +6,7 @@ import javafx.scene.control.TableView;
 import logic.Backend;
 import logic.LoggedInUserHolder;
 import models.User;
+import models.professor.Professor;
 import models.student.Student;
 import models.universityitems.Course;
 
@@ -25,9 +26,11 @@ public class ProfessorExamsListPageController extends ProfessorPageController {
         ObservableList<Course> data = tableView.getItems();
         data.clear();
         User user = LoggedInUserHolder.getUser();
-        if(user instanceof Student student) {
-            for(int courseId : student.getCourseIds()) {
-                data.add(backend.getCourse(courseId));
+        if(user instanceof Professor professor) {
+            for(Course course : backend.getCourses()) {
+                if(course.getProfessorId() == professor.getId()) {
+                    data.add(course);
+                }
             }
         }
 
