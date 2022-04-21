@@ -18,9 +18,9 @@ import models.universityitems.requests.Request;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class StudentMinorPageController extends StudentPageController {
+public class StudentMinorRequestPageController extends StudentPageController {
 
-    public static final String fxmlFileName = "studentMinorPage.fxml";
+    public static final String fxmlFileName = "studentMinorRequestPage.fxml";
 
     @FXML
     TableView<MinorRequest> tableView;

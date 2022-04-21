@@ -16,9 +16,9 @@ import models.universityitems.requests.WithdrawalRequest;
 
 import java.io.IOException;
 
-public class StudentWithdrawalPageController extends StudentPageController {
+public class StudentWithdrawalRequestPageController extends StudentPageController {
 
-    public static final String fxmlFileName = "studentWithdrawalPage.fxml";
+    public static final String fxmlFileName = "studentWithdrawalRequestPage.fxml";
 
     @FXML
     TableView<WithdrawalRequest> tableView;
