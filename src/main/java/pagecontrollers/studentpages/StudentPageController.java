@@ -7,6 +7,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import logic.LoggedInUserHolder;
 import pagecontrollers.BasicPageController;
 
 import java.io.IOException;
@@ -189,7 +190,8 @@ public class StudentPageController extends BasicPageController {
     }
 
     @FXML
-    protected void logOutButtonClick(MouseEvent mouseEvent) {
-
+    protected void logOutButtonClick(MouseEvent mouseEvent) throws IOException {
+        LoggedInUserHolder.setUser(null);
+        goToPage("/loginPage.fxml");
     }
 }
