@@ -21,16 +21,22 @@ public class LoginPageController extends BasicPageController {
     protected Captcha captcha;
     protected Backend backend;
 
+
     @FXML
     Text errorText;
+
     @FXML
-    TextField usernameTextfield;
+    TextField usernameTextField;
+
     @FXML
-    TextField passwordTextfield;
+    TextField passwordTextField;
+
     @FXML
     ImageView captchaImage;
+
     @FXML
-    TextField captchaTextfield;
+    TextField captchaTextField;
+
     @FXML
     Button loginButton;
 
@@ -44,11 +50,11 @@ public class LoginPageController extends BasicPageController {
 
     @FXML
     void loginButtonOnAction(ActionEvent actionEvent) {
-        String captchaText = captchaTextfield.getText();
+        String captchaText = captchaTextField.getText();
 
         if(captcha.isCorrect(captchaText)){
-            String studentOrProfessorNumber = usernameTextfield.getText();
-            String password = passwordTextfield.getText();
+            String studentOrProfessorNumber = usernameTextField.getText();
+            String password = passwordTextField.getText();
 
             User user = backend.getUserObjByUserPass(studentOrProfessorNumber, password);
 
@@ -85,13 +91,13 @@ public class LoginPageController extends BasicPageController {
 
     private void clean(){
         errorText.setText("");
-        usernameTextfield.setText("");
-        passwordTextfield.setText("");
+        usernameTextField.setText("");
+        passwordTextField.setText("");
 
         setRandomCaptcha();
         Image image = new Image(captcha.getImagePath());
         captchaImage.setImage(image);
-        captchaTextfield.setText("");
+        captchaTextField.setText("");
     }
 
     private void setRandomCaptcha(){
