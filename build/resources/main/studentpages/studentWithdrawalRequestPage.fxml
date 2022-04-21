@@ -16,7 +16,7 @@
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 
 <?import javafx.scene.control.TextField?>
-<AnchorPane fx:id="anchorPane" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #ceecec;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pagecontrollers.studentpages.StudentWithdrawalPageController">
+<AnchorPane fx:id="anchorPane" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #ceecec;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pagecontrollers.studentpages.StudentWithdrawalRequestPageController">
     <children>
 
         <MenuBar layoutX="14.0" layoutY="14.0" nodeOrientation="LEFT_TO_RIGHT">
