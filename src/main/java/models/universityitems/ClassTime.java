@@ -1,5 +1,8 @@
 package models.universityitems;
 
+import models.Time;
+import models.WeekDay;
+
 public class ClassTime {
     private WeekDay weekDay;
     private Time startTime;

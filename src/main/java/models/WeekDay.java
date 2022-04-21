@@ -1,4 +1,4 @@
-package models.universityitems;
+package models;
 
 public enum WeekDay {
     SUNDAY,

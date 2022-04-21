@@ -1,5 +1,7 @@
 package models.universityitems;
 
+import models.WeekDay;
+
 import java.util.ArrayList;
 
 public class Course {
