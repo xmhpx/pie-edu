@@ -1,16 +1,14 @@
 package models.universityitems.requests;
 
-import java.time.LocalDateTime;
-
 public class DissertationDefenseRequest extends Request{
     protected String dissertationDefenceTime;
 
 
-    public DissertationDefenseRequest(String title, String body, int senderId, String dissertationDefenceTime) {
+    public DissertationDefenseRequest(String title, String body, int senderId) {
         super(title, body, senderId);
         type = "DissertationDefenceTime";
 
-        setDissertationDefenceTime(dissertationDefenceTime);
+        setDissertationDefenceTime("N/A");
     }
 
 
