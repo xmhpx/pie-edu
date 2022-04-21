@@ -94,14 +94,6 @@
                         <cellValueFactory><PropertyValueFactory property="professorId" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn maxWidth="200" prefWidth="70" text="Status">
-                        <cellValueFactory><PropertyValueFactory property="status" />
-                        </cellValueFactory>
-                    </TableColumn>
-                    <TableColumn maxWidth="500" prefWidth="70" text="Response">
-                        <cellValueFactory><PropertyValueFactory property="response" />
-                        </cellValueFactory>
-                    </TableColumn>
                 </columns>
                 <items>
                     <FXCollections fx:factory="observableArrayList">
