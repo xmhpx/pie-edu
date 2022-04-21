@@ -31,7 +31,6 @@
 
                 <Menu mnemonicParsing="false" text="Educational Services">
                     <items>
-                        <MenuItem fx:id="weeklyScheduleMenuItem" mnemonicParsing="false" onAction="#goToProfessorWeeklySchedulePage" text="Weekly Schedule" />
                         <MenuItem fx:id="examListMenuItem" mnemonicParsing="false" onAction="#goToProfessorExamsListPage" text="Exams List" />
                         <Menu mnemonicParsing="false" text="Requests">
                             <items>
