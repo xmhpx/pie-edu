@@ -1,1 +1,30 @@
-[]
+[
+  {
+    "id": 50001,
+    "name": "bp",
+    "collegeId": 40001,
+    "professorId": 10001,
+    "holdingSemester": "14001",
+    "courseId": 1400101,
+    "semesterCreditHours": 3,
+    "examDate": "4/4",
+    "studentIds": [
+      20001
+    ],
+    "classTimes": []
+  },
+  {
+    "id": 50002,
+    "name": "ap",
+    "collegeId": 40001,
+    "professorId": 10001,
+    "holdingSemester": "14002",
+    "courseId": 1400202,
+    "semesterCreditHours": 59,
+    "examDate": "4/10",
+    "studentIds": [
+      20001
+    ],
+    "classTimes": []
+  }
+]

@@ -19,7 +19,10 @@
       30008,
       30009
     ],
-    "courseIds": [],
+    "courseIds": [
+      50001,
+      50002
+    ],
     "type": "Student",
     "age": 17,
     "hashedPassword": 1216985755,

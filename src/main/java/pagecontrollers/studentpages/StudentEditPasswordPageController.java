@@ -44,7 +44,7 @@ public class StudentEditPasswordPageController extends StudentPageController {
     @FXML
     public void initialize(){
         backend = Backend.getInstance();
-        setRandomCaptcha();
+        clean();
     }
 
 

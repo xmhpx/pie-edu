@@ -13,7 +13,6 @@
       <TextField fx:id="passwordTextField" layoutX="315.0" layoutY="159.0" maxWidth="170.0" minWidth="160.0" prefHeight="26.0" prefWidth="170.0" promptText="Password" />
       <ImageView fx:id="captchaImage" fitHeight="40.0" fitWidth="90.0" layoutX="315.0" layoutY="212.0" pickOnBounds="true">
          <image>
-            <Image url="@Captcha/Captcha-1.png" />
          </image>
       </ImageView>
       <TextField fx:id="captchaTextField" layoutX="418.0" layoutY="219.0" maxWidth="65.0" minWidth="65.0" prefHeight="26.0" prefWidth="65.0" promptText="Captcha" />

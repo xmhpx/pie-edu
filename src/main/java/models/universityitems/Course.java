@@ -14,7 +14,7 @@ public class Course {
     protected int semesterCreditHours;
     protected String examDate;
 
-    protected ArrayList<Integer> studentsId;
+    protected ArrayList<Integer> studentIds;
     protected ArrayList<ClassTime> classTimes;
 
 
@@ -31,7 +31,7 @@ public class Course {
         setHoldingSemester(holdingSemester);
         setCourseId(courseId);
         setSemesterCreditHours(semesterCreditHours);
-        setStudentsId(new ArrayList<>());
+        setStudentIds(new ArrayList<>());
         setExamDate(examDate);
         setClassTimes(new ArrayList<>());
     }
@@ -120,12 +120,12 @@ public class Course {
     }
 
 
-    public ArrayList<Integer> getStudentsId() {
-        return studentsId;
+    public ArrayList<Integer> getStudentIds() {
+        return studentIds;
     }
 
-    public void setStudentsId(ArrayList<Integer> studentsId) {
-        this.studentsId = studentsId;
+    public void setStudentIds(ArrayList<Integer> studentIds) {
+        this.studentIds = studentIds;
     }
 
 

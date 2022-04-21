@@ -44,7 +44,7 @@ public class LoginPageController extends BasicPageController {
     @FXML
     public void initialize(){
         backend = Backend.getInstance();
-        setRandomCaptcha();
+        clean();
     }
 
 

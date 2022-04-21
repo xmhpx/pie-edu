@@ -669,7 +669,7 @@ public class Backend {
         if(captchas.size() == 1){
             return captchas.get(0);
         }
-        int index = random.nextInt(captchas.size()-1);
+        int index = random.nextInt(captchas.size());
         return captchas.get(index);
     }
 }
