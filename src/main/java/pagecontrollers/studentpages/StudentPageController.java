@@ -38,7 +38,7 @@ public class StudentPageController extends LoggedInPageController {
     protected MenuItem dormRequestMenuItem;
 
     @FXML
-    protected MenuItem dissertationDefenceRequestMenuItem;
+    protected MenuItem dissertationDefenseRequestMenuItem;
 
     @FXML
     protected MenuItem certificateStudentRequestMenuItem;
@@ -124,8 +124,8 @@ public class StudentPageController extends LoggedInPageController {
     }
 
     @FXML
-    protected void goToStudentDissertationDefenceRequestPage(ActionEvent actionEvent) throws IOException {
-        goToStudentPage("studentDissertationDefenceRequestPage.fxml");
+    protected void goToStudentDissertationDefenseRequestPage(ActionEvent actionEvent) throws IOException {
+        goToStudentPage("studentDissertationDefenseRequestPage.fxml");
     }
 
 

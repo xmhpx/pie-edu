@@ -44,7 +44,7 @@
                                 <MenuItem fx:id="certificateStudentRequestMenuItem" mnemonicParsing="false" onAction="#goToStudentCertificateStudentRequestPage" text="Certificate Student Request" />
                                 <MenuItem fx:id="minorRequestMenuItem" mnemonicParsing="false" onAction="#goToStudentMinorRequestPage" text="Minor Request" />
                                 <MenuItem fx:id="dormRequestMenuItem" mnemonicParsing="false" onAction="#goToStudentDormRequestPage" text="Dorm Request" />
-                                <MenuItem fx:id="dissertationDefenceRequestMenuItem" mnemonicParsing="false" onAction="#goToStudentDissertationDefenceRequestPage" text="Dissertation Defence Request" />
+                                <MenuItem fx:id="dissertationDefenseRequestMenuItem" mnemonicParsing="false" onAction="#goToStudentDissertationDefenseRequestPage" text="Dissertation Defense Request" />
                                 <MenuItem fx:id="withdrawalRequestMenuItem" mnemonicParsing="false" onAction="#goToStudentWithdrawalRequestPage" text="Withdrawal Request" />
                             </items>
                         </Menu>
@@ -77,7 +77,7 @@
         <Text fx:id="currentTimeText" layoutX="14.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentTime" wrappingWidth="78.13671875" />
         <Text fx:id="lastTimeLoggedInText" layoutX="208.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Time Logged In : LastTimeLoggedIn" />
 
-        <Text layoutX="338.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Withdrawal Requests" />
+        <Text layoutX="338.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dorm Requests" />
 
         <GridPane alignment="CENTER" hgap="10.0" layoutX="0.0" layoutY="80.0" maxHeight="500.0" maxWidth="700.0" minHeight="0.0" minWidth="700.0" prefHeight="300.0" prefWidth="700.0" vgap="10.0">
             <padding>

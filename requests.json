@@ -103,5 +103,25 @@
     "status": "sent",
     "response": "",
     "senderId": 20001
+  },
+  {
+    "dissertationDefenseTime": "N/A",
+    "type": "DissertationDefenseRequest",
+    "id": 30012,
+    "title": "title1",
+    "body": "body",
+    "status": "sent",
+    "response": "",
+    "senderId": 20001
+  },
+  {
+    "dissertationDefenseTime": "N/A",
+    "type": "DissertationDefenseRequest",
+    "id": 30013,
+    "title": "title",
+    "body": "body",
+    "status": "sent",
+    "response": "",
+    "senderId": 20001
   }
 ]

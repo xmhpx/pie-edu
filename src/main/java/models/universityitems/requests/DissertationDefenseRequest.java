@@ -1,25 +1,25 @@
 package models.universityitems.requests;
 
 public class DissertationDefenseRequest extends Request{
-    protected String dissertationDefenceTime;
+    protected String dissertationDefenseTime;
 
 
     public DissertationDefenseRequest(String title, String body, int senderId) {
         super(title, body, senderId);
-        type = "DissertationDefenceTime";
+        type = "DissertationDefenseRequest";
 
-        setDissertationDefenceTime("N/A");
+        setDissertationDefenseTime("N/A");
     }
 
 
 
     // getters and setters
 
-    public String getDissertationDefenceTime() {
-        return dissertationDefenceTime;
+    public String getDissertationDefenseTime() {
+        return dissertationDefenseTime;
     }
 
-    public void setDissertationDefenceTime(String dissertationDefenceTime) {
-        this.dissertationDefenceTime = dissertationDefenceTime;
+    public void setDissertationDefenseTime(String dissertationDefenseTime) {
+        this.dissertationDefenseTime = dissertationDefenseTime;
     }
 }
