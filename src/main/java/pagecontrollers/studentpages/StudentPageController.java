@@ -8,6 +8,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import logic.LoggedInUserHolder;
+import models.User;
+import models.student.Student;
+import models.student.StudentLevel;
 import pagecontrollers.BasicPageController;
 import pagecontrollers.LoggedInPageController;
 
@@ -68,6 +71,12 @@ public class StudentPageController extends LoggedInPageController {
     @Override
     public void initialize(){
         super.initialize();
+        Student student = (Student) LoggedInUserHolder.getUser();
+        StudentLevel studentLevel = student.getStudentLevel();
+        certificateStudentRequestMenuItem.setVisible(studentLevel != StudentLevel.PHD_STUDENT);
+        minorRequestMenuItem.setVisible(studentLevel == StudentLevel.UNDERGRADUATE);
+        dormRequestMenuItem.setVisible(studentLevel == StudentLevel.MASTERS_STUDENT);
+        dissertationDefenseRequestMenuItem.setVisible(studentLevel == StudentLevel.PHD_STUDENT);
     }
 
 
