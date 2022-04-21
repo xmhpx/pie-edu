@@ -8,5 +8,20 @@
     "id": 2,
     "imagePath": "C:\\Users\\Hami\\IdeaProjects\\edu\\src\\main\\resources\\Captcha\\Captcha-2.png",
     "correctAnswer": "3551"
+  },
+  {
+    "id": 3,
+    "imagePath": "C:\\Users\\Hami\\IdeaProjects\\edu\\src\\main\\resources\\Captcha\\Captcha-3.png",
+    "correctAnswer": "1986"
+  },
+  {
+    "id": 4,
+    "imagePath": "C:\\Users\\Hami\\IdeaProjects\\edu\\src\\main\\resources\\Captcha\\Captcha-4.png",
+    "correctAnswer": "3820"
+  },
+  {
+    "id": 5,
+    "imagePath": "C:\\Users\\Hami\\IdeaProjects\\edu\\src\\main\\resources\\Captcha\\Captcha-5.png",
+    "correctAnswer": "4644"
   }
 ]
