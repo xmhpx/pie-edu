@@ -36,14 +36,16 @@ public class LoggedInPageController extends BasicPageController {
 
 
     @FXML
+    @Override
     public void initialize() {
 
-//        lastTimeLoggedInText.setText("Last Time Logged In : " + student.getLastVisit());
 
         User user = LoggedInUserHolder.getUser();
+
 //        UIProfileImageView.setImage(new Image(user.getProfileImagePath()));
         UINameText.setText(user.getName());
         UIEmailText.setText(user.getEmail());
+        lastTimeLoggedInText.setText("Last Time Logged In : " + user.getLastVisit());
 
         Thread clock = new Thread() {
             public void run() {
@@ -72,7 +74,7 @@ public class LoggedInPageController extends BasicPageController {
 
     @FXML
     protected void logOutButtonClick(MouseEvent mouseEvent) throws IOException {
-        LoggedInUserHolder.setUser(null);
+        LoggedInUserHolder.logout();
         goToPage("/loginPage.fxml");
     }
 }

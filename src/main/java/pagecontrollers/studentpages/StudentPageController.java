@@ -59,6 +59,11 @@ public class StudentPageController extends LoggedInPageController {
     protected MenuItem homeMenuItem;
 
 
+    @Override
+    public void initialize(){
+        super.initialize();
+    }
+
 
     @FXML
     protected void goToStudentHomePage(ActionEvent actionEvent) throws IOException {

@@ -43,6 +43,7 @@ public class LoginPageController extends BasicPageController {
 
     @FXML
     public void initialize(){
+        super.initialize();
         backend = Backend.getInstance();
         clean();
     }

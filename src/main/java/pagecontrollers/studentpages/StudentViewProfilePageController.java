@@ -50,6 +50,7 @@ public class StudentViewProfilePageController extends StudentPageController {
 
     @Override
     public void initialize(){
+        super.initialize();
         Backend backend = Backend.getInstance();
         User user = LoggedInUserHolder.getUser();
         if(user instanceof Student student) {

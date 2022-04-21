@@ -16,6 +16,11 @@ public class BasicPageController {
     protected AnchorPane anchorPane;
 
 
+    public void initialize(){
+
+    }
+
+
     protected void goToStudentPage(String str) throws IOException {
         goToPage("/studentpages/"+str);
     }

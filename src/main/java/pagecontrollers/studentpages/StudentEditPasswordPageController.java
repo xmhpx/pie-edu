@@ -43,6 +43,7 @@ public class StudentEditPasswordPageController extends StudentPageController {
 
     @FXML
     public void initialize(){
+        super.initialize();
         backend = Backend.getInstance();
         clean();
     }
