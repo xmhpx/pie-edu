@@ -47,6 +47,7 @@ public class StudentViewProfilePageController extends StudentPageController {
     @FXML
     Text educationStatusText;
 
+
     @Override
     public void initialize(){
         Backend backend = Backend.getInstance();
@@ -62,7 +63,7 @@ public class StudentViewProfilePageController extends StudentPageController {
 
             emailText.setText("Email : " + student.getEmail());
 
-            averageScoreText.setText(String.valueOf(student.getAverage()));
+            averageScoreText.setText("Average Score : " + student.getAverage());
 
             College college = backend.getCollege(student.getCollegeId());
             String collegeName = "None";
