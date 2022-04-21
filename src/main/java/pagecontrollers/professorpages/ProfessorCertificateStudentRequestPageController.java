@@ -16,7 +16,7 @@ import models.universityitems.requests.Request;
 
 import java.io.IOException;
 
-public class ProfessorCertificateProfessorRequestPageController extends ProfessorPageController {
+public class ProfessorCertificateStudentRequestPageController extends ProfessorPageController {
 
     public static final String fxmlFileName = "professorCertificateStudentRequestPage.fxml";
 
