@@ -4,8 +4,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import logic.LoggedInUserHolder;
 
 import java.io.IOException;
 
@@ -30,5 +32,11 @@ public class BasicPageController {
         Stage primaryStage = (Stage) anchorPane.getScene().getWindow();
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+
+    @FXML
+    protected void logOutButtonClick(MouseEvent mouseEvent) throws IOException {
+        LoggedInUserHolder.setUser(null);
+        goToPage("/loginPage.fxml");
     }
 }

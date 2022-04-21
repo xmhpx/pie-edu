@@ -188,10 +188,4 @@ public class StudentPageController extends BasicPageController {
     protected void goToStudentEditProfilePage(ActionEvent actionEvent) throws IOException {
         goToStudentPage("studentEditProfilePage.fxml");
     }
-
-    @FXML
-    protected void logOutButtonClick(MouseEvent mouseEvent) throws IOException {
-        LoggedInUserHolder.setUser(null);
-        goToPage("/loginPage.fxml");
-    }
 }
