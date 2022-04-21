@@ -72,7 +72,7 @@ public class StudentEditPasswordPageController extends StudentPageController {
             }
             else{
                 user.setPassword(newPassword);
-                error("password changed");
+                error("password has been changed");
             }
         }
         else {
