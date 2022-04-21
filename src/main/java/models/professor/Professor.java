@@ -9,6 +9,7 @@ public class Professor extends User {
     protected String professorNumber;
     protected ProfessorLevel professorLevel;
     protected ProfessorType professorType;
+    protected String roomNumber;
 
 
     public Professor(){
@@ -25,6 +26,7 @@ public class Professor extends User {
         setProfessorNumber(professorNumber);
         setProfessorLevel(professorLevel);
         setProfessorType(professorType);
+        setRoomNumber("11");
     }
 
 
@@ -70,5 +72,14 @@ public class Professor extends User {
 
     public void setProfessorType(ProfessorType professorType) {
         this.professorType = professorType;
+    }
+
+
+    public String getRoomNumber() {
+        return roomNumber;
+    }
+
+    public void setRoomNumber(String roomNumber) {
+        this.roomNumber = roomNumber;
     }
 }
