@@ -9,9 +9,9 @@
 
 <AnchorPane fx:id="anchorPane" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #ceecec;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pagecontrollers.LoginPageController">
    <children>
-      <Button fx:id="loginButton" layoutX="426.0" layoutY="267.0" mnemonicParsing="false" onAction="#loginButtonOnAction" text="Log In" />
       <TextField fx:id="usernameTextfield" layoutX="315.0" layoutY="121.0" maxWidth="170.0" minWidth="160.0" prefHeight="26.0" prefWidth="170.0" promptText="Username" />
       <TextField fx:id="passwordTextfield" layoutX="315.0" layoutY="159.0" maxWidth="170.0" minWidth="160.0" prefHeight="26.0" prefWidth="170.0" promptText="Password" />
+      <Button fx:id="loginButton" layoutX="426.0" layoutY="267.0" mnemonicParsing="false" onAction="#loginButtonOnAction" text="Log In" />
       <Text fx:id="errorText" fill="RED" layoutX="220.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" />
       <ImageView fx:id="captchaImage" fitHeight="40.0" fitWidth="90.0" layoutX="315.0" layoutY="212.0" pickOnBounds="true">
          <image>
