@@ -8,6 +8,7 @@ import logic.LoggedInUserHolder;
 import models.User;
 import models.student.Student;
 import models.universityitems.ReportCard;
+import models.universityitems.ReportCardStatus;
 
 public class StudentEducationStatusPageController extends StudentPageController {
 
@@ -26,7 +27,10 @@ public class StudentEducationStatusPageController extends StudentPageController 
         if(user instanceof Student student) {
             for(int reportCardId : student.getReportCardIds()) {
                 ReportCard reportCard = backend.getReportCard(reportCardId);
-                data.add(reportCard);
+                ReportCardStatus status = reportCard.getStatus();
+                if (status != ReportCardStatus.TAKEN && status != ReportCardStatus.TEMPORARILY_SCORED) {
+                    data.add(reportCard);
+                }
             }
         }
     }
