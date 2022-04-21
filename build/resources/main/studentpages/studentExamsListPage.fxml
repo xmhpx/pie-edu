@@ -86,7 +86,7 @@
                         <cellValueFactory><PropertyValueFactory property="name" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn text="Holding Semester" prefWidth="150" maxWidth="150">
+                    <TableColumn text="Holding Semester" prefWidth="100" maxWidth="150">
                         <cellValueFactory><PropertyValueFactory property="holdingSemester" />
                         </cellValueFactory>
                     </TableColumn>

@@ -74,37 +74,40 @@
         <Text fx:id="lastTimeLoggedInText" layoutX="208.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Time Logged In : LastTimeLoggedIn" />
 
         <Text layoutX="338.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="will be a weekly plan" />
-<!--        TODO-->
 
-        <GridPane alignment="CENTER" hgap="10.0" layoutX="40.0" layoutY="80.0" maxHeight="500.0" maxWidth="700.0" minHeight="0.0" minWidth="700.0" prefHeight="300.0" prefWidth="700.0" vgap="10.0">
+        <GridPane alignment="CENTER" hgap="10.0" layoutX="20.0" layoutY="80.0" maxHeight="500.0" maxWidth="750.0" minHeight="0.0" minWidth="750.0" prefHeight="300.0" prefWidth="750.0" vgap="10.0">
             <padding>
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </padding>
             <TableView fx:id="tableView" GridPane.columnIndex="0"
                        GridPane.rowIndex="1">
                 <columns>
-                    <TableColumn text="Course Name" prefWidth="150" maxWidth="250">
-                        <cellValueFactory><PropertyValueFactory property="name" />
+                    <TableColumn text="Sunday" prefWidth="100" maxWidth="150">
+                        <cellValueFactory><PropertyValueFactory property="#sunday" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn text="College Id" prefWidth="100" maxWidth="100">
-                        <cellValueFactory><PropertyValueFactory property="collegeId" />
+                    <TableColumn text="Monday" prefWidth="100" maxWidth="150">
+                        <cellValueFactory><PropertyValueFactory property="#monday" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn text="Professor Id" prefWidth="100" maxWidth="100">
-                        <cellValueFactory><PropertyValueFactory property="professorId" />
+                    <TableColumn text="Tuesday" prefWidth="100" maxWidth="150">
+                        <cellValueFactory><PropertyValueFactory property="#tuesday" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn text="Holding Semester" prefWidth="150" maxWidth="150">
-                        <cellValueFactory><PropertyValueFactory property="holdingSemester" />
+                    <TableColumn text="Wednesday" prefWidth="100" maxWidth="150">
+                        <cellValueFactory><PropertyValueFactory property="#wednesday" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn text="SCH" prefWidth="40" maxWidth="40">
-                        <cellValueFactory><PropertyValueFactory property="semesterCreditHours" />
+                    <TableColumn text="Thursday" prefWidth="100" maxWidth="150">
+                        <cellValueFactory><PropertyValueFactory property="#thursday" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn text="Exam Date" prefWidth="70" maxWidth="70">
-                        <cellValueFactory><PropertyValueFactory property="examDate" />
+                    <TableColumn text="Friday" prefWidth="100" maxWidth="150">
+                        <cellValueFactory><PropertyValueFactory property="#friday" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Saturday" prefWidth="100" maxWidth="150">
+                        <cellValueFactory><PropertyValueFactory property="#saturday" />
                         </cellValueFactory>
                     </TableColumn>
                 </columns>

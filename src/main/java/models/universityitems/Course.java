@@ -1,5 +1,6 @@
 package models.universityitems;
 
+import models.ClassTime;
 import models.WeekDay;
 
 import java.util.ArrayList;
