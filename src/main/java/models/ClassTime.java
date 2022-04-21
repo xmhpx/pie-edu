@@ -1,25 +1,24 @@
-package models.universityitems;
-
-import models.Time;
-import models.WeekDay;
+package models;
 
 public class ClassTime {
     private WeekDay weekDay;
     private Time startTime;
     private Time endTime;
+    private int courseId;
 
 
-    public ClassTime(WeekDay weekDay, Time startTime, Time endTime){
+    public ClassTime(WeekDay weekDay, Time startTime, Time endTime, int courseId){
         setWeekDay(weekDay);
         setStartTime(startTime);
         setEndTime(endTime);
+        setCourseId(courseId);
     }
 
 
 
     @Override
     public String toString(){
-        return "at "+weekDay+" from "+startTime+"to"+endTime;
+        return "course "+courseId+" at "+weekDay+" from "+startTime+" to "+endTime;
     }
 
 
@@ -51,5 +50,14 @@ public class ClassTime {
 
     public void setEndTime(Time endTime) {
         this.endTime = endTime;
+    }
+
+
+    public int getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
     }
 }
