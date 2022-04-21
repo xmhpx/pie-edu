@@ -25,14 +25,15 @@
     ],
     "courseIds": [
       50001,
-      50002
+      50002,
+      50003
     ],
     "type": "Student",
     "age": 17,
     "hashedPassword": 1216985755,
     "nationalIdNumber": "0927132036",
     "lastVisit": "",
-    "name": "new name",
+    "name": "MohammadHossein Paydar",
     "email": "mhppaydar@gmail.com",
     "phoneNumber": "09944875387",
     "homeAddress": "Mashhad",

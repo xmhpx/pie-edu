@@ -66,7 +66,7 @@ public class LoginPageController extends BasicPageController {
                 try {
                     goToStudentPage("studentHomePage.fxml");
                 } catch (IOException e) {
-                    error("some backend problem happened, try again");
+                    error("some AAAAAAA backend problem happened, try again");
                 }
             }
             else if(user instanceof Professor){
@@ -75,7 +75,7 @@ public class LoginPageController extends BasicPageController {
 //                try {
 //                    goToStudentPage("HomePage.fxml");
 //                } catch (IOException e) {
-                    error("some backend problem happened, try again");
+                    error("some BBBBBB backend problem happened, try again");
 //                }
             }
         }

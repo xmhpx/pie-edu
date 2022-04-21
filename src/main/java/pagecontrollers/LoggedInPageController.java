@@ -41,7 +41,7 @@ public class LoggedInPageController extends BasicPageController {
 //        lastTimeLoggedInText.setText("Last Time Logged In : " + student.getLastVisit());
 
         User user = LoggedInUserHolder.getUser();
-        UIProfileImageView.setImage(new Image(user.getProfileImagePath()));
+//        UIProfileImageView.setImage(new Image(user.getProfileImagePath()));
         UINameText.setText(user.getName());
         UIEmailText.setText(user.getEmail());
 
