@@ -6,6 +6,7 @@ import javafx.scene.control.TableView;
 import logic.Backend;
 import logic.LoggedInUserHolder;
 import models.User;
+import models.WeeklySchedule;
 import models.student.Student;
 import models.universityitems.Course;
 
@@ -14,19 +15,18 @@ public class StudentWeeklySchedulePageController extends StudentPageController {
     public static final String fxmlFileName = "studentWeeklySchedulePage.fxml";
 
     @FXML
-    TableView<Course> tableView;
+    TableView<WeeklySchedule> tableView;
 
     @Override
     public void initialize(){
         super.initialize();
         Backend backend = Backend.getInstance();
-        ObservableList<Course> data = tableView.getItems();
+        ObservableList<WeeklySchedule> data = tableView.getItems();
         data.clear();
         User user = LoggedInUserHolder.getUser();
         if(user instanceof Student student) {
-            for(int courseId : student.getCourseIds()) {
-                data.add(backend.getCourse(courseId));
-            }
+            WeeklySchedule weeklySchedule = new WeeklySchedule(student);
+            data.add(weeklySchedule);
         }
     }
 }

@@ -1,5 +1,9 @@
 package models;
 
+import logic.Backend;
+import models.student.Student;
+import models.universityitems.Course;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -12,42 +16,65 @@ public class WeeklySchedule {
         for(WeekDay weekDay : WeekDay.values()){
             weekDayToArrayListHashMap.put(weekDay, new ArrayList<>());
         }
+    }
 
+
+    public WeeklySchedule(Student student){
+        this();
+        for(int courseId : student.getCourseIds()){
+            if(Backend.getInstance().hasCourse(courseId)){
+                addCourse(Backend.getInstance().getCourse(courseId));
+            }
+        }
     }
 
 
 
-    public String sunday(){
+    public void addCourse(Course course){
+        for(ClassTime classTime : course.getClassTimes()){
+            weekDayToArrayListHashMap.get(classTime.getWeekDay()).add(classTime);
+        }
+    }
+
+    public void addCourses(ArrayList<Course> courses){
+        for(Course course : courses){
+            addCourse(course);
+        }
+    }
+
+
+
+    public String getSunday(){
         return getWeekDayString(WeekDay.SUNDAY);
     }
 
 
-    public String monday(){
+    public String getMonday(){
         return getWeekDayString(WeekDay.MONDAY);
     }
 
 
-    public String tuesday(){
+    public String getTuesday(){
         return getWeekDayString(WeekDay.TUESDAY);
     }
 
 
-    public String wednesday(){
+    public String getWednesday(){
         return getWeekDayString(WeekDay.WEDNESDAY);
     }
 
 
-    public String thursday(){
+    public String getThursday(){
         return getWeekDayString(WeekDay.THURSDAY);
     }
 
 
-    public String friday(){
+    public String getFriday(){
         return getWeekDayString(WeekDay.FRIDAY);
     }
 
 
-    public String saturday(){
+    public String getSaturday(){
         return getWeekDayString(WeekDay.SATURDAY);
     }
 
