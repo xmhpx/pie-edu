@@ -21,6 +21,9 @@ public class ClassTime {
         return "course "+courseId+" at "+weekDay+" from "+startTime+" to "+endTime;
     }
 
+    public String toStringWithoutWeekday(){
+        return "course "+courseId+" from "+startTime+" to "+endTime;
+    }
 
 
     // getters and setters

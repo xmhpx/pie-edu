@@ -81,9 +81,9 @@ public class WeeklySchedule {
 
     public String getWeekDayString(WeekDay weekDay){
         ArrayList<ClassTime> classTimes = weekDayToArrayListHashMap.get(weekDay);
-        StringBuilder result = new StringBuilder("\n");
+        StringBuilder result = new StringBuilder();
         for(ClassTime classTime : classTimes){
-            result.append(classTime).append("\n");
+            result.append(classTime.toStringWithoutWeekday()).append("\n");
         }
         return result.toString();
     }

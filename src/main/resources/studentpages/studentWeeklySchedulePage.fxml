@@ -82,31 +82,31 @@
             <TableView fx:id="tableView" GridPane.columnIndex="0"
                        GridPane.rowIndex="1">
                 <columns>
-                    <TableColumn text="Sunday" prefWidth="90" maxWidth="150">
+                    <TableColumn text="Sunday" prefWidth="90" maxWidth="250">
                         <cellValueFactory><PropertyValueFactory property="sunday" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn text="Monday" prefWidth="90" maxWidth="150">
+                    <TableColumn text="Monday" prefWidth="90" maxWidth="250">
                         <cellValueFactory><PropertyValueFactory property="monday" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn text="Tuesday" prefWidth="90" maxWidth="150">
+                    <TableColumn text="Tuesday" prefWidth="90" maxWidth="250">
                         <cellValueFactory><PropertyValueFactory property="tuesday" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn text="Wednesday" prefWidth="90" maxWidth="150">
+                    <TableColumn text="Wednesday" prefWidth="90" maxWidth="250">
                         <cellValueFactory><PropertyValueFactory property="wednesday" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn text="Thursday" prefWidth="90" maxWidth="150">
+                    <TableColumn text="Thursday" prefWidth="90" maxWidth="250">
                         <cellValueFactory><PropertyValueFactory property="thursday" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn text="Friday" prefWidth="90" maxWidth="150">
+                    <TableColumn text="Friday" prefWidth="90" maxWidth="250">
                         <cellValueFactory><PropertyValueFactory property="friday" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn text="Saturday" prefWidth="90" maxWidth="150">
+                    <TableColumn text="Saturday" prefWidth="90" maxWidth="250">
                         <cellValueFactory><PropertyValueFactory property="saturday" />
                         </cellValueFactory>
                     </TableColumn>
