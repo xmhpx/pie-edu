@@ -7,7 +7,11 @@
     "educationStatus": "STUDYING",
     "studentLevel": "UNDERGRADUATE",
     "yearOfEntry": "1400",
-    "reportCardIds": [],
+    "reportCardIds": [
+      70001,
+      70002,
+      70003
+    ],
     "requestIds": [
       30001,
       30002,

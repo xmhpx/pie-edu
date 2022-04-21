@@ -1,1 +1,23 @@
-[]
+[
+  {
+    "id": 70001,
+    "courseId": 50001,
+    "studentId": 20001,
+    "status": "CREDITED",
+    "score": "20"
+  },
+  {
+    "id": 70002,
+    "courseId": 50002,
+    "studentId": 20001,
+    "status": "TEMPORARILY_SCORED",
+    "score": "20"
+  },
+  {
+    "id": 70003,
+    "courseId": 50003,
+    "studentId": 20001,
+    "status": "WITHDRAWN",
+    "score": "20"
+  }
+]

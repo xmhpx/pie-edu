@@ -52,5 +52,32 @@
         "courseId": 50002
       }
     ]
+  },
+  {
+    "id": 50003,
+    "name": "literature",
+    "collegeId": 40001,
+    "professorId": 10001,
+    "holdingSemester": "14001",
+    "courseId": 1400103,
+    "semesterCreditHours": 2,
+    "examDate": "2/5",
+    "studentIds": [
+      20001
+    ],
+    "classTimes": [
+      {
+        "weekDay": "MONDAY",
+        "startTime": {
+          "hour": 15,
+          "minute": 0
+        },
+        "endTime": {
+          "hour": 16,
+          "minute": 30
+        },
+        "courseId": 50003
+      }
+    ]
   }
 ]
