@@ -100,11 +100,6 @@ public class ProfessorPageController extends LoggedInPageController {
     }
 
     @FXML
-    protected void goToProfessorDormRequestPage(ActionEvent actionEvent) throws IOException {
-        goToProfessorPage("professorDormRequestPage.fxml");
-    }
-
-    @FXML
     protected void goToProfessorDissertationDefenseRequestPage(ActionEvent actionEvent) throws IOException {
         goToProfessorPage("professorDissertationDefenseRequestPage.fxml");
     }

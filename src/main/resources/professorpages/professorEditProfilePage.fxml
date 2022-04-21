@@ -36,7 +36,6 @@
                             <items>
                                 <MenuItem fx:id="recommendationLetterRequestMenuItem" mnemonicParsing="false" onAction="#goToProfessorRecommendationLetterRequestPage" text="Recommendation Letter Request" />
                                 <MenuItem fx:id="minorRequestMenuItem" mnemonicParsing="false" onAction="#goToProfessorMinorRequestPage" text="Minor Request" />
-                                <MenuItem fx:id="dormRequestMenuItem" mnemonicParsing="false" onAction="#goToProfessorDormRequestPage" text="Dorm Request" />
                                 <MenuItem fx:id="dissertationDefenseRequestMenuItem" mnemonicParsing="false" onAction="#goToProfessorDissertationDefenseRequestPage" text="Dissertation Defense Request" />
                                 <MenuItem fx:id="withdrawalRequestMenuItem" mnemonicParsing="false" onAction="#goToProfessorWithdrawalRequestPage" text="Withdrawal Request" />
                             </items>
