@@ -1,2 +1,11 @@
-package models.universityitems;public enum WeekDays {
+package models.universityitems;
+
+public enum WeekDays {
+    SUNDAY,
+    MONDAY,
+    TUESDAY,
+    WEDNESDAY,
+    THURSDAY,
+    FRIDAY,
+    SATURDAY
 }
