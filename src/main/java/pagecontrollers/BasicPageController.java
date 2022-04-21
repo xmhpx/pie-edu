@@ -25,6 +25,10 @@ public class BasicPageController {
         goToPage("/studentpages/"+str);
     }
 
+    protected void goToProfessorPage(String str) throws IOException {
+        goToPage("/professorpages/"+str);
+    }
+
     protected void goToPage(String str) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(str));
         Parent root = loader.load();

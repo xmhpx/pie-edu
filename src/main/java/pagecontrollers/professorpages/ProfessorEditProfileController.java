@@ -1,4 +1,4 @@
-package pagecontrollers;
+package pagecontrollers.professorpages;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,22 +11,22 @@ import logic.Backend;
 import logic.LoggedInUserHolder;
 import models.Captcha;
 import models.User;
-import models.professor.Professor;
-import models.student.Student;
 
-import java.io.IOException;
+public class ProfessorEditProfileController extends ProfessorPageController {
 
-public class LoginPageController extends BasicPageController {
+    public static final String fxmlFileName = "professorEditProfile.fxml";
 
     protected Captcha captcha;
     protected Backend backend;
-
 
     @FXML
     Text errorText;
 
     @FXML
-    TextField usernameTextField;
+    ImageView newProfileImageImageView;
+
+    @FXML
+    TextField newNameTextField;
 
     @FXML
     TextField passwordTextField;
@@ -38,7 +38,7 @@ public class LoginPageController extends BasicPageController {
     TextField captchaTextField;
 
     @FXML
-    Button loginButton;
+    Button applyButton;
 
 
     @FXML
@@ -50,33 +50,27 @@ public class LoginPageController extends BasicPageController {
 
 
     @FXML
-    void loginButtonOnAction(ActionEvent actionEvent) {
+    void applyButtonOnAction(ActionEvent actionEvent) {
         String captchaText = captchaTextField.getText();
 
         if(captcha.isCorrect(captchaText)){
-            String studentOrProfessorNumber = usernameTextField.getText();
+            String newName = newNameTextField.getText();
             String password = passwordTextField.getText();
 
-            User user = backend.getUserObjByUserPass(studentOrProfessorNumber, password);
+            User user = LoggedInUserHolder.getUser();
 
-            if(user == null){
-                error("username and password don't match");
+            if(newName.length() < 5){
+                error("new name is too short");
             }
-            else if(user instanceof Student){
-                LoggedInUserHolder.setUser(user);
-                try {
-                    goToStudentPage("professorHomePage.fxml");
-                } catch (IOException e) {
-                    error("some AAAAAAA backend problem happened, try again");
-                }
+            else if(newName.length() > 30){
+                error("new name is too long");
             }
-            else if(user instanceof Professor){
-                LoggedInUserHolder.setUser(user);
-                try {
-                    goToProfessorPage("professorHomePage.fxml");
-                } catch (IOException e) {
-                    error("some BBBBBB backend problem happened, try again");
-                }
+            else if(user.getHashedPassword() != password.hashCode()){
+                error("incorrect password");
+            }
+            else{
+                user.setName(newName);
+                error("name has been changed");
             }
         }
         else {
@@ -91,7 +85,7 @@ public class LoginPageController extends BasicPageController {
 
     private void clean(){
         errorText.setText("");
-        usernameTextField.setText("");
+        newNameTextField.setText("");
         passwordTextField.setText("");
 
         setRandomCaptcha();
@@ -103,4 +97,5 @@ public class LoginPageController extends BasicPageController {
     private void setRandomCaptcha(){
         captcha = backend.getRandomCaptcha();
     }
+
 }
