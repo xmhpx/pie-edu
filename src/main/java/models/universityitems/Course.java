@@ -15,6 +15,8 @@ public class Course {
     protected String examDate;
 
     protected ArrayList<Integer> studentsId;
+    protected ArrayList<ClassTime> classTimes;
+
 
     public Course(){
         this("", 0, 0, "", 0, 0, "");
@@ -31,18 +33,31 @@ public class Course {
         setSemesterCreditHours(semesterCreditHours);
         setStudentsId(new ArrayList<>());
         setExamDate(examDate);
+        setClassTimes(new ArrayList<>());
+    }
+
+
+    public ArrayList<ClassTime> getTimesByWeekDay(WeekDay weekDay){
+        ArrayList<ClassTime> result = new ArrayList<>();
+        for(ClassTime classTime : classTimes){
+            if(classTime.getWeekDay() == weekDay){
+                result.add(classTime);
+            }
+        }
+        return result;
     }
 
 
 
     // getters and setters
 
-    public static void setNextId(int nextId) {
-        Course.nextId = nextId;
-    }
 
     public static int getNextId() {
         return nextId;
+    }
+
+    public static void setNextId(int nextId) {
+        Course.nextId = nextId;
     }
 
 
@@ -113,11 +128,30 @@ public class Course {
         this.studentsId = studentsId;
     }
 
+
     public String getExamDate() {
         return examDate;
     }
 
     public void setExamDate(String examDate) {
         this.examDate = examDate;
+    }
+
+
+
+    public ArrayList<ClassTime> getClassTimes() {
+        return classTimes;
+    }
+
+    public void setClassTimes(ArrayList<ClassTime> classTimes) {
+        this.classTimes = classTimes;
+    }
+
+    public void addToClassTimes(ClassTime classTime) {
+        classTimes.add(classTime);
+    }
+
+    public void removeFromClassTimes(ClassTime classTime) {
+        classTimes.remove(classTime);
     }
 }
