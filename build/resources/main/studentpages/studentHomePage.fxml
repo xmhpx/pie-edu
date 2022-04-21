@@ -67,9 +67,9 @@
        <Text fx:id="currentTimeText" layoutX="14.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentTime" wrappingWidth="78.13671875" />
        <Text fx:id="lastTimeLoggedInText" layoutX="208.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Time Logged In : LastTimeLoggedIn" />
 
+       <Text layoutX="333.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Education Status" />
        <Text layoutX="338.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supervisor" />
       <Text layoutX="314.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration License" />
       <Text layoutX="320.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration Time" />
-       <Text layoutX="333.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Education Status" />
    </children>
 </AnchorPane>

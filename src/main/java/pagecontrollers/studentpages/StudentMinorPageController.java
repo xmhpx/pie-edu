@@ -68,6 +68,11 @@ public class StudentMinorPageController extends StudentPageController {
         int destinationCollegeId;
         int minorFieldId;
 
+        if(title.equals("")){
+            error("empty title is not allowed");
+            return;
+        }
+
         try {
             destinationCollegeId = Integer.parseInt(destinationCollegeIdTextField.getText());
         }
@@ -81,11 +86,6 @@ public class StudentMinorPageController extends StudentPageController {
         }
         catch (NumberFormatException numberFormatException){
             error("minor field id must be an integer");
-            return;
-        }
-
-        if(title.equals("")){
-            error("empty title is not allowed");
             return;
         }
 

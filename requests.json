@@ -56,5 +56,25 @@
     "status": "sent",
     "response": "",
     "senderId": 20001
+  },
+  {
+    "professorId": 10001,
+    "type": "RecommendationLetterRequest",
+    "id": 30007,
+    "title": "title1",
+    "body": "recom1",
+    "status": "sent",
+    "response": "",
+    "senderId": 20001
+  },
+  {
+    "professorId": 10004,
+    "type": "RecommendationLetterRequest",
+    "id": 30008,
+    "title": "title2",
+    "body": "recom2",
+    "status": "sent",
+    "response": "",
+    "senderId": 20001
   }
 ]
