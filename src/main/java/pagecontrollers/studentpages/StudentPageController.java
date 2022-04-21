@@ -9,101 +9,55 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import logic.LoggedInUserHolder;
 import pagecontrollers.BasicPageController;
+import pagecontrollers.LoggedInPageController;
 
 import java.io.IOException;
 import java.util.Calendar;
 
-public class StudentPageController extends BasicPageController {
+public class StudentPageController extends LoggedInPageController {
 
     @FXML
-    MenuItem coursesListMenuItem;
+    protected MenuItem coursesListMenuItem;
 
     @FXML
-    MenuItem professorsListMenuItem;
+    protected MenuItem professorsListMenuItem;
 
     @FXML
-    MenuItem weeklyScheduleMenuItem;
+    protected MenuItem weeklyScheduleMenuItem;
 
     @FXML
-    MenuItem examListMenuItem;
+    protected MenuItem examListMenuItem;
 
     @FXML
-    MenuItem recommendationLetterRequestMenuItem;
+    protected MenuItem recommendationLetterRequestMenuItem;
 
     @FXML
-    MenuItem minorMenuItem;
+    protected MenuItem minorMenuItem;
 
     @FXML
-    MenuItem certificateStudentRequestMenuItem;
+    protected MenuItem certificateStudentRequestMenuItem;
 
     @FXML
-    MenuItem withdrawalMenuItem;
+    protected MenuItem withdrawalMenuItem;
 
     @FXML
-    MenuItem educationStatusMenuItem;
+    protected MenuItem educationStatusMenuItem;
 
     @FXML
-    MenuItem viewProfileMenuItem;
+    protected MenuItem viewProfileMenuItem;
 
     @FXML
-    MenuItem editPasswordMenuItem;
+    protected MenuItem editPasswordMenuItem;
 
     @FXML
-    MenuItem editProfileMenuItem;
+    protected MenuItem editProfileMenuItem;
 
     @FXML
-    MenuItem temporaryScoresMenuItem;
+    protected MenuItem temporaryScoresMenuItem;
 
     @FXML
-    MenuItem homeMenuItem;
+    protected MenuItem homeMenuItem;
 
-    @FXML
-    Text currentTimeText;
-
-    @FXML
-    Text lastTimeLoggedInText;
-
-    @FXML
-    Button logOutButton;
-
-    @FXML
-    ImageView UIProfileImageView;
-
-    @FXML
-    Text UINameText;
-
-    @FXML
-    Text UIEmailText;
-
-
-    @FXML
-    public void initialize() {
-
-//        lastTimeLoggedInText.setText("Last Time Logged In : " + student.getLastVisit());
-
-        Thread clock = new Thread() {
-            public void run() {
-                for (int i = 1; i < 5; i++) {
-                    Calendar cal = Calendar.getInstance();
-
-                    int second = cal.get(Calendar.SECOND);
-                    int minute = cal.get(Calendar.MINUTE);
-                    int hour = cal.get(Calendar.HOUR);
-                    //System.out.println(hour + ":" + (minute) + ":" + second);
-                    currentTimeText.setText("Current Time : " + hour + ":" + (minute) + ":" + second);
-
-                    try {
-                        sleep(990);
-                    } catch (InterruptedException ex) {
-                        //...
-                    }
-                }
-                currentTimeText.setText("Reload To See Current Time");
-            }
-        };
-
-        clock.start();
-    }
 
 
     @FXML

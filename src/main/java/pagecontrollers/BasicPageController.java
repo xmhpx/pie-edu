@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class BasicPageController {
     @FXML
-    AnchorPane anchorPane;
+    protected AnchorPane anchorPane;
 
 
     protected void goToStudentPage(String str) throws IOException {
@@ -32,11 +32,5 @@ public class BasicPageController {
         Stage primaryStage = (Stage) anchorPane.getScene().getWindow();
         primaryStage.setScene(scene);
         primaryStage.show();
-    }
-
-    @FXML
-    protected void logOutButtonClick(MouseEvent mouseEvent) throws IOException {
-        LoggedInUserHolder.setUser(null);
-        goToPage("/loginPage.fxml");
     }
 }
