@@ -24,28 +24,19 @@ public class ProfessorViewProfilePageController extends ProfessorPageController 
     Text phoneNumberText;
 
     @FXML
-    Text studentNumberText;
+    Text professorNumberText;
 
     @FXML
     Text emailText;
 
     @FXML
-    Text averageScoreText;
-
-    @FXML
     Text collegeText;
 
     @FXML
-    Text supervisorText;
+    Text professorLevelText;
 
     @FXML
-    Text yearOfEntranceText;
-
-    @FXML
-    Text studentLevelText;
-
-    @FXML
-    Text educationStatusText;
+    Text roomNumberText;
 
 
     @Override
@@ -53,38 +44,27 @@ public class ProfessorViewProfilePageController extends ProfessorPageController 
         super.initialize();
         Backend backend = Backend.getInstance();
         User user = LoggedInUserHolder.getUser();
-        if(user instanceof Student student) {
-            nameText.setText("Name : " + student.getName());
+        if(user instanceof Professor professor) {
+            nameText.setText("Name : " + professor.getName());
 
-            nationalIdNumberText.setText("National Id Number : " + student.getNationalIdNumber());
+            nationalIdNumberText.setText("National Id Number : " + professor.getNationalIdNumber());
 
-            phoneNumberText.setText("Phone Number : " + student.getPhoneNumber());
+            phoneNumberText.setText("Phone Number : " + professor.getPhoneNumber());
 
-            studentNumberText.setText("Student Number : " + student.getStudentNumber());
+            professorNumberText.setText("Professor Number : " + professor.getProfessorNumber());
 
-            emailText.setText("Email : " + student.getEmail());
+            emailText.setText("Email : " + professor.getEmail());
 
-            averageScoreText.setText("Average Score : " + student.getAverage());
-
-            College college = backend.getCollege(student.getCollegeId());
+            College college = backend.getCollege(professor.getCollegeId());
             String collegeName = "None";
             if(college != null){
                 collegeName = college.getName();
             }
             collegeText.setText("College : " + collegeName);
 
-            Professor professor = backend.getProfessor(student.getSupervisorId());
-            String professorName = "None";
-            if(professor != null){
-                professorName = professor.getName();
-            }
-            supervisorText.setText("Professor : " + professorName);
+            roomNumberText.setText("Room Number : " + professor.getRoomNumber());
 
-            yearOfEntranceText.setText("Year Of Entrance : " + student.getYearOfEntry());
-
-            studentLevelText.setText("Student Level : " + student.getStudentLevel());
-
-            educationStatusText.setText("Education Status : " + student.getEducationStatus());
+            professorLevelText.setText("Professor Level : " + professor.getProfessorLevel());
         }
     }
 }

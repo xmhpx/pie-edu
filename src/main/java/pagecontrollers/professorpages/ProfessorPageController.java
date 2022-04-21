@@ -3,9 +3,6 @@ package pagecontrollers.professorpages;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
-import logic.LoggedInUserHolder;
-import models.student.Student;
-import models.student.StudentLevel;
 import pagecontrollers.LoggedInPageController;
 
 import java.io.IOException;
@@ -37,7 +34,7 @@ public class ProfessorPageController extends LoggedInPageController {
     protected MenuItem dissertationDefenseRequestMenuItem;
 
     @FXML
-    protected MenuItem certificateStudentRequestMenuItem;
+    protected MenuItem certificateProfessorRequestMenuItem;
 
     @FXML
     protected MenuItem withdrawalRequestMenuItem;
@@ -64,105 +61,99 @@ public class ProfessorPageController extends LoggedInPageController {
     @Override
     public void initialize(){
         super.initialize();
-        Student student = (Student) LoggedInUserHolder.getUser();
-        StudentLevel studentLevel = student.getStudentLevel();
-        certificateStudentRequestMenuItem.setVisible(studentLevel != StudentLevel.PHD_STUDENT);
-        minorRequestMenuItem.setVisible(studentLevel == StudentLevel.UNDERGRADUATE);
-        dormRequestMenuItem.setVisible(studentLevel == StudentLevel.MASTERS_STUDENT);
-        dissertationDefenseRequestMenuItem.setVisible(studentLevel == StudentLevel.PHD_STUDENT);
     }
 
 
     @FXML
-    protected void goToStudentHomePage(ActionEvent actionEvent) throws IOException {
-        goToStudentPage("professorHomePage.fxml");
+    protected void goToProfessorHomePage(ActionEvent actionEvent) throws IOException {
+        goToProfessorPage("professorHomePage.fxml");
     }
 
 
     @FXML
-    protected void goToStudentCoursesListPage(ActionEvent actionEvent) throws IOException {
-        goToStudentPage("professorCoursesListPage.fxml");
+    protected void goToProfessorCoursesListPage(ActionEvent actionEvent) throws IOException {
+        goToProfessorPage("professorCoursesListPage.fxml");
     }
 
 
     @FXML
-    protected void goToStudentProfessorsListPage(ActionEvent actionEvent) throws IOException {
-        goToStudentPage("professorProfessorsListPage.fxml");
+    protected void goToProfessorProfessorsListPage(ActionEvent actionEvent) throws IOException {
+        goToProfessorPage("professorProfessorsListPage.fxml");
     }
 
 
     @FXML
-    protected void goToStudentWeeklySchedulePage(ActionEvent actionEvent) throws IOException {
-        goToStudentPage("professorWeeklySchedulePage.fxml");
+    protected void goToProfessorWeeklySchedulePage(ActionEvent actionEvent) throws IOException {
+        goToProfessorPage("professorWeeklySchedulePage.fxml");
     }
 
 
     @FXML
-    protected void goToStudentExamsListPage(ActionEvent actionEvent) throws IOException {
-        goToStudentPage("professorExamsListPage.fxml");
+    protected void goToProfessorExamsListPage(ActionEvent actionEvent) throws IOException {
+        goToProfessorPage("professorExamsListPage.fxml");
     }
 
 
     @FXML
-    protected void goToStudentRecommendationLetterRequestPage(ActionEvent actionEvent) throws IOException {
-        goToStudentPage("professorRecommendationLetterRequestPage.fxml");
+    protected void goToProfessorRecommendationLetterRequestPage(ActionEvent actionEvent) throws IOException {
+        goToProfessorPage("professorRecommendationLetterRequestPage.fxml");
     }
 
 
     @FXML
-    protected void goToStudentCertificateStudentRequestPage(ActionEvent actionEvent) throws IOException {
-        goToStudentPage("professorCertificateStudentRequestPage.fxml");
+    protected void goToProfessorCertificateStudentRequestPage(ActionEvent actionEvent) throws IOException {
+        goToProfessorPage("professorCertificateStudentRequestPage.fxml");
     }
 
 
     @FXML
-    protected void goToStudentMinorRequestPage(ActionEvent actionEvent) throws IOException {
-        goToStudentPage("professorMinorRequestPage.fxml");
+    protected void goToProfessorMinorRequestPage(ActionEvent actionEvent) throws IOException {
+        goToProfessorPage("professorMinorRequestPage.fxml");
     }
 
     @FXML
-    protected void goToStudentDormRequestPage(ActionEvent actionEvent) throws IOException {
-        goToStudentPage("professorDormRequestPage.fxml");
+    protected void goToProfessorDormRequestPage(ActionEvent actionEvent) throws IOException {
+        goToProfessorPage("professorDormRequestPage.fxml");
     }
 
     @FXML
-    protected void goToStudentDissertationDefenseRequestPage(ActionEvent actionEvent) throws IOException {
-        goToStudentPage("professorDissertationDefenseRequestPage.fxml");
-    }
-
-
-    @FXML
-    protected void goToStudentWithdrawalRequestPage(ActionEvent actionEvent) throws IOException {
-        goToStudentPage("professorWithdrawalRequestPage.fxml");
+    protected void goToProfessorDissertationDefenseRequestPage(ActionEvent actionEvent) throws IOException {
+        goToProfessorPage("professorDissertationDefenseRequestPage.fxml");
     }
 
 
     @FXML
-    protected void goToStudentTemporaryScoresPage(ActionEvent actionEvent) throws IOException {
-        goToStudentPage("professorTemporaryScoresPage.fxml");
+    protected void goToProfessorWithdrawalRequestPage(ActionEvent actionEvent) throws IOException {
+        goToProfessorPage("professorWithdrawalRequestPage.fxml");
     }
 
 
     @FXML
-    protected void goToStudentEducationStatusPage(ActionEvent actionEvent) throws IOException {
-        goToStudentPage("professorEducationStatusPage.fxml");
+    protected void goToProfessorTemporaryScoresPage(ActionEvent actionEvent) throws IOException {
+        goToProfessorPage("professorTemporaryScoresPage.fxml");
     }
 
 
     @FXML
-    protected void goToStudentViewProfilePage(ActionEvent actionEvent) throws IOException {
-        goToStudentPage("professorViewProfilePage.fxml");
+    protected void goToProfessorEducationStatusPage(ActionEvent actionEvent) throws IOException {
+        goToProfessorPage("professorEducationStatusPage.fxml");
     }
 
 
     @FXML
-    protected void goToStudentEditPasswordPage(ActionEvent actionEvent) throws IOException {
-        goToStudentPage("professorEditPasswordPage.fxml");
+    protected void goToProfessorViewProfilePage(ActionEvent actionEvent) throws IOException {
+        goToProfessorPage("professorViewProfilePage.fxml");
     }
 
 
     @FXML
-    protected void goToStudentEditProfilePage(ActionEvent actionEvent) throws IOException {
-        goToStudentPage("professorEditProfilePage.fxml");
+    protected void goToProfessorEditPasswordPage(ActionEvent actionEvent) throws IOException {
+        goToProfessorPage("professorEditPasswordPage.fxml");
+    }
+
+
+    @FXML
+    protected void goToProfessorEditProfilePage(ActionEvent actionEvent) throws IOException {
+        goToProfessorPage("professorEditProfilePage.fxml");
     }
 }

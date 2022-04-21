@@ -65,7 +65,7 @@ public class LoginPageController extends BasicPageController {
             else if(user instanceof Student){
                 LoggedInUserHolder.setUser(user);
                 try {
-                    goToStudentPage("professorHomePage.fxml");
+                    goToStudentPage("studentHomePage.fxml");
                 } catch (IOException e) {
                     error("some AAAAAAA backend problem happened, try again");
                 }

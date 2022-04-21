@@ -18,29 +18,29 @@
             <menus>
                 <Menu mnemonicParsing="false" text="Home">
                     <items>
-                        <MenuItem fx:id="homeMenuItem" mnemonicParsing="false" onAction="#goToStudentHomePage" text="Home" />
+                        <MenuItem fx:id="homeMenuItem" mnemonicParsing="false" onAction="#goToProfessorHomePage" text="Home" />
                     </items>
                 </Menu>
 
                 <Menu mnemonicParsing="false" text="Registration">
                     <items>
-                        <MenuItem fx:id="coursesListMenuItem" mnemonicParsing="false" onAction="#goToStudentCoursesListPage" text="Courses List" />
-                        <MenuItem fx:id="professorsListMenuItem" mnemonicParsing="false" onAction="#goToStudentProfessorsListPage" text="Professors List" />
+                        <MenuItem fx:id="coursesListMenuItem" mnemonicParsing="false" onAction="#goToProfessorCoursesListPage" text="Courses List" />
+                        <MenuItem fx:id="professorsListMenuItem" mnemonicParsing="false" onAction="#goToProfessorProfessorsListPage" text="Professors List" />
                     </items>
                 </Menu>
 
                 <Menu mnemonicParsing="false" text="Educational Services">
                     <items>
-                        <MenuItem fx:id="weeklyScheduleMenuItem" mnemonicParsing="false" onAction="#goToStudentWeeklySchedulePage" text="Weekly Schedule" />
-                        <MenuItem fx:id="examListMenuItem" mnemonicParsing="false" onAction="#goToStudentExamsListPage" text="Exams List" />
+                        <MenuItem fx:id="weeklyScheduleMenuItem" mnemonicParsing="false" onAction="#goToProfessorWeeklySchedulePage" text="Weekly Schedule" />
+                        <MenuItem fx:id="examListMenuItem" mnemonicParsing="false" onAction="#goToProfessorExamsListPage" text="Exams List" />
                         <Menu mnemonicParsing="false" text="Requests">
                             <items>
-                                <MenuItem fx:id="recommendationLetterRequestMenuItem" mnemonicParsing="false" onAction="#goToStudentRecommendationLetterRequestPage" text="Recommendation Letter Request" />
-                                <MenuItem fx:id="certificateStudentRequestMenuItem" mnemonicParsing="false" onAction="#goToStudentCertificateStudentRequestPage" text="Certificate Student Request" />
-                                <MenuItem fx:id="minorRequestMenuItem" mnemonicParsing="false" onAction="#goToStudentMinorRequestPage" text="Minor Request" />
-                                <MenuItem fx:id="dormRequestMenuItem" mnemonicParsing="false" onAction="#goToStudentDormRequestPage" text="Dorm Request" />
-                                <MenuItem fx:id="dissertationDefenseRequestMenuItem" mnemonicParsing="false" onAction="#goToStudentDissertationDefenseRequestPage" text="Dissertation Defense Request" />
-                                <MenuItem fx:id="withdrawalRequestMenuItem" mnemonicParsing="false" onAction="#goToStudentWithdrawalRequestPage" text="Withdrawal Request" />
+                                <MenuItem fx:id="recommendationLetterRequestMenuItem" mnemonicParsing="false" onAction="#goToProfessorRecommendationLetterRequestPage" text="Recommendation Letter Request" />
+                                <MenuItem fx:id="certificateProfessorRequestMenuItem" mnemonicParsing="false" onAction="#goToProfessorCertificateStudentRequestPage" text="Certificate Professor Request" />
+                                <MenuItem fx:id="minorRequestMenuItem" mnemonicParsing="false" onAction="#goToProfessorMinorRequestPage" text="Minor Request" />
+                                <MenuItem fx:id="dormRequestMenuItem" mnemonicParsing="false" onAction="#goToProfessorDormRequestPage" text="Dorm Request" />
+                                <MenuItem fx:id="dissertationDefenseRequestMenuItem" mnemonicParsing="false" onAction="#goToProfessorDissertationDefenseRequestPage" text="Dissertation Defense Request" />
+                                <MenuItem fx:id="withdrawalRequestMenuItem" mnemonicParsing="false" onAction="#goToProfessorWithdrawalRequestPage" text="Withdrawal Request" />
                             </items>
                         </Menu>
                     </items>
@@ -48,16 +48,16 @@
 
                 <Menu mnemonicParsing="false" text="Report Card Affairs">
                     <items>
-                        <MenuItem fx:id="temporaryScoresMenuItem" mnemonicParsing="false" onAction="#goToStudentTemporaryScoresPage" text="Temporary Scores" />
-                        <MenuItem fx:id="educationStatusMenuItem" mnemonicParsing="false" onAction="#goToStudentEducationStatusPage" text="Education Status" />
+                        <MenuItem fx:id="temporaryScoresMenuItem" mnemonicParsing="false" onAction="#goToProfessorTemporaryScoresPage" text="Temporary Scores" />
+                        <MenuItem fx:id="educationStatusMenuItem" mnemonicParsing="false" onAction="#goToProfessorEducationStatusPage" text="Education Status" />
                     </items>
                 </Menu>
 
                 <Menu mnemonicParsing="false" text="Profile">
                     <items>
-                        <MenuItem fx:id="viewProfileMenuItem" mnemonicParsing="false" onAction="#goToStudentViewProfilePage" text="View Profile" />
-                        <MenuItem fx:id="editPasswordMenuItem" mnemonicParsing="false" onAction="#goToStudentEditPasswordPage" text="Edit Password" />
-                        <MenuItem fx:id="editProfileMenuItem" mnemonicParsing="false" onAction="#goToStudentEditProfilePage" text="Edit Profile" />
+                        <MenuItem fx:id="viewProfileMenuItem" mnemonicParsing="false" onAction="#goToProfessorViewProfilePage" text="View Profile" />
+                        <MenuItem fx:id="editPasswordMenuItem" mnemonicParsing="false" onAction="#goToProfessorEditPasswordPage" text="Edit Password" />
+                        <MenuItem fx:id="editProfileMenuItem" mnemonicParsing="false" onAction="#goToProfessorEditProfilePage" text="Edit Profile" />
                     </items>
                 </Menu>
             </menus>
