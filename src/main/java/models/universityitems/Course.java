@@ -1,7 +1,5 @@
 package models.universityitems;
 
-import models.professor.Professor;
-
 import java.util.ArrayList;
 
 public class Course {
