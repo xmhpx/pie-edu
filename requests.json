@@ -76,5 +76,14 @@
     "status": "sent",
     "response": "",
     "senderId": 20001
+  },
+  {
+    "type": "WithdrawalRequest",
+    "id": 30009,
+    "title": "title",
+    "body": "body",
+    "status": "sent",
+    "response": "",
+    "senderId": 20001
   }
 ]

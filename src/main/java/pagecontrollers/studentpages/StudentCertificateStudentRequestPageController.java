@@ -35,6 +35,7 @@ public class StudentCertificateStudentRequestPageController extends StudentPageC
     @FXML
     Text errorText;
 
+
     @Override
     public void initialize(){
         super.initialize();

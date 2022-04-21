@@ -15,6 +15,7 @@
 <?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 
+<?import javafx.scene.control.TextField?>
 <AnchorPane fx:id="anchorPane" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #ceecec;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pagecontrollers.studentpages.StudentWithdrawalPageController">
     <children>
 
@@ -76,26 +77,25 @@
 
         <Text layoutX="338.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Withdrawal Requests" />
 
-        <GridPane alignment="CENTER" hgap="10.0" layoutX="40.0" layoutY="80.0" maxHeight="500.0" maxWidth="700.0" minHeight="0.0" minWidth="700.0" prefHeight="300.0" prefWidth="700.0" vgap="10.0">
+        <GridPane alignment="CENTER" hgap="10.0" layoutX="0.0" layoutY="80.0" maxHeight="500.0" maxWidth="700.0" minHeight="0.0" minWidth="700.0" prefHeight="300.0" prefWidth="700.0" vgap="10.0">
             <padding>
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </padding>
-            <TableView fx:id="tableView" GridPane.columnIndex="0"
-                       GridPane.rowIndex="1">
+            <TableView fx:id="tableView" GridPane.columnIndex="0" GridPane.rowIndex="1">
                 <columns>
-                    <TableColumn text="Title" prefWidth="100" maxWidth="250">
+                    <TableColumn maxWidth="250" prefWidth="100" text="Title">
                         <cellValueFactory><PropertyValueFactory property="title" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn text="Body" prefWidth="300" maxWidth="500">
+                    <TableColumn maxWidth="500" prefWidth="360" text="Body">
                         <cellValueFactory><PropertyValueFactory property="body" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn text="Status" prefWidth="100" maxWidth="100">
+                    <TableColumn maxWidth="100" prefWidth="100" text="Status">
                         <cellValueFactory><PropertyValueFactory property="status" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn text="Response" prefWidth="100" maxWidth="500">
+                    <TableColumn maxWidth="500" prefWidth="100" text="Response">
                         <cellValueFactory><PropertyValueFactory property="response" />
                         </cellValueFactory>
                     </TableColumn>
@@ -106,5 +106,9 @@
                 </items>
             </TableView>
         </GridPane>
+        <TextField fx:id="titleTextField" layoutX="17.0" layoutY="378.0" prefHeight="26.0" prefWidth="149.0" promptText="Title" />
+        <TextField fx:id="bodyTextField" layoutX="182.0" layoutY="378.0" prefHeight="26.0" prefWidth="400.0" promptText="Body" />
+        <Button fx:id="addRequestButton" layoutX="597.0" layoutY="378.0" mnemonicParsing="false" onAction="#addRequestButtonOnAction" text="Add Request" />
+        <Text fx:id="errorText" fill="RED" layoutX="194.0" layoutY="421.0" strokeType="OUTSIDE" strokeWidth="0.0" />
     </children>
 </AnchorPane>

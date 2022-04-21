@@ -105,13 +105,6 @@
                     </FXCollections>
                 </items>
             </TableView>
-         <columnConstraints>
-            <ColumnConstraints />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints />
-            <RowConstraints />
-         </rowConstraints>
         </GridPane>
       <TextField fx:id="titleTextField" layoutX="17.0" layoutY="378.0" prefHeight="26.0" prefWidth="149.0" promptText="Title" />
       <TextField fx:id="bodyTextField" layoutX="182.0" layoutY="378.0" prefHeight="26.0" prefWidth="400.0" promptText="Body" />
