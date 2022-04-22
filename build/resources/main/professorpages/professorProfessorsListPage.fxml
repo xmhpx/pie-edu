@@ -114,13 +114,6 @@
                     </FXCollections>
                 </items>
             </TableView>
-         <columnConstraints>
-            <ColumnConstraints />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints />
-            <RowConstraints />
-         </rowConstraints>
         </GridPane>
     </children>
 </AnchorPane>
