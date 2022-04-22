@@ -37,8 +37,6 @@ public class LoggedInPageController extends BasicPageController {
     @FXML
     @Override
     public void initialize() {
-
-
         User user = LoggedInUserHolder.getUser();
 
 //        UIProfileImageView.setImage(new Image(user.getProfileImagePath()));

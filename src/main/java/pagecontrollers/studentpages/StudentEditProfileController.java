@@ -23,10 +23,13 @@ public class StudentEditProfileController extends StudentPageController {
     Text errorText;
 
     @FXML
-    ImageView newProfileImageImageView;
+    TextField newNameTextField;
 
     @FXML
-    TextField newNameTextField;
+    TextField newEmailTextField;
+
+    @FXML
+    TextField newPhoneNumberTextField;
 
     @FXML
     TextField passwordTextField;
@@ -54,23 +57,39 @@ public class StudentEditProfileController extends StudentPageController {
         String captchaText = captchaTextField.getText();
 
         if(captcha.isCorrect(captchaText)){
-            String newName = newNameTextField.getText();
             String password = passwordTextField.getText();
 
             User user = LoggedInUserHolder.getUser();
-
-            if(newName.length() < 5){
-                error("new name is too short");
-            }
-            else if(newName.length() > 30){
-                error("new name is too long");
-            }
-            else if(user.getHashedPassword() != password.hashCode()){
+            if(user.getHashedPassword() != password.hashCode()){
                 error("incorrect password");
             }
-            else{
-                user.setName(newName);
-                error("name has been changed");
+            else {
+                String err = "";
+
+                String newName = newNameTextField.getText();
+                if (newName.length() > 0) {
+                    if (newName.length() < 5) {
+                        error("new name is too short");
+                    } else if (newName.length() > 30) {
+                        error("new name is too long");
+                    }
+                    user.setName(newName);
+                    err += "name has been changed\n";
+                }
+
+                String newEmail = newEmailTextField.getText();
+                if (newEmail.length() > 0) {
+                    user.setEmail(newEmail);
+                    err += "email has been changed\n";
+                }
+
+                String newPhoneNumber = newPhoneNumberTextField.getText();
+                if (newPhoneNumber.length() > 0) {
+                    user.setPhoneNumber(newPhoneNumber);
+                    err += "phone number has been changed\n";
+                }
+
+                error(err);
             }
         }
         else {
@@ -80,12 +99,15 @@ public class StudentEditProfileController extends StudentPageController {
 
     private void error(String error){
         clean();
+        super.initialize();
         errorText.setText(error);
     }
 
     private void clean(){
         errorText.setText("");
         newNameTextField.setText("");
+        newEmailTextField.setText("");
+        newPhoneNumberTextField.setText("");
         passwordTextField.setText("");
 
         setRandomCaptcha();
