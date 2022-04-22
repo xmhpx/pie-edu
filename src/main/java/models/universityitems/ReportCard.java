@@ -54,6 +54,7 @@ public class ReportCard {
         if(!Backend.getInstance().hasCourse(courseId)){
             log.warn("'courseId' doesn't exist in backend");
         }
+        log.info("reportCard("+getId()+") changed courseId");
         this.courseId = courseId;
     }
 
@@ -66,6 +67,7 @@ public class ReportCard {
         if(!Backend.getInstance().hasStudent(studentId)){
             log.warn("'studentId' doesn't exist in backend");
         }
+        log.info("reportCard("+getId()+") changed studentId");
         this.studentId = studentId;
     }
 
@@ -78,6 +80,7 @@ public class ReportCard {
         if(status == null){
             log.warn("'status' is null");
         }
+        log.info("reportCard("+getId()+") changed status");
         this.status = status;
     }
 
@@ -90,6 +93,7 @@ public class ReportCard {
         if(score == null){
             log.warn("'score' is null");
         }
+        log.info("reportCard("+getId()+") changed score");
         this.score = score;
     }
 

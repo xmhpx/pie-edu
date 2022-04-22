@@ -82,6 +82,7 @@ public class Course {
             log.warn("'name' is null");
             return;
         }
+        log.info("course("+getId()+") changed name");
         this.name = name;
     }
 
@@ -94,6 +95,7 @@ public class Course {
         if(!Backend.getInstance().hasCollege(collegeId)){
             log.warn("'collegeId' doesn't exist in backend");
         }
+        log.info("course("+getId()+") changed collegeId");
         this.collegeId = collegeId;
     }
 
@@ -106,6 +108,7 @@ public class Course {
         if(!Backend.getInstance().hasProfessor(professorId)){
             log.warn("'professorId' doesn't exist in backend");
         }
+        log.info("course("+getId()+") changed professorId");
         this.professorId = professorId;
     }
 
@@ -119,6 +122,7 @@ public class Course {
             log.warn("'holdingSemester' is null");
             return;
         }
+        log.info("course("+getId()+") changed holdingSemester");
         this.holdingSemester = holdingSemester;
     }
 
@@ -131,6 +135,7 @@ public class Course {
         if(!Backend.getInstance().hasCourse(courseId)){
             log.warn("'courseId' doesn't exist in backend");
         }
+        log.info("course("+getId()+") changed courseId");
         this.courseId = courseId;
     }
 
@@ -143,6 +148,7 @@ public class Course {
         if(semesterCreditHours < 0){
             log.warn("'semesterCreditHours' is negative");
         }
+        log.info("course("+getId()+") changed semesterCreditHours");
         this.semesterCreditHours = semesterCreditHours;
     }
 
@@ -156,6 +162,7 @@ public class Course {
             log.warn("'studentIds' is null");
             return;
         }
+        log.info("course("+getId()+") changed studentIds");
         this.studentIds = studentIds;
     }
 
@@ -169,6 +176,7 @@ public class Course {
             log.warn("'examDate' is null");
             return;
         }
+        log.info("course("+getId()+") changed examDate");
         this.examDate = examDate;
     }
 
@@ -183,6 +191,7 @@ public class Course {
             log.warn("'classTimes' is null");
             return;
         }
+        log.info("course("+getId()+") changed classTimes");
         this.classTimes = classTimes;
     }
 
@@ -191,6 +200,7 @@ public class Course {
             log.warn("'classTime' is null");
             return;
         }
+        log.info("course("+getId()+") added classTime("+classTime+") to classTimes");
         classTimes.add(classTime);
     }
 
@@ -198,6 +208,7 @@ public class Course {
         if(classTime == null){
             log.warn("'classTime' is null");
         }
+        log.info("course("+getId()+") removed classTime("+classTime+") from classTimes");
         classTimes.remove(classTime);
     }
 }

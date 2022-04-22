@@ -29,6 +29,7 @@ public class RecommendationLetterRequest extends Request{
         if(!Backend.getInstance().hasProfessor(professorId)){
             log.warn("'professorId' doesn't exist in backend");
         }
+        log.info("recommendationLetterRequest("+getId()+") changed professorId");
         this.professorId = professorId;
     }
 }

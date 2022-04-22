@@ -55,6 +55,7 @@ public class Captcha {
             log.warn("'imagePath' is null");
             return;
         }
+        log.info("captcha("+getId()+") changed imagePath");
         this.imagePath = imagePath;
     }
 
@@ -68,7 +69,7 @@ public class Captcha {
             log.warn("'correctAnswer' is null");
             return;
         }
+        log.info("captcha("+getId()+") changed correctAnswer");
         this.correctAnswer = correctAnswer;
     }
-
 }

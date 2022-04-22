@@ -51,6 +51,7 @@ public class College {
             log.warn("'name' is null");
             return;
         }
+        log.info("college("+getId()+") changed name");
         this.name = name;
     }
 
@@ -63,6 +64,7 @@ public class College {
         if(!Backend.getInstance().hasProfessor(deanOfFacultyId)){
             log.warn("'deanOfFacultyId' doesn't exist in backend");
         }
+        log.info("college("+getId()+") changed deanOfFacultyId");
         this.deanOfFacultyId = deanOfFacultyId;
     }
 }

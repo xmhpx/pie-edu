@@ -31,6 +31,7 @@ public class MinorRequest extends Request{
         if(!Backend.getInstance().hasCollege(destinationCollegeId)){
             log.warn("'destinationCollegeId' doesn't exist in backend");
         }
+        log.info("minorRequest("+getId()+") changed destinationCollegeId");
         this.destinationCollegeId = destinationCollegeId;
     }
 
@@ -43,6 +44,7 @@ public class MinorRequest extends Request{
         if(!Backend.getInstance().hasField(minorFieldId)){
             log.warn("'minorFieldId' doesn't exist in backend");
         }
+        log.info("minorRequest("+getId()+") changed minorFieldId");
         this.minorFieldId = minorFieldId;
     }
 }

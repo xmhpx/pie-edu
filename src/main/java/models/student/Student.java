@@ -84,6 +84,7 @@ public class Student extends User {
             log.warn("'studentNumber' is null");
             return;
         }
+        log.info("student("+getId()+") changed studentNumber");
         this.studentNumber = studentNumber;
     }
 
@@ -97,6 +98,7 @@ public class Student extends User {
             log.warn("'status' is null");
             return;
         }
+        log.info("student("+getId()+") changed status");
         this.status = status;
     }
 
@@ -109,6 +111,7 @@ public class Student extends User {
         if(!Backend.getInstance().hasProfessor(supervisorId)){
             log.warn("'supervisorId' doesn't exist in backend");
         }
+        log.info("student("+getId()+") changed supervisorId");
         this.supervisorId = supervisorId;
     }
 
@@ -122,6 +125,7 @@ public class Student extends User {
             log.warn("'registrationLicense' is null");
             return;
         }
+        log.info("student("+getId()+") changed registrationLicense");
         this.registrationLicense = registrationLicense;
     }
 
@@ -135,6 +139,7 @@ public class Student extends User {
             log.warn("'registrationTime' is null");
             return;
         }
+        log.info("student("+getId()+") changed registrationTime");
         this.registrationTime = registrationTime;
     }
 
@@ -148,6 +153,7 @@ public class Student extends User {
             log.warn("'educationStatus' is null");
             return;
         }
+        log.info("student("+getId()+") changed educationStatus");
         this.educationStatus = educationStatus;
     }
 
@@ -161,6 +167,7 @@ public class Student extends User {
             log.warn("'studentLevel' is null");
             return;
         }
+        log.info("student("+getId()+") changed studentLevel");
         this.studentLevel = studentLevel;
     }
 
@@ -174,6 +181,7 @@ public class Student extends User {
             log.warn("'yearOfEntry' is null");
             return;
         }
+        log.info("student("+getId()+") changed yearOfEntry");
         this.yearOfEntry = yearOfEntry;
     }
 
@@ -188,6 +196,7 @@ public class Student extends User {
             log.warn("'reportCardIds' is null");
             return;
         }
+        log.info("student("+getId()+") changed reportCardIds");
         this.reportCardIds = reportCardIds;
     }
 
@@ -195,10 +204,12 @@ public class Student extends User {
         if(!Backend.getInstance().hasReportCard(reportCardId)){
             log.warn("'reportCardId' doesn't exist in backend");
         }
+        log.info("student("+getId()+") added reportCard("+reportCardId+") to reportCardIds");
         reportCardIds.add(reportCardId);
     }
 
     public void removeFromReportCards(int reportCardId){
+        log.info("student("+getId()+") removed reportCard("+reportCardId+") from reportCardIds");
         reportCardIds.remove(reportCardId);
     }
 
@@ -212,6 +223,7 @@ public class Student extends User {
             log.warn("'requestIds' is null");
             return;
         }
+        log.info("student("+getId()+") changed requestIds");
         this.requestIds = requestIds;
     }
 
@@ -219,10 +231,12 @@ public class Student extends User {
         if(!Backend.getInstance().hasRequest(requestId)){
             log.warn("'requestId' doesn't exist in backend");
         }
+        log.info("student("+getId()+") added request("+requestId+") to requestIds");
         requestIds.add(requestId);
     }
 
     public void removeFromRequest(int requestId){
+        log.info("student("+getId()+") removed request("+requestId+") from requestIds");
         requestIds.remove(requestId);
     }
 
@@ -236,6 +250,7 @@ public class Student extends User {
             log.warn("'courseIds' is null");
             return;
         }
+        log.info("student("+getId()+") changed courseIds");
         this.courseIds = courseIds;
     }
 
@@ -243,10 +258,12 @@ public class Student extends User {
         if(!Backend.getInstance().hasCourse(courseId)){
             log.warn("'courseId' doesn't exist in backend");
         }
+        log.info("student("+getId()+") added course("+courseId+") to courseIds");
         courseIds.add(courseId);
     }
 
     public void removeFromCourseIds(int courseId){
+        log.info("student("+getId()+") removed course("+courseId+") from courseIds");
         courseIds.remove(courseId);
     }
 }

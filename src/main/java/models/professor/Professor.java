@@ -61,6 +61,7 @@ public class Professor extends User {
             log.warn("'professorNumber' is null");
             return;
         }
+        log.info("professor("+getId()+") changed professorNumber");
         this.professorNumber = professorNumber;
     }
 
@@ -74,6 +75,7 @@ public class Professor extends User {
             log.warn("'professorLevel' is null");
             return;
         }
+        log.info("professor("+getId()+") changed professorLevel");
         this.professorLevel = professorLevel;
     }
 
@@ -87,6 +89,7 @@ public class Professor extends User {
             log.warn("'professorType' is null");
             return;
         }
+        log.info("professor("+getId()+") changed professorType");
         this.professorType = professorType;
     }
 
@@ -100,6 +103,7 @@ public class Professor extends User {
             log.warn("'roomNumber' is null");
             return;
         }
+        log.info("professor("+getId()+") changed roomNumber");
         this.roomNumber = roomNumber;
     }
 }

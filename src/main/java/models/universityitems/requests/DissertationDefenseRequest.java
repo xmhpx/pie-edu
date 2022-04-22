@@ -29,6 +29,7 @@ public class DissertationDefenseRequest extends Request{
             log.warn("'dissertationDefenseTime' is null");
             return;
         }
+        log.info("dissertationDefenseRequest("+getId()+") changed dissertationDefenseTime");
         this.dissertationDefenseTime = dissertationDefenseTime;
     }
 }

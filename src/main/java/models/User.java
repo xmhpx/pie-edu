@@ -61,6 +61,7 @@ public class User {
             log.warn("'password' is null");
             return;
         }
+        log.info("user("+getId()+") changed password");
         this.hashedPassword = password.hashCode();
     }
 
@@ -74,6 +75,7 @@ public class User {
             log.warn("'lastVisit' is null");
             return;
         }
+        log.info("user("+getId()+") changed lastVisit");
         this.lastVisit = lastVisit;
     }
 
@@ -87,6 +89,7 @@ public class User {
             log.warn("'profileImagePath' is null");
             return;
         }
+        log.info("user("+getId()+") changed profileImagePath");
         this.profileImagePath = profileImagePath;
     }
 
@@ -100,6 +103,7 @@ public class User {
             log.warn("'name' is null");
             return;
         }
+        log.info("user("+getId()+") changed name");
         this.name = name;
     }
 
@@ -113,6 +117,7 @@ public class User {
             log.warn("'email' is null");
             return;
         }
+        log.info("user("+getId()+") changed email");
         this.email = email;
     }
 
@@ -126,6 +131,7 @@ public class User {
             log.warn("'phoneNumber' is null");
             return;
         }
+        log.info("user("+getId()+") changed phoneNumber");
         this.phoneNumber = phoneNumber;
     }
 
@@ -139,6 +145,7 @@ public class User {
             log.warn("'homeAddress' is null");
             return;
         }
+        log.info("user("+getId()+") changed homeAddress");
         this.homeAddress = homeAddress;
     }
 
@@ -152,6 +159,7 @@ public class User {
             log.warn("'postalCode' is null");
             return;
         }
+        log.info("user("+getId()+") changed postalCode");
         this.postalCode = postalCode;
     }
 
@@ -165,6 +173,7 @@ public class User {
             log.warn("'preferredUITheme' is null");
             return;
         }
+        log.info("user("+getId()+") changed preferredUITheme");
         this.preferredUITheme = preferredUITheme;
     }
 
@@ -178,6 +187,7 @@ public class User {
             log.warn("'fieldId' is weird");
             return;
         }
+        log.info("user("+getId()+") changed fieldId");
         this.fieldId = fieldId;
     }
 
@@ -191,6 +201,7 @@ public class User {
             log.warn("'collegeId' is weird");
             return;
         }
+        log.info("user("+getId()+") changed collegeId");
         this.collegeId = collegeId;
     }
 
@@ -204,6 +215,7 @@ public class User {
             log.warn("'age' is weird");
             return;
         }
+        log.info("user("+getId()+") changed age");
         this.age = age;
     }
 
@@ -217,6 +229,7 @@ public class User {
             log.warn("'nationalIdNumber' is null");
             return;
         }
+        log.info("user("+getId()+") changed nationalIdNumber");
         this.nationalIdNumber = nationalIdNumber;
     }
 }

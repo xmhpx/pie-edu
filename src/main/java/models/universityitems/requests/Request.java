@@ -63,6 +63,7 @@ public class Request {
             log.warn("'title' is null");
             return;
         }
+        log.info("request("+getId()+") changed title");
         this.title = title;
     }
 
@@ -76,6 +77,7 @@ public class Request {
             log.warn("'body' is null");
             return;
         }
+        log.info("request("+getId()+") changed body");
         this.body = body;
     }
 
@@ -89,6 +91,7 @@ public class Request {
             log.warn("'status' is null");
             return;
         }
+        log.info("request("+getId()+") changed status");
         this.status = status;
     }
 
@@ -102,6 +105,7 @@ public class Request {
             log.warn("'response' is null");
             return;
         }
+        log.info("request("+getId()+") changed response");
         this.response = response;
     }
 
@@ -114,7 +118,7 @@ public class Request {
         if(!Backend.getInstance().hasStudent(senderId)){
             log.warn("'senderId' doesn't exist in backend");
         }
+        log.info("request("+getId()+") changed senderId");
         this.senderId = senderId;
     }
-
 }

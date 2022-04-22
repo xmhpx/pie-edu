@@ -51,6 +51,7 @@ public class Field {
             log.warn("'name' is null");
             return;
         }
+        log.info("field("+getId()+") changed name");
         this.name = name;
     }
 
@@ -63,6 +64,7 @@ public class Field {
         if(!Backend.getInstance().hasCollege(collegeId)){
             log.warn("'collegeId' doesn't exist in backend");
         }
+        log.info("field("+getId()+") changed collegeId");
         this.collegeId = collegeId;
     }
 }
