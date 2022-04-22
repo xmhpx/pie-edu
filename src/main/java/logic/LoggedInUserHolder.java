@@ -13,6 +13,7 @@ public class LoggedInUserHolder {
     private static User user = null;
 
     public static void logout() {
+        log.info("user("+user.getId()+") logged out");
         LoggedInUserHolder.user = null;
     }
 
@@ -34,6 +35,7 @@ public class LoggedInUserHolder {
             log.warn("'user' is null");
             return;
         }
+        log.info("user("+user.getId()+") logged in");
 
         LoggedInUserHolder.user = user;
 
