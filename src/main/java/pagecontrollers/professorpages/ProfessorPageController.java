@@ -3,6 +3,10 @@ package pagecontrollers.professorpages;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
+import logic.LoggedInUserHolder;
+import models.User;
+import models.professor.Professor;
+import models.professor.ProfessorType;
 import pagecontrollers.LoggedInPageController;
 
 import java.io.IOException;
@@ -28,13 +32,7 @@ public class ProfessorPageController extends LoggedInPageController {
     protected MenuItem minorRequestMenuItem;
 
     @FXML
-    protected MenuItem dormRequestMenuItem;
-
-    @FXML
     protected MenuItem dissertationDefenseRequestMenuItem;
-
-    @FXML
-    protected MenuItem certificateProfessorRequestMenuItem;
 
     @FXML
     protected MenuItem withdrawalRequestMenuItem;
@@ -61,6 +59,10 @@ public class ProfessorPageController extends LoggedInPageController {
     @Override
     public void initialize(){
         super.initialize();
+        User user = LoggedInUserHolder.getUser();
+        if(user instanceof Professor professor){
+            minorRequestMenuItem.setVisible(professor.getProfessorType() == ProfessorType.EDUCATIONAL_ASSISTANT);
+        }
     }
 
 

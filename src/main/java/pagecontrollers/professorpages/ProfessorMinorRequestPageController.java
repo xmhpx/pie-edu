@@ -4,15 +4,21 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.text.Text;
 import logic.Backend;
 import logic.LoggedInUserHolder;
 import models.User;
+import models.professor.Professor;
+import models.professor.ProfessorType;
 import models.student.Student;
 import models.universityitems.Field;
 import models.universityitems.requests.MinorRequest;
+import models.universityitems.requests.RecommendationLetterRequest;
 import models.universityitems.requests.Request;
 
 import java.io.IOException;
@@ -51,12 +57,36 @@ public class ProfessorMinorRequestPageController extends ProfessorPageController
         ObservableList<MinorRequest> data = tableView.getItems();
         data.clear();
         User user = LoggedInUserHolder.getUser();
-        if(user instanceof Student student) {
-            for(int requestId : student.getRequestIds()) {
-                Request request = backend.getRequest(requestId);
-                if(request instanceof MinorRequest)data.add((MinorRequest) request);
+        if(user instanceof Professor professor) {
+            if(professor.getProfessorType() == ProfessorType.EDUCATIONAL_ASSISTANT) {
+                for (Request request : backend.getRequests()) {
+                    if (request instanceof MinorRequest minorRequest){
+                        int destinationCollegeId = minorRequest.getDestinationCollegeId();
+                        Student student = backend.getStudent(minorRequest.getSenderId());
+                        int originCollegeId = student.getCollegeId();
+                        if(destinationCollegeId == professor.getCollegeId() || originCollegeId == professor.getCollegeId()) {
+                            data.add((MinorRequest) request);
+                        }
+                    }
+                }
             }
         }
+        tableView.setEditable(true);
+
+        TableColumn<MinorRequest, String> statusColumn = new TableColumn<>("Status");
+        statusColumn.setMaxWidth(200);
+        statusColumn.setPrefWidth(70);
+        statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+        statusColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+
+        TableColumn<MinorRequest, String> responseColumn = new TableColumn<>("Response");
+        responseColumn.setMaxWidth(500);
+        responseColumn.setPrefWidth(70);
+        responseColumn.setCellValueFactory(new PropertyValueFactory<>("response"));
+        responseColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+
+        tableView.getColumns().add(statusColumn);
+        tableView.getColumns().add(responseColumn);
     }
 
     @FXML
