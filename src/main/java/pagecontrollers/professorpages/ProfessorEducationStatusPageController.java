@@ -6,6 +6,7 @@ import javafx.scene.control.TableView;
 import logic.Backend;
 import logic.LoggedInUserHolder;
 import models.User;
+import models.professor.Professor;
 import models.student.Student;
 import models.universityitems.ReportCard;
 import models.universityitems.ReportCardStatus;
@@ -24,12 +25,14 @@ public class ProfessorEducationStatusPageController extends ProfessorPageControl
         ObservableList<ReportCard> data = tableView.getItems();
         data.clear();
         User user = LoggedInUserHolder.getUser();
-        if(user instanceof Student student) {
-            for(int reportCardId : student.getReportCardIds()) {
-                ReportCard reportCard = backend.getReportCard(reportCardId);
-                ReportCardStatus status = reportCard.getStatus();
-                if (status != ReportCardStatus.TAKEN && status != ReportCardStatus.TEMPORARILY_SCORED) {
-                    data.add(reportCard);
+        if(user instanceof Professor professor) {
+            for(ReportCard reportCard : backend.getReportCards()) {
+                Student student = backend.getStudent(reportCard.getStudentId());
+                if(student.getCollegeId() == professor.getCollegeId()) {
+                    ReportCardStatus status = reportCard.getStatus();
+                    if (status != ReportCardStatus.TAKEN && status != ReportCardStatus.TEMPORARILY_SCORED) {
+                        data.add(reportCard);
+                    }
                 }
             }
         }

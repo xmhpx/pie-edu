@@ -59,6 +59,7 @@ public class ProfessorPageController extends LoggedInPageController {
         User user = LoggedInUserHolder.getUser();
         if(user instanceof Professor professor){
             minorRequestMenuItem.setVisible(professor.getProfessorType() == ProfessorType.EDUCATIONAL_ASSISTANT);
+            educationStatusMenuItem.setVisible(professor.getProfessorType() == ProfessorType.EDUCATIONAL_ASSISTANT);
         }
     }
 
