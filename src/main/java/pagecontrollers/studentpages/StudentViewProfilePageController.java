@@ -54,37 +54,37 @@ public class StudentViewProfilePageController extends StudentPageController {
         Backend backend = Backend.getInstance();
         User user = LoggedInUserHolder.getUser();
         if(user instanceof Student student) {
-            nameText.setText("Name : " + student.getName());
+            nameText.setText("Name: " + student.getName());
 
-            nationalIdNumberText.setText("National Id Number : " + student.getNationalIdNumber());
+            nationalIdNumberText.setText("National Id Number: " + student.getNationalIdNumber());
 
-            phoneNumberText.setText("Phone Number : " + student.getPhoneNumber());
+            phoneNumberText.setText("Phone Number: " + student.getPhoneNumber());
 
-            studentNumberText.setText("Student Number : " + student.getStudentNumber());
+            studentNumberText.setText("Student Number: " + student.getStudentNumber());
 
-            emailText.setText("Email : " + student.getEmail());
+            emailText.setText("Email: " + student.getEmail());
 
-            averageScoreText.setText("Average Score : " + student.getAverage());
+            averageScoreText.setText("Average Score: " + student.getAverage());
 
             College college = backend.getCollege(student.getCollegeId());
             String collegeName = "None";
             if(college != null){
                 collegeName = college.getName();
             }
-            collegeText.setText("College : " + collegeName);
+            collegeText.setText("College: " + collegeName);
 
             Professor professor = backend.getProfessor(student.getSupervisorId());
             String professorName = "None";
             if(professor != null){
                 professorName = professor.getName();
             }
-            supervisorText.setText("Professor : " + professorName);
+            supervisorText.setText("Professor: " + professorName);
 
-            yearOfEntranceText.setText("Year Of Entrance : " + student.getYearOfEntry());
+            yearOfEntranceText.setText("Year Of Entrance: " + student.getYearOfEntry());
 
-            studentLevelText.setText("Student Level : " + student.getStudentLevel());
+            studentLevelText.setText("Student Level: " + student.getStudentLevel());
 
-            educationStatusText.setText("Education Status : " + student.getEducationStatus());
+            educationStatusText.setText("Education Status: " + student.getEducationStatus());
         }
     }
 }
