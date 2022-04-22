@@ -12,11 +12,6 @@ public class Professor extends User {
     protected String roomNumber;
 
 
-    public Professor(){
-        this("", "", 0, 0, "", ProfessorLevel.ASSISTANT_PROFESSOR, ProfessorType.NORMAL, 0, "");
-    }
-
-
     public Professor(String password, String name, int fieldId, int collegeId, String professorNumber, ProfessorLevel professorLevel, ProfessorType professorType, int age, String nationalIdNumber) {
         super(password, name, fieldId, collegeId, age, nationalIdNumber);
         type = "Professor";

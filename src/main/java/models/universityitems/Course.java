@@ -21,10 +21,6 @@ public class Course {
     protected ArrayList<ClassTime> classTimes;
 
 
-    public Course(){
-        this("", 0, 0, "", 0, 0, "");
-    }
-
     public Course(String name, int collegeId, int professorId, String holdingSemester, int courseId, int semesterCreditHours, String examDate){
         id = nextId++;
 
