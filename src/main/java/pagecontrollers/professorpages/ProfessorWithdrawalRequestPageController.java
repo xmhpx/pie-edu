@@ -4,12 +4,18 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.text.Text;
 import logic.Backend;
 import logic.LoggedInUserHolder;
+import models.User;
+import models.professor.Professor;
 import models.student.Student;
+import models.universityitems.requests.MinorRequest;
 import models.universityitems.requests.Request;
 import models.universityitems.requests.WithdrawalRequest;
 
@@ -41,11 +47,35 @@ public class ProfessorWithdrawalRequestPageController extends ProfessorPageContr
         Backend backend = Backend.getInstance();
         ObservableList<WithdrawalRequest> data = tableView.getItems();
         data.clear();
-        for(Request request : backend.getRequests()){
-            if(request instanceof WithdrawalRequest && request.getSenderId() == LoggedInUserHolder.getUser().getId()){
-                data.add((WithdrawalRequest) request);
+        User user = LoggedInUserHolder.getUser();
+        if(user instanceof Professor professor){
+            for(Request request : backend.getRequests()){
+                if(request instanceof WithdrawalRequest withdrawalRequest){
+                    Student student = backend.getStudent(withdrawalRequest.getSenderId());
+                    if(student.getCollegeId() == professor.getCollegeId()) {
+                        data.add(withdrawalRequest);
+                    }
+                }
             }
         }
+
+
+        tableView.setEditable(true);
+
+        TableColumn<WithdrawalRequest, String> statusColumn = new TableColumn<>("Status");
+        statusColumn.setMaxWidth(200);
+        statusColumn.setPrefWidth(70);
+        statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+        statusColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+
+        TableColumn<WithdrawalRequest, String> responseColumn = new TableColumn<>("Response");
+        responseColumn.setMaxWidth(500);
+        responseColumn.setPrefWidth(70);
+        responseColumn.setCellValueFactory(new PropertyValueFactory<>("response"));
+        responseColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+
+        tableView.getColumns().add(statusColumn);
+        tableView.getColumns().add(responseColumn);
     }
 
 

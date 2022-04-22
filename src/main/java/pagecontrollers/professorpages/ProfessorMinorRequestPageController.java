@@ -58,15 +58,13 @@ public class ProfessorMinorRequestPageController extends ProfessorPageController
         data.clear();
         User user = LoggedInUserHolder.getUser();
         if(user instanceof Professor professor) {
-            if(professor.getProfessorType() == ProfessorType.EDUCATIONAL_ASSISTANT) {
-                for (Request request : backend.getRequests()) {
-                    if (request instanceof MinorRequest minorRequest){
-                        int destinationCollegeId = minorRequest.getDestinationCollegeId();
-                        Student student = backend.getStudent(minorRequest.getSenderId());
-                        int originCollegeId = student.getCollegeId();
-                        if(destinationCollegeId == professor.getCollegeId() || originCollegeId == professor.getCollegeId()) {
-                            data.add((MinorRequest) request);
-                        }
+            for (Request request : backend.getRequests()) {
+                if (request instanceof MinorRequest minorRequest){
+                    int destinationCollegeId = minorRequest.getDestinationCollegeId();
+                    Student student = backend.getStudent(minorRequest.getSenderId());
+                    int originCollegeId = student.getCollegeId();
+                    if(destinationCollegeId == professor.getCollegeId() || originCollegeId == professor.getCollegeId()) {
+                        data.add((MinorRequest) request);
                     }
                 }
             }
