@@ -1,5 +1,7 @@
 package models.universityitems;
 
+import logic.Backend;
+
 public class ReportCard {
     protected static int nextId = 70001;
 
@@ -70,5 +72,10 @@ public class ReportCard {
 
     public void setScore(String score) {
         this.score = score;
+    }
+
+
+    public int getProfessorId(){
+        return Backend.getInstance().getCourse(courseId).getProfessorId();
     }
 }
