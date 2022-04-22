@@ -84,8 +84,12 @@
             <TableView fx:id="tableView" GridPane.columnIndex="0"
                        GridPane.rowIndex="1">
                 <columns>
-                    <TableColumn text="Course Id" prefWidth="150" maxWidth="250">
+                    <TableColumn text="Course Id" maxWidth="150" prefWidth="100">
                         <cellValueFactory><PropertyValueFactory property="courseId" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn maxWidth="150" prefWidth="100" text="Professor Id">
+                        <cellValueFactory><PropertyValueFactory property="professorId" />
                         </cellValueFactory>
                     </TableColumn>
                     <TableColumn text="Status" prefWidth="100" maxWidth="100">
