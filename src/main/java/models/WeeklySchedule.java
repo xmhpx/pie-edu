@@ -3,11 +3,15 @@ package models;
 import logic.Backend;
 import models.student.Student;
 import models.universityitems.Course;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class WeeklySchedule {
+    private static final Logger log = LogManager.getLogger(WeeklySchedule.class);
+
     private HashMap<WeekDay, ArrayList<ClassTime>> weekDayToArrayListHashMap;
 
 
@@ -24,6 +28,9 @@ public class WeeklySchedule {
         for(int courseId : student.getCourseIds()){
             if(Backend.getInstance().hasCourse(courseId)){
                 addCourse(Backend.getInstance().getCourse(courseId));
+            }
+            else{
+                log.warn("course(" + courseId + ") is in student(" + student.getId() + ")'s courseIds but not in the backend");
             }
         }
     }
@@ -98,6 +105,10 @@ public class WeeklySchedule {
     }
 
     public void setWeekDayToArrayListHashMap(HashMap<WeekDay, ArrayList<ClassTime>> weekDayToArrayListHashMap) {
+        if(weekDayToArrayListHashMap == null){
+            log.warn("'weekDayToArrayListHashMap' is null");
+            return;
+        }
         this.weekDayToArrayListHashMap = weekDayToArrayListHashMap;
     }
 }

@@ -1,9 +1,11 @@
 package models;
 
-import java.text.DateFormat;
-import java.time.LocalDateTime;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 public class User {
+    private static final Logger log = LogManager.getLogger(User.class);
+
     protected String type = "User";
 
     protected int age;
@@ -55,6 +57,10 @@ public class User {
     }
 
     public void setPassword(String password) {
+        if(password == null){
+            log.warn("'password' is null");
+            return;
+        }
         this.hashedPassword = password.hashCode();
     }
 
@@ -64,6 +70,10 @@ public class User {
     }
 
     public void setLastVisit(String lastVisit) {
+        if(lastVisit == null){
+            log.warn("'lastVisit' is null");
+            return;
+        }
         this.lastVisit = lastVisit;
     }
 
@@ -73,6 +83,10 @@ public class User {
     }
 
     public void setProfileImagePath(String profileImagePath) {
+        if(profileImagePath == null){
+            log.warn("'profileImagePath' is null");
+            return;
+        }
         this.profileImagePath = profileImagePath;
     }
 
@@ -82,6 +96,10 @@ public class User {
     }
 
     public void setName(String name) {
+        if(name == null){
+            log.warn("'name' is null");
+            return;
+        }
         this.name = name;
     }
 
@@ -91,6 +109,10 @@ public class User {
     }
 
     public void setEmail(String email) {
+        if(email == null){
+            log.warn("'email' is null");
+            return;
+        }
         this.email = email;
     }
 
@@ -100,6 +122,10 @@ public class User {
     }
 
     public void setPhoneNumber(String phoneNumber) {
+        if(phoneNumber == null){
+            log.warn("'phoneNumber' is null");
+            return;
+        }
         this.phoneNumber = phoneNumber;
     }
 
@@ -109,6 +135,10 @@ public class User {
     }
 
     public void setHomeAddress(String homeAddress) {
+        if(homeAddress == null){
+            log.warn("'homeAddress' is null");
+            return;
+        }
         this.homeAddress = homeAddress;
     }
 
@@ -118,6 +148,10 @@ public class User {
     }
 
     public void setPostalCode(String postalCode) {
+        if(postalCode == null){
+            log.warn("'postalCode' is null");
+            return;
+        }
         this.postalCode = postalCode;
     }
 
@@ -127,6 +161,10 @@ public class User {
     }
 
     public void setPreferredUITheme(UITheme preferredUITheme) {
+        if(preferredUITheme == null){
+            log.warn("'preferredUITheme' is null");
+            return;
+        }
         this.preferredUITheme = preferredUITheme;
     }
 
@@ -136,6 +174,10 @@ public class User {
     }
 
     public void setFieldId(int fieldId) {
+        if(fieldId <= 60000){
+            log.warn("'fieldId' is weird");
+            return;
+        }
         this.fieldId = fieldId;
     }
 
@@ -145,6 +187,10 @@ public class User {
     }
 
     public void setCollegeId(int collegeId) {
+        if(collegeId <= 40000){
+            log.warn("'collegeId' is weird");
+            return;
+        }
         this.collegeId = collegeId;
     }
 
@@ -154,6 +200,10 @@ public class User {
     }
 
     public void setAge(int age) {
+        if(age <= 0){
+            log.warn("'age' is weird");
+            return;
+        }
         this.age = age;
     }
 
@@ -163,6 +213,10 @@ public class User {
     }
 
     public void setNationalIdNumber(String nationalIdNumber) {
+        if(nationalIdNumber == null){
+            log.warn("'nationalIdNumber' is null");
+            return;
+        }
         this.nationalIdNumber = nationalIdNumber;
     }
 }

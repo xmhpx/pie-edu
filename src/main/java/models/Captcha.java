@@ -1,6 +1,11 @@
 package models;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 public class Captcha {
+    private static final Logger log = LogManager.getLogger(Captcha.class);
+
     protected static int nextId = 1;
 
     protected int id;
@@ -30,6 +35,9 @@ public class Captcha {
     }
 
     public static void setNextId(int nextId) {
+        if(nextId <= 0){
+            log.warn("'nextId' is weird");
+        }
         Captcha.nextId = nextId;
     }
 
@@ -43,6 +51,10 @@ public class Captcha {
     }
 
     public void setImagePath(String imagePath) {
+        if(imagePath == null){
+            log.warn("'imagePath' is null");
+            return;
+        }
         this.imagePath = imagePath;
     }
 
@@ -52,6 +64,10 @@ public class Captcha {
     }
 
     public void setCorrectAnswer(String correctAnswer) {
+        if(correctAnswer == null){
+            log.warn("'correctAnswer' is null");
+            return;
+        }
         this.correctAnswer = correctAnswer;
     }
 

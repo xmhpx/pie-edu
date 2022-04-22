@@ -1,6 +1,12 @@
 package models.universityitems;
 
+import logic.Backend;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 public class College {
+    private static final Logger log = LogManager.getLogger(College.class);
+
     protected static int nextId = 40001;
 
     protected int id;
@@ -19,12 +25,15 @@ public class College {
 
     // getters and setters
 
-    public static void setNextId(int nextId) {
-        College.nextId = nextId;
-    }
-
     public static int getNextId() {
         return nextId;
+    }
+
+    public static void setNextId(int nextId) {
+        if(nextId <= 40000){
+            log.warn("'nextId' is weird");
+        }
+        College.nextId = nextId;
     }
 
 
@@ -38,6 +47,10 @@ public class College {
     }
 
     public void setName(String name) {
+        if(name == null){
+            log.warn("'name' is null");
+            return;
+        }
         this.name = name;
     }
 
@@ -47,6 +60,9 @@ public class College {
     }
 
     public void setDeanOfFacultyId(int deanOfFacultyId) {
+        if(!Backend.getInstance().hasProfessor(deanOfFacultyId)){
+            log.warn("'deanOfFacultyId' doesn't exist in backend");
+        }
         this.deanOfFacultyId = deanOfFacultyId;
     }
 }

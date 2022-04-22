@@ -1,6 +1,11 @@
 package models.universityitems.requests;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 public class DissertationDefenseRequest extends Request{
+    private static final Logger log = LogManager.getLogger(DissertationDefenseRequest.class);
+
     protected String dissertationDefenseTime;
 
 
@@ -20,6 +25,10 @@ public class DissertationDefenseRequest extends Request{
     }
 
     public void setDissertationDefenseTime(String dissertationDefenseTime) {
+        if(dissertationDefenseTime == null){
+            log.warn("'dissertationDefenseTime' is null");
+            return;
+        }
         this.dissertationDefenseTime = dissertationDefenseTime;
     }
 }

@@ -18,6 +18,8 @@ import java.util.Random;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 public class Backend {
     private static Backend backend = null;
@@ -27,6 +29,8 @@ public class Backend {
         return backend;
     }
 
+
+    private static final Logger log = LogManager.getLogger(Backend.class);
 
 
     private ArrayList<Professor> professors;
@@ -40,6 +44,7 @@ public class Backend {
 
 
     private Backend() {
+        log.info("deserialization started");
         RequestDeserializer requestDeserializer = RequestDeserializer.getInstance();
 
         requestDeserializer.addRequestType("CertificateStudentRequest", CertificateStudentRequest.class);
@@ -61,7 +66,9 @@ public class Backend {
             Type professorArrayListType = new TypeToken<ArrayList<Professor>>() {}.getType();
             setProfessors(gson.fromJson(professorReader, professorArrayListType));
         }
-        catch (FileNotFoundException ignored){}
+        catch (FileNotFoundException ignored){
+            log.warn("couldn't find 'professors.json' file");
+        }
 
 
         try {
@@ -70,7 +77,9 @@ public class Backend {
             Type studentArrayListType = new TypeToken<ArrayList<Student>>() {}.getType();
             setStudents(gson.fromJson(studentReader, studentArrayListType));
         }
-        catch (FileNotFoundException ignored){}
+        catch (FileNotFoundException ignored){
+            log.warn("couldn't find 'students.json' file");
+        }
 
 
         try {
@@ -79,7 +88,9 @@ public class Backend {
             Type requestArrayListType = new TypeToken<ArrayList<Request>>() {}.getType();
             setRequests(gson.fromJson(requestReader, requestArrayListType));
         }
-        catch (FileNotFoundException ignored){}
+        catch (FileNotFoundException ignored){
+            log.warn("couldn't find 'requests.json' file");
+        }
 
 
         try {
@@ -88,7 +99,9 @@ public class Backend {
             Type collegeArrayListType = new TypeToken<ArrayList<College>>() {}.getType();
             setColleges(gson.fromJson(collegeReader, collegeArrayListType));
         }
-        catch (FileNotFoundException ignored){}
+        catch (FileNotFoundException ignored){
+            log.warn("couldn't find 'colleges.json' file");
+        }
 
 
         try {
@@ -97,7 +110,9 @@ public class Backend {
             Type courseArrayListType = new TypeToken<ArrayList<Course>>() {}.getType();
             setCourses(gson.fromJson(courseReader, courseArrayListType));
         }
-        catch (FileNotFoundException ignored){}
+        catch (FileNotFoundException ignored){
+            log.warn("couldn't find 'courses.json' file");
+        }
 
 
         try {
@@ -106,7 +121,9 @@ public class Backend {
             Type fieldArrayListType = new TypeToken<ArrayList<Field>>() {}.getType();
             setFields(gson.fromJson(fieldReader, fieldArrayListType));
         }
-        catch (FileNotFoundException ignored){}
+        catch (FileNotFoundException ignored){
+            log.warn("couldn't find 'fields.json' file");
+        }
 
 
         try {
@@ -115,7 +132,9 @@ public class Backend {
             Type reportCardArrayListType = new TypeToken<ArrayList<ReportCard>>() {}.getType();
             setReportCards(gson.fromJson(reportCardReader, reportCardArrayListType));
         }
-        catch (FileNotFoundException ignored){}
+        catch (FileNotFoundException ignored){
+            log.warn("couldn't find 'reportCards.json' file");
+        }
 
 
         try {
@@ -124,33 +143,44 @@ public class Backend {
             Type captchaArrayListType = new TypeToken<ArrayList<Captcha>>() {}.getType();
             setCaptchas(gson.fromJson(captchaReader, captchaArrayListType));
         }
-        catch (FileNotFoundException ignored){}
+        catch (FileNotFoundException ignored){
+            log.warn("couldn't find 'captchas.json' file");
+        }
 
 
         if(professors == null){
+            log.warn("'professors' is null");
             setProfessors(new ArrayList<>());
         }
         if(students == null){
+            log.warn("'students' is null");
             setStudents(new ArrayList<>());
         }
         if(requests == null){
+            log.warn("'requests' is null");
             setRequests(new ArrayList<>());
         }
         if(colleges == null){
+            log.warn("'colleges' is null");
             setColleges(new ArrayList<>());
         }
         if(courses == null){
+            log.warn("'courses' is null");
             setCourses(new ArrayList<>());
         }
         if(fields == null){
+            log.warn("'fields' is null");
             setFields(new ArrayList<>());
         }
         if(reportCards == null){
+            log.warn("'reportCards' is null");
             setReportCards(new ArrayList<>());
         }
         if(captchas == null){
+            log.warn("'captchas' is null");
             setCaptchas(new ArrayList<>());
         }
+
 
         Professor.setNextId(Professor.getNextId()+professors.size());
         Student.setNextId(Student.getNextId()+students.size());
@@ -160,10 +190,14 @@ public class Backend {
         Field.setNextId(Field.getNextId()+fields.size());
         ReportCard.setNextId(ReportCard.getNextId()+reportCards.size());
         Captcha.setNextId(Captcha.getNextId()+captchas.size());
+
+        log.info("deserialization finished");
     }
 
 
     public void save() throws IOException {
+        log.info("serialization started");
+
         GsonBuilder builder = new GsonBuilder();
         builder.setPrettyPrinting();
         Gson gson = builder.create();
@@ -209,6 +243,8 @@ public class Backend {
         FileWriter captchaWriter = new FileWriter("captchas.json");
         captchaWriter.write(captchasJson);
         captchaWriter.close();
+
+        log.info("serialization ended");
     }
 
 
@@ -221,6 +257,10 @@ public class Backend {
     }
 
     public void setProfessors(ArrayList<Professor> professors) {
+        if(professors == null){
+            log.warn("'professors' is null");
+            return;
+        }
         this.professors = professors;
     }
 
@@ -243,6 +283,10 @@ public class Backend {
     }
 
     public void addToProfessors(Professor professor){
+        if(professor == null){
+            log.warn("'professor' is null");
+            return;
+        }
         if(hasProfessor(professor.getId()))return;
         professors.add(professor);
     }
@@ -261,6 +305,10 @@ public class Backend {
     }
 
     public void setStudents(ArrayList<Student> students) {
+        if(students == null){
+            log.warn("'students' is null");
+            return;
+        }
         this.students = students;
     }
 
@@ -283,6 +331,10 @@ public class Backend {
     }
 
     public void addToStudents(Student student){
+        if(student == null){
+            log.warn("'student' is null");
+            return;
+        }
         if(hasStudent(student.getId()))return;
         students.add(student);
     }
@@ -301,6 +353,10 @@ public class Backend {
     }
 
     public void setRequests(ArrayList<Request> requests) {
+        if(requests == null){
+            log.warn("'requests' is null");
+            return;
+        }
         this.requests = requests;
     }
 
@@ -323,6 +379,10 @@ public class Backend {
     }
 
     public void addToRequests(Request request){
+        if(request == null){
+            log.warn("'request' is null");
+            return;
+        }
         if(hasRequest(request.getId()))return;
         requests.add(request);
     }
@@ -341,6 +401,10 @@ public class Backend {
     }
 
     public void setColleges(ArrayList<College> colleges) {
+        if(colleges == null){
+            log.warn("'colleges' is null");
+            return;
+        }
         this.colleges = colleges;
     }
 
@@ -363,6 +427,10 @@ public class Backend {
     }
 
     public void addToColleges(College college){
+        if(college == null){
+            log.warn("'college' is null");
+            return;
+        }
         if(hasCollege(college.getId()))return;
         colleges.add(college);
     }
@@ -381,6 +449,10 @@ public class Backend {
     }
 
     public void setCourses(ArrayList<Course> courses) {
+        if(courses == null){
+            log.warn("'courses' is null");
+            return;
+        }
         this.courses = courses;
     }
 
@@ -403,6 +475,10 @@ public class Backend {
     }
 
     public void addToCourses(Course course){
+        if(course == null){
+            log.warn("'course' is null");
+            return;
+        }
         if(hasCourse(course.getId()))return;
         courses.add(course);
     }
@@ -421,6 +497,10 @@ public class Backend {
     }
 
     public void setFields(ArrayList<Field> fields) {
+        if(fields == null){
+            log.warn("'fields' is null");
+            return;
+        }
         this.fields = fields;
     }
 
@@ -443,6 +523,10 @@ public class Backend {
     }
 
     public void addToFields(Field field){
+        if(field == null){
+            log.warn("'field' is null");
+            return;
+        }
         if(hasField(field.getId()))return;
         fields.add(field);
     }
@@ -461,6 +545,10 @@ public class Backend {
     }
 
     public void setReportCards(ArrayList<ReportCard> reportCards) {
+        if(reportCards == null){
+            log.warn("'reportCards' is null");
+            return;
+        }
         this.reportCards = reportCards;
     }
 
@@ -483,6 +571,10 @@ public class Backend {
     }
 
     public void addToReportCards(ReportCard reportCard){
+        if(reportCard == null){
+            log.warn("'reportCard' is null");
+            return;
+        }
         if(hasReportCard(reportCard.getId()))return;
         reportCards.add(reportCard);
     }
@@ -500,6 +592,10 @@ public class Backend {
     }
 
     public void setCaptchas(ArrayList<Captcha> captchas) {
+        if(captchas == null){
+            log.warn("'captchas' is null");
+            return;
+        }
         this.captchas = captchas;
     }
 
@@ -522,6 +618,10 @@ public class Backend {
     }
 
     public void addToCaptchas(Captcha captcha){
+        if(captcha == null){
+            log.warn("'captcha' is null");
+            return;
+        }
         if(hasCaptcha(captcha.getId()))return;
         captchas.add(captcha);
     }
@@ -561,6 +661,9 @@ public class Backend {
         else if(id > 0){
             return hasCaptcha(id);
         }
+        else{
+            log.warn("'id' is weird");
+        }
 
         return false;
     }
@@ -590,11 +693,18 @@ public class Backend {
         else if(id > 0){
             return getCaptcha(id);
         }
+        else{
+            log.warn("'id' is weird");
+        }
 
         return null;
     }
 
     public void add(Object obj){
+        if(obj == null){
+            log.warn("'obj' is null");
+            return;
+        }
         if(obj instanceof Professor){
             addToProfessors((Professor) obj);
         }
@@ -618,6 +728,9 @@ public class Backend {
         }
         else if(obj instanceof Captcha){
             addToCaptchas((Captcha) obj);
+        }
+        else{
+            log.warn("'obj' is weird");
         }
     }
 
@@ -646,9 +759,22 @@ public class Backend {
         else if(id > 0){
             removeFromCaptchas(id);
         }
+        else{
+            log.warn("'id' is weird");
+        }
     }
 
     public User getUserObjByUserPass(String studentOrProfessorNumber, String password) {
+        if(studentOrProfessorNumber == null){
+            log.warn("'studentOrProfessorNumber' is null");
+            return null;
+        }
+
+        if(password == null){
+            log.warn("'password' is null");
+            return null;
+        }
+
         for(Student student : students){
             if(student.getStudentNumber().equals(studentOrProfessorNumber) &&
                     student.getHashedPassword() == password.hashCode()){
@@ -666,9 +792,6 @@ public class Backend {
 
     public Captcha getRandomCaptcha() {
         Random random = new Random();
-        if(captchas.size() == 1){
-            return captchas.get(0);
-        }
         int index = random.nextInt(captchas.size());
         return captchas.get(index);
     }

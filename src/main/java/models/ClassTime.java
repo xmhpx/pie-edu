@@ -1,6 +1,12 @@
 package models;
 
+import logic.Backend;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 public class ClassTime {
+    private static final Logger log = LogManager.getLogger(ClassTime.class);
+
     private WeekDay weekDay;
     private Time startTime;
     private Time endTime;
@@ -34,6 +40,10 @@ public class ClassTime {
     }
 
     public void setWeekDay(WeekDay weekDay) {
+        if(weekDay == null){
+            log.warn("'weekDay' is null");
+            return;
+        }
         this.weekDay = weekDay;
     }
 
@@ -43,6 +53,10 @@ public class ClassTime {
     }
 
     public void setStartTime(Time startTime) {
+        if(startTime == null){
+            log.warn("'startTime' is null");
+            return;
+        }
         this.startTime = startTime;
     }
 
@@ -52,6 +66,10 @@ public class ClassTime {
     }
 
     public void setEndTime(Time endTime) {
+        if(endTime == null){
+            log.warn("'endTime' is null");
+            return;
+        }
         this.endTime = endTime;
     }
 
@@ -61,6 +79,9 @@ public class ClassTime {
     }
 
     public void setCourseId(int courseId) {
+        if(!Backend.getInstance().hasCourse(courseId)){
+            log.warn("'courseId' doesn't exist in backend");
+        }
         this.courseId = courseId;
     }
 }

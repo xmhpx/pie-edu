@@ -1,11 +1,16 @@
 package models.universityitems;
 
+import logic.Backend;
 import models.ClassTime;
 import models.WeekDay;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 
 public class Course {
+    private static final Logger log = LogManager.getLogger(Course.class);
+
     private static int nextId = 50001;
 
     protected int id;
@@ -56,6 +61,9 @@ public class Course {
     }
 
     public static void setNextId(int nextId) {
+        if(nextId <= 50000){
+            log.warn("'nextId' is weird");
+        }
         Course.nextId = nextId;
     }
 
@@ -70,6 +78,10 @@ public class Course {
     }
 
     public void setName(String name) {
+        if(name == null){
+            log.warn("'name' is null");
+            return;
+        }
         this.name = name;
     }
 
@@ -79,6 +91,9 @@ public class Course {
     }
 
     public void setCollegeId(int collegeId) {
+        if(!Backend.getInstance().hasCollege(collegeId)){
+            log.warn("'collegeId' doesn't exist in backend");
+        }
         this.collegeId = collegeId;
     }
 
@@ -88,6 +103,9 @@ public class Course {
     }
 
     public void setProfessorId(int professorId) {
+        if(!Backend.getInstance().hasProfessor(professorId)){
+            log.warn("'professorId' doesn't exist in backend");
+        }
         this.professorId = professorId;
     }
 
@@ -97,6 +115,10 @@ public class Course {
     }
 
     public void setHoldingSemester(String holdingSemester) {
+        if(holdingSemester == null){
+            log.warn("'holdingSemester' is null");
+            return;
+        }
         this.holdingSemester = holdingSemester;
     }
 
@@ -106,6 +128,9 @@ public class Course {
     }
 
     public void setCourseId(int courseId) {
+        if(!Backend.getInstance().hasCourse(courseId)){
+            log.warn("'courseId' doesn't exist in backend");
+        }
         this.courseId = courseId;
     }
 
@@ -115,6 +140,9 @@ public class Course {
     }
 
     public void setSemesterCreditHours(int semesterCreditHours) {
+        if(semesterCreditHours < 0){
+            log.warn("'semesterCreditHours' is negative");
+        }
         this.semesterCreditHours = semesterCreditHours;
     }
 
@@ -124,6 +152,10 @@ public class Course {
     }
 
     public void setStudentIds(ArrayList<Integer> studentIds) {
+        if(studentIds == null){
+            log.warn("'studentIds' is null");
+            return;
+        }
         this.studentIds = studentIds;
     }
 
@@ -133,6 +165,10 @@ public class Course {
     }
 
     public void setExamDate(String examDate) {
+        if(examDate == null){
+            log.warn("'examDate' is null");
+            return;
+        }
         this.examDate = examDate;
     }
 
@@ -143,14 +179,25 @@ public class Course {
     }
 
     public void setClassTimes(ArrayList<ClassTime> classTimes) {
+        if(classTimes == null){
+            log.warn("'classTimes' is null");
+            return;
+        }
         this.classTimes = classTimes;
     }
 
     public void addToClassTimes(ClassTime classTime) {
+        if(classTime == null){
+            log.warn("'classTime' is null");
+            return;
+        }
         classTimes.add(classTime);
     }
 
     public void removeFromClassTimes(ClassTime classTime) {
+        if(classTime == null){
+            log.warn("'classTime' is null");
+        }
         classTimes.remove(classTime);
     }
 }

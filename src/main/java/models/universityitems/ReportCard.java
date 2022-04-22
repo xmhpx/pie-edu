@@ -1,8 +1,12 @@
 package models.universityitems;
 
 import logic.Backend;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 public class ReportCard {
+    private static final Logger log = LogManager.getLogger(ReportCard.class);
+
     protected static int nextId = 70001;
 
     protected int id;
@@ -25,12 +29,15 @@ public class ReportCard {
 
     // getters and setters
 
-    public static void setNextId(int nextId) {
-        ReportCard.nextId = nextId;
-    }
-
     public static int getNextId() {
         return nextId;
+    }
+
+    public static void setNextId(int nextId) {
+        if(nextId <= 70000){
+            log.warn("'nextId' is weird");
+        }
+        ReportCard.nextId = nextId;
     }
 
 
@@ -44,6 +51,9 @@ public class ReportCard {
     }
 
     public void setCourseId(int courseId) {
+        if(!Backend.getInstance().hasCourse(courseId)){
+            log.warn("'courseId' doesn't exist in backend");
+        }
         this.courseId = courseId;
     }
 
@@ -53,6 +63,9 @@ public class ReportCard {
     }
 
     public void setStudentId(int studentId) {
+        if(!Backend.getInstance().hasStudent(studentId)){
+            log.warn("'studentId' doesn't exist in backend");
+        }
         this.studentId = studentId;
     }
 
@@ -62,6 +75,9 @@ public class ReportCard {
     }
 
     public void setStatus(ReportCardStatus status) {
+        if(status == null){
+            log.warn("'status' is null");
+        }
         this.status = status;
     }
 
@@ -71,6 +87,9 @@ public class ReportCard {
     }
 
     public void setScore(String score) {
+        if(score == null){
+            log.warn("'score' is null");
+        }
         this.score = score;
     }
 

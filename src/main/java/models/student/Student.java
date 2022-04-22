@@ -3,10 +3,15 @@ package models.student;
 import logic.Backend;
 import logic.LogicCenter;
 import models.*;
+import models.professor.Professor;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 
 public class Student extends User {
+    private static final Logger log = LogManager.getLogger(Student.class);
+
     protected static int nextId = 20001;
 
     protected int id;
@@ -58,6 +63,9 @@ public class Student extends User {
     }
 
     public static void setNextId(int nextId) {
+        if(nextId <= 20000){
+            log.warn("'nextId' is weird");
+        }
         Student.nextId = nextId;
     }
 
@@ -72,6 +80,10 @@ public class Student extends User {
     }
 
     public void setStudentNumber(String studentNumber) {
+        if(studentNumber == null){
+            log.warn("'studentNumber' is null");
+            return;
+        }
         this.studentNumber = studentNumber;
     }
 
@@ -81,6 +93,10 @@ public class Student extends User {
     }
 
     public void setStatus(String status) {
+        if(status == null){
+            log.warn("'status' is null");
+            return;
+        }
         this.status = status;
     }
 
@@ -90,6 +106,9 @@ public class Student extends User {
     }
 
     public void setSupervisorId(int supervisorId) {
+        if(!Backend.getInstance().hasProfessor(supervisorId)){
+            log.warn("'supervisorId' doesn't exist in backend");
+        }
         this.supervisorId = supervisorId;
     }
 
@@ -99,6 +118,10 @@ public class Student extends User {
     }
 
     public void setRegistrationLicense(String registrationLicense) {
+        if(registrationLicense == null){
+            log.warn("'registrationLicense' is null");
+            return;
+        }
         this.registrationLicense = registrationLicense;
     }
 
@@ -108,6 +131,10 @@ public class Student extends User {
     }
 
     public void setRegistrationTime(String registrationTime) {
+        if(registrationTime == null){
+            log.warn("'registrationTime' is null");
+            return;
+        }
         this.registrationTime = registrationTime;
     }
 
@@ -117,6 +144,10 @@ public class Student extends User {
     }
 
     public void setEducationStatus(StudentEducationStatus educationStatus) {
+        if(educationStatus == null){
+            log.warn("'educationStatus' is null");
+            return;
+        }
         this.educationStatus = educationStatus;
     }
 
@@ -126,6 +157,10 @@ public class Student extends User {
     }
 
     public void setStudentLevel(StudentLevel studentLevel) {
+        if(studentLevel == null){
+            log.warn("'studentLevel' is null");
+            return;
+        }
         this.studentLevel = studentLevel;
     }
 
@@ -135,6 +170,10 @@ public class Student extends User {
     }
 
     public void setYearOfEntry(String yearOfEntry) {
+        if(yearOfEntry == null){
+            log.warn("'yearOfEntry' is null");
+            return;
+        }
         this.yearOfEntry = yearOfEntry;
     }
 
@@ -145,10 +184,17 @@ public class Student extends User {
     }
 
     public void setReportCardIds(ArrayList<Integer> reportCardIds) {
+        if(reportCardIds == null){
+            log.warn("'reportCardIds' is null");
+            return;
+        }
         this.reportCardIds = reportCardIds;
     }
 
     public void addToReportCards(int reportCardId){
+        if(!Backend.getInstance().hasReportCard(reportCardId)){
+            log.warn("'reportCardId' doesn't exist in backend");
+        }
         reportCardIds.add(reportCardId);
     }
 
@@ -162,10 +208,17 @@ public class Student extends User {
     }
 
     public void setRequestIds(ArrayList<Integer> requestIds) {
+        if(requestIds == null){
+            log.warn("'requestIds' is null");
+            return;
+        }
         this.requestIds = requestIds;
     }
 
     public void addToRequest(int requestId){
+        if(!Backend.getInstance().hasRequest(requestId)){
+            log.warn("'requestId' doesn't exist in backend");
+        }
         requestIds.add(requestId);
     }
 
@@ -179,14 +232,21 @@ public class Student extends User {
     }
 
     public void setCourseIds(ArrayList<Integer> courseIds) {
+        if(courseIds == null){
+            log.warn("'courseIds' is null");
+            return;
+        }
         this.courseIds = courseIds;
     }
 
-    public void addToCourses(int course){
-        courseIds.add(course);
+    public void addToCourseIds(int courseId){
+        if(!Backend.getInstance().hasCourse(courseId)){
+            log.warn("'courseId' doesn't exist in backend");
+        }
+        courseIds.add(courseId);
     }
 
-    public void removeFromCourses(int course){
-        courseIds.remove(course);
+    public void removeFromCourseIds(int courseId){
+        courseIds.remove(courseId);
     }
 }

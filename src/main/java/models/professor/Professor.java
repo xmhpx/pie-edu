@@ -1,8 +1,13 @@
 package models.professor;
 
 import models.User;
+import models.universityitems.College;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 public class Professor extends User {
+    private static final Logger log = LogManager.getLogger(Professor.class);
+
     protected static int nextId = 10001;
 
     protected int id;
@@ -29,13 +34,17 @@ public class Professor extends User {
     // getters and setters
 
 
-    public static void setNextId(int nextId) {
-        Professor.nextId = nextId;
-    }
-
     public static int getNextId() {
         return nextId;
     }
+
+    public static void setNextId(int nextId) {
+        if(nextId <= 10000){
+            log.warn("'nextId' is weird");
+        }
+        Professor.nextId = nextId;
+    }
+
 
     @Override
     public int getId() {
@@ -48,6 +57,10 @@ public class Professor extends User {
     }
 
     public void setProfessorNumber(String professorNumber) {
+        if(professorNumber == null){
+            log.warn("'professorNumber' is null");
+            return;
+        }
         this.professorNumber = professorNumber;
     }
 
@@ -57,6 +70,10 @@ public class Professor extends User {
     }
 
     public void setProfessorLevel(ProfessorLevel professorLevel) {
+        if(professorLevel == null){
+            log.warn("'professorLevel' is null");
+            return;
+        }
         this.professorLevel = professorLevel;
     }
 
@@ -66,6 +83,10 @@ public class Professor extends User {
     }
 
     public void setProfessorType(ProfessorType professorType) {
+        if(professorType == null){
+            log.warn("'professorType' is null");
+            return;
+        }
         this.professorType = professorType;
     }
 
@@ -75,6 +96,10 @@ public class Professor extends User {
     }
 
     public void setRoomNumber(String roomNumber) {
+        if(roomNumber == null){
+            log.warn("'roomNumber' is null");
+            return;
+        }
         this.roomNumber = roomNumber;
     }
 }

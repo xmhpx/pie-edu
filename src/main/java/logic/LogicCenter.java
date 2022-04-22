@@ -1,11 +1,16 @@
 package logic;
 
+import models.User;
 import models.universityitems.ReportCard;
 import models.universityitems.ReportCardStatus;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 
 public class LogicCenter {
+    private static final Logger log = LogManager.getLogger(LogicCenter.class);
+
     static LogicCenter logicCenterInstance;
 
     public LogicCenter getInstance(){
@@ -18,6 +23,11 @@ public class LogicCenter {
 
 
     public static double getAverageOfReportCardIds(ArrayList<Integer> reportCardIds) {
+        if(reportCardIds == null){
+            log.warn("'user' is null");
+            return -1;
+        }
+
         Backend backend = Backend.getInstance();
         int numberOfScores = 0;
         double sumOfScores = 0;
@@ -31,7 +41,9 @@ public class LogicCenter {
                         sumOfScores += score;
                         numberOfScores++;
                     }
-                    catch (NumberFormatException ignored){}
+                    catch (NumberFormatException ignored){
+                        log.warn("CREDITED or a FAILED report card with id " + reportCard.getId() + " doesn't have a proper score");
+                    }
                 }
             }
         }
@@ -39,10 +51,4 @@ public class LogicCenter {
         if(numberOfScores == 0)return -1;
         return sumOfScores/numberOfScores;
     }
-
-
-
-    // getters and setters
-
-
 }
