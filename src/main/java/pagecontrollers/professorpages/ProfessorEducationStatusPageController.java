@@ -65,7 +65,6 @@ public class ProfessorEducationStatusPageController extends ProfessorPageControl
         }
         catch (NumberFormatException numberFormatException){
             error("student id must be an integer");
-            initialize();
             return;
         }
 
@@ -74,7 +73,6 @@ public class ProfessorEducationStatusPageController extends ProfessorPageControl
         }
         catch (NumberFormatException numberFormatException){
             error("course id must be an integer");
-            initialize();
             return;
         }
 
