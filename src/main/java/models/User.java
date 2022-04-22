@@ -27,13 +27,13 @@ public class User {
 
     public User(String password, String name, int fieldId, int collegeId, int age, String nationalIdNumber){
         setPassword(password);
-        setLastVisit("");
+        setLastVisit("N/A");
         setProfileImagePath(null);
         setName(name);
-        setEmail("");
-        setPhoneNumber("");
-        setHomeAddress("");
-        setPostalCode("");
+        setEmail("N/A");
+        setPhoneNumber("N/A");
+        setHomeAddress("N/A");
+        setPostalCode("N/A");
         setPreferredUITheme(null);
         setFieldId(fieldId);
         setCollegeId(collegeId);

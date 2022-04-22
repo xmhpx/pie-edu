@@ -35,10 +35,10 @@ public class Student extends User {
         id = nextId++;
 
         setStudentNumber(studentNumber);
-        setStatus("");
+        setStatus("N/A");
         setSupervisorId(0);
-        setRegistrationLicense(null);
-        setRegistrationTime(null);
+        setRegistrationLicense("N/A");
+        setRegistrationTime("N/A");
         setStudentLevel(studentLevel);
         setEducationStatus(educationStatus);
         setYearOfEntry(yearOfEntry);
