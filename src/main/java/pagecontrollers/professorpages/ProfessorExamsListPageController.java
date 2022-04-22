@@ -9,10 +9,13 @@ import models.User;
 import models.professor.Professor;
 import models.student.Student;
 import models.universityitems.Course;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.util.Comparator;
 
 public class ProfessorExamsListPageController extends ProfessorPageController {
+    private static final Logger log = LogManager.getLogger(ProfessorExamsListPageController.class);
 
     public static final String fxmlFileName = "professorExamsListPage.fxml";
 
@@ -32,6 +35,10 @@ public class ProfessorExamsListPageController extends ProfessorPageController {
                     data.add(course);
                 }
             }
+        }
+        else{
+            log.error("logged in user is not a Professor");
+            throw new IllegalStateException("logged in user is not a Professor");
         }
 
         Comparator<Course> courseComparator = new Comparator<Course>() {

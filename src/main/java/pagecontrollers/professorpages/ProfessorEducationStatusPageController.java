@@ -15,8 +15,11 @@ import models.professor.Professor;
 import models.student.Student;
 import models.universityitems.ReportCard;
 import models.universityitems.ReportCardStatus;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 public class ProfessorEducationStatusPageController extends ProfessorPageController {
+    private static final Logger log = LogManager.getLogger(ProfessorEducationStatusPageController.class);
 
     public static final String fxmlFileName = "professorEducationStatusPage.fxml";
 
@@ -49,6 +52,10 @@ public class ProfessorEducationStatusPageController extends ProfessorPageControl
         if(user instanceof Professor professor) {
             for(ReportCard reportCard : backend.getReportCards()) {
                 Student student = backend.getStudent(reportCard.getStudentId());
+                if(student == null){
+                    log.error("reportCard("+reportCard.getId()+"'s student doesn't exist");
+                    throw new IllegalStateException("reportCard("+reportCard.getId()+"'s student doesn't exist");
+                }
                 if(student.getCollegeId() == professor.getCollegeId()) {
                     ReportCardStatus status = reportCard.getStatus();
                     if (status != ReportCardStatus.TAKEN && status != ReportCardStatus.TEMPORARILY_SCORED) {
@@ -56,6 +63,10 @@ public class ProfessorEducationStatusPageController extends ProfessorPageControl
                     }
                 }
             }
+        }
+        else{
+            log.error("logged in user is not a Professor");
+            throw new IllegalStateException("logged in user is not a Professor");
         }
     }
 
@@ -85,6 +96,10 @@ public class ProfessorEducationStatusPageController extends ProfessorPageControl
         if(user instanceof Professor professor) {
             for(ReportCard reportCard : backend.getReportCards()) {
                 Student student = backend.getStudent(reportCard.getStudentId());
+                if(student == null){
+                    log.error("report card("+reportCard.getId()+"'s student doesn't exist");
+                    throw new IllegalStateException("report card("+reportCard.getId()+"'s student doesn't exist");
+                }
                 if(student.getCollegeId() == professor.getCollegeId()) {
                     ReportCardStatus status = reportCard.getStatus();
                     if (status != ReportCardStatus.TAKEN && status != ReportCardStatus.TEMPORARILY_SCORED) {
@@ -96,6 +111,10 @@ public class ProfessorEducationStatusPageController extends ProfessorPageControl
                     }
                 }
             }
+        }
+        else{
+            log.error("logged in user is not a Professor");
+            throw new IllegalStateException("logged in user is not a Professor");
         }
 
         if(studentName.equals("") &&

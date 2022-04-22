@@ -11,8 +11,11 @@ import logic.Backend;
 import logic.LoggedInUserHolder;
 import models.Captcha;
 import models.User;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 public class ProfessorEditProfileController extends ProfessorPageController {
+    private static final Logger log = LogManager.getLogger(ProfessorEditProfileController.class);
 
     public static final String fxmlFileName = "professorEditProfile.fxml";
 
@@ -64,7 +67,7 @@ public class ProfessorEditProfileController extends ProfessorPageController {
                 error("incorrect password");
             }
             else {
-                String err = "";
+                String errorMassage = "";
 
                 String newName = newNameTextField.getText();
                 if (newName.length() > 0) {
@@ -74,22 +77,22 @@ public class ProfessorEditProfileController extends ProfessorPageController {
                         error("new name is too long");
                     }
                     user.setName(newName);
-                    err += "name has been changed\n";
+                    errorMassage += "name has been changed\n";
                 }
 
                 String newEmail = newEmailTextField.getText();
                 if (newEmail.length() > 0) {
                     user.setEmail(newEmail);
-                    err += "email has been changed\n";
+                    errorMassage += "email has been changed\n";
                 }
 
                 String newPhoneNumber = newPhoneNumberTextField.getText();
                 if (newPhoneNumber.length() > 0) {
                     user.setPhoneNumber(newPhoneNumber);
-                    err += "phone number has been changed\n";
+                    errorMassage += "phone number has been changed\n";
                 }
 
-                error(err);
+                error(errorMassage);
             }
         }
         else {
@@ -111,7 +114,17 @@ public class ProfessorEditProfileController extends ProfessorPageController {
         passwordTextField.setText("");
 
         setRandomCaptcha();
-        Image image = new Image(captcha.getImagePath());
+
+        Image image;
+
+        try {
+            image = new Image(captcha.getImagePath());
+        }
+        catch (Exception e){
+            log.error("unable to construct 'image' with imagePath('"+captcha.getImagePath()+"')");
+            throw new IllegalStateException("unable to construct 'image' with imagePath('"+captcha.getImagePath()+"')");
+        }
+
         captchaImage.setImage(image);
         captchaTextField.setText("");
     }

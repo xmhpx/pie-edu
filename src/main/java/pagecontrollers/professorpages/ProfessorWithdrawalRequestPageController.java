@@ -18,27 +18,18 @@ import models.student.Student;
 import models.universityitems.requests.MinorRequest;
 import models.universityitems.requests.Request;
 import models.universityitems.requests.WithdrawalRequest;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 
 public class ProfessorWithdrawalRequestPageController extends ProfessorPageController {
+    private static final Logger log = LogManager.getLogger(ProfessorWithdrawalRequestPageController.class);
 
     public static final String fxmlFileName = "professorWithdrawalRequestPage.fxml";
 
     @FXML
     TableView<WithdrawalRequest> tableView;
-
-    @FXML
-    TextField titleTextField;
-
-    @FXML
-    TextField bodyTextField;
-
-    @FXML
-    Button addRequestButton;
-
-    @FXML
-    Text errorText;
 
 
     @Override
@@ -52,11 +43,19 @@ public class ProfessorWithdrawalRequestPageController extends ProfessorPageContr
             for(Request request : backend.getRequests()){
                 if(request instanceof WithdrawalRequest withdrawalRequest){
                     Student student = backend.getStudent(withdrawalRequest.getSenderId());
+                    if(student == null){
+                        log.error("withdrawalRequest("+withdrawalRequest.getId()+"'s student doesn't exist");
+                        throw new IllegalStateException("withdrawalRequest("+withdrawalRequest.getId()+"'s student doesn't exist");
+                    }
                     if(student.getCollegeId() == professor.getCollegeId()) {
                         data.add(withdrawalRequest);
                     }
                 }
             }
+        }
+        else{
+            log.error("logged in user is not a Professor");
+            throw new IllegalStateException("logged in user is not a Professor");
         }
 
 
@@ -76,45 +75,5 @@ public class ProfessorWithdrawalRequestPageController extends ProfessorPageContr
 
         tableView.getColumns().add(statusColumn);
         tableView.getColumns().add(responseColumn);
-    }
-
-
-    @FXML
-    void addRequestButtonOnAction(ActionEvent actionEvent) {
-        Backend backend = Backend.getInstance();
-
-        String title = titleTextField.getText();
-        String body = bodyTextField.getText();
-
-        if(title.equals("")){
-            error("empty title is not allowed");
-            return;
-        }
-
-        WithdrawalRequest request = new WithdrawalRequest(title, body, LoggedInUserHolder.getUser().getId());
-        backend.addToRequests(request);
-        Student student = backend.getStudent(request.getSenderId());
-        student.addToRequest(request.getId());
-
-        reload();
-    }
-
-    private void error(String error){
-        clean();
-        errorText.setText(error);
-    }
-
-    private void clean(){
-        errorText.setText("");
-        titleTextField.setText("");
-        bodyTextField.setText("");
-    }
-
-    private void reload(){
-        try {
-            goToStudentPage(fxmlFileName);
-        } catch (IOException e) {
-            error("some backend problem happened, try again");
-        }
     }
 }

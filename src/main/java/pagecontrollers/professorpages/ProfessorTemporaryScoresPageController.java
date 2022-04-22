@@ -14,8 +14,11 @@ import models.professor.Professor;
 import models.student.Student;
 import models.universityitems.ReportCard;
 import models.universityitems.ReportCardStatus;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 public class ProfessorTemporaryScoresPageController extends ProfessorPageController {
+    private static final Logger log = LogManager.getLogger(ProfessorTemporaryScoresPageController.class);
 
     public static final String fxmlFileName = "professorTemporaryScoresPage.fxml";
 
@@ -69,9 +72,14 @@ public class ProfessorTemporaryScoresPageController extends ProfessorPageControl
         ObservableList<ReportCard> data = tableView.getItems();
         data.clear();
         User user = LoggedInUserHolder.getUser();
+
         if(user instanceof Professor professor) {
             for(ReportCard reportCard : backend.getReportCards()) {
                 Student student = backend.getStudent(reportCard.getStudentId());
+                if(student == null){
+                    log.error("reportCard("+reportCard.getId()+"'s student doesn't exist");
+                    throw new IllegalStateException("reportCard("+reportCard.getId()+"'s student doesn't exist");
+                }
                 if(student.getCollegeId() == professor.getCollegeId()) {
                     ReportCardStatus status = reportCard.getStatus();
                     if (status == ReportCardStatus.TEMPORARILY_SCORED) {
@@ -79,6 +87,10 @@ public class ProfessorTemporaryScoresPageController extends ProfessorPageControl
                     }
                 }
             }
+        }
+        else{
+            log.error("logged in user is not a Professor");
+            throw new IllegalStateException("logged in user is not a Professor");
         }
     }
 
@@ -113,10 +125,21 @@ public class ProfessorTemporaryScoresPageController extends ProfessorPageControl
         ObservableList<ReportCard> data = tableView.getItems();
         data.clear();
         User user = LoggedInUserHolder.getUser();
+
         if(user instanceof Professor) {
             for(ReportCard reportCard : backend.getReportCards()) {
                 Student student = backend.getStudent(reportCard.getStudentId());
+                if(student == null){
+                    log.error("reportCard("+reportCard.getId()+"'s student doesn't exist");
+                    throw new IllegalStateException("reportCard("+reportCard.getId()+"'s student doesn't exist");
+                }
+
                 Professor professor = backend.getProfessor(reportCard.getProfessorId());
+                if(professor == null){
+                    log.error("reportCard("+reportCard.getId()+"'s professor doesn't exist");
+                    throw new IllegalStateException("reportCard("+reportCard.getId()+"'s professor doesn't exist");
+                }
+
                 if(student.getCollegeId() == user.getCollegeId()) {
                     ReportCardStatus status = reportCard.getStatus();
                     if (status == ReportCardStatus.TEMPORARILY_SCORED) {
@@ -130,6 +153,10 @@ public class ProfessorTemporaryScoresPageController extends ProfessorPageControl
                     }
                 }
             }
+        }
+        else{
+            log.error("logged in user is not a Professor");
+            throw new IllegalStateException("logged in user is not a Professor");
         }
 
         if(studentName.equals("") &&
@@ -157,7 +184,6 @@ public class ProfessorTemporaryScoresPageController extends ProfessorPageControl
 
     @FXML
     void courseSummeryButtonOnAction(ActionEvent actionEvent){
-
         Backend backend = Backend.getInstance();
         String courseSummeryIdString = courseSummeryIdTextField.getText();
         int courseSummeryId;
@@ -184,30 +210,25 @@ public class ProfessorTemporaryScoresPageController extends ProfessorPageControl
         int finalCount = 0;
         double sum = 0;
         double sumWithoutFailed = 0;
-        try {
-            for (ReportCard reportCard : backend.getReportCards()) {
-                if (reportCard.getCourseId() == courseSummeryId) {
-                    if (reportCard.getStatus() == ReportCardStatus.FAILED) {
-                        failedCount++;
-                        finalCount++;
-                    }
-                    if (reportCard.getStatus() == ReportCardStatus.CREDITED) {
-                        creditedCount++;
-                        finalCount++;
-                    }
 
-                    try{
-                        if(reportCard.getStatus() != ReportCardStatus.FAILED)
-                            sumWithoutFailed += Double.parseDouble(reportCard.getScore());
-                        sum += Double.parseDouble(reportCard.getScore());
-                    }
-                    catch (NumberFormatException ignored){}
+        for (ReportCard reportCard : backend.getReportCards()) {
+            if (reportCard.getCourseId() == courseSummeryId) {
+                if (reportCard.getStatus() == ReportCardStatus.FAILED) {
+                    failedCount++;
+                    finalCount++;
                 }
+                if (reportCard.getStatus() == ReportCardStatus.CREDITED) {
+                    creditedCount++;
+                    finalCount++;
+                }
+
+                try{
+                    if(reportCard.getStatus() != ReportCardStatus.FAILED)
+                        sumWithoutFailed += Double.parseDouble(reportCard.getScore());
+                    sum += Double.parseDouble(reportCard.getScore());
+                }
+                catch (NumberFormatException ignored){}
             }
-        }
-        catch (NumberFormatException numberFormatException){
-            error("some report cards have CREDITED or FAILED status but don't have a valid score");
-            return;
         }
 
 

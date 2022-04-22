@@ -7,11 +7,14 @@ import logic.LoggedInUserHolder;
 import models.User;
 import models.professor.Professor;
 import models.professor.ProfessorType;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import pagecontrollers.LoggedInPageController;
 
 import java.io.IOException;
 
 public class ProfessorPageController extends LoggedInPageController {
+    private static final Logger log = LogManager.getLogger(ProfessorPageController.class);
 
     @FXML
     protected MenuItem coursesListMenuItem;
@@ -60,6 +63,10 @@ public class ProfessorPageController extends LoggedInPageController {
         if(user instanceof Professor professor){
             minorRequestMenuItem.setVisible(professor.getProfessorType() == ProfessorType.EDUCATIONAL_ASSISTANT);
             educationStatusMenuItem.setVisible(professor.getProfessorType() == ProfessorType.EDUCATIONAL_ASSISTANT);
+        }
+        else{
+            log.error("logged in user is not a Professor");
+            throw new IllegalStateException("logged in user is not a Professor");
         }
     }
 

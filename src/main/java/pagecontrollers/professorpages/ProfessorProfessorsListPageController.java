@@ -5,9 +5,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 import logic.Backend;
 import models.professor.Professor;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 
 public class ProfessorProfessorsListPageController extends ProfessorPageController {
+    private static final Logger log = LogManager.getLogger(ProfessorProfessorsListPageController.class);
 
     public static final String fxmlFileName = "professorProfessorsListPage.fxml";
 

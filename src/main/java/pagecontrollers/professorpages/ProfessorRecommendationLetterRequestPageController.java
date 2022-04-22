@@ -17,30 +17,19 @@ import models.professor.Professor;
 import models.student.Student;
 import models.universityitems.requests.RecommendationLetterRequest;
 import models.universityitems.requests.Request;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 
 public class ProfessorRecommendationLetterRequestPageController extends ProfessorPageController {
+    private static final Logger log = LogManager.getLogger(ProfessorRecommendationLetterRequestPageController.class);
 
     public static final String fxmlFileName = "professorRecommendationLetterRequestPage.fxml";
 
     @FXML
-    TextField titleTextField;
-
-    @FXML
-    TextField bodyTextField;
-
-    @FXML
-    TextField professorIdTextField;
-
-    @FXML
-    Button addRequestButton;
-
-    @FXML
-    Text errorText;
-
-    @FXML
     TableView<RecommendationLetterRequest> tableView;
+
 
     @Override
     public void initialize(){
@@ -59,6 +48,11 @@ public class ProfessorRecommendationLetterRequestPageController extends Professo
                 }
             }
         }
+        else{
+            log.error("logged in user is not a Professor");
+            throw new IllegalStateException("logged in user is not a Professor");
+        }
+
         TableColumn<RecommendationLetterRequest, String> statusColumn = new TableColumn<>("Status");
         statusColumn.setMaxWidth(200);
         statusColumn.setPrefWidth(70);
@@ -73,60 +67,5 @@ public class ProfessorRecommendationLetterRequestPageController extends Professo
 
         tableView.getColumns().add(statusColumn);
         tableView.getColumns().add(responseColumn);
-    }
-
-
-    @FXML
-    void addRequestButtonOnAction(ActionEvent actionEvent) {
-        Backend backend = Backend.getInstance();
-
-        String title = titleTextField.getText();
-        String body = bodyTextField.getText();
-        int professorId;
-
-        if(title.equals("")){
-            error("empty title is not allowed");
-            return;
-        }
-
-        try {
-            professorId = Integer.parseInt(professorIdTextField.getText());
-        }
-        catch (NumberFormatException numberFormatException){
-            error("professor id must be an integer");
-            return;
-        }
-
-        if(!backend.hasProfessor(professorId)){
-            error("professor doesn't exist");
-            return;
-        }
-
-        RecommendationLetterRequest request = new RecommendationLetterRequest(title, body, LoggedInUserHolder.getUser().getId(), professorId);
-        backend.addToRequests(request);
-        Student student = backend.getStudent(request.getSenderId());
-        student.addToRequest(request.getId());
-
-        reload();
-    }
-
-    private void error(String error){
-        clean();
-        errorText.setText(error);
-    }
-
-    private void clean(){
-        errorText.setText("");
-        titleTextField.setText("");
-        bodyTextField.setText("");
-        professorIdTextField.setText("");
-    }
-
-    private void reload(){
-        try {
-            goToStudentPage(fxmlFileName);
-        } catch (IOException e) {
-            error("some backend problem happened, try again");
-        }
     }
 }
