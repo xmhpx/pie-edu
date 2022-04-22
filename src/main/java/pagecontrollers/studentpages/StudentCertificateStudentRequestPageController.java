@@ -13,10 +13,14 @@ import models.User;
 import models.student.Student;
 import models.universityitems.requests.CertificateStudentRequest;
 import models.universityitems.requests.Request;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 
 public class StudentCertificateStudentRequestPageController extends StudentPageController {
+    private static final Logger log = LogManager.getLogger(StudentCertificateStudentRequestPageController.class);
+
 
     public static final String fxmlFileName = "studentCertificateStudentRequestPage.fxml";
 
@@ -46,8 +50,16 @@ public class StudentCertificateStudentRequestPageController extends StudentPageC
         if(user instanceof Student student) {
             for(int requestId : student.getRequestIds()) {
                 Request request = backend.getRequest(requestId);
+                if(request == null){
+                    log.error("student("+student.getId()+") has requestId("+requestId+") which doesn't exist");
+                    throw new IllegalStateException("student("+student.getId()+") has requestId("+requestId+") which doesn't exist");
+                }
                 if(request instanceof CertificateStudentRequest)data.add((CertificateStudentRequest) request);
             }
+        }
+        else{
+            log.error("logged in user is not a student");
+            throw new IllegalStateException("logged in user is not a student");
         }
     }
 
@@ -66,7 +78,7 @@ public class StudentCertificateStudentRequestPageController extends StudentPageC
 
         CertificateStudentRequest request = new CertificateStudentRequest(title, body, LoggedInUserHolder.getUser().getId());
         backend.addToRequests(request);
-        Student student = backend.getStudent(request.getSenderId());
+        Student student = (Student) LoggedInUserHolder.getUser();
         student.addToRequest(request.getId());
 
         reload();
@@ -84,10 +96,7 @@ public class StudentCertificateStudentRequestPageController extends StudentPageC
     }
 
     private void reload(){
-        try {
-            goToStudentPage(fxmlFileName);
-        } catch (IOException e) {
-            error("some backend problem happened, try again");
-        }
+        clean();
+        initialize();
     }
 }

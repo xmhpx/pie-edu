@@ -23,7 +23,8 @@ public class LoggedInUserHolder {
 
     public static User getUser() {
         if(user == null){
-            log.warn("'user' is null");
+            log.error("'user' is null");
+            throw new IllegalStateException("'user' is null");
         }
         return user;
     }

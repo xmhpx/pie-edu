@@ -13,10 +13,14 @@ import models.Captcha;
 import models.User;
 import models.professor.Professor;
 import models.student.Student;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 
 public class LoginPageController extends BasicPageController {
+    private static final Logger log = LogManager.getLogger(LoginPageController.class);
+
 
     protected Captcha captcha;
     protected Backend backend;
@@ -64,19 +68,14 @@ public class LoginPageController extends BasicPageController {
             }
             else if(user instanceof Student){
                 LoggedInUserHolder.setUser(user);
-                try {
-                    goToStudentPage("studentHomePage.fxml");
-                } catch (IOException e) {
-                    error("some AAAAAAA backend problem happened, try again");
-                }
+                goToStudentPage("studentHomePage.fxml");
             }
             else if(user instanceof Professor){
                 LoggedInUserHolder.setUser(user);
-                try {
-                    goToProfessorPage("professorHomePage.fxml");
-                } catch (IOException e) {
-                    error("some BBBBBB backend problem happened, try again");
-                }
+                goToProfessorPage("professorHomePage.fxml");
+            }
+            else{
+                log.warn("'user' is neither Student nor Professor");
             }
         }
         else {
@@ -95,7 +94,17 @@ public class LoginPageController extends BasicPageController {
         passwordTextField.setText("");
 
         setRandomCaptcha();
-        Image image = new Image(captcha.getImagePath());
+
+        Image image;
+
+        try {
+            image = new Image(captcha.getImagePath());
+        }
+        catch (Exception e){
+            log.error("unable to construct 'image' with imagePath('"+captcha.getImagePath()+"')");
+            throw new IllegalStateException("unable to construct 'image' with imagePath('"+captcha.getImagePath()+"')");
+        }
+
         captchaImage.setImage(image);
         captchaTextField.setText("");
     }

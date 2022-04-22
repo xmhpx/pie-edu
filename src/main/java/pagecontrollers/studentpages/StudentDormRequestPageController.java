@@ -13,10 +13,13 @@ import models.User;
 import models.student.Student;
 import models.universityitems.requests.DormRequest;
 import models.universityitems.requests.Request;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 
 public class StudentDormRequestPageController extends StudentPageController {
+    private static final Logger log = LogManager.getLogger(StudentDormRequestPageController.class);
 
     public static final String fxmlFileName = "studentDormRequestPage.fxml";
 
@@ -66,7 +69,7 @@ public class StudentDormRequestPageController extends StudentPageController {
 
         DormRequest request = new DormRequest(title, body, LoggedInUserHolder.getUser().getId());
         backend.addToRequests(request);
-        Student student = backend.getStudent(request.getSenderId());
+        Student student = (Student) LoggedInUserHolder.getUser();
         student.addToRequest(request.getId());
 
         reload();
@@ -84,10 +87,7 @@ public class StudentDormRequestPageController extends StudentPageController {
     }
 
     private void reload(){
-        try {
-            goToStudentPage(fxmlFileName);
-        } catch (IOException e) {
-            error("some backend problem happened, try again");
-        }
+        clean();
+        initialize();
     }
 }

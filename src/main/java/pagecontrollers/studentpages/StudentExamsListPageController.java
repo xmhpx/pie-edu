@@ -8,10 +8,13 @@ import logic.LoggedInUserHolder;
 import models.User;
 import models.student.Student;
 import models.universityitems.Course;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.util.Comparator;
 
 public class StudentExamsListPageController extends StudentPageController {
+    private static final Logger log = LogManager.getLogger(StudentExamsListPageController.class);
 
     public static final String fxmlFileName = "studentExamsListPage.fxml";
 
@@ -27,8 +30,17 @@ public class StudentExamsListPageController extends StudentPageController {
         User user = LoggedInUserHolder.getUser();
         if(user instanceof Student student) {
             for(int courseId : student.getCourseIds()) {
-                data.add(backend.getCourse(courseId));
+                Course course = backend.getCourse(courseId);
+                if(course == null){
+                    log.error("student("+student.getId()+") has courseId("+courseId+") which doesn't exist");
+                    throw new IllegalStateException("student("+student.getId()+") has courseId("+courseId+") which doesn't exist");
+                }
+                data.add(course);
             }
+        }
+        else{
+            log.error("logged in user is not a student");
+            throw new IllegalStateException("logged in user is not a student");
         }
 
         Comparator<Course> courseComparator = new Comparator<Course>() {

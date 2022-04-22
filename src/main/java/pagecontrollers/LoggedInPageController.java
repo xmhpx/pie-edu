@@ -7,11 +7,14 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import logic.LoggedInUserHolder;
 import models.User;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.util.Calendar;
 
 public class LoggedInPageController extends BasicPageController {
+    private static final Logger log = LogManager.getLogger(LoggedInPageController.class);
 
 
     @FXML
@@ -39,7 +42,6 @@ public class LoggedInPageController extends BasicPageController {
     public void initialize() {
         User user = LoggedInUserHolder.getUser();
 
-//        UIProfileImageView.setImage(new Image(user.getProfileImagePath()));
         UINameText.setText(user.getName());
         UIEmailText.setText(user.getEmail());
         lastTimeLoggedInText.setText("Last Time Logged In : " + user.getLastVisit());
@@ -52,7 +54,6 @@ public class LoggedInPageController extends BasicPageController {
                     int second = cal.get(Calendar.SECOND);
                     int minute = cal.get(Calendar.MINUTE);
                     int hour = cal.get(Calendar.HOUR);
-                    //System.out.println(hour + ":" + (minute) + ":" + second);
                     currentTimeText.setText("Current Time : " + hour + ":" + (minute) + ":" + second);
 
                     try {

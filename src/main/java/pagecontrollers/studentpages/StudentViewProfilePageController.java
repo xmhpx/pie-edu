@@ -8,9 +8,12 @@ import models.User;
 import models.professor.Professor;
 import models.student.Student;
 import models.universityitems.College;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 
 public class StudentViewProfilePageController extends StudentPageController {
+    private static final Logger log = LogManager.getLogger(StudentViewProfilePageController.class);
 
     public static final String fxmlFileName = "studentViewProfilePage.fxml";
 
@@ -55,22 +58,19 @@ public class StudentViewProfilePageController extends StudentPageController {
         User user = LoggedInUserHolder.getUser();
         if(user instanceof Student student) {
             nameText.setText("Name: " + student.getName());
-
             nationalIdNumberText.setText("National Id Number: " + student.getNationalIdNumber());
-
             phoneNumberText.setText("Phone Number: " + student.getPhoneNumber());
-
             studentNumberText.setText("Student Number: " + student.getStudentNumber());
-
             emailText.setText("Email: " + student.getEmail());
-
             averageScoreText.setText("Average Score: " + student.getAverage());
 
             College college = backend.getCollege(student.getCollegeId());
-            String collegeName = "None";
-            if(college != null){
-                collegeName = college.getName();
+            if(college == null) {
+                log.error("student("+student.getId()+")'s college("+student.getCollegeId()+") doesn't exist");
+                throw new IllegalStateException("student("+student.getId()+")'s college("+student.getCollegeId()+") doesn't exist");
             }
+            String collegeName = college.getName();
+
             collegeText.setText("College: " + collegeName);
 
             Professor professor = backend.getProfessor(student.getSupervisorId());
@@ -79,12 +79,13 @@ public class StudentViewProfilePageController extends StudentPageController {
                 professorName = professor.getName();
             }
             supervisorText.setText("Professor: " + professorName);
-
             yearOfEntranceText.setText("Year Of Entrance: " + student.getYearOfEntry());
-
             studentLevelText.setText("Student Level: " + student.getStudentLevel());
-
             educationStatusText.setText("Education Status: " + student.getEducationStatus());
+        }
+        else{
+            log.error("logged in user is not a student");
+            throw new IllegalStateException("logged in user is not a student");
         }
     }
 }

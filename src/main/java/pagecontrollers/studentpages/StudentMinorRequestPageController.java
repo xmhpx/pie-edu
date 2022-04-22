@@ -14,11 +14,14 @@ import models.student.Student;
 import models.universityitems.Field;
 import models.universityitems.requests.MinorRequest;
 import models.universityitems.requests.Request;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class StudentMinorRequestPageController extends StudentPageController {
+    private static final Logger log = LogManager.getLogger(StudentMinorRequestPageController.class);
 
     public static final String fxmlFileName = "studentMinorRequestPage.fxml";
 
@@ -54,8 +57,16 @@ public class StudentMinorRequestPageController extends StudentPageController {
         if(user instanceof Student student) {
             for(int requestId : student.getRequestIds()) {
                 Request request = backend.getRequest(requestId);
+                if(request == null){
+                    log.error("student("+student.getId()+") has requestId("+requestId+") which doesn't exist");
+                    throw new IllegalStateException("student("+student.getId()+") has requestId("+requestId+") which doesn't exist");
+                }
                 if(request instanceof MinorRequest)data.add((MinorRequest) request);
             }
+        }
+        else{
+            log.error("logged in user is not a student");
+            throw new IllegalStateException("logged in user is not a student");
         }
     }
 
@@ -93,6 +104,7 @@ public class StudentMinorRequestPageController extends StudentPageController {
             error("destination college doesn't exist");
             return;
         }
+
         if(!backend.hasField(minorFieldId)){
             error("minor field doesn't exist");
             return;
@@ -100,15 +112,17 @@ public class StudentMinorRequestPageController extends StudentPageController {
 
         ArrayList<Field> fields = backend.getFields();
 
-        for(Field field : fields){
-            if(field.getCollegeId() == destinationCollegeId && field.getId() == minorFieldId){
-                MinorRequest request = new MinorRequest(title, body, LoggedInUserHolder.getUser().getId(), destinationCollegeId, minorFieldId);
-                backend.addToRequests(request);
-                Student student = backend.getStudent(request.getSenderId());
-                student.addToRequest(request.getId());
+        User user = LoggedInUserHolder.getUser();
+        if(user instanceof Student student) {
+            for(Field field : fields) {
+                if (field.getCollegeId() == destinationCollegeId && field.getId() == minorFieldId) {
+                    MinorRequest request = new MinorRequest(title, body, student.getId(), destinationCollegeId, minorFieldId);
+                    backend.addToRequests(request);
+                    student.addToRequest(request.getId());
 
-                reload();
-                return;
+                    reload();
+                    return;
+                }
             }
         }
 
@@ -129,10 +143,7 @@ public class StudentMinorRequestPageController extends StudentPageController {
     }
 
     private void reload(){
-        try {
-            goToStudentPage(fxmlFileName);
-        } catch (IOException e) {
-            error("some backend problem happened, try again");
-        }
+        clean();
+        initialize();
     }
 }

@@ -11,8 +11,11 @@ import logic.Backend;
 import logic.LoggedInUserHolder;
 import models.Captcha;
 import models.User;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 public class StudentEditPasswordPageController extends StudentPageController {
+    private static final Logger log = LogManager.getLogger(StudentEditPasswordPageController.class);
 
     public static final String fxmlFileName = "studentEditPasswordPage.fxml";
 
@@ -93,7 +96,17 @@ public class StudentEditPasswordPageController extends StudentPageController {
         repeatNewPasswordTextField.setText("");
 
         setRandomCaptcha();
-        Image image = new Image(captcha.getImagePath());
+
+        Image image;
+
+        try {
+            image = new Image(captcha.getImagePath());
+        }
+        catch (Exception e){
+            log.error("unable to construct 'image' with imagePath('"+captcha.getImagePath()+"')");
+            throw new IllegalStateException("unable to construct 'image' with imagePath('"+captcha.getImagePath()+"')");
+        }
+
         captchaImage.setImage(image);
         captchaTextField.setText("");
     }

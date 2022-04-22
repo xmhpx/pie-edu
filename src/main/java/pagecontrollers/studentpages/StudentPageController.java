@@ -2,22 +2,19 @@ package pagecontrollers.studentpages;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.text.Text;
 import logic.LoggedInUserHolder;
 import models.User;
 import models.student.Student;
 import models.student.StudentLevel;
-import pagecontrollers.BasicPageController;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import pagecontrollers.LoggedInPageController;
 
 import java.io.IOException;
-import java.util.Calendar;
 
 public class StudentPageController extends LoggedInPageController {
+    private static final Logger log = LogManager.getLogger(StudentPageController.class);
 
     @FXML
     protected MenuItem coursesListMenuItem;
@@ -71,12 +68,18 @@ public class StudentPageController extends LoggedInPageController {
     @Override
     public void initialize(){
         super.initialize();
-        Student student = (Student) LoggedInUserHolder.getUser();
-        StudentLevel studentLevel = student.getStudentLevel();
-        certificateStudentRequestMenuItem.setVisible(studentLevel != StudentLevel.PHD_STUDENT);
-        minorRequestMenuItem.setVisible(studentLevel == StudentLevel.UNDERGRADUATE);
-        dormRequestMenuItem.setVisible(studentLevel == StudentLevel.MASTERS_STUDENT);
-        dissertationDefenseRequestMenuItem.setVisible(studentLevel == StudentLevel.PHD_STUDENT);
+        User user = LoggedInUserHolder.getUser();
+        if(user instanceof Student student) {
+            StudentLevel studentLevel = student.getStudentLevel();
+            certificateStudentRequestMenuItem.setVisible(studentLevel != StudentLevel.PHD_STUDENT);
+            minorRequestMenuItem.setVisible(studentLevel == StudentLevel.UNDERGRADUATE);
+            dormRequestMenuItem.setVisible(studentLevel == StudentLevel.MASTERS_STUDENT);
+            dissertationDefenseRequestMenuItem.setVisible(studentLevel == StudentLevel.PHD_STUDENT);
+        }
+        else{
+            log.error("logged in user is not a student");
+            throw new IllegalStateException("logged in user is not a student");
+        }
     }
 
 

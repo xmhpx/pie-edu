@@ -77,8 +77,8 @@ public class ProfessorTemporaryScoresPageController extends ProfessorPageControl
             for(ReportCard reportCard : backend.getReportCards()) {
                 Student student = backend.getStudent(reportCard.getStudentId());
                 if(student == null){
-                    log.error("reportCard("+reportCard.getId()+"'s student doesn't exist");
-                    throw new IllegalStateException("reportCard("+reportCard.getId()+"'s student doesn't exist");
+                    log.error("reportCard("+reportCard.getId()+")'s student doesn't exist");
+                    throw new IllegalStateException("reportCard("+reportCard.getId()+")'s student doesn't exist");
                 }
                 if(student.getCollegeId() == professor.getCollegeId()) {
                     ReportCardStatus status = reportCard.getStatus();
@@ -130,14 +130,14 @@ public class ProfessorTemporaryScoresPageController extends ProfessorPageControl
             for(ReportCard reportCard : backend.getReportCards()) {
                 Student student = backend.getStudent(reportCard.getStudentId());
                 if(student == null){
-                    log.error("reportCard("+reportCard.getId()+"'s student doesn't exist");
-                    throw new IllegalStateException("reportCard("+reportCard.getId()+"'s student doesn't exist");
+                    log.error("reportCard("+reportCard.getId()+")'s student doesn't exist");
+                    throw new IllegalStateException("reportCard("+reportCard.getId()+")'s student doesn't exist");
                 }
 
                 Professor professor = backend.getProfessor(reportCard.getProfessorId());
                 if(professor == null){
-                    log.error("reportCard("+reportCard.getId()+"'s professor doesn't exist");
-                    throw new IllegalStateException("reportCard("+reportCard.getId()+"'s professor doesn't exist");
+                    log.error("reportCard("+reportCard.getId()+")'s professor doesn't exist");
+                    throw new IllegalStateException("reportCard("+reportCard.getId()+")'s professor doesn't exist");
                 }
 
                 if(student.getCollegeId() == user.getCollegeId()) {

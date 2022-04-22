@@ -44,8 +44,8 @@ public class ProfessorWithdrawalRequestPageController extends ProfessorPageContr
                 if(request instanceof WithdrawalRequest withdrawalRequest){
                     Student student = backend.getStudent(withdrawalRequest.getSenderId());
                     if(student == null){
-                        log.error("withdrawalRequest("+withdrawalRequest.getId()+"'s student doesn't exist");
-                        throw new IllegalStateException("withdrawalRequest("+withdrawalRequest.getId()+"'s student doesn't exist");
+                        log.error("withdrawalRequest("+withdrawalRequest.getId()+")'s student doesn't exist");
+                        throw new IllegalStateException("withdrawalRequest("+withdrawalRequest.getId()+")'s student doesn't exist");
                     }
                     if(student.getCollegeId() == professor.getCollegeId()) {
                         data.add(withdrawalRequest);

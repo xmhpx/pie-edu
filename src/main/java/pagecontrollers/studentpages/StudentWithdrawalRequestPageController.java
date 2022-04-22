@@ -13,10 +13,13 @@ import models.student.Student;
 import models.universityitems.requests.CertificateStudentRequest;
 import models.universityitems.requests.Request;
 import models.universityitems.requests.WithdrawalRequest;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 
 public class StudentWithdrawalRequestPageController extends StudentPageController {
+    private static final Logger log = LogManager.getLogger(StudentWithdrawalRequestPageController.class);
 
     public static final String fxmlFileName = "studentWithdrawalRequestPage.fxml";
 
@@ -64,7 +67,7 @@ public class StudentWithdrawalRequestPageController extends StudentPageControlle
 
         WithdrawalRequest request = new WithdrawalRequest(title, body, LoggedInUserHolder.getUser().getId());
         backend.addToRequests(request);
-        Student student = backend.getStudent(request.getSenderId());
+        Student student = (Student) LoggedInUserHolder.getUser();
         student.addToRequest(request.getId());
 
         reload();
@@ -82,10 +85,7 @@ public class StudentWithdrawalRequestPageController extends StudentPageControlle
     }
 
     private void reload(){
-        try {
-            goToStudentPage(fxmlFileName);
-        } catch (IOException e) {
-            error("some backend problem happened, try again");
-        }
+        clean();
+        initialize();
     }
 }

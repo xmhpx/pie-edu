@@ -14,10 +14,13 @@ import models.student.Student;
 import models.universityitems.requests.DissertationDefenseRequest;
 import models.universityitems.requests.DissertationDefenseRequest;
 import models.universityitems.requests.Request;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 
 public class StudentDissertationDefenseRequestPageController extends StudentPageController {
+    private static final Logger log = LogManager.getLogger(StudentDissertationDefenseRequestPageController.class);
 
     public static final String fxmlFileName = "studentDissertationDefenseRequestPage.fxml";
 
@@ -67,7 +70,7 @@ public class StudentDissertationDefenseRequestPageController extends StudentPage
 
         DissertationDefenseRequest request = new DissertationDefenseRequest(title, body, LoggedInUserHolder.getUser().getId());
         backend.addToRequests(request);
-        Student student = backend.getStudent(request.getSenderId());
+        Student student = (Student) LoggedInUserHolder.getUser();
         student.addToRequest(request.getId());
 
         reload();
@@ -85,10 +88,7 @@ public class StudentDissertationDefenseRequestPageController extends StudentPage
     }
 
     private void reload(){
-        try {
-            goToStudentPage(fxmlFileName);
-        } catch (IOException e) {
-            error("some backend problem happened, try again");
-        }
+        clean();
+        initialize();
     }
 }

@@ -53,8 +53,8 @@ public class ProfessorEducationStatusPageController extends ProfessorPageControl
             for(ReportCard reportCard : backend.getReportCards()) {
                 Student student = backend.getStudent(reportCard.getStudentId());
                 if(student == null){
-                    log.error("reportCard("+reportCard.getId()+"'s student doesn't exist");
-                    throw new IllegalStateException("reportCard("+reportCard.getId()+"'s student doesn't exist");
+                    log.error("reportCard("+reportCard.getId()+")'s student doesn't exist");
+                    throw new IllegalStateException("reportCard("+reportCard.getId()+")'s student doesn't exist");
                 }
                 if(student.getCollegeId() == professor.getCollegeId()) {
                     ReportCardStatus status = reportCard.getStatus();
@@ -97,8 +97,8 @@ public class ProfessorEducationStatusPageController extends ProfessorPageControl
             for(ReportCard reportCard : backend.getReportCards()) {
                 Student student = backend.getStudent(reportCard.getStudentId());
                 if(student == null){
-                    log.error("report card("+reportCard.getId()+"'s student doesn't exist");
-                    throw new IllegalStateException("report card("+reportCard.getId()+"'s student doesn't exist");
+                    log.error("report card("+reportCard.getId()+")'s student doesn't exist");
+                    throw new IllegalStateException("report card("+reportCard.getId()+")'s student doesn't exist");
                 }
                 if(student.getCollegeId() == professor.getCollegeId()) {
                     ReportCardStatus status = reportCard.getStatus();

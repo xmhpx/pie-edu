@@ -48,8 +48,8 @@ public class ProfessorMinorRequestPageController extends ProfessorPageController
                     int destinationCollegeId = minorRequest.getDestinationCollegeId();
                     Student student = backend.getStudent(minorRequest.getSenderId());
                     if(student == null){
-                        log.error("minorRequest("+minorRequest.getId()+"'s student doesn't exist");
-                        throw new IllegalStateException("minorRequest("+minorRequest.getId()+"'s student doesn't exist");
+                        log.error("minorRequest("+minorRequest.getId()+")'s student doesn't exist");
+                        throw new IllegalStateException("minorRequest("+minorRequest.getId()+")'s student doesn't exist");
                     }
                     int originCollegeId = student.getCollegeId();
                     if(destinationCollegeId == professor.getCollegeId() || originCollegeId == professor.getCollegeId()) {

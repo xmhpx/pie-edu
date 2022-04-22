@@ -9,8 +9,11 @@ import models.User;
 import models.WeeklySchedule;
 import models.student.Student;
 import models.universityitems.Course;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 public class StudentWeeklySchedulePageController extends StudentPageController {
+    private static final Logger log = LogManager.getLogger(StudentWeeklySchedulePageController.class);
 
     public static final String fxmlFileName = "studentWeeklySchedulePage.fxml";
 
@@ -27,6 +30,10 @@ public class StudentWeeklySchedulePageController extends StudentPageController {
         if(user instanceof Student student) {
             WeeklySchedule weeklySchedule = new WeeklySchedule(student);
             data.add(weeklySchedule);
+        }
+        else{
+            log.error("logged in user is not a student");
+            throw new IllegalStateException("logged in user is not a student");
         }
     }
 }
