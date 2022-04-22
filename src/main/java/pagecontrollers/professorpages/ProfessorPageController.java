@@ -32,9 +32,6 @@ public class ProfessorPageController extends LoggedInPageController {
     protected MenuItem minorRequestMenuItem;
 
     @FXML
-    protected MenuItem dissertationDefenseRequestMenuItem;
-
-    @FXML
     protected MenuItem withdrawalRequestMenuItem;
 
     @FXML
@@ -99,11 +96,6 @@ public class ProfessorPageController extends LoggedInPageController {
     @FXML
     protected void goToProfessorMinorRequestPage(ActionEvent actionEvent) throws IOException {
         goToProfessorPage("professorMinorRequestPage.fxml");
-    }
-
-    @FXML
-    protected void goToProfessorDissertationDefenseRequestPage(ActionEvent actionEvent) throws IOException {
-        goToProfessorPage("professorDissertationDefenseRequestPage.fxml");
     }
 
 

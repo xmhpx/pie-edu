@@ -41,7 +41,6 @@
                             <items>
                                 <MenuItem fx:id="recommendationLetterRequestMenuItem" mnemonicParsing="false" onAction="#goToProfessorRecommendationLetterRequestPage" text="Recommendation Letter Request" />
                                 <MenuItem fx:id="minorRequestMenuItem" mnemonicParsing="false" onAction="#goToProfessorMinorRequestPage" text="Minor Request" />
-                                <MenuItem fx:id="dissertationDefenseRequestMenuItem" mnemonicParsing="false" onAction="#goToProfessorDissertationDefenseRequestPage" text="Dissertation Defense Request" />
                                 <MenuItem fx:id="withdrawalRequestMenuItem" mnemonicParsing="false" onAction="#goToProfessorWithdrawalRequestPage" text="Withdrawal Request" />
                             </items>
                         </Menu>
@@ -88,14 +87,6 @@
                     </TableColumn>
                     <TableColumn maxWidth="500" prefWidth="360" text="Body">
                         <cellValueFactory><PropertyValueFactory property="body" />
-                        </cellValueFactory>
-                    </TableColumn>
-                    <TableColumn maxWidth="100" prefWidth="100" text="Status">
-                        <cellValueFactory><PropertyValueFactory property="status" />
-                        </cellValueFactory>
-                    </TableColumn>
-                    <TableColumn maxWidth="500" prefWidth="100" text="Response">
-                        <cellValueFactory><PropertyValueFactory property="response" />
                         </cellValueFactory>
                     </TableColumn>
                 </columns>
