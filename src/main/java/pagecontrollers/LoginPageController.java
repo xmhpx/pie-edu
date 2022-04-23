@@ -44,6 +44,9 @@ public class LoginPageController extends BasicPageController {
     @FXML
     Button loginButton;
 
+    @FXML
+    Button changeCaptchaButton;
+
 
     @FXML
     public void initialize(){
@@ -83,6 +86,13 @@ public class LoginPageController extends BasicPageController {
         }
     }
 
+
+    @FXML
+    void changeCaptchaButtonOnAction(ActionEvent actionEvent){
+        setNewCaptchaImage();
+    }
+
+
     private void error(String error){
         clean();
         errorText.setText(error);
@@ -93,6 +103,14 @@ public class LoginPageController extends BasicPageController {
         usernameTextField.setText("");
         passwordTextField.setText("");
 
+        setNewCaptchaImage();
+    }
+
+    private void setRandomCaptcha(){
+        captcha = backend.getRandomCaptcha();
+    }
+
+    private void setNewCaptchaImage(){
         setRandomCaptcha();
 
         Image image;
@@ -107,9 +125,5 @@ public class LoginPageController extends BasicPageController {
 
         captchaImage.setImage(image);
         captchaTextField.setText("");
-    }
-
-    private void setRandomCaptcha(){
-        captcha = backend.getRandomCaptcha();
     }
 }

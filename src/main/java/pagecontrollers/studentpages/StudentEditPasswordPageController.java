@@ -43,6 +43,9 @@ public class StudentEditPasswordPageController extends StudentPageController {
     @FXML
     Button editPasswordButton;
 
+    @FXML
+    Button changeCaptchaButton;
+
 
     @FXML
     public void initialize(){
@@ -84,6 +87,13 @@ public class StudentEditPasswordPageController extends StudentPageController {
         }
     }
 
+
+    @FXML
+    void changeCaptchaButtonOnAction(ActionEvent actionEvent){
+        setNewCaptchaImage();
+    }
+
+
     private void error(String error){
         clean();
         errorText.setText(error);
@@ -95,6 +105,14 @@ public class StudentEditPasswordPageController extends StudentPageController {
         newPasswordTextField.setText("");
         repeatNewPasswordTextField.setText("");
 
+        setNewCaptchaImage();
+    }
+
+    private void setRandomCaptcha(){
+        captcha = backend.getRandomCaptcha();
+    }
+
+    private void setNewCaptchaImage(){
         setRandomCaptcha();
 
         Image image;
@@ -109,9 +127,5 @@ public class StudentEditPasswordPageController extends StudentPageController {
 
         captchaImage.setImage(image);
         captchaTextField.setText("");
-    }
-
-    private void setRandomCaptcha(){
-        captcha = backend.getRandomCaptcha();
     }
 }

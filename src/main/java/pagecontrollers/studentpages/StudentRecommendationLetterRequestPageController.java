@@ -121,7 +121,7 @@ public class StudentRecommendationLetterRequestPageController extends StudentPag
     private void reload(){
         try {
             goToStudentPage(fxmlFileName);
-        } catch (IOException e) {
+        } catch (Exception e) {
             log.error("student page '"+fxmlFileName+"' doesn't exist");
             error("some backend problem happened, try again");
         }
