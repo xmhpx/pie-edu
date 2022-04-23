@@ -122,6 +122,6 @@
        <TextField fx:id="collegeIdTextField" layoutX="337.0" layoutY="387.0" promptText="College Id" />
        <TextField fx:id="courseNumberTextField" layoutX="497.0" layoutY="387.0" promptText="Course Number" />
        <Button fx:id="filterButton" layoutX="657.0" layoutY="387.0" mnemonicParsing="false" onAction="#filterButtonOnAction" text="Filter" />
-       <Text fx:id="errorText" fill="RED" layoutX="13.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="149.60000000000002" />
+       <Text fx:id="errorText" fill="RED" layoutX="5.0" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" />
    </children>
 </AnchorPane>
