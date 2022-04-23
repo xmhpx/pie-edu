@@ -5,7 +5,7 @@
     "collegeId": 40001,
     "professorId": 10001,
     "holdingSemester": "14001",
-    "courseId": 1400101,
+    "courseNumber": "140010101",
     "semesterCreditHours": 3,
     "examDate": "4/4",
     "studentIds": [
@@ -32,7 +32,7 @@
     "collegeId": 40001,
     "professorId": 10001,
     "holdingSemester": "14002",
-    "courseId": 1400202,
+    "courseNumber": "140020102",
     "semesterCreditHours": 59,
     "examDate": "4/10",
     "studentIds": [
@@ -59,7 +59,7 @@
     "collegeId": 40001,
     "professorId": 10001,
     "holdingSemester": "14001",
-    "courseId": 1400103,
+    "courseNumber": "140010103",
     "semesterCreditHours": 2,
     "examDate": "2/5",
     "studentIds": [

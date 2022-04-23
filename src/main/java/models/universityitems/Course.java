@@ -18,7 +18,7 @@ public class Course {
     protected int collegeId;
     protected int professorId;
     protected String holdingSemester;
-    protected int courseId;
+    protected String courseNumber;
     protected int semesterCreditHours;
     protected String examDate;
 
@@ -26,14 +26,14 @@ public class Course {
     protected ArrayList<ClassTime> classTimes;
 
 
-    public Course(String name, int collegeId, int professorId, String holdingSemester, int courseId, int semesterCreditHours, String examDate){
+    public Course(String name, int collegeId, int professorId, String holdingSemester, String courseNumber, int semesterCreditHours, String examDate){
         id = nextId++;
 
         setName(name);
         setCollegeId(collegeId);
         setProfessorId(professorId);
         setHoldingSemester(holdingSemester);
-        setCourseId(courseId);
+        setCourseNumber(courseNumber);
         setSemesterCreditHours(semesterCreditHours);
         setStudentIds(new ArrayList<>());
         setExamDate(examDate);
@@ -127,16 +127,17 @@ public class Course {
     }
 
 
-    public int getCourseId() {
-        return courseId;
+    public String getCourseNumber() {
+        return courseNumber;
     }
 
-    public void setCourseId(int courseId) {
-        if(!Backend.getInstance().hasCourse(courseId)){
-            log.warn("'courseId' doesn't exist in backend");
+    public void setCourseNumber(String courseNumber) {
+        if(courseNumber == null){
+            log.warn("'courseNumber' is null");
+            return;
         }
-        log.info("course("+getId()+") changed courseId");
-        this.courseId = courseId;
+        log.info("course("+getId()+") changed courseNumber");
+        this.courseNumber = courseNumber;
     }
 
 
