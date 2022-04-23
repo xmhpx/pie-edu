@@ -12,9 +12,7 @@
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="anchorPane" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #ceecec;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pagecontrollers.studentpages.StudentCoursesListPageController">
@@ -119,13 +117,6 @@
                    </FXCollections>
                </items>
            </TableView>
-         <columnConstraints>
-            <ColumnConstraints />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints />
-            <RowConstraints />
-         </rowConstraints>
            </GridPane>
        <TextField fx:id="professorNameTextField" layoutX="179.0" layoutY="387.0" promptText="Professor Name" />
        <TextField fx:id="collegeIdTextField" layoutX="337.0" layoutY="387.0" promptText="College Id" />
