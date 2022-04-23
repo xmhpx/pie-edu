@@ -1,0 +1,6 @@
+2022-04-23 19:49:23:260 INFO [GuiMain.start()] - application started
+2022-04-23 19:49:23:388 INFO [logic.Backend.<init>()] - deserialization started
+2022-04-23 19:49:23:432 INFO [logic.Backend.<init>()] - deserialization finished
+2022-04-23 19:49:25:073 INFO [logic.Backend.save()] - serialization started
+2022-04-23 19:49:25:080 INFO [logic.Backend.save()] - serialization ended
+2022-04-23 19:49:25:081 INFO [GuiMain.stop()] - application stopped
