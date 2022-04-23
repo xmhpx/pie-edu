@@ -20,6 +20,9 @@ public class ProfessorPageController extends LoggedInPageController {
     protected MenuItem coursesListMenuItem;
 
     @FXML
+    protected MenuItem addUserMenuItem;
+
+    @FXML
     protected MenuItem professorsListMenuItem;
 
     @FXML
@@ -63,6 +66,7 @@ public class ProfessorPageController extends LoggedInPageController {
         if(user instanceof Professor professor){
             minorRequestMenuItem.setVisible(professor.getProfessorType() == ProfessorType.EDUCATIONAL_ASSISTANT);
             educationStatusMenuItem.setVisible(professor.getProfessorType() == ProfessorType.EDUCATIONAL_ASSISTANT);
+            addUserMenuItem.setVisible(professor.getProfessorType() == ProfessorType.EDUCATIONAL_ASSISTANT);
         }
         else{
             log.error("logged in user is not a Professor");
@@ -72,73 +76,79 @@ public class ProfessorPageController extends LoggedInPageController {
 
 
     @FXML
-    protected void goToProfessorHomePage(ActionEvent actionEvent) throws IOException {
+    protected void goToProfessorHomePage(ActionEvent actionEvent) {
         goToProfessorPage("professorHomePage.fxml");
     }
 
 
     @FXML
-    protected void goToProfessorCoursesListPage(ActionEvent actionEvent) throws IOException {
+    protected void goToProfessorCoursesListPage(ActionEvent actionEvent) {
         goToProfessorPage("professorCoursesListPage.fxml");
     }
 
 
     @FXML
-    protected void goToProfessorProfessorsListPage(ActionEvent actionEvent) throws IOException {
+    protected void goToAddUserPage(ActionEvent actionEvent) {
+        goToProfessorPage("professorAddUserPage.fxml");
+    }
+
+
+    @FXML
+    protected void goToProfessorProfessorsListPage(ActionEvent actionEvent) {
         goToProfessorPage("professorProfessorsListPage.fxml");
     }
 
 
     @FXML
-    protected void goToProfessorExamsListPage(ActionEvent actionEvent) throws IOException {
+    protected void goToProfessorExamsListPage(ActionEvent actionEvent) {
         goToProfessorPage("professorExamsListPage.fxml");
     }
 
 
     @FXML
-    protected void goToProfessorRecommendationLetterRequestPage(ActionEvent actionEvent) throws IOException {
+    protected void goToProfessorRecommendationLetterRequestPage(ActionEvent actionEvent) {
         goToProfessorPage("professorRecommendationLetterRequestPage.fxml");
     }
 
 
     @FXML
-    protected void goToProfessorMinorRequestPage(ActionEvent actionEvent) throws IOException {
+    protected void goToProfessorMinorRequestPage(ActionEvent actionEvent) {
         goToProfessorPage("professorMinorRequestPage.fxml");
     }
 
 
     @FXML
-    protected void goToProfessorWithdrawalRequestPage(ActionEvent actionEvent) throws IOException {
+    protected void goToProfessorWithdrawalRequestPage(ActionEvent actionEvent) {
         goToProfessorPage("professorWithdrawalRequestPage.fxml");
     }
 
 
     @FXML
-    protected void goToProfessorTemporaryScoresPage(ActionEvent actionEvent) throws IOException {
+    protected void goToProfessorTemporaryScoresPage(ActionEvent actionEvent) {
         goToProfessorPage("professorTemporaryScoresPage.fxml");
     }
 
 
     @FXML
-    protected void goToProfessorEducationStatusPage(ActionEvent actionEvent) throws IOException {
+    protected void goToProfessorEducationStatusPage(ActionEvent actionEvent) {
         goToProfessorPage("professorEducationStatusPage.fxml");
     }
 
 
     @FXML
-    protected void goToProfessorViewProfilePage(ActionEvent actionEvent) throws IOException {
+    protected void goToProfessorViewProfilePage(ActionEvent actionEvent) {
         goToProfessorPage("professorViewProfilePage.fxml");
     }
 
 
     @FXML
-    protected void goToProfessorEditPasswordPage(ActionEvent actionEvent) throws IOException {
+    protected void goToProfessorEditPasswordPage(ActionEvent actionEvent) {
         goToProfessorPage("professorEditPasswordPage.fxml");
     }
 
 
     @FXML
-    protected void goToProfessorEditProfilePage(ActionEvent actionEvent) throws IOException {
+    protected void goToProfessorEditProfilePage(ActionEvent actionEvent) {
         goToProfessorPage("professorEditProfilePage.fxml");
     }
 }

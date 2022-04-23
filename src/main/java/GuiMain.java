@@ -9,6 +9,28 @@ import org.apache.log4j.Logger;
 
 import java.io.IOException;
 
+
+// DONE add ability to add new users by educational assistant
+//// TODO add filters to 'coursesListPage' and 'professorsListPage'
+// TODO update 'professorsListPage' for deanOfFaculty
+// TODO add "add/remove/edit" abilities to 'coursesListPage' for educational assistant
+//// TODO check and update different(possibly hidden) request pages
+//// TODO maybe change stuff related to request responses?
+//// TODO both ends of a minor request must agree, fix somehow
+//// TODO make withdrawal request actually functional
+//// TODO add auto response for dorm requests
+//// TODO change dissertation defence request's response (add time to defence maybe?)
+// TODO fix request editing problem
+// TODO add ability to add objections and edit them to temporaryScoresPage
+// TODO fix many things in temporaryScoresPage (doesn't exist for professors, only for educational assistants)
+//// TODO add 'number of passed SCHs' to education status for students
+//// TODO make calculating average weighted for different courses
+//// TODO add theme changer (just change background color maybe)
+//// TODO add default profile image
+//// TODO change password page?? (more information is in the last pages of the doc)
+/// TODO add ability to change profile pictures
+
+
 public class GuiMain extends Application{
     private static final Logger log = LogManager.getLogger(GuiMain.class);
 

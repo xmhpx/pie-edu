@@ -46,5 +46,30 @@
     "postalCode": "nadaram",
     "fieldId": 60001,
     "collegeId": 40001
+  },
+  {
+    "id": 20002,
+    "studentNumber": "000000",
+    "status": "N/A",
+    "supervisorId": 0,
+    "registrationLicense": "N/A",
+    "registrationTime": "N/A",
+    "studentLevel": "PHD_STUDENT",
+    "yearOfEntry": "1400",
+    "reportCardIds": [],
+    "requestIds": [],
+    "courseIds": [],
+    "type": "Student",
+    "age": 40,
+    "hashedPassword": 1216985755,
+    "nationalIdNumber": "123123123",
+    "lastVisit": "5:58:20",
+    "name": "phd_student",
+    "email": "N/A",
+    "phoneNumber": "N/A",
+    "homeAddress": "N/A",
+    "postalCode": "N/A",
+    "fieldId": 60002,
+    "collegeId": 40002
   }
 ]

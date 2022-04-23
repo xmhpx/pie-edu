@@ -22,6 +22,7 @@
 
                 <Menu mnemonicParsing="false" text="Registration">
                     <items>
+                        <MenuItem fx:id="addUserMenuItem" mnemonicParsing="false" onAction="#goToAddUserPage" text="Add User" />
                         <MenuItem fx:id="coursesListMenuItem" mnemonicParsing="false" onAction="#goToProfessorCoursesListPage" text="Courses List" />
                         <MenuItem fx:id="professorsListMenuItem" mnemonicParsing="false" onAction="#goToProfessorProfessorsListPage" text="Professors List" />
                     </items>
@@ -75,6 +76,7 @@
         </ImageView>
         <TextField fx:id="captchaTextField" layoutX="405.0" layoutY="270.0" maxWidth="65.0" minWidth="65.0" prefHeight="26.0" prefWidth="65.0" promptText="Captcha" />
         <Button fx:id="applyButton" layoutX="414.0" layoutY="315.0" mnemonicParsing="false" onAction="#applyButtonOnAction" text="Apply" />
+        <Button fx:id="changeCaptchaButton" layoutX="359.0" layoutY="350.0" mnemonicParsing="false" onAction="#changeCaptchaButtonOnAction" prefHeight="26.0" prefWidth="105.0" text="Change Captcha" />
         <Text fx:id="errorText" fill="RED" layoutX="280.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" />
     </children>
 </AnchorPane>

@@ -29,6 +29,7 @@
 
                 <Menu mnemonicParsing="false" text="Registration">
                     <items>
+                        <MenuItem fx:id="addUserMenuItem" mnemonicParsing="false" onAction="#goToAddUserPage" text="Add User" />
                         <MenuItem fx:id="coursesListMenuItem" mnemonicParsing="false" onAction="#goToProfessorCoursesListPage" text="Courses List" />
                         <MenuItem fx:id="professorsListMenuItem" mnemonicParsing="false" onAction="#goToProfessorProfessorsListPage" text="Professors List" />
                     </items>
@@ -103,6 +104,5 @@
             <RowConstraints />
          </rowConstraints>
         </GridPane>
-        <Text fx:id="errorText" fill="RED" layoutX="194.0" layoutY="421.0" strokeType="OUTSIDE" strokeWidth="0.0" />
     </children>
 </AnchorPane>
