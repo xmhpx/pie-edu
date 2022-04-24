@@ -17,7 +17,7 @@ import java.io.IOException;
 //// DONE check and update different(possibly hidden) request pages
 //// TODO maybe change stuff related to request responses?
 //// TODO both ends of a minor request must agree, fix somehow
-//// TODO make withdrawal request actually functional
+//// DONE make withdrawal request actually functional
 //// TODO add auto response for dorm requests
 //// TODO change dissertation defence request's response (add time to defence maybe?)
 // TODO fix request editing problem

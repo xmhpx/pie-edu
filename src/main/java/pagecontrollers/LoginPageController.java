@@ -13,6 +13,7 @@ import models.Captcha;
 import models.User;
 import models.professor.Professor;
 import models.student.Student;
+import models.student.StudentEducationStatus;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -69,7 +70,11 @@ public class LoginPageController extends BasicPageController {
             if(user == null){
                 error("username and password don't match");
             }
-            else if(user instanceof Student){
+            else if(user instanceof Student student){
+                if(student.getEducationStatus() == StudentEducationStatus.WITHDRAWN) {
+                    error("the student has withdrawn and can't log in anymore");
+                    return;
+                }
                 LoggedInUserHolder.setUser(user);
                 goToStudentPage("studentHomePage.fxml");
             }

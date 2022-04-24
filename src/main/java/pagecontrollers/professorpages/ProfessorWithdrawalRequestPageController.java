@@ -15,6 +15,7 @@ import logic.LoggedInUserHolder;
 import models.User;
 import models.professor.Professor;
 import models.student.Student;
+import models.student.StudentEducationStatus;
 import models.universityitems.requests.MinorRequest;
 import models.universityitems.requests.Request;
 import models.universityitems.requests.WithdrawalRequest;
@@ -75,5 +76,15 @@ public class ProfessorWithdrawalRequestPageController extends ProfessorPageContr
 //
 //        tableView.getColumns().add(statusColumn);
 //        tableView.getColumns().add(responseColumn);
+    }
+
+    public void acceptWithdrawalRequest(WithdrawalRequest withdrawalRequest){
+        withdrawalRequest.setStatus("Accepted");
+        Student student = Backend.getInstance().getStudent(withdrawalRequest.getSenderId());
+        if(student == null){
+            log.error("WithdrawalRequest("+withdrawalRequest.getId()+")'s student doesn't exist");
+            throw new IllegalStateException("WithdrawalRequest("+withdrawalRequest.getId()+")'s student doesn't exist");
+        }
+        student.setEducationStatus(StudentEducationStatus.WITHDRAWN);
     }
 }
