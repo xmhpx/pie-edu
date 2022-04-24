@@ -1,9 +1,13 @@
-2022-04-24 08:40:26:900 INFO [GuiMain.start()] - application started
-2022-04-24 08:40:27:048 INFO [logic.Backend.<init>()] - deserialization started
-2022-04-24 08:40:27:106 INFO [logic.Backend.<init>()] - deserialization finished
-2022-04-24 08:40:33:630 INFO [logic.LoggedInUserHolder.setUser()] - user(10001) logged in
-2022-04-24 08:40:33:633 INFO [models.User.setLastVisit()] - user(10001) changed lastVisit
-2022-04-24 08:40:51:264 INFO [logic.LoggedInUserHolder.logout()] - user(10001) logged out
-2022-04-24 08:40:52:583 INFO [logic.Backend.save()] - serialization started
-2022-04-24 08:40:52:589 INFO [logic.Backend.save()] - serialization ended
-2022-04-24 08:40:52:589 INFO [GuiMain.stop()] - application stopped
+2022-04-24 09:22:28:159 INFO [GuiMain.start()] - application started
+2022-04-24 09:22:28:287 INFO [logic.Backend.<init>()] - deserialization started
+2022-04-24 09:22:28:333 INFO [logic.Backend.<init>()] - deserialization finished
+2022-04-24 09:22:35:296 INFO [logic.LoggedInUserHolder.setUser()] - user(20001) logged in
+2022-04-24 09:22:35:299 INFO [models.User.setLastVisit()] - user(20001) changed lastVisit
+2022-04-24 09:22:45:451 INFO [models.universityitems.requests.Request.setTitle()] - request(30014) changed title
+2022-04-24 09:22:45:451 INFO [models.universityitems.requests.Request.setBody()] - request(30014) changed body
+2022-04-24 09:22:45:451 INFO [models.universityitems.requests.Request.setStatus()] - request(30014) changed status
+2022-04-24 09:22:45:451 INFO [models.universityitems.requests.Request.setResponse()] - request(30014) changed response
+2022-04-24 09:22:45:451 INFO [models.universityitems.requests.Request.setSenderId()] - request(30014) changed senderId
+2022-04-24 09:22:45:452 INFO [models.universityitems.requests.Request.setStatus()] - request(30014) changed status
+2022-04-24 09:22:45:458 INFO [models.universityitems.requests.Request.setResponse()] - request(30014) changed response
+2022-04-24 09:22:45:459 INFO [models.student.Student.addToRequest()] - student(20001) added request(30014) to requestIds

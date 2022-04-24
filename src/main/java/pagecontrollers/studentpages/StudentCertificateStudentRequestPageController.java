@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import logic.Backend;
 import logic.LoggedInUserHolder;
+import logic.RequestResponseTemplates;
 import models.User;
 import models.student.Student;
 import models.universityitems.requests.CertificateStudentRequest;
@@ -77,6 +78,9 @@ public class StudentCertificateStudentRequestPageController extends StudentPageC
         }
 
         CertificateStudentRequest request = new CertificateStudentRequest(title, body, LoggedInUserHolder.getUser().getId());
+
+        RequestResponseTemplates.answerCertificateStudentRequest(request);
+
         backend.addToRequests(request);
         Student student = (Student) LoggedInUserHolder.getUser();
         student.addToRequest(request.getId());
