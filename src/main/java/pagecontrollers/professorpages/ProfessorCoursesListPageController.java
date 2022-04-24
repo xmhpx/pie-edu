@@ -66,7 +66,7 @@ public class ProfessorCoursesListPageController extends ProfessorPageController 
         ObservableList<Course> data = tableView.getItems();
         data.clear();
         User user = LoggedInUserHolder.getUser();
-        if(user instanceof Student) {
+        if(user instanceof Professor) {
             for(Course course : backend.getCourses()) {
                 Professor professor = backend.getProfessor(course.getProfessorId());
                 if(professor == null){
@@ -86,8 +86,8 @@ public class ProfessorCoursesListPageController extends ProfessorPageController 
             }
         }
         else{
-            log.error("logged in user is not a Student");
-            throw new IllegalStateException("logged in user is not a Student");
+            log.error("logged in user is not a Professor");
+            throw new IllegalStateException("logged in user is not a Professor");
         }
 
         if(professorName.equals("") &&

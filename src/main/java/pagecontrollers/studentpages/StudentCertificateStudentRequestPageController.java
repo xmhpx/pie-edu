@@ -58,8 +58,8 @@ public class StudentCertificateStudentRequestPageController extends StudentPageC
             }
         }
         else{
-            log.error("logged in user is not a student");
-            throw new IllegalStateException("logged in user is not a student");
+            log.error("logged in user is not a Student");
+            throw new IllegalStateException("logged in user is not a Student");
         }
     }
 
