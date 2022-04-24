@@ -11,10 +11,10 @@ import java.io.IOException;
 
 
 // DONE add ability to add new users by educational assistant
-//// TODO add filters to 'coursesListPage' and 'professorsListPage'
+//// DONE add filters to 'coursesListPage' and 'professorsListPage'
 // TODO update 'professorsListPage' for deanOfFaculty
 // TODO add "add/remove/edit" abilities to 'coursesListPage' for educational assistant
-//// TODO check and update different(possibly hidden) request pages
+//// DONE check and update different(possibly hidden) request pages
 //// TODO maybe change stuff related to request responses?
 //// TODO both ends of a minor request must agree, fix somehow
 //// TODO make withdrawal request actually functional

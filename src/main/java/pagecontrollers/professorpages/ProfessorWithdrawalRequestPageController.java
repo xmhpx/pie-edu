@@ -59,21 +59,21 @@ public class ProfessorWithdrawalRequestPageController extends ProfessorPageContr
         }
 
 
-        tableView.setEditable(true);
-
-        TableColumn<WithdrawalRequest, String> statusColumn = new TableColumn<>("Status");
-        statusColumn.setMaxWidth(200);
-        statusColumn.setPrefWidth(70);
-        statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
-        statusColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-
-        TableColumn<WithdrawalRequest, String> responseColumn = new TableColumn<>("Response");
-        responseColumn.setMaxWidth(500);
-        responseColumn.setPrefWidth(70);
-        responseColumn.setCellValueFactory(new PropertyValueFactory<>("response"));
-        responseColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-
-        tableView.getColumns().add(statusColumn);
-        tableView.getColumns().add(responseColumn);
+//        tableView.setEditable(true);
+//
+//        TableColumn<WithdrawalRequest, String> statusColumn = new TableColumn<>("Status");
+//        statusColumn.setMaxWidth(200);
+//        statusColumn.setPrefWidth(70);
+//        statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+//        statusColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+//
+//        TableColumn<WithdrawalRequest, String> responseColumn = new TableColumn<>("Response");
+//        responseColumn.setMaxWidth(500);
+//        responseColumn.setPrefWidth(70);
+//        responseColumn.setCellValueFactory(new PropertyValueFactory<>("response"));
+//        responseColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+//
+//        tableView.getColumns().add(statusColumn);
+//        tableView.getColumns().add(responseColumn);
     }
 }

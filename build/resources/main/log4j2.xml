@@ -2,7 +2,7 @@
 <Configuration status="INFO">
     <Appenders>
         <File name="FileAppender" fileName="./src/main/resources/logs/logs.log" immediateFlush="true" append="false">
-            <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss:SSS} [%logger{36}.%M()] %-5level - %msg%n"/>
+            <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss:SSS} %level [%logger{36}.%M()] - %msg%n"/>
         </File>
     </Appenders>
 

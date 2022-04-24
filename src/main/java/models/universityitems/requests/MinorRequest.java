@@ -47,4 +47,14 @@ public class MinorRequest extends Request{
         log.info("minorRequest("+getId()+") changed minorFieldId");
         this.minorFieldId = minorFieldId;
     }
+
+    public int getOriginCollegeId(){
+        try {
+            return Backend.getInstance().getStudent(senderId).getCollegeId();
+        }
+        catch (NullPointerException nullPointerException){
+            log.warn("'senderId' doesn't exist in backend");
+            throw new IllegalStateException("'senderId' doesn't exist in backend");
+        }
+    }
 }

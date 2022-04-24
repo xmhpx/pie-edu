@@ -73,13 +73,13 @@
         <ImageView fx:id="UIProfileImageView" fitHeight="50.0" fitWidth="50.0" layoutX="710.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
         <Text fx:id="UINameText" layoutX="719.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
         <Text fx:id="UIEmailText" layoutX="721.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
-        <Button fx:id="logOutButton" layoutX="706.0" layoutY="133.0" mnemonicParsing="false" text="Log Out" onMouseClicked="#logOutButtonClick"/>
+        <Button fx:id="logOutButton" layoutX="706.0" layoutY="133.0" mnemonicParsing="false" onMouseClicked="#logOutButtonClick" text="Log Out" />
         <Text fx:id="currentTimeText" layoutX="14.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentTime" wrappingWidth="78.13671875" />
         <Text fx:id="lastTimeLoggedInText" layoutX="208.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Time Logged In : LastTimeLoggedIn" />
 
         <Text layoutX="338.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Minor Requests" />
 
-        <GridPane alignment="CENTER" hgap="10.0" layoutX="0.0" layoutY="80.0" maxHeight="500.0" maxWidth="700.0" minHeight="0.0" minWidth="700.0" prefHeight="300.0" prefWidth="700.0" vgap="10.0">
+        <GridPane alignment="CENTER" hgap="10.0" layoutX="20.0" layoutY="80.0" maxHeight="500.0" maxWidth="700.0" minHeight="0.0" minWidth="700.0" prefHeight="300.0" prefWidth="700.0" vgap="10.0">
             <padding>
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </padding>
@@ -123,11 +123,11 @@
             <RowConstraints />
          </rowConstraints>
         </GridPane>
-        <TextField fx:id="titleTextField" layoutX="29.0" layoutY="378.0" prefHeight="26.0" prefWidth="100.0" promptText="Title" />
-        <TextField fx:id="bodyTextField" layoutX="137.0" layoutY="378.0" prefHeight="26.0" prefWidth="320.0" promptText="Body" />
-        <TextField fx:id="destinationCollegeIdTextField" layoutX="465.0" layoutY="378.0" prefHeight="26.0" prefWidth="100.0" promptText="Dest. College Id" />
-        <TextField fx:id="minorFieldIdTextField" layoutX="572.0" layoutY="378.0" prefHeight="26.0" prefWidth="100.0" promptText="Minor Field Id" />
-        <Button fx:id="addRequestButton" layoutX="588.0" layoutY="412.0" mnemonicParsing="false" onAction="#addRequestButtonOnAction" text="Add Request" />
-        <Text fx:id="errorText" fill="RED" layoutX="206.0" layoutY="422.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+        <TextField fx:id="titleTextField" layoutX="49.0" layoutY="378.0" prefHeight="26.0" prefWidth="100.0" promptText="Title" />
+        <TextField fx:id="bodyTextField" layoutX="157.0" layoutY="378.0" prefHeight="26.0" prefWidth="320.0" promptText="Body" />
+        <TextField fx:id="destinationCollegeIdTextField" layoutX="485.0" layoutY="378.0" prefHeight="26.0" prefWidth="100.0" promptText="Dest. College Id" />
+        <TextField fx:id="minorFieldIdTextField" layoutX="592.0" layoutY="378.0" prefHeight="26.0" prefWidth="100.0" promptText="Minor Field Id" />
+        <Button fx:id="addRequestButton" layoutX="608.0" layoutY="412.0" mnemonicParsing="false" onAction="#addRequestButtonOnAction" text="Add Request" />
+        <Text fx:id="errorText" fill="RED" layoutX="226.0" layoutY="422.0" strokeType="OUTSIDE" strokeWidth="0.0" />
     </children>
 </AnchorPane>
