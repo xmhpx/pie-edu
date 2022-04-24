@@ -38,12 +38,15 @@
     "age": 17,
     "hashedPassword": 1216985755,
     "nationalIdNumber": "0927132036",
-    "lastVisit": "9:40:23",
+    "lastVisit": "10:6:13",
     "name": "NAME",
     "email": "mhppaydar@gmail.com",
     "phoneNumber": "09944875387",
     "homeAddress": "Mashhad",
     "postalCode": "nadaram",
+    "preferredUITheme": {
+      "color": "#bb4499"
+    },
     "fieldId": 60001,
     "collegeId": 40001
   },
@@ -69,6 +72,9 @@
     "phoneNumber": "N/A",
     "homeAddress": "N/A",
     "postalCode": "N/A",
+    "preferredUITheme": {
+      "color": "#555555"
+    },
     "fieldId": 60002,
     "collegeId": 40002
   },
@@ -98,6 +104,9 @@
     "phoneNumber": "N/A",
     "homeAddress": "N/A",
     "postalCode": "N/A",
+    "preferredUITheme": {
+      "color": "#555555"
+    },
     "fieldId": 60001,
     "collegeId": 40002
   }

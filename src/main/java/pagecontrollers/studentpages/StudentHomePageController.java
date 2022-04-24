@@ -1,9 +1,11 @@
 package pagecontrollers.studentpages;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import logic.Backend;
 import logic.LoggedInUserHolder;
+import models.UITheme;
 import models.User;
 import models.student.Student;
 import org.apache.log4j.LogManager;
@@ -28,6 +30,20 @@ public class StudentHomePageController extends StudentPageController {
     Text registrationTimeText;
 
 
+    @FXML
+    Button skyBlueButton;
+
+    @FXML
+    Button redButton;
+
+    @FXML
+    Button darkButton;
+
+    @FXML
+    Button purpleButton;
+
+
+
     @Override
     public void initialize(){
         super.initialize();
@@ -50,5 +66,54 @@ public class StudentHomePageController extends StudentPageController {
             log.error("logged in user is not a student");
             throw new IllegalStateException("logged in user is not a student");
         }
+    }
+
+
+    @FXML
+    void skyBlueButtonOnAction(){
+        User user = LoggedInUserHolder.getUser();
+        UITheme preferredUITheme = user.getPreferredUITheme();
+        if(preferredUITheme == null){
+            log.error("user("+user.getId()+") has null preferredUITheme");
+            throw new IllegalStateException("user("+user.getId()+") has null preferredUITheme");
+        }
+        preferredUITheme.changeColorToSkyBlue();
+        initialize();
+    }
+
+    @FXML
+    void redButtonOnAction(){
+        User user = LoggedInUserHolder.getUser();
+        UITheme preferredUITheme = user.getPreferredUITheme();
+        if(preferredUITheme == null){
+            log.error("user("+user.getId()+") has null preferredUITheme");
+            throw new IllegalStateException("user("+user.getId()+") has null preferredUITheme");
+        }
+        preferredUITheme.changeColorToRed();
+        initialize();
+    }
+
+    @FXML
+    void darkButtonOnAction(){
+        User user = LoggedInUserHolder.getUser();
+        UITheme preferredUITheme = user.getPreferredUITheme();
+        if(preferredUITheme == null){
+            log.error("user("+user.getId()+") has null preferredUITheme");
+            throw new IllegalStateException("user("+user.getId()+") has null preferredUITheme");
+        }
+        preferredUITheme.changeColorToDark();
+        initialize();
+    }
+
+    @FXML
+    void purpleButtonOnAction(){
+        User user = LoggedInUserHolder.getUser();
+        UITheme preferredUITheme = user.getPreferredUITheme();
+        if(preferredUITheme == null){
+            log.error("user("+user.getId()+") has null preferredUITheme");
+            throw new IllegalStateException("user("+user.getId()+") has null preferredUITheme");
+        }
+        preferredUITheme.changeColorToPurple();
+        initialize();
     }
 }

@@ -9,12 +9,15 @@
     "age": 27,
     "hashedPassword": 1216985755,
     "nationalIdNumber": "0927132036",
-    "lastVisit": "9:34:43",
+    "lastVisit": "10:12:50",
     "name": "MohammadHossein Paydar",
     "email": "mhppaydar@gmail.com",
     "phoneNumber": "09944875387",
     "homeAddress": "my home address",
     "postalCode": "dont have bro",
+    "preferredUITheme": {
+      "color": "#bb5588"
+    },
     "fieldId": 60001,
     "collegeId": 40001
   },
@@ -34,6 +37,9 @@
     "phoneNumber": "N/A",
     "homeAddress": "N/A",
     "postalCode": "N/A",
+    "preferredUITheme": {
+      "color": "#555555"
+    },
     "fieldId": 60001,
     "collegeId": 40001
   }

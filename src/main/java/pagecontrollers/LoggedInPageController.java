@@ -8,6 +8,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import logic.LoggedInUserHolder;
+import models.UITheme;
 import models.User;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -42,6 +43,12 @@ public class LoggedInPageController extends BasicPageController {
     @Override
     public void initialize() {
         User user = LoggedInUserHolder.getUser();
+        UITheme preferredUITheme = user.getPreferredUITheme();
+        if(preferredUITheme == null){
+            log.error("user("+user.getId()+") has null preferredUITheme");
+            throw new IllegalStateException("user("+user.getId()+") has null preferredUITheme");
+        }
+        anchorPane.setStyle("-fx-background-color:"+preferredUITheme.getColor());
 
         UINameText.setText(user.getName());
         UIEmailText.setText(user.getEmail());

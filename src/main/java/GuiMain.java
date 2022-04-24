@@ -25,7 +25,7 @@ import java.io.IOException;
 // TODO fix many things in temporaryScoresPage (doesn't exist for professors, only for educational assistants)
 //// DONE add 'number of passed SCHs' to education status for students
 //// TODO make calculating average weighted for different courses
-//// TODO add theme changer (just change background color maybe)
+//// DONE add theme changer (just change background color maybe)
 //// TODO add default profile image
 //// TODO change password page?? (more information is in the last pages of the doc)
 /// TODO add ability to change profile pictures

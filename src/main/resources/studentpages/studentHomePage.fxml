@@ -73,5 +73,9 @@
        <Text fx:id="supervisorText" layoutX="296.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supervisor" />
       <Text fx:id="registrationLicenseText" layoutX="296.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration License" />
       <Text fx:id="registrationTimeText" layoutX="296.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration Time" />
+      <Button fx:id="skyBlueButton" layoutX="700.0" layoutY="170.0" mnemonicParsing="false" onAction="#skyBlueButtonOnAction" prefWidth="70.0" style="-fx-background-color: #bbbbbb;" text="Sky Blue" textAlignment="CENTER" textFill="#ceecec" />
+      <Button fx:id="redButton" layoutX="700.0" layoutY="202.0" mnemonicParsing="false" onAction="#redButtonOnAction" prefWidth="70.0" style="-fx-background-color: #bbbbbb;" text="Red" textAlignment="CENTER" textFill="#ff9797" />
+      <Button fx:id="darkButton" layoutX="700.0" layoutY="234.0" mnemonicParsing="false" onAction="#darkButtonOnAction" prefWidth="70.0" style="-fx-background-color: #bbbbbb;" text="Dark" textAlignment="CENTER" textFill="#555555" />
+      <Button fx:id="purpleButton" layoutX="700.0" layoutY="266.0" mnemonicParsing="false" onAction="#purpleButtonOnAction" prefWidth="70.0" style="-fx-background-color: #bbbbbb;" text="Purple" textAlignment="CENTER" textFill="#bb5588" />
    </children>
 </AnchorPane>
