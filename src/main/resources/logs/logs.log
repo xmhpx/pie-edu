@@ -1,52 +1,8 @@
-2022-04-24 09:34:21:313 INFO [GuiMain.start()] - application started
-2022-04-24 09:34:21:443 INFO [logic.Backend.<init>()] - deserialization started
-2022-04-24 09:34:21:488 INFO [logic.Backend.<init>()] - deserialization finished
-2022-04-24 09:34:43:744 INFO [logic.LoggedInUserHolder.setUser()] - user(10001) logged in
-2022-04-24 09:34:43:746 INFO [models.User.setLastVisit()] - user(10001) changed lastVisit
-2022-04-24 09:35:13:318 INFO [models.User.setPassword()] - user(0) changed password
-2022-04-24 09:35:13:318 INFO [models.User.setLastVisit()] - user(0) changed lastVisit
-2022-04-24 09:35:13:319 WARN [models.User.setProfileImagePath()] - 'profileImagePath' is null
-2022-04-24 09:35:13:319 INFO [models.User.setName()] - user(0) changed name
-2022-04-24 09:35:13:319 INFO [models.User.setEmail()] - user(0) changed email
-2022-04-24 09:35:13:319 INFO [models.User.setPhoneNumber()] - user(0) changed phoneNumber
-2022-04-24 09:35:13:319 INFO [models.User.setHomeAddress()] - user(0) changed homeAddress
-2022-04-24 09:35:13:320 INFO [models.User.setPostalCode()] - user(0) changed postalCode
-2022-04-24 09:35:13:320 WARN [models.User.setPreferredUITheme()] - 'preferredUITheme' is null
-2022-04-24 09:35:13:320 INFO [models.User.setFieldId()] - user(0) changed fieldId
-2022-04-24 09:35:13:320 INFO [models.User.setCollegeId()] - user(0) changed collegeId
-2022-04-24 09:35:13:320 INFO [models.User.setAge()] - user(0) changed age
-2022-04-24 09:35:13:320 INFO [models.User.setNationalIdNumber()] - user(0) changed nationalIdNumber
-2022-04-24 09:35:13:320 INFO [models.student.Student.setStudentNumber()] - student(20003) changed studentNumber
-2022-04-24 09:35:13:321 INFO [models.student.Student.setStatus()] - student(20003) changed status
-2022-04-24 09:35:13:321 INFO [models.student.Student.setSupervisorId()] - student(20003) changed supervisorId
-2022-04-24 09:35:13:321 INFO [models.student.Student.setRegistrationLicense()] - student(20003) changed registrationLicense
-2022-04-24 09:35:13:321 INFO [models.student.Student.setRegistrationTime()] - student(20003) changed registrationTime
-2022-04-24 09:35:13:321 INFO [models.student.Student.setStudentLevel()] - student(20003) changed studentLevel
-2022-04-24 09:35:13:321 INFO [models.student.Student.setEducationStatus()] - student(20003) changed educationStatus
-2022-04-24 09:35:13:321 INFO [models.student.Student.setYearOfEntry()] - student(20003) changed yearOfEntry
-2022-04-24 09:35:13:322 INFO [models.student.Student.setReportCardIds()] - student(20003) changed reportCardIds
-2022-04-24 09:35:13:322 INFO [models.student.Student.setRequestIds()] - student(20003) changed requestIds
-2022-04-24 09:35:13:322 INFO [models.student.Student.setCourseIds()] - student(20003) changed courseIds
-2022-04-24 09:35:15:843 INFO [logic.LoggedInUserHolder.logout()] - user(10001) logged out
-2022-04-24 09:35:21:422 INFO [logic.LoggedInUserHolder.setUser()] - user(20003) logged in
-2022-04-24 09:35:21:422 INFO [models.User.setLastVisit()] - user(20003) changed lastVisit
-2022-04-24 09:35:31:256 INFO [models.universityitems.requests.Request.setTitle()] - request(30014) changed title
-2022-04-24 09:35:31:256 INFO [models.universityitems.requests.Request.setBody()] - request(30014) changed body
-2022-04-24 09:35:31:256 INFO [models.universityitems.requests.Request.setStatus()] - request(30014) changed status
-2022-04-24 09:35:31:257 INFO [models.universityitems.requests.Request.setResponse()] - request(30014) changed response
-2022-04-24 09:35:31:257 INFO [models.universityitems.requests.Request.setSenderId()] - request(30014) changed senderId
-2022-04-24 09:35:31:258 INFO [models.universityitems.requests.Request.setStatus()] - request(30014) changed status
-2022-04-24 09:35:31:258 INFO [models.universityitems.requests.Request.setResponse()] - request(30014) changed response
-2022-04-24 09:35:31:259 INFO [models.student.Student.addToRequest()] - student(20003) added request(30014) to requestIds
-2022-04-24 09:35:36:729 INFO [models.universityitems.requests.Request.setTitle()] - request(30015) changed title
-2022-04-24 09:35:36:729 INFO [models.universityitems.requests.Request.setBody()] - request(30015) changed body
-2022-04-24 09:35:36:730 INFO [models.universityitems.requests.Request.setStatus()] - request(30015) changed status
-2022-04-24 09:35:36:730 INFO [models.universityitems.requests.Request.setResponse()] - request(30015) changed response
-2022-04-24 09:35:36:730 INFO [models.universityitems.requests.Request.setSenderId()] - request(30015) changed senderId
-2022-04-24 09:35:36:730 INFO [models.universityitems.requests.Request.setStatus()] - request(30015) changed status
-2022-04-24 09:35:36:730 INFO [models.universityitems.requests.Request.setResponse()] - request(30015) changed response
-2022-04-24 09:35:36:730 INFO [models.student.Student.addToRequest()] - student(20003) added request(30015) to requestIds
-2022-04-24 09:35:44:898 INFO [logic.LoggedInUserHolder.logout()] - user(20003) logged out
-2022-04-24 09:35:46:585 INFO [logic.Backend.save()] - serialization started
-2022-04-24 09:35:46:592 INFO [logic.Backend.save()] - serialization ended
-2022-04-24 09:35:46:592 INFO [GuiMain.stop()] - application stopped
+2022-04-24 09:40:12:411 INFO [GuiMain.start()] - application started
+2022-04-24 09:40:12:543 INFO [logic.Backend.<init>()] - deserialization started
+2022-04-24 09:40:12:593 INFO [logic.Backend.<init>()] - deserialization finished
+2022-04-24 09:40:23:878 INFO [logic.LoggedInUserHolder.setUser()] - user(20001) logged in
+2022-04-24 09:40:23:880 INFO [models.User.setLastVisit()] - user(20001) changed lastVisit
+2022-04-24 09:40:30:543 INFO [logic.Backend.save()] - serialization started
+2022-04-24 09:40:30:551 INFO [logic.Backend.save()] - serialization ended
+2022-04-24 09:40:30:551 INFO [GuiMain.stop()] - application stopped

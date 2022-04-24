@@ -3,6 +3,7 @@ package pagecontrollers.studentpages;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
+import javafx.scene.text.Text;
 import logic.Backend;
 import logic.LoggedInUserHolder;
 import models.User;
@@ -20,6 +21,9 @@ public class StudentEducationStatusPageController extends StudentPageController 
     @FXML
     TableView<ReportCard> tableView;
 
+    @FXML
+    Text numberOfPassedSCHText;
+
     @Override
     public void initialize(){
         super.initialize();
@@ -28,6 +32,7 @@ public class StudentEducationStatusPageController extends StudentPageController 
         data.clear();
         User user = LoggedInUserHolder.getUser();
         if(user instanceof Student student) {
+            int passedSCH = 0;
             for(int reportCardId : student.getReportCardIds()) {
                 ReportCard reportCard = backend.getReportCard(reportCardId);
                 if(reportCard == null){
@@ -38,7 +43,9 @@ public class StudentEducationStatusPageController extends StudentPageController 
                 if (status != ReportCardStatus.TAKEN && status != ReportCardStatus.TEMPORARILY_SCORED) {
                     data.add(reportCard);
                 }
+                if(status == ReportCardStatus.CREDITED)passedSCH++;
             }
+            numberOfPassedSCHText.setText("Number of Passed SCH: " + passedSCH);
         }
         else{
             log.error("logged in user is not a Student");

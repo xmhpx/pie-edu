@@ -18,12 +18,12 @@ import java.io.IOException;
 //// TODO maybe change stuff related to request responses?
 //// TODO both ends of a minor request must agree, fix somehow
 //// DONE make withdrawal request actually functional
-//// TODO add auto response for dorm requests
+//// DONE add auto response for dorm and certificate student requests
 //// TODO change dissertation defence request's response (add time to defence maybe?)
 // TODO fix request editing problem
 // TODO add ability to add objections and edit them to temporaryScoresPage
 // TODO fix many things in temporaryScoresPage (doesn't exist for professors, only for educational assistants)
-//// TODO add 'number of passed SCHs' to education status for students
+//// DONE add 'number of passed SCHs' to education status for students
 //// TODO make calculating average weighted for different courses
 //// TODO add theme changer (just change background color maybe)
 //// TODO add default profile image
