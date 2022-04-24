@@ -66,9 +66,10 @@
         <Button fx:id="logOutButton" layoutX="706.0" layoutY="133.0" mnemonicParsing="false" onMouseClicked="#logOutButtonClick" text="Log Out" />
         <Text fx:id="currentTimeText" layoutX="14.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentTime" wrappingWidth="78.13671875" />
         <Text fx:id="lastTimeLoggedInText" layoutX="208.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Time Logged In : LastTimeLoggedIn" />
+        <TextField fx:id="newProfileImagePathTextField" layoutX="300.0" layoutY="102.0" prefHeight="26.0" prefWidth="170.0" promptText="New Profile Image Path" />
         <TextField fx:id="newNameTextField" layoutX="300.0" layoutY="133.0" prefHeight="26.0" prefWidth="170.0" promptText="New Name" />
-      <TextField fx:id="newEmailTextField" layoutX="300.0" layoutY="163.0" prefHeight="26.0" prefWidth="170.0" promptText="New Email" />
-      <TextField fx:id="newPhoneNumberTextField" layoutX="300.0" layoutY="193.0" prefHeight="26.0" prefWidth="170.0" promptText="New Phone Number" />
+        <TextField fx:id="newEmailTextField" layoutX="300.0" layoutY="163.0" prefHeight="26.0" prefWidth="170.0" promptText="New Email" />
+        <TextField fx:id="newPhoneNumberTextField" layoutX="300.0" layoutY="193.0" prefHeight="26.0" prefWidth="170.0" promptText="New Phone Number" />
         <TextField fx:id="passwordTextField" layoutX="300.0" layoutY="227.0" prefHeight="26.0" prefWidth="170.0" promptText="Password" />
         <ImageView fx:id="captchaImage" fitHeight="40.0" fitWidth="90.0" layoutX="302.0" layoutY="263.0" pickOnBounds="true">
         <image>

@@ -1,5 +1,6 @@
 package models;
 
+import javafx.scene.image.Image;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -89,6 +90,14 @@ public class User {
             log.warn("'profileImagePath' is null");
             return;
         }
+
+        try{
+            Image image = new Image(profileImagePath);
+        }
+        catch (Exception exception){
+            log.warn("'profileImagePath' doesn't exist");
+        }
+
         log.info("user("+getId()+") changed profileImagePath");
         this.profileImagePath = profileImagePath;
     }

@@ -1,8 +1,9 @@
-2022-04-24 10:23:56:797 INFO [GuiMain.start()] - application started
-2022-04-24 10:23:56:928 INFO [logic.Backend.<init>()] - deserialization started
-2022-04-24 10:23:56:975 INFO [logic.Backend.<init>()] - deserialization finished
-2022-04-24 10:24:01:028 INFO [logic.LoggedInUserHolder.setUser()] - user(10001) logged in
-2022-04-24 10:24:01:030 INFO [models.User.setLastVisit()] - user(10001) changed lastVisit
-2022-04-24 10:24:06:090 INFO [logic.Backend.save()] - serialization started
-2022-04-24 10:24:06:098 INFO [logic.Backend.save()] - serialization ended
-2022-04-24 10:24:06:098 INFO [GuiMain.stop()] - application stopped
+2022-04-24 19:22:36:234 INFO [GuiMain.start()] - application started
+2022-04-24 19:22:36:365 INFO [logic.Backend.<init>()] - deserialization started
+2022-04-24 19:22:36:411 INFO [logic.Backend.<init>()] - deserialization finished
+2022-04-24 19:22:42:425 INFO [logic.LoggedInUserHolder.setUser()] - user(10001) logged in
+2022-04-24 19:22:42:429 INFO [models.User.setLastVisit()] - user(10001) changed lastVisit
+2022-04-24 19:22:51:019 INFO [models.User.setProfileImagePath()] - user(10001) changed profileImagePath
+2022-04-24 19:22:55:986 INFO [logic.Backend.save()] - serialization started
+2022-04-24 19:22:55:993 INFO [logic.Backend.save()] - serialization ended
+2022-04-24 19:22:55:993 INFO [GuiMain.stop()] - application stopped

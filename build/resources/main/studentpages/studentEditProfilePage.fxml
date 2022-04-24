@@ -6,8 +6,6 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.ImageInput?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
@@ -71,6 +69,7 @@
         <Button fx:id="logOutButton" layoutX="706.0" layoutY="133.0" mnemonicParsing="false" onMouseClicked="#logOutButtonClick" text="Log Out" />
         <Text fx:id="currentTimeText" layoutX="14.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentTime" wrappingWidth="78.13671875" />
         <Text fx:id="lastTimeLoggedInText" layoutX="208.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Time Logged In : LastTimeLoggedIn" />
+        <TextField fx:id="newProfileImagePathTextField" layoutX="300.0" layoutY="102.0" prefHeight="26.0" prefWidth="170.0" promptText="New Profile Image Path" />
         <TextField fx:id="newNameTextField" layoutX="300.0" layoutY="133.0" prefHeight="26.0" prefWidth="170.0" promptText="New Name" />
         <TextField fx:id="newEmailTextField" layoutX="300.0" layoutY="163.0" prefHeight="26.0" prefWidth="170.0" promptText="New Email" />
         <TextField fx:id="newPhoneNumberTextField" layoutX="300.0" layoutY="193.0" prefHeight="26.0" prefWidth="170.0" promptText="New Phone Number" />
@@ -83,5 +82,5 @@
         <Button fx:id="applyButton" layoutX="414.0" layoutY="310.0" mnemonicParsing="false" onAction="#applyButtonOnAction" text="Apply" />
         <Button fx:id="changeCaptchaButton" layoutX="359.0" layoutY="350.0" mnemonicParsing="false" onAction="#changeCaptchaButtonOnAction" prefHeight="26.0" prefWidth="105.0" text="Change Captcha" />
         <Text fx:id="errorText" fill="RED" layoutX="280.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-    </children>
+      </children>
 </AnchorPane>

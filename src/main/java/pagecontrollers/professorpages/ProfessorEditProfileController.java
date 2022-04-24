@@ -26,6 +26,9 @@ public class ProfessorEditProfileController extends ProfessorPageController {
     Text errorText;
 
     @FXML
+    TextField newProfileImagePathTextField;
+
+    @FXML
     TextField newNameTextField;
 
     @FXML
@@ -72,12 +75,27 @@ public class ProfessorEditProfileController extends ProfessorPageController {
             else {
                 String errorMassage = "";
 
+                String newProfileImagePath = newProfileImagePathTextField.getText();
+                if (newProfileImagePath.length() > 0) {
+                    try{
+                        new Image(newProfileImagePath);
+                    }
+                    catch (Exception exception) {
+                        error("new profile image path is not a valid image");
+                        return;
+                    }
+                    user.setProfileImagePath(newProfileImagePath);
+                    errorMassage += "profile image path has been changed\n";
+                }
+
                 String newName = newNameTextField.getText();
                 if (newName.length() > 0) {
                     if (newName.length() < 5) {
                         error("new name is too short");
+                        return;
                     } else if (newName.length() > 30) {
                         error("new name is too long");
+                        return;
                     }
                     user.setName(newName);
                     errorMassage += "name has been changed\n";
@@ -95,6 +113,7 @@ public class ProfessorEditProfileController extends ProfessorPageController {
                     errorMassage += "phone number has been changed\n";
                 }
 
+                initialize();
                 error(errorMassage);
             }
         }

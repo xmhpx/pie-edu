@@ -38,15 +38,15 @@
     "age": 17,
     "hashedPassword": 1216985755,
     "nationalIdNumber": "0927132036",
-    "lastVisit": "10:6:13",
-    "profileImagePath": "C:\\Users\\Hami\\IdeaProjects\\edu\\src\\main\\resources\\profileimages\\default.jpg",
+    "lastVisit": "7:21:24",
+    "profileImagePath": "C:\\Users\\Hami\\IdeaProjects\\edu\\src\\main\\resources\\profileimages\\sus.png",
     "name": "NAME",
     "email": "mhppaydar@gmail.com",
     "phoneNumber": "09944875387",
     "homeAddress": "Mashhad",
     "postalCode": "nadaram",
     "preferredUITheme": {
-      "color": "#bb4499"
+      "color": "#555555"
     },
     "fieldId": 60001,
     "collegeId": 40001
