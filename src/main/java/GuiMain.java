@@ -26,7 +26,7 @@ import java.io.IOException;
 //// DONE add 'number of passed SCHs' to education status for students
 //// TODO make calculating average weighted for different courses
 //// DONE add theme changer (just change background color maybe)
-//// TODO add default profile image
+//// DONE add default profile image and make profile images to work
 //// TODO change password page?? (more information is in the last pages of the doc)
 /// TODO add ability to change profile pictures
 

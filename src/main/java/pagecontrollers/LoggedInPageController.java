@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
@@ -50,9 +51,17 @@ public class LoggedInPageController extends BasicPageController {
         }
         anchorPane.setStyle("-fx-background-color:"+preferredUITheme.getColor());
 
+        try{
+            UIProfileImageView.setImage(new Image(user.getProfileImagePath()));
+        }
+        catch (Exception exception){
+            log.error("user("+user.getId()+")'s profile image file is missing");
+            throw new IllegalStateException("user("+user.getId()+")'s profile image file is missing");
+        }
+
         UINameText.setText(user.getName());
         UIEmailText.setText(user.getEmail());
-        lastTimeLoggedInText.setText("Last Time Logged In : " + user.getLastVisit());
+        lastTimeLoggedInText.setText("Last Time Logged In: " + user.getLastVisit());
 
         Thread clock = new Thread() {
             public void run() {
@@ -62,7 +71,7 @@ public class LoggedInPageController extends BasicPageController {
                     int second = cal.get(Calendar.SECOND);
                     int minute = cal.get(Calendar.MINUTE);
                     int hour = cal.get(Calendar.HOUR);
-                    currentTimeText.setText("Current Time : " + hour + ":" + (minute) + ":" + second);
+                    currentTimeText.setText("Current Time: " + hour + ":" + (minute) + ":" + second);
 
                     try {
                         sleep(990);

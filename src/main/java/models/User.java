@@ -26,13 +26,13 @@ public class User {
     public User(String password, String name, int fieldId, int collegeId, int age, String nationalIdNumber){
         setPassword(password);
         setLastVisit("N/A");
-        setProfileImagePath(null);
+        setProfileImagePath("C:\\Users\\Hami\\IdeaProjects\\edu\\src\\main\\resources\\profileimages\\default.jpg");
         setName(name);
         setEmail("N/A");
         setPhoneNumber("N/A");
         setHomeAddress("N/A");
         setPostalCode("N/A");
-        setPreferredUITheme(null);
+        setPreferredUITheme(new UITheme());
         setFieldId(fieldId);
         setCollegeId(collegeId);
         setAge(age);
