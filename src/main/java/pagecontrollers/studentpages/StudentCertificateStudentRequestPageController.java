@@ -9,15 +9,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import logic.Backend;
 import logic.LoggedInUserHolder;
-import logic.RequestResponseTemplates;
+import logic.RequestsAutomatedResponder;
 import models.User;
 import models.student.Student;
 import models.universityitems.requests.CertificateStudentRequest;
 import models.universityitems.requests.Request;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-
-import java.io.IOException;
 
 public class StudentCertificateStudentRequestPageController extends StudentPageController {
     private static final Logger log = LogManager.getLogger(StudentCertificateStudentRequestPageController.class);
@@ -79,7 +77,7 @@ public class StudentCertificateStudentRequestPageController extends StudentPageC
 
         CertificateStudentRequest request = new CertificateStudentRequest(title, body, LoggedInUserHolder.getUser().getId());
 
-        RequestResponseTemplates.answerCertificateStudentRequest(request);
+        RequestsAutomatedResponder.answerCertificateStudentRequest(request);
 
         backend.addToRequests(request);
         Student student = (Student) LoggedInUserHolder.getUser();

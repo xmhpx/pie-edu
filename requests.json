@@ -123,5 +123,23 @@
     "status": "sent",
     "response": "",
     "senderId": 20001
+  },
+  {
+    "type": "DormRequest",
+    "id": 30014,
+    "title": "title",
+    "body": "body",
+    "status": "Accepted",
+    "response": "lucky!",
+    "senderId": 20003
+  },
+  {
+    "type": "DormRequest",
+    "id": 30015,
+    "title": "title ",
+    "body": "body",
+    "status": "Rejected",
+    "response": "better luck next time!",
+    "senderId": 20003
   }
 ]

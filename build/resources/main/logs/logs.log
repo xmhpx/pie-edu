@@ -1,9 +1,30 @@
-2022-04-24 08:40:26:900 INFO [GuiMain.start()] - application started
-2022-04-24 08:40:27:048 INFO [logic.Backend.<init>()] - deserialization started
-2022-04-24 08:40:27:106 INFO [logic.Backend.<init>()] - deserialization finished
-2022-04-24 08:40:33:630 INFO [logic.LoggedInUserHolder.setUser()] - user(10001) logged in
-2022-04-24 08:40:33:633 INFO [models.User.setLastVisit()] - user(10001) changed lastVisit
-2022-04-24 08:40:51:264 INFO [logic.LoggedInUserHolder.logout()] - user(10001) logged out
-2022-04-24 08:40:52:583 INFO [logic.Backend.save()] - serialization started
-2022-04-24 08:40:52:589 INFO [logic.Backend.save()] - serialization ended
-2022-04-24 08:40:52:589 INFO [GuiMain.stop()] - application stopped
+2022-04-24 09:30:59:500 INFO [GuiMain.start()] - application started
+2022-04-24 09:30:59:626 INFO [logic.Backend.<init>()] - deserialization started
+2022-04-24 09:30:59:669 INFO [logic.Backend.<init>()] - deserialization finished
+2022-04-24 09:31:05:697 INFO [logic.LoggedInUserHolder.setUser()] - user(10001) logged in
+2022-04-24 09:31:05:699 INFO [models.User.setLastVisit()] - user(10001) changed lastVisit
+2022-04-24 09:32:13:749 INFO [models.User.setPassword()] - user(0) changed password
+2022-04-24 09:32:13:749 INFO [models.User.setLastVisit()] - user(0) changed lastVisit
+2022-04-24 09:32:13:749 WARN [models.User.setProfileImagePath()] - 'profileImagePath' is null
+2022-04-24 09:32:13:750 INFO [models.User.setName()] - user(0) changed name
+2022-04-24 09:32:13:750 INFO [models.User.setEmail()] - user(0) changed email
+2022-04-24 09:32:13:750 INFO [models.User.setPhoneNumber()] - user(0) changed phoneNumber
+2022-04-24 09:32:13:750 INFO [models.User.setHomeAddress()] - user(0) changed homeAddress
+2022-04-24 09:32:13:750 INFO [models.User.setPostalCode()] - user(0) changed postalCode
+2022-04-24 09:32:13:750 WARN [models.User.setPreferredUITheme()] - 'preferredUITheme' is null
+2022-04-24 09:32:13:750 INFO [models.User.setFieldId()] - user(0) changed fieldId
+2022-04-24 09:32:13:751 INFO [models.User.setCollegeId()] - user(0) changed collegeId
+2022-04-24 09:32:13:751 INFO [models.User.setAge()] - user(0) changed age
+2022-04-24 09:32:13:751 INFO [models.User.setNationalIdNumber()] - user(0) changed nationalIdNumber
+2022-04-24 09:32:13:751 INFO [models.student.Student.setStudentNumber()] - student(20003) changed studentNumber
+2022-04-24 09:32:13:751 INFO [models.student.Student.setStatus()] - student(20003) changed status
+2022-04-24 09:32:13:751 WARN [models.student.Student.setSupervisorId()] - 'supervisorId' doesn't exist in backend
+2022-04-24 09:32:13:751 INFO [models.student.Student.setSupervisorId()] - student(20003) changed supervisorId
+2022-04-24 09:32:13:752 INFO [models.student.Student.setRegistrationLicense()] - student(20003) changed registrationLicense
+2022-04-24 09:32:13:752 INFO [models.student.Student.setRegistrationTime()] - student(20003) changed registrationTime
+2022-04-24 09:32:13:752 INFO [models.student.Student.setStudentLevel()] - student(20003) changed studentLevel
+2022-04-24 09:32:13:752 WARN [models.student.Student.setEducationStatus()] - 'educationStatus' is null
+2022-04-24 09:32:13:752 INFO [models.student.Student.setYearOfEntry()] - student(20003) changed yearOfEntry
+2022-04-24 09:32:13:752 INFO [models.student.Student.setReportCardIds()] - student(20003) changed reportCardIds
+2022-04-24 09:32:13:752 INFO [models.student.Student.setRequestIds()] - student(20003) changed requestIds
+2022-04-24 09:32:13:753 INFO [models.student.Student.setCourseIds()] - student(20003) changed courseIds

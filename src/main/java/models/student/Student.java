@@ -37,11 +37,11 @@ public class Student extends User {
 
         setStudentNumber(studentNumber);
         setStatus("N/A");
-        setSupervisorId(0);
+        setSupervisorId(10001);
         setRegistrationLicense("N/A");
         setRegistrationTime("N/A");
         setStudentLevel(studentLevel);
-        setEducationStatus(educationStatus);
+        setEducationStatus(StudentEducationStatus.STUDYING);
         setYearOfEntry(yearOfEntry);
 
         setReportCardIds(new ArrayList<>());

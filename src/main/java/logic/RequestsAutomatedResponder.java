@@ -5,15 +5,21 @@ import models.student.StudentEducationStatus;
 import models.universityitems.College;
 import models.universityitems.Field;
 import models.universityitems.requests.CertificateStudentRequest;
+import models.universityitems.requests.DormRequest;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import java.util.Calendar;
+import java.util.Random;
 
-public class RequestResponseTemplates {
-    private static final Logger log = LogManager.getLogger(RequestResponseTemplates.class);
+public class RequestsAutomatedResponder {
+    private static final Logger log = LogManager.getLogger(RequestsAutomatedResponder.class);
 
     public static void answerCertificateStudentRequest(CertificateStudentRequest request) {
+        if(request == null){
+            log.error("request is null");
+            throw new IllegalStateException("request is null");
+        }
         Student student = Backend.getInstance().getStudent(request.getSenderId());
         if(student == null){
             log.error("request("+request.getId()+")'s sender("+request.getSenderId()+") doesn't exist");
@@ -42,4 +48,30 @@ public class RequestResponseTemplates {
                     "Expires in 72 hours starting at " + cal.get(Calendar.DATE) + " " + cal.get(Calendar.HOUR) + ":" + cal.get(Calendar.MINUTE) + ":" + cal.get(Calendar.SECOND));
         }
     }
+
+
+    public static void answerDormRequest(DormRequest request) {
+        if(request == null){
+            log.error("request is null");
+            throw new IllegalStateException("request is null");
+        }
+        Student student = Backend.getInstance().getStudent(request.getSenderId());
+        if(student == null){
+            log.error("request("+request.getId()+")'s sender("+request.getSenderId()+") doesn't exist");
+            throw new IllegalStateException("request("+request.getId()+")'s sender("+request.getSenderId()+") doesn't exist");
+        }
+
+        Random random = new Random();
+
+        if(random.nextBoolean()){
+            request.setStatus("Accepted");
+            request.setResponse("lucky!");
+        }
+        else{
+            request.setStatus("Rejected");
+            request.setResponse("better luck next time!");
+        }
+    }
+
+
 }

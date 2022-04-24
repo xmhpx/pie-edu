@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import logic.Backend;
 import logic.LoggedInUserHolder;
+import logic.RequestsAutomatedResponder;
 import models.User;
 import models.student.Student;
 import models.universityitems.requests.DormRequest;
@@ -68,6 +69,9 @@ public class StudentDormRequestPageController extends StudentPageController {
         }
 
         DormRequest request = new DormRequest(title, body, LoggedInUserHolder.getUser().getId());
+
+        RequestsAutomatedResponder.answerDormRequest(request);
+
         backend.addToRequests(request);
         Student student = (Student) LoggedInUserHolder.getUser();
         student.addToRequest(request.getId());
