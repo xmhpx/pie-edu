@@ -9,7 +9,7 @@
     "age": 27,
     "hashedPassword": 1216985755,
     "nationalIdNumber": "0927132036",
-    "lastVisit": "7:22:42",
+    "lastVisit": "8:33:56",
     "profileImagePath": "C:\\Users\\Hami\\IdeaProjects\\edu\\src\\main\\resources\\profileimages\\sus.png",
     "name": "MohammadHossein Paydar",
     "email": "mhppaydar@gmail.com",
@@ -41,6 +41,29 @@
     "postalCode": "N/A",
     "preferredUITheme": {
       "color": "#555555"
+    },
+    "fieldId": 60001,
+    "collegeId": 40002
+  },
+  {
+    "id": 10003,
+    "professorNumber": "999999",
+    "professorLevel": "FULL_PROFESSOR",
+    "professorType": "DEAN_OF_THE_FACULTY",
+    "roomNumber": "13",
+    "type": "Professor",
+    "age": 19,
+    "hashedPassword": 1216985755,
+    "nationalIdNumber": "12341234",
+    "lastVisit": "8:37:16",
+    "profileImagePath": "C:\\Users\\Hami\\IdeaProjects\\edu\\src\\main\\resources\\profileimages\\default.jpg",
+    "name": "Dean Prof",
+    "email": "N/A",
+    "phoneNumber": "N/A",
+    "homeAddress": "N/A",
+    "postalCode": "N/A",
+    "preferredUITheme": {
+      "color": "#ff9797"
     },
     "fieldId": 60001,
     "collegeId": 40001

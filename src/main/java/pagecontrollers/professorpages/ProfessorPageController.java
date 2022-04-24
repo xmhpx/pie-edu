@@ -26,6 +26,9 @@ public class ProfessorPageController extends LoggedInPageController {
     protected MenuItem professorsListMenuItem;
 
     @FXML
+    protected MenuItem editProfessorsMenuItem;
+
+    @FXML
     protected MenuItem weeklyScheduleMenuItem;
 
     @FXML
@@ -68,6 +71,7 @@ public class ProfessorPageController extends LoggedInPageController {
             educationStatusMenuItem.setVisible(professor.getProfessorType() == ProfessorType.EDUCATIONAL_ASSISTANT);
             addUserMenuItem.setVisible(professor.getProfessorType() == ProfessorType.EDUCATIONAL_ASSISTANT);
             withdrawalRequestMenuItem.setVisible(professor.getProfessorType() == ProfessorType.EDUCATIONAL_ASSISTANT);
+            editProfessorsMenuItem.setVisible(professor.getProfessorType() == ProfessorType.DEAN_OF_THE_FACULTY);
         }
         else{
             log.error("logged in user is not a Professor");
@@ -89,7 +93,7 @@ public class ProfessorPageController extends LoggedInPageController {
 
 
     @FXML
-    protected void goToAddUserPage(ActionEvent actionEvent) {
+    protected void goToProfessorsAddUserPage(ActionEvent actionEvent) {
         goToProfessorPage("professorAddUserPage.fxml");
     }
 
@@ -97,6 +101,11 @@ public class ProfessorPageController extends LoggedInPageController {
     @FXML
     protected void goToProfessorProfessorsListPage(ActionEvent actionEvent) {
         goToProfessorPage("professorProfessorsListPage.fxml");
+    }
+
+    @FXML
+    protected void goToProfessorEditProfessorsPage(ActionEvent actionEvent) {
+        goToProfessorPage("professorEditProfessorsPage.fxml");
     }
 
 

@@ -12,7 +12,7 @@ import java.io.IOException;
 
 // DONE add ability to add new users by educational assistant
 //// DONE add filters to 'coursesListPage' and 'professorsListPage'
-// TODO update 'professorsListPage' for deanOfFaculty
+// TODO update 'editProfessorPage' for deanOfFaculty (add ability to add/remove/edit)
 // TODO add "add/remove/edit" abilities to 'coursesListPage' for educational assistant
 //// DONE check and update different(possibly hidden) request pages
 //// TODO maybe change stuff related to request responses?
@@ -20,6 +20,7 @@ import java.io.IOException;
 //// DONE make withdrawal request actually functional
 //// DONE add auto response for dorm and certificate student requests
 //// TODO change dissertation defence request's response (add time to defence maybe?)
+// TODO fix minor/recom/dd requests (add ability to answer them)
 // TODO fix request editing problem
 // TODO add ability to add objections and edit them to temporaryScoresPage
 // TODO fix many things in temporaryScoresPage (doesn't exist for professors, only for educational assistants)
