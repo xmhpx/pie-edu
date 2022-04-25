@@ -1,9 +1,9 @@
-2022-04-25 21:21:22:867 INFO [GuiMain.start()] - application started
-2022-04-25 21:21:22:993 INFO [logic.Backend.<init>()] - deserialization started
-2022-04-25 21:21:23:037 INFO [logic.Backend.<init>()] - deserialization finished
-2022-04-25 21:21:28:114 INFO [logic.LoggedInUserHolder.setUser()] - user(10001) logged in
-2022-04-25 21:21:28:116 INFO [models.User.setLastVisit()] - user(10001) changed lastVisit
-2022-04-25 21:21:49:889 INFO [models.universityitems.Course.addToClassTimes()] - course(50003) added classTime(course 50003 at FRIDAY from 23:59 to 0:0) to classTimes
-2022-04-25 21:21:51:714 INFO [logic.Backend.save()] - serialization started
-2022-04-25 21:21:51:723 INFO [logic.Backend.save()] - serialization ended
-2022-04-25 21:21:51:723 INFO [GuiMain.stop()] - application stopped
+2022-04-26 00:51:43:163 INFO [GuiMain.start()] - application started
+2022-04-26 00:51:43:290 INFO [logic.Backend.<init>()] - deserialization started
+2022-04-26 00:51:43:333 INFO [logic.Backend.<init>()] - deserialization finished
+2022-04-26 00:51:50:095 INFO [logic.LoggedInUserHolder.setUser()] - user(20001) logged in
+2022-04-26 00:51:50:097 INFO [models.User.setLastVisit()] - user(20001) changed lastVisit
+2022-04-26 00:51:54:151 INFO [models.universityitems.ReportCard.setObjection()] - reportCard(70002) changed objection
+2022-04-26 00:51:57:993 INFO [logic.Backend.save()] - serialization started
+2022-04-26 00:51:58:001 INFO [logic.Backend.save()] - serialization ended
+2022-04-26 00:51:58:001 INFO [GuiMain.stop()] - application stopped

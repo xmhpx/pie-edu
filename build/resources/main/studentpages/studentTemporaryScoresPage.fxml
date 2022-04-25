@@ -96,14 +96,6 @@
                         <cellValueFactory><PropertyValueFactory property="score" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn maxWidth="100" prefWidth="100" text="Objection">
-                        <cellValueFactory><PropertyValueFactory property="objection" />
-                        </cellValueFactory>
-                    </TableColumn>
-                    <TableColumn maxWidth="100" prefWidth="100" text="Response">
-                        <cellValueFactory><PropertyValueFactory property="response" />
-                        </cellValueFactory>
-                    </TableColumn>
                 </columns>
                 <items>
                     <FXCollections fx:factory="observableArrayList">
