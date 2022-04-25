@@ -69,6 +69,7 @@ public class StudentDissertationDefenseRequestPageController extends StudentPage
         }
 
         DissertationDefenseRequest request = new DissertationDefenseRequest(title, body, LoggedInUserHolder.getUser().getId());
+
         backend.addToRequests(request);
         Student student = (Student) LoggedInUserHolder.getUser();
         student.addToRequest(request.getId());

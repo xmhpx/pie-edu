@@ -44,6 +44,9 @@ public class ProfessorPageController extends LoggedInPageController {
     protected MenuItem minorRequestMenuItem;
 
     @FXML
+    protected MenuItem dissertationDefenceRequestMenuItem;
+
+    @FXML
     protected MenuItem withdrawalRequestMenuItem;
 
     @FXML
@@ -74,6 +77,7 @@ public class ProfessorPageController extends LoggedInPageController {
             educationStatusMenuItem.setVisible(professor.getProfessorType() == ProfessorType.EDUCATIONAL_ASSISTANT);
             addUserMenuItem.setVisible(professor.getProfessorType() == ProfessorType.EDUCATIONAL_ASSISTANT);
             addCourseMenuItem.setVisible(professor.getProfessorType() == ProfessorType.EDUCATIONAL_ASSISTANT);
+            dissertationDefenceRequestMenuItem.setVisible(professor.getProfessorType() == ProfessorType.EDUCATIONAL_ASSISTANT);
             withdrawalRequestMenuItem.setVisible(professor.getProfessorType() == ProfessorType.EDUCATIONAL_ASSISTANT);
 
             editProfessorsMenuItem.setVisible(professor.getProfessorType() == ProfessorType.DEAN_OF_THE_FACULTY);
@@ -135,6 +139,12 @@ public class ProfessorPageController extends LoggedInPageController {
     @FXML
     protected void goToProfessorMinorRequestPage(ActionEvent actionEvent) {
         goToProfessorPage("professorMinorRequestPage.fxml");
+    }
+
+
+    @FXML
+    protected void goToProfessorDissertationDefenceRequestPage(ActionEvent actionEvent) {
+        goToProfessorPage("professorDissertationDefenceRequestPage.fxml");
     }
 
 

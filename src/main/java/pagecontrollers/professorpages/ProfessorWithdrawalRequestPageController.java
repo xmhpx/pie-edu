@@ -69,8 +69,8 @@ public class ProfessorWithdrawalRequestPageController extends ProfessorPageContr
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
         statusColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         statusColumn.setOnEditCommit(event -> {
-            WithdrawalRequest recommendationLetterRequest = event.getRowValue();
-            recommendationLetterRequest.setStatus(event.getNewValue());
+            WithdrawalRequest withdrawalRequest = event.getRowValue();
+            withdrawalRequest.setStatus(event.getNewValue());
         });
 
 
@@ -80,8 +80,8 @@ public class ProfessorWithdrawalRequestPageController extends ProfessorPageContr
         responseColumn.setCellValueFactory(new PropertyValueFactory<>("response"));
         responseColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         responseColumn.setOnEditCommit(event -> {
-            WithdrawalRequest recommendationLetterRequest = event.getRowValue();
-            recommendationLetterRequest.setResponse(event.getNewValue());
+            WithdrawalRequest withdrawalRequest = event.getRowValue();
+            withdrawalRequest.setResponse(event.getNewValue());
         });
 
         tableView.getColumns().add(statusColumn);

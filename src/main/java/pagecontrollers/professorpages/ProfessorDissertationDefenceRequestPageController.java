@@ -16,44 +16,46 @@ import models.User;
 import models.professor.Professor;
 import models.professor.ProfessorType;
 import models.student.Student;
-import models.universityitems.Field;
-import models.universityitems.requests.MinorRequest;
+import models.universityitems.ReportCard;
+import models.universityitems.requests.DissertationDefenseRequest;
 import models.universityitems.requests.RecommendationLetterRequest;
 import models.universityitems.requests.Request;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
-public class ProfessorMinorRequestPageController extends ProfessorPageController {
-    private static final Logger log = LogManager.getLogger(ProfessorMinorRequestPageController.class);
+public class ProfessorDissertationDefenceRequestPageController extends ProfessorPageController {
+    private static final Logger log = LogManager.getLogger(ProfessorDissertationDefenceRequestPageController.class);
 
-    public static final String fxmlFileName = "professorMinorRequestPage.fxml";
+    public static final String fxmlFileName = "professorDissertationDefenceRequestPage.fxml";
 
     @FXML
-    TableView<MinorRequest> tableView;
+    TableView<DissertationDefenseRequest> tableView;
 
 
     @Override
     public void initialize(){
         super.initialize();
+        tableView.setEditable(true);
         Backend backend = Backend.getInstance();
-        ObservableList<MinorRequest> data = tableView.getItems();
+        ObservableList<DissertationDefenseRequest> data = tableView.getItems();
         data.clear();
         User user = LoggedInUserHolder.getUser();
         if(user instanceof Professor professor) {
+            if(professor.getProfessorType() != ProfessorType.EDUCATIONAL_ASSISTANT) {
+                log.error("logged in user is not EDUCATIONAL_ASSISTANT");
+                throw new IllegalStateException("logged in user is not EDUCATIONAL_ASSISTANT");
+            }
             for (Request request : backend.getRequests()) {
-                if (request instanceof MinorRequest minorRequest){
-                    int destinationCollegeId = minorRequest.getDestinationCollegeId();
-                    Student student = backend.getStudent(minorRequest.getSenderId());
+                if (request instanceof DissertationDefenseRequest dissertationDefenseRequest) {
+                    Student student = backend.getStudent(dissertationDefenseRequest.getSenderId());
                     if(student == null){
-                        log.error("minorRequest("+minorRequest.getId()+")'s student doesn't exist");
-                        throw new IllegalStateException("minorRequest("+minorRequest.getId()+")'s student doesn't exist");
+                        log.error("dissertationDefenseRequest("+dissertationDefenseRequest.getId()+")'s sender doesn't exist");
+                        throw new IllegalStateException("dissertationDefenseRequest("+dissertationDefenseRequest.getId()+")'s sender doesn't exist");
                     }
-                    int originCollegeId = student.getCollegeId();
-                    if(destinationCollegeId == professor.getCollegeId() || originCollegeId == professor.getCollegeId()) {
-                        data.add((MinorRequest) request);
+                    if (student.getCollegeId() == professor.getCollegeId()) {
+                        data.add(dissertationDefenseRequest);
                     }
                 }
             }
@@ -64,28 +66,27 @@ public class ProfessorMinorRequestPageController extends ProfessorPageController
         }
 
 
-
         tableView.setEditable(true);
 
-        TableColumn<MinorRequest, String> statusColumn = new TableColumn<>("Status");
+        TableColumn<DissertationDefenseRequest, String> statusColumn = new TableColumn<>("Status");
         statusColumn.setMaxWidth(200);
-        statusColumn.setPrefWidth(70);
+        statusColumn.setPrefWidth(100);
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
         statusColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         statusColumn.setOnEditCommit(event -> {
-            MinorRequest minorRequest = event.getRowValue();
-            minorRequest.setStatus(event.getNewValue());
+            DissertationDefenseRequest dissertationDefenseRequest = event.getRowValue();
+            dissertationDefenseRequest.setStatus(event.getNewValue());
         });
 
 
-        TableColumn<MinorRequest, String> responseColumn = new TableColumn<>("Response");
+        TableColumn<DissertationDefenseRequest, String> responseColumn = new TableColumn<>("Response");
         responseColumn.setMaxWidth(500);
-        responseColumn.setPrefWidth(70);
+        responseColumn.setPrefWidth(100);
         responseColumn.setCellValueFactory(new PropertyValueFactory<>("response"));
         responseColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         responseColumn.setOnEditCommit(event -> {
-            MinorRequest minorRequest = event.getRowValue();
-            minorRequest.setResponse(event.getNewValue());
+            DissertationDefenseRequest dissertationDefenseRequest = event.getRowValue();
+            dissertationDefenseRequest.setResponse(event.getNewValue());
         });
 
         tableView.getColumns().add(statusColumn);
