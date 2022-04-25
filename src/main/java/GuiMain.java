@@ -13,7 +13,7 @@ import java.io.IOException;
 // DONE add ability to add new users by educational assistant
 //// DONE add filters to 'coursesListPage' and 'professorsListPage'
 // DONE update 'editProfessorPage' for deanOfFaculty (add ability to remove/edit)
-// TODO add "add/remove/edit" abilities to 'coursesListPage' for educational assistant
+// DONE add "add/remove/edit" abilities to 'coursesListPage' for educational assistant and add class time
 //// DONE check and update different(possibly hidden) request pages
 //// TODO maybe change stuff related to request responses?
 //// TODO both ends of a minor request must agree, fix somehow
@@ -31,6 +31,7 @@ import java.io.IOException;
 //// TODO change password page?? (more information is in the last pages of the doc)
 /// DONE add ability to change profile pictures
 //// TODO maybe add ability to edi 'homeAddress' and 'postalCode'
+//// TODO maybe make a page to add/edit/remove class times
 
 
 public class GuiMain extends Application{
@@ -56,5 +57,4 @@ public class GuiMain extends Application{
         Backend.getInstance().save();
         log.info("application stopped");
     }
-
 }

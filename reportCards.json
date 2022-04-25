@@ -4,20 +4,26 @@
     "courseId": 50001,
     "studentId": 20001,
     "status": "CREDITED",
-    "score": "20"
+    "score": "20",
+    "objection": "",
+    "response": ""
   },
   {
     "id": 70002,
     "courseId": 50002,
     "studentId": 20001,
     "status": "TEMPORARILY_SCORED",
-    "score": "20"
+    "score": "20",
+    "objection": "",
+    "response": ""
   },
   {
     "id": 70003,
     "courseId": 50003,
     "studentId": 20001,
     "status": "WITHDRAWN",
-    "score": "N/A"
+    "score": "N/A",
+    "objection": "",
+    "response": ""
   }
 ]

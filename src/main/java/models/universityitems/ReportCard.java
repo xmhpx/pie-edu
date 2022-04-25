@@ -14,6 +14,8 @@ public class ReportCard {
     protected int studentId;
     protected ReportCardStatus status;
     protected String score;
+    protected String objection;
+    protected String response;
 
 
     public ReportCard(int courseId, int studentId, String score){
@@ -23,6 +25,8 @@ public class ReportCard {
         setStudentId(studentId);
         setStatus(ReportCardStatus.TAKEN);
         setScore(score);
+        setObjection("");
+        setResponse("");
     }
 
 
@@ -100,5 +104,31 @@ public class ReportCard {
 
     public int getProfessorId(){
         return Backend.getInstance().getCourse(courseId).getProfessorId();
+    }
+
+
+    public String getObjection() {
+        return objection;
+    }
+
+    public void setObjection(String objection) {
+        if(objection == null){
+            log.warn("'objection' is null");
+        }
+        log.info("reportCard("+getId()+") changed objection");
+        this.objection = objection;
+    }
+
+
+    public String getResponse() {
+        return response;
+    }
+
+    public void setResponse(String response) {
+        if(response == null){
+            log.warn("'response' is null");
+        }
+        log.info("reportCard("+getId()+") changed response");
+        this.response = response;
     }
 }
