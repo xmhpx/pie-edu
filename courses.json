@@ -79,5 +79,17 @@
         "courseId": 50003
       }
     ]
+  },
+  {
+    "id": 50004,
+    "name": "cp",
+    "collegeId": 40002,
+    "professorId": 10002,
+    "holdingSemester": "14001",
+    "courseNumber": "140010204",
+    "semesterCreditHours": 4,
+    "examDate": "4/4",
+    "studentIds": [],
+    "classTimes": []
   }
 ]

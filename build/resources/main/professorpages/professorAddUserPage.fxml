@@ -22,7 +22,8 @@
 
             <Menu mnemonicParsing="false" text="Registration">
             <items>
-                <MenuItem fx:id="addUserMenuItem" mnemonicParsing="false" onAction="#goToProfessorsAddUserPage" text="Add User" />
+                <MenuItem fx:id="addUserMenuItem" mnemonicParsing="false" onAction="#goToProfessorAddUserPage" text="Add User" />
+                <MenuItem fx:id="addCourseMenuItem" mnemonicParsing="false" onAction="#goToProfessorAddCoursePage" text="Add Course" />
                 <MenuItem fx:id="coursesListMenuItem" mnemonicParsing="false" onAction="#goToProfessorCoursesListPage" text="Courses List" />
                 <MenuItem fx:id="professorsListMenuItem" mnemonicParsing="false" onAction="#goToProfessorProfessorsListPage" text="Professors List" />
                 <MenuItem fx:id="editProfessorsMenuItem" mnemonicParsing="false" onAction="#goToProfessorEditProfessorsPage" text="Edit Professors" />

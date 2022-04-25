@@ -12,9 +12,7 @@
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="anchorPane" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #ceecec;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pagecontrollers.professorpages.ProfessorEditProfessorsPageController">
@@ -29,7 +27,8 @@
 
                 <Menu mnemonicParsing="false" text="Registration">
                     <items>
-                        <MenuItem fx:id="addUserMenuItem" mnemonicParsing="false" onAction="#goToProfessorsAddUserPage" text="Add User" />
+                        <MenuItem fx:id="addUserMenuItem" mnemonicParsing="false" onAction="#goToProfessorAddUserPage" text="Add User" />
+                        <MenuItem fx:id="addCourseMenuItem" mnemonicParsing="false" onAction="#goToProfessorAddCoursePage" text="Add Course" />
                         <MenuItem fx:id="coursesListMenuItem" mnemonicParsing="false" onAction="#goToProfessorCoursesListPage" text="Courses List" />
                         <MenuItem fx:id="professorsListMenuItem" mnemonicParsing="false" onAction="#goToProfessorProfessorsListPage" text="Professors List" />
                         <MenuItem fx:id="editProfessorsMenuItem" mnemonicParsing="false" onAction="#goToProfessorEditProfessorsPage" text="Edit Professors" />
@@ -75,7 +74,7 @@
         <Text fx:id="currentTimeText" layoutX="14.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentTime" wrappingWidth="78.13671875" />
         <Text fx:id="lastTimeLoggedInText" layoutX="208.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Time Logged In : LastTimeLoggedIn" />
 
-        <Text layoutX="335.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Professor List" />
+        <Text layoutX="335.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Professor" />
 
         <GridPane alignment="CENTER" hgap="10.0" layoutX="404.0" layoutY="80.0" maxHeight="500.0" maxWidth="700.0" minHeight="0.0" minWidth="286.0" prefHeight="300.0" prefWidth="312.0" vgap="10.0">
             <padding>
@@ -97,32 +96,30 @@
                     </FXCollections>
                 </items>
             </TableView>
-            <columnConstraints>
-                <ColumnConstraints />
-            </columnConstraints>
-            <rowConstraints>
-                <RowConstraints />
-                <RowConstraints />
-            </rowConstraints>
         </GridPane>
-        <TextField fx:id="professorIdRemoveTextField" layoutX="42.0" layoutY="126.0" prefHeight="26.0" prefWidth="120.0" promptText="Professor Id" />
-      <Button fx:id="removeProfessorButton" layoutX="171.0" layoutY="126.0" mnemonicParsing="false" onAction="#removeProfessorButtonOnAction" prefHeight="26.0" text="Remove Professor" />
-      <TextField fx:id="professorIdLoadTextField" layoutX="42.0" layoutY="195.0" prefHeight="26.0" prefWidth="120.0" promptText="Professor Id" />
-      <Button fx:id="loadButton" layoutX="171.0" layoutY="195.0" mnemonicParsing="false" onAction="#loadButtonOnAction" prefHeight="26.0" text="Load" />
-      <TextField fx:id="ageEditTextField" layoutX="42.0" layoutY="239.0" prefHeight="26.0" prefWidth="120.0" promptText="Age" />
-      <TextField fx:id="passwordEditTextField" layoutX="42.0" layoutY="271.0" prefHeight="26.0" prefWidth="120.0" promptText="Password" />
-      <TextField fx:id="nationalIdNumberEditTextField" layoutX="42.0" layoutY="304.0" prefHeight="26.0" prefWidth="120.0" promptText="National Id Number" />
-      <TextField fx:id="fieldIdEditTextField" layoutX="171.0" layoutY="239.0" prefHeight="26.0" prefWidth="120.0" promptText="Field Id" />
-      <TextField fx:id="professorNumberEditTextField" layoutX="171.0" layoutY="272.0" prefHeight="26.0" prefWidth="120.0" promptText="Professor Number" />
-      <TextField fx:id="professorLevelEditTextField" layoutX="171.0" layoutY="304.0" prefHeight="26.0" prefWidth="120.0" promptText="Professor Level" />
-      <TextField fx:id="professorTypeEditTextField" layoutX="300.0" layoutY="239.0" prefHeight="26.0" prefWidth="120.0" promptText="Professor Type" />
-      <TextField fx:id="roomNumberEditTextField" layoutX="300.0" layoutY="271.0" prefHeight="26.0" prefWidth="120.0" promptText="Room Number" />
-      <Button fx:id="editProfessorButton" layoutX="316.0" layoutY="308.0" mnemonicParsing="false" onAction="#editProfessorButtonOnAction" prefHeight="26.0" text="Edit Professor" />
+
+        <TextField fx:id="professorIdRemoveTextField" layoutX="20.0" layoutY="124.0" prefHeight="26.0" prefWidth="130.0" promptText="Professor Id" />
+        <Button fx:id="removeProfessorButton" layoutX="168.0" layoutY="124.0" mnemonicParsing="false" onAction="#removeProfessorButtonOnAction" prefHeight="26.0" text="Remove Professor" />
+
+        <TextField fx:id="professorIdLoadTextField" layoutX="20.0" layoutY="192.0" prefHeight="26.0" prefWidth="130.0" promptText="Professor Id" />
+        <Button fx:id="loadButton" layoutX="168.0" layoutY="192.0" mnemonicParsing="false" onAction="#loadButtonOnAction" prefHeight="26.0" text="Load" />
+
+        <TextField fx:id="ageEditTextField" layoutX="20.0" layoutY="239.0" prefHeight="26.0" prefWidth="130.0" promptText="Age" />
+        <TextField fx:id="passwordEditTextField" layoutX="20.0" layoutY="271.0" prefHeight="26.0" prefWidth="130.0" promptText="Password" />
+        <TextField fx:id="nationalIdNumberEditTextField" layoutX="20.0" layoutY="303.0" prefHeight="26.0" prefWidth="130.0" promptText="National Id Number" />
+        <TextField fx:id="fieldIdEditTextField" layoutX="158.0" layoutY="239.0" prefHeight="26.0" prefWidth="130.0" promptText="Field Id" />
+        <TextField fx:id="professorNumberEditTextField" layoutX="158.0" layoutY="271.0" prefHeight="26.0" prefWidth="130.0" promptText="Professor Number" />
+        <TextField fx:id="professorLevelEditTextField" layoutX="158.0" layoutY="303.0" prefHeight="26.0" prefWidth="130.0" promptText="Professor Level" />
+        <TextField fx:id="professorTypeEditTextField" layoutX="295.0" layoutY="239.0" prefHeight="26.0" prefWidth="130.0" promptText="Professor Type" />
+        <TextField fx:id="roomNumberEditTextField" layoutX="295.0" layoutY="271.0" prefHeight="26.0" prefWidth="130.0" promptText="Room Number" />
+        <Button fx:id="editProfessorButton" layoutX="316.0" layoutY="310.0" mnemonicParsing="false" onAction="#editProfessorButtonOnAction" prefHeight="26.0" text="Edit Professor" />
+
+        <Text fx:id="errorEditText" fill="RED" layoutX="42.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+
         <Text fx:id="errorText" fill="RED" layoutX="5.0" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" />
         <TextField fx:id="professorNameTextField" layoutX="179.0" layoutY="387.0" promptText="Professor Name" />
         <TextField fx:id="fieldIdTextField" layoutX="337.0" layoutY="387.0" promptText="Field Id" />
         <TextField fx:id="professorLevelTextField" layoutX="497.0" layoutY="387.0" promptText="Professor Level" />
         <Button fx:id="filterButton" layoutX="657.0" layoutY="387.0" mnemonicParsing="false" onAction="#filterButtonOnAction" text="Filter" />
-      <Text fx:id="errorEditText" fill="RED" layoutX="42.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-    </children>
+      </children>
 </AnchorPane>

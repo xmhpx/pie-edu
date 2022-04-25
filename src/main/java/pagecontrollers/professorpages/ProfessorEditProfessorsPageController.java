@@ -72,6 +72,7 @@ public class ProfessorEditProfessorsPageController extends ProfessorPageControll
     @FXML
     Button editProfessorButton;
 
+
     @FXML
     TextField professorNameTextField;
 
@@ -197,6 +198,7 @@ public class ProfessorEditProfessorsPageController extends ProfessorPageControll
         Backend.getInstance().removeFromProfessors(professorId);
         initialize();
         clean();
+
         errorEdit("professor("+professorId+") has been removed");
     }
 

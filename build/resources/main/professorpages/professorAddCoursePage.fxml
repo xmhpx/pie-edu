@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #ceecec;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pagecontrollers.professorpages.ProfessorMinorRequestPageController">
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.collections.FXCollections?>
+<AnchorPane fx:id="anchorPane" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #ceecec;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pagecontrollers.professorpages.ProfessorAddCoursePageController">
     <children>
         <MenuBar layoutX="14.0" layoutY="14.0" nodeOrientation="LEFT_TO_RIGHT">
             <menus>
@@ -73,44 +74,20 @@
         <Text fx:id="currentTimeText" layoutX="14.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentTime" wrappingWidth="78.13671875" />
         <Text fx:id="lastTimeLoggedInText" layoutX="208.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Time Logged In : LastTimeLoggedIn" />
 
-        <Text layoutX="338.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Minor Requests" />
+        <Text layoutX="335.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add/Edit/Remove Course" />
 
-        <GridPane alignment="CENTER" hgap="10.0" layoutX="13.0" layoutY="82.0" maxHeight="500.0" maxWidth="730.0" minHeight="0.0" minWidth="700.0" prefHeight="300.0" prefWidth="710.0" vgap="10.0">
+        <GridPane alignment="CENTER" hgap="10.0" layoutX="404.0" layoutY="80.0" maxHeight="500.0" maxWidth="700.0" minHeight="0.0" minWidth="286.0" prefHeight="300.0" prefWidth="312.0" vgap="10.0">
             <padding>
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </padding>
-            <TableView fx:id="tableView" GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <TableView fx:id="tableView" prefHeight="269.0" prefWidth="252.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
                 <columns>
-                    <TableColumn maxWidth="150" prefWidth="70.0" text="Student Id">
-                        <cellValueFactory><PropertyValueFactory property="senderId" />
+                    <TableColumn maxWidth="250" prefWidth="200.0" text="Course Name">
+                        <cellValueFactory><PropertyValueFactory property="name" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn maxWidth="250" text="Title">
-                        <cellValueFactory><PropertyValueFactory property="title" />
-                        </cellValueFactory>
-                    </TableColumn>
-                    <TableColumn maxWidth="500" prefWidth="100.0" text="Body">
-                        <cellValueFactory><PropertyValueFactory property="body" />
-                        </cellValueFactory>
-                    </TableColumn>
-                    <TableColumn maxWidth="150" prefWidth="90.0" text="Origin College Id">
-                        <cellValueFactory><PropertyValueFactory property="originCollegeId" />
-                        </cellValueFactory>
-                    </TableColumn>
-                    <TableColumn maxWidth="150" prefWidth="90.0" text="Destination College Id">
-                        <cellValueFactory><PropertyValueFactory property="destinationCollegeId" />
-                        </cellValueFactory>
-                    </TableColumn>
-                    <TableColumn maxWidth="500" prefWidth="90.0" text="Minor Field Id">
-                        <cellValueFactory><PropertyValueFactory property="minorFieldId" />
-                        </cellValueFactory>
-                    </TableColumn>
-                    <TableColumn maxWidth="300" prefWidth="70.0" text="Status">
-                        <cellValueFactory><PropertyValueFactory property="status" />
-                        </cellValueFactory>
-                    </TableColumn>
-                    <TableColumn maxWidth="500" prefWidth="70.0" text="Response">
-                        <cellValueFactory><PropertyValueFactory property="response" />
+                    <TableColumn maxWidth="250" prefWidth="50.0" text="Id">
+                        <cellValueFactory><PropertyValueFactory property="id" />
                         </cellValueFactory>
                     </TableColumn>
                 </columns>
@@ -120,5 +97,23 @@
                 </items>
             </TableView>
         </GridPane>
+
+
+        <TextField fx:id="addCourseNameAddTextField" layoutX="28.0" layoutY="133.0" prefHeight="26.0" prefWidth="120.0" promptText="Course Name" />
+        <TextField fx:id="addCourseCollegeIdTextField" layoutX="151.0" layoutY="133.0" prefHeight="26.0" prefWidth="120.0" promptText="College Id" />
+        <TextField fx:id="addCourseProfessorIdTextField" layoutX="28.0" layoutY="163.0" prefHeight="26.0" prefWidth="120.0" promptText="Professor Id" />
+        <TextField fx:id="addHoldingSemesterTextField" layoutX="151.0" layoutY="163.0" prefHeight="26.0" prefWidth="120.0" promptText="Holding Semester" />
+        <TextField fx:id="addCourseNumberTextField" layoutX="28.0" layoutY="193.0" prefHeight="26.0" prefWidth="120.0" promptText="Course Number" />
+        <TextField fx:id="addSemesterCreditHoursTextField" layoutX="151.0" layoutY="193.0" prefHeight="26.0" prefWidth="120.0" promptText="SCH" />
+        <TextField fx:id="addExamDateTextField" layoutX="28.0" layoutY="223.0" prefHeight="26.0" prefWidth="120.0" promptText="Exam Date" />
+        <Button fx:id="addCourseButton" layoutX="172.0" layoutY="231.0" mnemonicParsing="false" onAction="#addCourseButtonOnAction" prefHeight="26.0" text="Add Course"/>
+
+        <Text fx:id="errorEditText" fill="RED" layoutX="233.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+
+        <Text fx:id="errorText" fill="RED" layoutX="5.0" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+        <TextField fx:id="courseNameTextField" layoutX="179.0" layoutY="387.0" promptText="Course Name" />
+        <TextField fx:id="collegeIdTextField" layoutX="337.0" layoutY="387.0" promptText="College Id" />
+        <TextField fx:id="holdingSemesterTextField" layoutX="497.0" layoutY="387.0" promptText="Holding Semester" />
+        <Button fx:id="filterButton" layoutX="657.0" layoutY="387.0" mnemonicParsing="false" onAction="#filterButtonOnAction" text="Filter" />
     </children>
 </AnchorPane>

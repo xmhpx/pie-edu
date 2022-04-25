@@ -11,9 +11,7 @@
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
 <?import javafx.scene.control.TextField?>
@@ -29,7 +27,8 @@
 
                 <Menu mnemonicParsing="false" text="Registration">
                     <items>
-                        <MenuItem fx:id="addUserMenuItem" mnemonicParsing="false" onAction="#goToProfessorsAddUserPage" text="Add User" />
+                        <MenuItem fx:id="addUserMenuItem" mnemonicParsing="false" onAction="#goToProfessorAddUserPage" text="Add User" />
+                        <MenuItem fx:id="addCourseMenuItem" mnemonicParsing="false" onAction="#goToProfessorAddCoursePage" text="Add Course" />
                         <MenuItem fx:id="coursesListMenuItem" mnemonicParsing="false" onAction="#goToProfessorCoursesListPage" text="Courses List" />
                         <MenuItem fx:id="professorsListMenuItem" mnemonicParsing="false" onAction="#goToProfessorProfessorsListPage" text="Professors List" />
                         <MenuItem fx:id="editProfessorsMenuItem" mnemonicParsing="false" onAction="#goToProfessorEditProfessorsPage" text="Edit Professors" />
@@ -113,13 +112,6 @@
                     </FXCollections>
                 </items>
             </TableView>
-            <columnConstraints>
-                <ColumnConstraints />
-            </columnConstraints>
-            <rowConstraints>
-                <RowConstraints />
-                <RowConstraints />
-            </rowConstraints>
         </GridPane>
         <TextField fx:id="professorNameTextField" layoutX="179.0" layoutY="387.0" promptText="Professor Name" />
         <TextField fx:id="collegeIdTextField" layoutX="337.0" layoutY="387.0" promptText="College Id" />

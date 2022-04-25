@@ -110,7 +110,7 @@ public class ProfessorAddUserPageController extends ProfessorPageController {
             fieldId = Integer.parseInt(fieldIdString);
         }
         catch (NumberFormatException ignored){
-            error("field should be an integer");
+            error("field id should be an integer");
             return;
         }
         if(!backend.hasField(fieldId)){
@@ -124,7 +124,7 @@ public class ProfessorAddUserPageController extends ProfessorPageController {
             collegeId = Integer.parseInt(collegeIdString);
         }
         catch (NumberFormatException ignored){
-            error("college should be an integer");
+            error("college id should be an integer");
             return;
         }
         if(!backend.hasCollege(collegeId)){
