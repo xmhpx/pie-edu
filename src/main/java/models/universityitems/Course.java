@@ -24,6 +24,7 @@ public class Course {
 
     protected ArrayList<Integer> studentIds;
     protected ArrayList<ClassTime> classTimes;
+    protected ArrayList<Integer> reportCardIds;
 
 
     public Course(String name, int collegeId, int professorId, String holdingSemester, String courseNumber, int semesterCreditHours, String examDate){
@@ -167,6 +168,19 @@ public class Course {
         this.studentIds = studentIds;
     }
 
+    public void addToStudentIds(int studentId){
+        if(!Backend.getInstance().hasStudent(studentId)){
+            log.warn("'studentId' doesn't exist in backend");
+        }
+        log.info("course("+getId()+") added student("+studentId+") to studentIds");
+        studentIds.add(studentId);
+    }
+
+    public void removeFromStudentIds(int studentId){
+        log.info("course("+getId()+") removed student("+studentId+") from studentIds");
+        studentIds.remove(studentId);
+    }
+
 
     public String getExamDate() {
         return examDate;
@@ -211,5 +225,34 @@ public class Course {
         }
         log.info("course("+getId()+") removed classTime("+classTime+") from classTimes");
         classTimes.remove(classTime);
+    }
+
+
+    public ArrayList<Integer> getReportCardIds() {
+        return reportCardIds;
+    }
+
+    public void setReportCardIds(ArrayList<Integer> reportCardIds) {
+        this.reportCardIds = reportCardIds;
+    }
+
+    public void addToReportCardIds(int reportCardId){
+        if(!Backend.getInstance().hasStudent(reportCardId)){
+            log.warn("'reportCardId' doesn't exist in backend");
+        }
+        log.info("course("+getId()+") added reportCard("+reportCardId+") to ReportCardIds");
+        reportCardIds.add(reportCardId);
+    }
+
+    public void removeFromReportCardIds(int reportCardId){
+        log.info("course("+getId()+") removed reportCard("+reportCardId+") from ReportCardIds");
+        reportCardIds.remove(reportCardId);
+    }
+
+    public boolean hasReportCardId(int reportCardId){
+        for(int reportCardId2 : reportCardIds){
+            if(reportCardId2 == reportCardId)return true;
+        }
+        return false;
     }
 }
