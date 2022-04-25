@@ -16,6 +16,30 @@ public class Time {
     }
 
 
+    public static Time toTime(String s){
+        if(s.length() < 3)return null;
+        String h = "", m = "";
+        for(int i = 0; i < s.length(); i++){
+            if(s.charAt(i) == ':'){
+                h = s.substring(0, i);
+                m = s.substring(i+1);
+                break;
+            }
+            if(i == s.length()-1)return null;
+        }
+        Time ret = new Time(0, 0);
+        try {
+            ret.setHour(Integer.parseInt(h));
+            ret.setHour(Integer.parseInt(m));
+        }
+        catch (Exception ignored){
+            return null;
+        }
+
+        return ret;
+    }
+
+
     @Override
     public String toString(){
         return hour + ":" + minute;
