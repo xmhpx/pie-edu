@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.cell.PropertyValueFactory?>
-<?import javafx.collections.FXCollections?>
 <AnchorPane fx:id="anchorPane" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #ceecec;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pagecontrollers.professorpages.ProfessorAddCoursePageController">
     <children>
         <MenuBar layoutX="14.0" layoutY="14.0" nodeOrientation="LEFT_TO_RIGHT">
@@ -96,21 +98,41 @@
                     </FXCollections>
                 </items>
             </TableView>
+         <columnConstraints>
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
         </GridPane>
 
 
-        <TextField fx:id="addCourseNameAddTextField" layoutX="28.0" layoutY="133.0" prefHeight="26.0" prefWidth="120.0" promptText="Course Name" />
-        <TextField fx:id="addCourseCollegeIdTextField" layoutX="151.0" layoutY="133.0" prefHeight="26.0" prefWidth="120.0" promptText="College Id" />
-        <TextField fx:id="addCourseProfessorIdTextField" layoutX="28.0" layoutY="163.0" prefHeight="26.0" prefWidth="120.0" promptText="Professor Id" />
-        <TextField fx:id="addHoldingSemesterTextField" layoutX="151.0" layoutY="163.0" prefHeight="26.0" prefWidth="120.0" promptText="Holding Semester" />
-        <TextField fx:id="addCourseNumberTextField" layoutX="28.0" layoutY="193.0" prefHeight="26.0" prefWidth="120.0" promptText="Course Number" />
-        <TextField fx:id="addSemesterCreditHoursTextField" layoutX="151.0" layoutY="193.0" prefHeight="26.0" prefWidth="120.0" promptText="SCH" />
-        <TextField fx:id="addExamDateTextField" layoutX="28.0" layoutY="223.0" prefHeight="26.0" prefWidth="120.0" promptText="Exam Date" />
-        <Button fx:id="addCourseButton" layoutX="172.0" layoutY="231.0" mnemonicParsing="false" onAction="#addCourseButtonOnAction" prefHeight="26.0" text="Add Course"/>
+        <TextField fx:id="addCourseNameTextField" layoutX="16.0" layoutY="101.0" prefHeight="26.0" prefWidth="130.0" promptText="Course Name" />
+        <TextField fx:id="addProfessorIdTextField" layoutX="151.0" layoutY="101.0" prefHeight="26.0" prefWidth="130.0" promptText="Professor Id" />
+        <TextField fx:id="addHoldingSemesterTextField" layoutX="286.0" layoutY="101.0" prefHeight="26.0" prefWidth="130.0" promptText="Holding Semester" />
+        <TextField fx:id="addCourseNumberTextField" layoutX="16.0" layoutY="133.0" prefHeight="26.0" prefWidth="130.0" promptText="Course Number" />
+        <TextField fx:id="addSemesterCreditHoursTextField" layoutX="151.0" layoutY="133.0" prefHeight="26.0" prefWidth="130.0" promptText="SCH" />
+        <TextField fx:id="addExamDateTextField" layoutX="286.0" layoutY="133.0" prefHeight="26.0" prefWidth="130.0" promptText="Exam Date" />
+        <Button fx:id="addCourseButton" layoutX="179.0" layoutY="165.0" mnemonicParsing="false" onAction="#addCourseButtonOnAction" prefHeight="26.0" text="Add Course" />
 
-        <Text fx:id="errorEditText" fill="RED" layoutX="233.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+        <Text fx:id="errorEditText" fill="RED" layoutX="332.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="86.4000244140625" />
+        <TextField fx:id="loadCourseIdTextField" layoutX="16.0" layoutY="204.0" prefHeight="26.0" prefWidth="130.0" promptText="Course Id" />
+        <Button fx:id="loadButton" layoutX="165.0" layoutY="204.0" mnemonicParsing="false" onAction="#loadButtonOnAction" prefHeight="26.0" text="Load" />
+      <Button fx:id="removeButton" layoutX="222.0" layoutY="204.0" mnemonicParsing="false" onAction="#removeCourseButtonOnAction" prefHeight="26.0" text="Remove Course" />
+        <TextField fx:id="editCourseNameTextField" layoutX="16.0" layoutY="245.0" prefHeight="26.0" prefWidth="130.0" promptText="Course Name" />
+        <TextField fx:id="editProfessorIdTextField" layoutX="151.0" layoutY="245.0" prefHeight="26.0" prefWidth="130.0" promptText="Professor Id" />
+        <TextField fx:id="editHoldingSemesterTextField" layoutX="286.0" layoutY="245.0" prefHeight="26.0" prefWidth="130.0" promptText="Holding Semester" />
+        <TextField fx:id="editCourseNumberTextField" layoutX="16.0" layoutY="278.0" prefHeight="26.0" prefWidth="130.0" promptText="Course Number" />
+        <TextField fx:id="editSemesterCreditHoursTextField" layoutX="151.0" layoutY="278.0" prefHeight="26.0" prefWidth="130.0" promptText="SCH" />
+        <TextField fx:id="editExamDateTextField" layoutX="286.0" layoutY="278.0" prefHeight="26.0" prefWidth="130.0" promptText="Exam Date" />
+        <Button fx:id="editCourseButton" layoutX="181.0" layoutY="310.0" mnemonicParsing="false" onAction="#editCourseButtonOnAction" text="Edit Course" />
+        <TextField fx:id="weekDayTextField" layoutX="13.0" layoutY="344.0" prefHeight="26.0" prefWidth="98.0" promptText="Week Day" />
+        <TextField fx:id="startTimeTextField" layoutX="116.0" layoutY="344.0" prefHeight="26.0" prefWidth="98.0" promptText="Start Time" />
+        <TextField fx:id="endTimeTextField" layoutX="219.0" layoutY="344.0" prefHeight="26.0" prefWidth="98.0" promptText="End Time" />
+      <Button fx:id="addClassTimeButton" layoutX="327.0" layoutY="344.0" mnemonicParsing="false" onAction="#addClassTimeButtonOnAction" prefHeight="26.0" text="Add Class Time" />
 
-        <Text fx:id="errorText" fill="RED" layoutX="5.0" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+        <Text fx:id="errorText" fill="RED" layoutX="250.0" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" />
         <TextField fx:id="courseNameTextField" layoutX="179.0" layoutY="387.0" promptText="Course Name" />
         <TextField fx:id="collegeIdTextField" layoutX="337.0" layoutY="387.0" promptText="College Id" />
         <TextField fx:id="holdingSemesterTextField" layoutX="497.0" layoutY="387.0" promptText="Holding Semester" />

@@ -19,6 +19,7 @@ public class Time {
     public static Time toTime(String s){
         if(s.length() < 3)return null;
         String h = "", m = "";
+
         for(int i = 0; i < s.length(); i++){
             if(s.charAt(i) == ':'){
                 h = s.substring(0, i);
@@ -30,7 +31,7 @@ public class Time {
         Time ret = new Time(0, 0);
         try {
             ret.setHour(Integer.parseInt(h));
-            ret.setHour(Integer.parseInt(m));
+            ret.setMinute(Integer.parseInt(m));
         }
         catch (Exception ignored){
             return null;

@@ -55,7 +55,7 @@
   },
   {
     "id": 50003,
-    "name": "literature",
+    "name": "littelrat",
     "collegeId": 40001,
     "professorId": 10001,
     "holdingSemester": "14001",
@@ -75,6 +75,19 @@
         "endTime": {
           "hour": 16,
           "minute": 30
+        },
+        "courseId": 50003
+      },
+      null,
+      {
+        "weekDay": "FRIDAY",
+        "startTime": {
+          "hour": 23,
+          "minute": 59
+        },
+        "endTime": {
+          "hour": 0,
+          "minute": 0
         },
         "courseId": 50003
       }

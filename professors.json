@@ -9,7 +9,7 @@
     "age": 14,
     "hashedPassword": 1216985755,
     "nationalIdNumber": "0927132036",
-    "lastVisit": "6:40:59",
+    "lastVisit": "9:21:28",
     "profileImagePath": "C:\\Users\\Hami\\IdeaProjects\\edu\\src\\main\\resources\\profileimages\\sus.png",
     "name": "MohammadHossein Paydar",
     "email": "mhppaydar@gmail.com",
@@ -17,7 +17,7 @@
     "homeAddress": "mashhad",
     "postalCode": "990033",
     "preferredUITheme": {
-      "color": "#bb5588"
+      "color": "#ff9797"
     },
     "fieldId": 60001,
     "collegeId": 40001

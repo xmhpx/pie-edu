@@ -9,13 +9,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import logic.Backend;
 import logic.LoggedInUserHolder;
+import models.ClassTime;
+import models.Time;
 import models.User;
+import models.WeekDay;
 import models.professor.Professor;
-import models.professor.ProfessorLevel;
 import models.professor.ProfessorType;
+import models.student.Student;
 import models.universityitems.College;
 import models.universityitems.Course;
-import models.universityitems.Field;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -29,14 +31,14 @@ public class ProfessorAddCoursePageController extends ProfessorPageController {
     @FXML
     TableView<Course> tableView;
 
-    @FXML
-    TextField addCourseNameAddTextField;
+
+    // ADD
 
     @FXML
-    TextField addCourseCollegeIdTextField;
+    TextField addCourseNameTextField;
 
     @FXML
-    TextField addCourseProfessorIdTextField;
+    TextField addProfessorIdTextField;
 
     @FXML
     TextField addHoldingSemesterTextField;
@@ -54,9 +56,62 @@ public class ProfessorAddCoursePageController extends ProfessorPageController {
     Button addCourseButton;
 
 
+    // LOAD
+
+    @FXML
+    TextField loadCourseIdTextField;
+
+    @FXML
+    Button loadButton;
+
+    @FXML
+    Button removeButton;
+
+
     @FXML
     Text errorEditText;
 
+
+    // EDIT
+
+    @FXML
+    TextField editCourseNameTextField;
+
+    @FXML
+    TextField editProfessorIdTextField;
+
+    @FXML
+    TextField editHoldingSemesterTextField;
+
+    @FXML
+    TextField editCourseNumberTextField;
+
+    @FXML
+    TextField editSemesterCreditHoursTextField;
+
+    @FXML
+    TextField editExamDateTextField;
+
+    @FXML
+    Button editCourseButton;
+
+
+    // ADD CLASS TIME
+
+    @FXML
+    TextField weekDayTextField;
+
+    @FXML
+    TextField startTimeTextField;
+
+    @FXML
+    TextField endTimeTextField;
+
+    @FXML
+    Button addClassTimeButton;
+
+
+    // FILTER
 
     @FXML
     TextField courseNameTextField;
@@ -106,7 +161,8 @@ public class ProfessorAddCoursePageController extends ProfessorPageController {
                     log.error("course("+course.getId()+")'s college doesn't exist");
                     throw new IllegalStateException("course("+course.getId()+")'s college doesn't exist");
                 }
-                if((courseName.equals(course.getName()) || courseName.equals("")) &&
+                if((college.getId() == eduAssistant.getCollegeId()) &&
+                        (courseName.equals(course.getName()) || courseName.equals("")) &&
                         (collegeIdString.equals(String.valueOf(college.getId())) || collegeIdString.equals("")) &&
                         (holdingSemester.equals(course.getHoldingSemester()) || holdingSemester.equals(""))){
                     data.add(course);
@@ -133,71 +189,318 @@ public class ProfessorAddCoursePageController extends ProfessorPageController {
     @FXML
     protected void addCourseButtonOnAction(ActionEvent actionEvent){
         Backend backend = Backend.getInstance();
+        User user = LoggedInUserHolder.getUser();
+        if(user instanceof Professor eduAssistant) {
+            if(eduAssistant.getProfessorType() != ProfessorType.EDUCATIONAL_ASSISTANT){
+                log.error("logged in user is not EDUCATIONAL_ASSISTANT");
+                throw new IllegalStateException("logged in user is not EDUCATIONAL_ASSISTANT");
+            }
 
-        String name = addCourseNameAddTextField.getText();
+            String name = addCourseNameTextField.getText();
 
-        String collegeIdString = addCourseCollegeIdTextField.getText();
-        int collegeId;
-        try {
-            collegeId = Integer.parseInt(collegeIdString);
+            int collegeId = eduAssistant.getCollegeId();
+
+            String professorIdString = addProfessorIdTextField.getText();
+            int professorId;
+            try {
+                professorId = Integer.parseInt(professorIdString);
+            }
+            catch (NumberFormatException ignored){
+                errorEdit("professor id should be an integer");
+                return;
+            }
+            if(!backend.hasProfessor(professorId)){
+                errorEdit("professor doesn't exist");
+                return;
+            }
+
+            String holdingSemester = addHoldingSemesterTextField.getText();
+
+            String courseNumber = addCourseNumberTextField.getText();
+
+            String semesterCreditHoursString = addSemesterCreditHoursTextField.getText();
+            int semesterCreditHours;
+            try {
+                semesterCreditHours = Integer.parseInt(semesterCreditHoursString);
+            }
+            catch (NumberFormatException ignored){
+                errorEdit("semester credit hours should be an integer");
+                return;
+            }
+
+            String examDate = addExamDateTextField.getText();
+
+            Course course = new Course(name, collegeId, professorId, holdingSemester, courseNumber, semesterCreditHours, examDate);
+            backend.addToCourses(course);
+
+            clearAddCourseTextFields();
+            clean();
+            initialize();
+            errorEdit("course has been added");
         }
-        catch (NumberFormatException ignored){
-            error("college id should be an integer");
-            return;
+        else{
+            log.error("logged in user is not a Professor");
+            throw new IllegalStateException("logged in user is not a Professor");
         }
-        if(!backend.hasCollege(collegeId)){
-            error("college doesn't exist");
-            return;
-        }
-
-        String professorIdString = addCourseProfessorIdTextField.getText();
-        int professorId;
-        try {
-            professorId = Integer.parseInt(professorIdString);
-        }
-        catch (NumberFormatException ignored){
-            error("professor id should be an integer");
-            return;
-        }
-        if(!backend.hasProfessor(professorId)){
-            error("professor doesn't exist");
-            return;
-        }
-
-        String holdingSemester = addHoldingSemesterTextField.getText();
-
-        String courseNumber = addCourseNumberTextField.getText();
-
-        String semesterCreditHoursString = addSemesterCreditHoursTextField.getText();
-        int semesterCreditHours;
-        try {
-            semesterCreditHours = Integer.parseInt(semesterCreditHoursString);
-        }
-        catch (NumberFormatException ignored){
-            error("semester credit hours should be an integer");
-            return;
-        }
-
-        String examDate = addExamDateTextField.getText();
-
-        Course course = new Course(name, collegeId, professorId, holdingSemester, courseNumber, semesterCreditHours, examDate);
-        backend.addToCourses(course);
-
-        clearAddCourseTextFields();
-        clean();
-        initialize();
-        error("course has been added");
     }
 
 
+    @FXML
+    protected void removeCourseButtonOnAction(ActionEvent actionEvent){
+        Backend backend = Backend.getInstance();
+        User user = LoggedInUserHolder.getUser();
+        if(user instanceof Professor eduAssistant) {
+            if(eduAssistant.getProfessorType() != ProfessorType.EDUCATIONAL_ASSISTANT){
+                log.error("logged in user is not EDUCATIONAL_ASSISTANT");
+                throw new IllegalStateException("logged in user is not EDUCATIONAL_ASSISTANT");
+            }
+
+            String courseIdString = loadCourseIdTextField.getText();
+            int courseId;
+            try {
+                courseId = Integer.parseInt(courseIdString);
+            }
+            catch (NumberFormatException ignored){
+                errorEdit("course id should be an integer");
+                return;
+            }
+            if(!backend.hasCourse(courseId)){
+                errorEdit("course doesn't exist");
+                return;
+            }
+            Course course = backend.getCourse(courseId);
+
+            if(course.getCollegeId() != eduAssistant.getCollegeId()){
+                errorEdit("you can't remove courses from other colleges");
+                return;
+            }
+
+            for(int studentId : course.getStudentIds()){
+                Student student = backend.getStudent(studentId);
+                if(student == null){
+                    log.error("course("+courseId+")'s has studentId("+studentId+") which doesn't exist");
+                    throw new IllegalStateException("course("+courseId+")'s has studentId("+studentId+") which doesn't exist");
+                }
+            }
+            for(int studentId : course.getStudentIds()){
+                Student student = backend.getStudent(studentId);
+                student.removeFromCourseIds(courseId);
+            }
+            backend.removeFromCourses(courseId);
+
+            clearEditCourseTextFields();
+            clean();
+            initialize();
+            errorEdit("course("+courseId+") has been removed");
+        }
+        else{
+            log.error("logged in user is not a Professor");
+            throw new IllegalStateException("logged in user is not a Professor");
+        }
+    }
+
+
+
+    @FXML
+    protected void loadButtonOnAction(ActionEvent actionEvent){
+        Backend backend = Backend.getInstance();
+        User user = LoggedInUserHolder.getUser();
+        if(user instanceof Professor eduAssistant) {
+            if(eduAssistant.getProfessorType() != ProfessorType.EDUCATIONAL_ASSISTANT){
+                log.error("logged in user is not EDUCATIONAL_ASSISTANT");
+                throw new IllegalStateException("logged in user is not EDUCATIONAL_ASSISTANT");
+            }
+
+            String courseIdString = loadCourseIdTextField.getText();
+            int courseId;
+            try {
+                courseId = Integer.parseInt(courseIdString);
+            }
+            catch (NumberFormatException ignored){
+                errorEdit("course id should be an integer");
+                return;
+            }
+            if(!backend.hasCourse(courseId)){
+                errorEdit("course doesn't exist");
+                return;
+            }
+            Course course = backend.getCourse(courseId);
+
+            if(course.getCollegeId() != eduAssistant.getCollegeId()){
+                errorEdit("you can't load courses from other colleges");
+                return;
+            }
+
+            editCourseNameTextField.setText(course.getName());
+            editProfessorIdTextField.setText(String.valueOf(course.getProfessorId()));
+            editHoldingSemesterTextField.setText(course.getHoldingSemester());
+            editCourseNumberTextField.setText(course.getCourseNumber());
+            editSemesterCreditHoursTextField.setText(String.valueOf(course.getSemesterCreditHours()));
+            editExamDateTextField.setText(course.getExamDate());
+
+            errorEdit("course("+courseId+") has been loaded");
+        }
+        else{
+            log.error("logged in user is not a Professor");
+            throw new IllegalStateException("logged in user is not a Professor");
+        }
+    }
+
+
+    @FXML
+    protected void editCourseButtonOnAction(ActionEvent actionEvent){
+        Backend backend = Backend.getInstance();
+        User user = LoggedInUserHolder.getUser();
+        if(user instanceof Professor eduAssistant) {
+            if(eduAssistant.getProfessorType() != ProfessorType.EDUCATIONAL_ASSISTANT){
+                log.error("logged in user is not EDUCATIONAL_ASSISTANT");
+                throw new IllegalStateException("logged in user is not EDUCATIONAL_ASSISTANT");
+            }
+
+            String courseIdString = loadCourseIdTextField.getText();
+            int courseId;
+            try {
+                courseId = Integer.parseInt(courseIdString);
+            }
+            catch (NumberFormatException ignored){
+                errorEdit("course id should be an integer");
+                return;
+            }
+            if(!backend.hasCourse(courseId)){
+                errorEdit("course doesn't exist");
+                return;
+            }
+            Course course = backend.getCourse(courseId);
+
+            if(course.getCollegeId() != eduAssistant.getCollegeId()){
+                errorEdit("you can't edit courses from other colleges");
+                return;
+            }
+
+            try{
+                Integer.parseInt(editProfessorIdTextField.getText());
+            }
+            catch (Exception ignore){
+                errorEdit("professor id should be an integer");
+                return;
+            }
+            if(!backend.hasProfessor(Integer.parseInt(editProfessorIdTextField.getText()))){
+                errorEdit("professor doesn't exist");
+                return;
+            }
+
+            try{
+                Integer.parseInt(editSemesterCreditHoursTextField.getText());
+            }
+            catch (Exception ignore){
+                errorEdit("semester credit hours should be an integer");
+                return;
+            }
+
+            course.setName(editCourseNameTextField.getText());
+            course.setProfessorId(Integer.parseInt(editProfessorIdTextField.getText()));
+            course.setHoldingSemester(editHoldingSemesterTextField.getText());
+            course.setCourseNumber(editCourseNumberTextField.getText());
+            course.setSemesterCreditHours(Integer.parseInt(editSemesterCreditHoursTextField.getText()));
+            course.setExamDate(editExamDateTextField.getText());
+
+            clearEditCourseTextFields();
+            errorEdit("course("+courseId+") has been edited");
+        }
+        else{
+            log.error("logged in user is not a Professor");
+            throw new IllegalStateException("logged in user is not a Professor");
+        }
+    }
+
+
+    @FXML
+    protected void addClassTimeButtonOnAction(ActionEvent actionEvent){
+        Backend backend = Backend.getInstance();
+        User user = LoggedInUserHolder.getUser();
+        if(user instanceof Professor eduAssistant) {
+            if(eduAssistant.getProfessorType() != ProfessorType.EDUCATIONAL_ASSISTANT){
+                log.error("logged in user is not EDUCATIONAL_ASSISTANT");
+                throw new IllegalStateException("logged in user is not EDUCATIONAL_ASSISTANT");
+            }
+
+            String courseIdString = loadCourseIdTextField.getText();
+            int courseId;
+            try {
+                courseId = Integer.parseInt(courseIdString);
+            }
+            catch (NumberFormatException ignored){
+                errorEdit("course id should be an integer");
+                return;
+            }
+            if(!backend.hasCourse(courseId)){
+                errorEdit("course doesn't exist");
+                return;
+            }
+            Course course = backend.getCourse(courseId);
+
+            if(course.getCollegeId() != eduAssistant.getCollegeId()){
+                errorEdit("you can't edit courses from other colleges");
+                return;
+            }
+
+            WeekDay weekDay;
+            try{
+                weekDay = WeekDay.valueOf(weekDayTextField.getText());
+            }
+            catch (Exception ignore){
+                errorEdit("week day should be "+Arrays.toString(WeekDay.values()));
+                return;
+            }
+
+            Time startTime = Time.toTime(startTimeTextField.getText());
+            if(startTime == null) {
+                errorEdit("start time should be in format H:M");
+                return;
+            }
+
+            Time endTime = Time.toTime(endTimeTextField.getText());
+            if(endTime == null) {
+                errorEdit("end time should be in format H:M");
+                return;
+            }
+
+            ClassTime classTime = new ClassTime(weekDay, startTime, endTime, courseId);
+            course.addToClassTimes(classTime);
+
+            clearClassTimeTextFields();
+            errorEdit("class time has been added");
+        }
+        else{
+            log.error("logged in user is not a Professor");
+            throw new IllegalStateException("logged in user is not a Professor");
+        }
+    }
+
+
+
     private void clearAddCourseTextFields(){
-        addCourseNameAddTextField.setText("");
-        addCourseCollegeIdTextField.setText("");
-        addCourseProfessorIdTextField.setText("");
+        addCourseNameTextField.setText("");
+        addProfessorIdTextField.setText("");
         addHoldingSemesterTextField.setText("");
         addCourseNumberTextField.setText("");
         addSemesterCreditHoursTextField.setText("");
         addExamDateTextField.setText("");
+    }
+
+    private void clearEditCourseTextFields(){
+        editCourseNameTextField.setText("");
+        editProfessorIdTextField.setText("");
+        editHoldingSemesterTextField.setText("");
+        editCourseNumberTextField.setText("");
+        editSemesterCreditHoursTextField.setText("");
+        editExamDateTextField.setText("");
+    }
+
+    private void clearClassTimeTextFields(){
+        weekDayTextField.setText("");
+        startTimeTextField.setText("");
+        endTimeTextField.setText("");
     }
 
 
