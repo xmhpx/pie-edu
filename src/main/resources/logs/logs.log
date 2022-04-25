@@ -1,8 +1,8 @@
-2022-04-26 00:52:09:040 INFO [GuiMain.start()] - application started
-2022-04-26 00:52:09:164 INFO [logic.Backend.<init>()] - deserialization started
-2022-04-26 00:52:09:210 INFO [logic.Backend.<init>()] - deserialization finished
-2022-04-26 00:52:15:923 INFO [logic.LoggedInUserHolder.setUser()] - user(20001) logged in
-2022-04-26 00:52:15:925 INFO [models.User.setLastVisit()] - user(20001) changed lastVisit
-2022-04-26 00:52:22:497 INFO [logic.Backend.save()] - serialization started
-2022-04-26 00:52:22:506 INFO [logic.Backend.save()] - serialization ended
-2022-04-26 00:52:22:506 INFO [GuiMain.stop()] - application stopped
+2022-04-26 00:57:36:432 INFO [GuiMain.start()] - application started
+2022-04-26 00:57:36:560 INFO [logic.Backend.<init>()] - deserialization started
+2022-04-26 00:57:36:607 INFO [logic.Backend.<init>()] - deserialization finished
+2022-04-26 00:57:41:023 INFO [logic.LoggedInUserHolder.setUser()] - user(10001) logged in
+2022-04-26 00:57:41:025 INFO [models.User.setLastVisit()] - user(10001) changed lastVisit
+2022-04-26 00:58:06:570 INFO [logic.Backend.save()] - serialization started
+2022-04-26 00:58:06:580 INFO [logic.Backend.save()] - serialization ended
+2022-04-26 00:58:06:580 INFO [GuiMain.stop()] - application stopped

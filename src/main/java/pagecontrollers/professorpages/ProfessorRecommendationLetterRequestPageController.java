@@ -15,6 +15,7 @@ import logic.LoggedInUserHolder;
 import models.User;
 import models.professor.Professor;
 import models.student.Student;
+import models.universityitems.ReportCard;
 import models.universityitems.requests.RecommendationLetterRequest;
 import models.universityitems.requests.Request;
 import org.apache.log4j.LogManager;
@@ -53,19 +54,31 @@ public class ProfessorRecommendationLetterRequestPageController extends Professo
             throw new IllegalStateException("logged in user is not a Professor");
         }
 
-//        TableColumn<RecommendationLetterRequest, String> statusColumn = new TableColumn<>("Status");
-//        statusColumn.setMaxWidth(200);
-//        statusColumn.setPrefWidth(70);
-//        statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
-//        statusColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-//
-//        TableColumn<RecommendationLetterRequest, String> responseColumn = new TableColumn<>("Response");
-//        responseColumn.setMaxWidth(500);
-//        responseColumn.setPrefWidth(70);
-//        responseColumn.setCellValueFactory(new PropertyValueFactory<>("response"));
-//        responseColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-//
-//        tableView.getColumns().add(statusColumn);
-//        tableView.getColumns().add(responseColumn);
+
+        tableView.setEditable(true);
+
+        TableColumn<RecommendationLetterRequest, String> statusColumn = new TableColumn<>("Status");
+        statusColumn.setMaxWidth(200);
+        statusColumn.setPrefWidth(100);
+        statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+        statusColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        statusColumn.setOnEditCommit(event -> {
+            RecommendationLetterRequest recommendationLetterRequest = event.getRowValue();
+            recommendationLetterRequest.setStatus(event.getNewValue());
+        });
+
+
+        TableColumn<RecommendationLetterRequest, String> responseColumn = new TableColumn<>("Response");
+        responseColumn.setMaxWidth(500);
+        responseColumn.setPrefWidth(100);
+        responseColumn.setCellValueFactory(new PropertyValueFactory<>("response"));
+        responseColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        responseColumn.setOnEditCommit(event -> {
+            RecommendationLetterRequest recommendationLetterRequest = event.getRowValue();
+            recommendationLetterRequest.setResponse(event.getNewValue());
+        });
+
+        tableView.getColumns().add(statusColumn);
+        tableView.getColumns().add(responseColumn);
     }
 }
