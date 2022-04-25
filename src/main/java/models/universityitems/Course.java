@@ -3,10 +3,12 @@ package models.universityitems;
 import logic.Backend;
 import models.ClassTime;
 import models.WeekDay;
+import models.student.Student;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Course {
     private static final Logger log = LogManager.getLogger(Course.class);
@@ -228,7 +230,51 @@ public class Course {
     }
 
 
+    public void validateReportCardIds(){
+        HashMap<Integer, Integer> hashMap = new HashMap<>();
+        for(int studentId : studentIds){
+            hashMap.put(studentId, 1);
+        }
+        for(int reportCardId : reportCardIds){
+            ReportCard reportCard = Backend.getInstance().getReportCard(reportCardId);
+            if(reportCard == null){
+                log.error("course("+getId()+") has a reportCardId("+reportCardId+") which doesn't exist");
+                throw new IllegalStateException("course("+getId()+") has a reportCardId("+reportCardId+") which doesn't exist");
+            }
+
+            int studentId = reportCard.getStudentId();
+
+            if(hashMap.get(studentId) == 2){
+                log.error("course("+getId()+") has a reportCardId("+reportCardId+") which its sender("+studentId+") has another report card in as well 'reportCardIds'");
+                throw new IllegalStateException("course("+getId()+") has a reportCardId("+reportCardId+") which its sender("+studentId+") has another report card in as well 'reportCardIds'");
+            }
+            else if(hashMap.get(studentId) == 1){
+                hashMap.put(reportCardId, 2);
+            }
+            else{
+                log.error("course("+getId()+") has a reportCardId("+reportCardId+") which its sender("+studentId+") doesn't exist in 'studentIds'");
+                throw new IllegalStateException("course("+getId()+") has a reportCardId("+reportCardId+") which its sender("+studentId+") doesn't exist in 'studentIds'");
+            }
+        }
+        for(int studentId : studentIds){
+            if(hashMap.get(studentId) == 1){
+                Student student = Backend.getInstance().getStudent(studentId);
+                if(student == null){
+                    log.error("course("+getId()+") has a studentId("+studentId+") which doesn't exist");
+                    throw new IllegalStateException("course("+getId()+") has a studentId("+studentId+") which doesn't exist");
+                }
+
+                ReportCard reportCard = new ReportCard(getId(), studentId, "");
+                hashMap.put(reportCard.getId(), 2);
+                Backend.getInstance().addToReportCards(reportCard);
+                student.addToReportCards(reportCard.getId());
+                addToReportCardIds(reportCard.getId());
+            }
+        }
+    }
+
     public ArrayList<Integer> getReportCardIds() {
+        validateReportCardIds();
         return reportCardIds;
     }
 
