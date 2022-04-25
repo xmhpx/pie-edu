@@ -20,8 +20,7 @@ import java.io.IOException;
 //// DONE make withdrawal request actually functional
 //// DONE add auto response for dorm and certificate student requests
 //// TODO change dissertation defence request's response (add time to defence maybe?)
-// TODO fix minor/recom/dd requests (add ability to answer them)
-// TODO fix request editing problem
+// TODO fix dd requests (add ability to answer them)
 // TODO add ability to add objections and edit them to temporaryScoresPage
 // TODO fix many things in temporaryScoresPage (doesn't exist for professors, only for educational assistants)
 //// DONE add 'number of passed SCHs' to education status for students
@@ -29,7 +28,7 @@ import java.io.IOException;
 //// DONE add theme changer (just change background color maybe)
 //// DONE add default profile image and make profile images to work
 //// TODO change password page?? (more information is in the last pages of the doc)
-/// DONE add ability to change profile pictures
+//// DONE add ability to change profile pictures
 //// TODO maybe add ability to edi 'homeAddress' and 'postalCode'
 //// TODO maybe make a page to add/edit/remove class times
 

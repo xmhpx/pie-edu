@@ -105,14 +105,6 @@
                         <cellValueFactory><PropertyValueFactory property="minorFieldId" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn maxWidth="300" prefWidth="70.0" text="Status">
-                        <cellValueFactory><PropertyValueFactory property="status" />
-                        </cellValueFactory>
-                    </TableColumn>
-                    <TableColumn maxWidth="500" prefWidth="70.0" text="Response">
-                        <cellValueFactory><PropertyValueFactory property="response" />
-                        </cellValueFactory>
-                    </TableColumn>
                 </columns>
                 <items>
                     <FXCollections fx:factory="observableArrayList">
