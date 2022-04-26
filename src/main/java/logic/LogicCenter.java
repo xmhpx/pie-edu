@@ -1,6 +1,7 @@
 package logic;
 
 import models.User;
+import models.universityitems.Course;
 import models.universityitems.ReportCard;
 import models.universityitems.ReportCardStatus;
 import org.apache.log4j.LogManager;
@@ -38,8 +39,11 @@ public class LogicCenter {
                 if(reportCard.getStatus() == ReportCardStatus.CREDITED || reportCard.getStatus() == ReportCardStatus.FAILED){
                     try {
                         double score = Double.parseDouble(reportCard.getScore());
-                        sumOfScores += score;
-                        numberOfScores++;
+                        Course course = backend.getCourse(reportCard.getCourseId());
+                        if(course != null){
+                            sumOfScores += score*course.getSemesterCreditHours();
+                            numberOfScores += course.getSemesterCreditHours();
+                        }
                     }
                     catch (NumberFormatException ignored){
                         log.warn("CREDITED or a FAILED report card with id " + reportCard.getId() + " doesn't have a proper score");

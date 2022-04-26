@@ -15,7 +15,6 @@ import java.io.IOException;
 // DONE update 'editProfessorPage' for deanOfFaculty (add ability to remove/edit)
 // DONE add "add/remove/edit" abilities to 'coursesListPage' for educational assistant and add class time
 //// DONE check and update different(possibly hidden) request pages
-//// TODO maybe change stuff related to request responses?
 //// TODO both ends of a minor request must agree, fix somehow
 //// DONE make withdrawal request actually functional
 //// DONE add auto response for dorm and certificate student requests
@@ -23,7 +22,7 @@ import java.io.IOException;
 // DONE add ability to add objections and edit them to temporaryScoresPage
 // DONE fix many things in temporaryScoresPage (doesn't exist for professors, only for educational assistants)
 //// DONE add 'number of passed SCHs' to education status for students
-//// TODO make calculating average weighted for different courses
+//// DONE make calculating average weighted for different courses
 //// DONE add theme changer (just change background color maybe)
 //// DONE add default profile image and make profile images to work
 //// TODO change password page?? (more information is in the last pages of the doc)

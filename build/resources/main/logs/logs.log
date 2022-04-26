@@ -1,45 +1,6 @@
-2022-04-26 05:49:58:277 INFO [GuiMain.start()] - application started
-2022-04-26 05:49:58:405 INFO [logic.Backend.<init>()] - deserialization started
-2022-04-26 05:49:58:452 INFO [logic.Backend.<init>()] - deserialization finished
-2022-04-26 05:50:02:512 INFO [logic.LoggedInUserHolder.setUser()] - user(10001) logged in
-2022-04-26 05:50:02:515 INFO [models.User.setLastVisit()] - user(10001) changed lastVisit
-2022-04-26 05:50:08:249 INFO [models.universityitems.ReportCard.setCourseId()] - reportCard(70004) changed courseId
-2022-04-26 05:50:08:249 INFO [models.universityitems.ReportCard.setStudentId()] - reportCard(70004) changed studentId
-2022-04-26 05:50:08:249 INFO [models.universityitems.ReportCard.setStatus()] - reportCard(70004) changed status
-2022-04-26 05:50:08:250 INFO [models.universityitems.ReportCard.setScore()] - reportCard(70004) changed score
-2022-04-26 05:50:08:250 INFO [models.universityitems.ReportCard.setObjection()] - reportCard(70004) changed objection
-2022-04-26 05:50:08:250 INFO [models.universityitems.ReportCard.setResponse()] - reportCard(70004) changed response
-2022-04-26 05:50:08:251 INFO [models.student.Student.addToReportCards()] - student(20001) added reportCard(70004) to reportCardIds
-2022-04-26 05:50:08:251 WARN [models.universityitems.Course.addToReportCardIds()] - 'reportCardId' doesn't exist in backend
-2022-04-26 05:50:08:252 INFO [models.universityitems.Course.addToReportCardIds()] - course(50001) added reportCard(70004) to ReportCardIds
-2022-04-26 05:50:10:404 INFO [models.universityitems.ReportCard.setCourseId()] - reportCard(70005) changed courseId
-2022-04-26 05:50:10:405 INFO [models.universityitems.ReportCard.setStudentId()] - reportCard(70005) changed studentId
-2022-04-26 05:50:10:405 INFO [models.universityitems.ReportCard.setStatus()] - reportCard(70005) changed status
-2022-04-26 05:50:10:405 INFO [models.universityitems.ReportCard.setScore()] - reportCard(70005) changed score
-2022-04-26 05:50:10:405 INFO [models.universityitems.ReportCard.setObjection()] - reportCard(70005) changed objection
-2022-04-26 05:50:10:405 INFO [models.universityitems.ReportCard.setResponse()] - reportCard(70005) changed response
-2022-04-26 05:50:10:405 INFO [models.student.Student.addToReportCards()] - student(20001) added reportCard(70005) to reportCardIds
-2022-04-26 05:50:10:405 WARN [models.universityitems.Course.addToReportCardIds()] - 'reportCardId' doesn't exist in backend
-2022-04-26 05:50:10:405 INFO [models.universityitems.Course.addToReportCardIds()] - course(50002) added reportCard(70005) to ReportCardIds
-2022-04-26 05:50:12:375 INFO [models.universityitems.ReportCard.setCourseId()] - reportCard(70006) changed courseId
-2022-04-26 05:50:12:375 INFO [models.universityitems.ReportCard.setStudentId()] - reportCard(70006) changed studentId
-2022-04-26 05:50:12:375 INFO [models.universityitems.ReportCard.setStatus()] - reportCard(70006) changed status
-2022-04-26 05:50:12:375 INFO [models.universityitems.ReportCard.setScore()] - reportCard(70006) changed score
-2022-04-26 05:50:12:375 INFO [models.universityitems.ReportCard.setObjection()] - reportCard(70006) changed objection
-2022-04-26 05:50:12:375 INFO [models.universityitems.ReportCard.setResponse()] - reportCard(70006) changed response
-2022-04-26 05:50:12:375 INFO [models.student.Student.addToReportCards()] - student(20001) added reportCard(70006) to reportCardIds
-2022-04-26 05:50:12:375 WARN [models.universityitems.Course.addToReportCardIds()] - 'reportCardId' doesn't exist in backend
-2022-04-26 05:50:12:375 INFO [models.universityitems.Course.addToReportCardIds()] - course(50003) added reportCard(70006) to ReportCardIds
-2022-04-26 05:50:12:376 ERROR [pagecontrollers.professorpages.ProfessorTemporaryScoresPageController.filter()] - reportCard(70003)'s status is not a double
-2022-04-26 05:50:17:410 INFO [models.universityitems.ReportCard.setCourseId()] - reportCard(70007) changed courseId
-2022-04-26 05:50:17:411 INFO [models.universityitems.ReportCard.setStudentId()] - reportCard(70007) changed studentId
-2022-04-26 05:50:17:411 INFO [models.universityitems.ReportCard.setStatus()] - reportCard(70007) changed status
-2022-04-26 05:50:17:411 INFO [models.universityitems.ReportCard.setScore()] - reportCard(70007) changed score
-2022-04-26 05:50:17:411 INFO [models.universityitems.ReportCard.setObjection()] - reportCard(70007) changed objection
-2022-04-26 05:50:17:411 INFO [models.universityitems.ReportCard.setResponse()] - reportCard(70007) changed response
-2022-04-26 05:50:17:411 INFO [models.student.Student.addToReportCards()] - student(20001) added reportCard(70007) to reportCardIds
-2022-04-26 05:50:17:411 WARN [models.universityitems.Course.addToReportCardIds()] - 'reportCardId' doesn't exist in backend
-2022-04-26 05:50:17:411 INFO [models.universityitems.Course.addToReportCardIds()] - course(50001) added reportCard(70007) to ReportCardIds
-2022-04-26 05:50:18:702 INFO [logic.Backend.save()] - serialization started
-2022-04-26 05:50:18:712 INFO [logic.Backend.save()] - serialization ended
-2022-04-26 05:50:18:712 INFO [GuiMain.stop()] - application stopped
+2022-04-26 06:08:21:678 INFO [GuiMain.start()] - application started
+2022-04-26 06:08:21:802 INFO [logic.Backend.<init>()] - deserialization started
+2022-04-26 06:08:21:844 INFO [logic.Backend.<init>()] - deserialization finished
+2022-04-26 06:08:23:476 INFO [logic.Backend.save()] - serialization started
+2022-04-26 06:08:23:484 INFO [logic.Backend.save()] - serialization ended
+2022-04-26 06:08:23:484 INFO [GuiMain.stop()] - application stopped

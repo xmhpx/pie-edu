@@ -12,6 +12,7 @@ import logic.LoggedInUserHolder;
 import models.User;
 import models.professor.Professor;
 import models.student.Student;
+import models.universityitems.Course;
 import models.universityitems.ReportCard;
 import models.universityitems.ReportCardStatus;
 import org.apache.log4j.LogManager;
@@ -200,7 +201,8 @@ public class ProfessorTemporaryScoresForEducationalAssistantsPageController exte
             return;
         }
 
-        if(!backend.hasCourse(Integer.parseInt(courseSummeryIdString))){
+        Course course = backend.getCourse(Integer.parseInt(courseSummeryIdString));
+        if(course == null){
             error("course id doesn't exist");
             return;
         }
@@ -208,24 +210,30 @@ public class ProfessorTemporaryScoresForEducationalAssistantsPageController exte
         int failedCount = 0;
         int creditedCount = 0;
         int finalCount = 0;
+        int finalCountWithoutFailed = 0;
         double sum = 0;
         double sumWithoutFailed = 0;
 
         for (ReportCard reportCard : backend.getReportCards()) {
             if (reportCard.getCourseId() == courseSummeryId) {
-                if (reportCard.getStatus() == ReportCardStatus.FAILED) {
-                    failedCount++;
-                    finalCount++;
-                }
-                if (reportCard.getStatus() == ReportCardStatus.CREDITED) {
-                    creditedCount++;
-                    finalCount++;
-                }
 
-                try{
-                    if(reportCard.getStatus() != ReportCardStatus.FAILED)
-                        sumWithoutFailed += Double.parseDouble(reportCard.getScore());
-                    sum += Double.parseDouble(reportCard.getScore());
+                try {
+                    double score = Double.parseDouble(reportCard.getScore());
+                    int sch = course.getSemesterCreditHours();
+
+                    if (reportCard.getStatus() == ReportCardStatus.FAILED) {
+                        failedCount++;
+                        finalCountWithoutFailed -= sch;
+                        sumWithoutFailed -= score * sch;
+                    }
+                    if (reportCard.getStatus() == ReportCardStatus.CREDITED) {
+                        creditedCount++;
+                    }
+
+                    finalCountWithoutFailed += sch;
+                    finalCount += sch;
+                    sumWithoutFailed += score * sch;
+                    sum += score * sch;
                 }
                 catch (NumberFormatException ignored){}
             }
@@ -243,11 +251,11 @@ public class ProfessorTemporaryScoresForEducationalAssistantsPageController exte
             averageText.setText("Average: " + average);
         }
 
-        if(finalCount - failedCount == 0) {
+        if(finalCountWithoutFailed == 0) {
             averageWithoutFailedText.setText("Average Without Failed: N/A");
         }
         else{
-            double averageWithoutFailed = sumWithoutFailed / (finalCount - failedCount);
+            double averageWithoutFailed = sumWithoutFailed / finalCountWithoutFailed;
             averageWithoutFailedText.setText("Average Without Failed: " + averageWithoutFailed);
         }
     }
