@@ -68,31 +68,7 @@ public class ProfessorTemporaryScoresForEducationalAssistantsPageController exte
 
     @Override
     public void initialize(){
-        super.initialize();
-        Backend backend = Backend.getInstance();
-        ObservableList<ReportCard> data = tableView.getItems();
-        data.clear();
-        User user = LoggedInUserHolder.getUser();
-
-        if(user instanceof Professor professor) {
-            for(ReportCard reportCard : backend.getReportCards()) {
-                Student student = backend.getStudent(reportCard.getStudentId());
-                if(student == null){
-                    log.error("reportCard("+reportCard.getId()+")'s student doesn't exist");
-                    throw new IllegalStateException("reportCard("+reportCard.getId()+")'s student doesn't exist");
-                }
-                if(student.getCollegeId() == professor.getCollegeId()) {
-                    ReportCardStatus status = reportCard.getStatus();
-                    if (status == ReportCardStatus.TEMPORARILY_SCORED) {
-                        data.add(reportCard);
-                    }
-                }
-            }
-        }
-        else{
-            log.error("logged in user is not a Professor");
-            throw new IllegalStateException("logged in user is not a Professor");
-        }
+        initialize("", "", "", "", "");
     }
 
     public void initialize(String studentName, String studentIdString, String professorName, String professorIdString, String courseIdString){
@@ -127,7 +103,7 @@ public class ProfessorTemporaryScoresForEducationalAssistantsPageController exte
         data.clear();
         User user = LoggedInUserHolder.getUser();
 
-        if(user instanceof Professor) {
+        if(user instanceof Professor eduAssistant) {
             for(ReportCard reportCard : backend.getReportCards()) {
                 Student student = backend.getStudent(reportCard.getStudentId());
                 if(student == null){
@@ -141,7 +117,13 @@ public class ProfessorTemporaryScoresForEducationalAssistantsPageController exte
                     throw new IllegalStateException("reportCard("+reportCard.getId()+")'s professor doesn't exist");
                 }
 
-                if(student.getCollegeId() == user.getCollegeId()) {
+                Course course = backend.getCourse(reportCard.getCourseId());
+                if(course == null){
+                    log.error("reportCard("+reportCard.getId()+")'s course doesn't exist");
+                    throw new IllegalStateException("reportCard("+reportCard.getId()+")'s course doesn't exist");
+                }
+
+                if(course.getCollegeId() == eduAssistant.getCollegeId()) {
                     ReportCardStatus status = reportCard.getStatus();
                     if (status == ReportCardStatus.TEMPORARILY_SCORED) {
                         if((studentName.equals(student.getName()) || studentName.equals("")) &&

@@ -1,10 +1,8 @@
-2022-04-26 16:52:08:389 INFO [GuiMain.start()] - application started
-2022-04-26 16:52:08:517 INFO [logic.Backend.<init>()] - deserialization started
-2022-04-26 16:52:08:564 INFO [logic.Backend.<init>()] - deserialization finished
-2022-04-26 16:52:13:006 INFO [logic.LoggedInUserHolder.setUser()] - user(20001) logged in
-2022-04-26 16:52:13:008 INFO [models.User.setLastVisit()] - user(20001) changed lastVisit
-2022-04-26 16:52:14:395 ERROR [pagecontrollers.studentpages.StudentTemporaryScoresPageController.initialize()] - student(20001) has reportCardId(70008) which doesn't exist
-2022-04-26 16:52:14:395 ERROR [pagecontrollers.BasicPageController.loadPage()] - couldn't load fxml file '/studentpages/studentTemporaryScoresPage.fxml'
-2022-04-26 16:52:15:881 INFO [logic.Backend.save()] - serialization started
-2022-04-26 16:52:15:889 INFO [logic.Backend.save()] - serialization ended
-2022-04-26 16:52:15:889 INFO [GuiMain.stop()] - application stopped
+2022-04-26 17:20:27:053 INFO [GuiMain.start()] - application started
+2022-04-26 17:20:27:181 INFO [logic.Backend.<init>()] - deserialization started
+2022-04-26 17:20:27:231 INFO [logic.Backend.<init>()] - deserialization finished
+2022-04-26 17:20:31:898 INFO [logic.LoggedInUserHolder.setUser()] - user(20006) logged in
+2022-04-26 17:20:31:900 INFO [models.User.setLastVisit()] - user(20006) changed lastVisit
+2022-04-26 17:20:47:408 INFO [logic.Backend.save()] - serialization started
+2022-04-26 17:20:47:417 INFO [logic.Backend.save()] - serialization ended
+2022-04-26 17:20:47:417 INFO [GuiMain.stop()] - application stopped

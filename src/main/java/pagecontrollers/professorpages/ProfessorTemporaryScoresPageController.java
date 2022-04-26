@@ -106,11 +106,43 @@ public class ProfessorTemporaryScoresPageController extends ProfessorPageControl
         scoreColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         scoreColumn.setOnEditCommit(event -> {
             ReportCard reportCard = event.getRowValue();
+            double score;
+            try {
+                score = Double.parseDouble(event.getNewValue());
+            }
+            catch (NumberFormatException ignored) {
+                error("score should be a double");
+                return;
+            }
+
+            if (score < 0 || 20 < score){
+                error("score should be a in range [0, 20]");
+                return;
+            }
             reportCard.setScore(event.getNewValue());
         });
 
+        TableColumn<ReportCard, String> objectionColumn = new TableColumn<>("Objection");
+        objectionColumn.setMaxWidth(130);
+        objectionColumn.setPrefWidth(90);
+        objectionColumn.setCellValueFactory(new PropertyValueFactory<>("objection"));
+
+        TableColumn<ReportCard, String> responseColumn = new TableColumn<>("Response");
+        responseColumn.setMaxWidth(130);
+        responseColumn.setPrefWidth(90);
+        responseColumn.setCellValueFactory(new PropertyValueFactory<>("Response"));
+        responseColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        responseColumn.setOnEditCommit(event -> {
+            ReportCard reportCard = event.getRowValue();
+            reportCard.setScore(event.getNewValue());
+        });
+
+        ObservableList<ReportCard> data = tableView.getItems();
+        data.clear();
 
         tableView.getColumns().add(scoreColumn);
+        tableView.getColumns().add(objectionColumn);
+        tableView.getColumns().add(responseColumn);
     }
 
     public void filter() {
@@ -192,14 +224,12 @@ public class ProfessorTemporaryScoresPageController extends ProfessorPageControl
                     } catch (NumberFormatException ignored) {}
                 }
 
-                if (student.getCollegeId() == professor.getCollegeId()) {
-                    ReportCardStatus status = reportCard.getStatus();
-                    {
-                        if ((studentName.equals(student.getName()) || studentName.equals("")) &&
-                                (studentIdString.equals(String.valueOf(reportCard.getStudentId())) || studentIdString.equals("")) &&
-                                (score == null || (minimumScore <= score && score <= maximumScore))) {
-                            data.add(reportCard);
-                        }
+                ReportCardStatus status = reportCard.getStatus();
+                {
+                    if ((studentName.equals(student.getName()) || studentName.equals("")) &&
+                            (studentIdString.equals(String.valueOf(reportCard.getStudentId())) || studentIdString.equals("")) &&
+                            (score == null || (minimumScore <= score && score <= maximumScore))) {
+                        data.add(reportCard);
                     }
                 }
             }

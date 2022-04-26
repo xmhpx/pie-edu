@@ -1,6 +1,33 @@
-2022-04-26 16:54:42:373 INFO [GuiMain.start()] - application started
-2022-04-26 16:54:42:500 INFO [logic.Backend.<init>()] - deserialization started
-2022-04-26 16:54:42:548 INFO [logic.Backend.<init>()] - deserialization finished
-2022-04-26 16:54:43:848 INFO [logic.Backend.save()] - serialization started
-2022-04-26 16:54:43:857 INFO [logic.Backend.save()] - serialization ended
-2022-04-26 16:54:43:857 INFO [GuiMain.stop()] - application stopped
+2022-04-26 17:20:57:129 INFO [GuiMain.start()] - application started
+2022-04-26 17:20:57:255 INFO [logic.Backend.<init>()] - deserialization started
+2022-04-26 17:20:57:302 INFO [logic.Backend.<init>()] - deserialization finished
+2022-04-26 17:21:02:115 INFO [logic.LoggedInUserHolder.setUser()] - user(10006) logged in
+2022-04-26 17:21:02:118 INFO [models.User.setLastVisit()] - user(10006) changed lastVisit
+2022-04-26 17:21:19:633 INFO [models.User.setAge()] - user(10005) changed age
+2022-04-26 17:21:19:634 INFO [models.User.setPassword()] - user(10005) changed password
+2022-04-26 17:21:19:634 INFO [models.User.setNationalIdNumber()] - user(10005) changed nationalIdNumber
+2022-04-26 17:21:19:634 INFO [models.User.setFieldId()] - user(10005) changed fieldId
+2022-04-26 17:21:19:634 INFO [models.professor.Professor.setProfessorNumber()] - professor(10005) changed professorNumber
+2022-04-26 17:21:19:634 INFO [models.professor.Professor.setProfessorLevel()] - professor(10005) changed professorLevel
+2022-04-26 17:21:19:634 INFO [models.professor.Professor.setProfessorType()] - professor(10005) changed professorType
+2022-04-26 17:21:19:635 INFO [models.professor.Professor.setRoomNumber()] - professor(10005) changed roomNumber
+2022-04-26 17:21:23:293 INFO [models.User.setAge()] - user(10005) changed age
+2022-04-26 17:21:23:294 INFO [models.User.setPassword()] - user(10005) changed password
+2022-04-26 17:21:23:294 INFO [models.User.setNationalIdNumber()] - user(10005) changed nationalIdNumber
+2022-04-26 17:21:23:294 INFO [models.User.setFieldId()] - user(10005) changed fieldId
+2022-04-26 17:21:23:294 INFO [models.professor.Professor.setProfessorNumber()] - professor(10005) changed professorNumber
+2022-04-26 17:21:23:294 INFO [models.professor.Professor.setProfessorLevel()] - professor(10005) changed professorLevel
+2022-04-26 17:21:23:294 INFO [models.professor.Professor.setProfessorType()] - professor(10005) changed professorType
+2022-04-26 17:21:23:294 INFO [models.professor.Professor.setRoomNumber()] - professor(10005) changed roomNumber
+2022-04-26 17:21:28:321 INFO [models.User.setAge()] - user(10005) changed age
+2022-04-26 17:21:28:321 INFO [models.User.setPassword()] - user(10005) changed password
+2022-04-26 17:21:28:321 INFO [models.User.setNationalIdNumber()] - user(10005) changed nationalIdNumber
+2022-04-26 17:21:28:322 INFO [models.User.setFieldId()] - user(10005) changed fieldId
+2022-04-26 17:21:28:322 INFO [models.professor.Professor.setProfessorNumber()] - professor(10005) changed professorNumber
+2022-04-26 17:21:28:322 INFO [models.professor.Professor.setProfessorLevel()] - professor(10005) changed professorLevel
+2022-04-26 17:21:28:322 INFO [models.professor.Professor.setProfessorType()] - professor(10005) changed professorType
+2022-04-26 17:21:28:322 INFO [models.professor.Professor.setRoomNumber()] - professor(10005) changed roomNumber
+2022-04-26 17:21:29:965 INFO [logic.LoggedInUserHolder.logout()] - user(10006) logged out
+2022-04-26 17:21:31:003 INFO [logic.Backend.save()] - serialization started
+2022-04-26 17:21:31:015 INFO [logic.Backend.save()] - serialization ended
+2022-04-26 17:21:31:015 INFO [GuiMain.stop()] - application stopped
