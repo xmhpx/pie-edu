@@ -11,14 +11,12 @@ public class College {
 
     protected int id;
     protected String name;
-    protected int deanOfFacultyId;
 
 
-    public College(String name, int deanOfFacultyId) {
+    public College(String name) {
         id = nextId++;
 
         setName(name);
-        setDeanOfFacultyId(deanOfFacultyId);
     }
 
 
@@ -56,15 +54,4 @@ public class College {
     }
 
 
-    public int getDeanOfFacultyId() {
-        return deanOfFacultyId;
-    }
-
-    public void setDeanOfFacultyId(int deanOfFacultyId) {
-        if(!Backend.getInstance().hasProfessor(deanOfFacultyId)){
-            log.warn("'deanOfFacultyId' doesn't exist in backend");
-        }
-        log.info("college("+getId()+") changed deanOfFacultyId");
-        this.deanOfFacultyId = deanOfFacultyId;
-    }
 }
