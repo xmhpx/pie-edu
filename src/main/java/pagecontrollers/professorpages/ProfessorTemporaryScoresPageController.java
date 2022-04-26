@@ -194,7 +194,7 @@ public class ProfessorTemporaryScoresPageController extends ProfessorPageControl
 
                 if (student.getCollegeId() == professor.getCollegeId()) {
                     ReportCardStatus status = reportCard.getStatus();
-                    if (status == ReportCardStatus.TEMPORARILY_SCORED) {
+                    {
                         if ((studentName.equals(student.getName()) || studentName.equals("")) &&
                                 (studentIdString.equals(String.valueOf(reportCard.getStudentId())) || studentIdString.equals("")) &&
                                 (score == null || (minimumScore <= score && score <= maximumScore))) {
@@ -242,11 +242,15 @@ public class ProfessorTemporaryScoresPageController extends ProfessorPageControl
             error("course doesn't exist");
             return;
         }
+        if(course.getProfessorId() != LoggedInUserHolder.getUser().getId()){
+            error("you are not professor of the course");
+            return;
+        }
 
         this.courseId = courseId;
 
-        error("course has been loaded");
         filter();
+        error("course has been loaded");
     }
 
 

@@ -299,16 +299,61 @@ public class ProfessorEditProfessorsPageController extends ProfessorPageControll
             errorEdit("load professor first using load button");
             return;
         }
-        professor.setAge(Integer.parseInt(ageEditTextField.getText()));
+        Integer age = null;
+        try {
+            age = Integer.parseInt(ageEditTextField.getText());
+        }
+        catch (NumberFormatException ignored){}
+        if(age == null) {
+            errorEdit("age must be an integer");
+            return;
+        }
+
+        ProfessorLevel professorLevel = null;
+        try {
+            professorLevel = ProfessorLevel.valueOf(professorLevelEditTextField.getText());
+        }
+        catch (NumberFormatException ignored){}
+        if(professorLevel == null){
+            errorEdit("professorLevel must be a "+ Arrays.toString(ProfessorLevel.values()));
+            return;
+        }
+
+        ProfessorType professorType = null;
+        try {
+            professorType = ProfessorType.valueOf(professorTypeEditTextField.getText());
+        }
+        catch (NumberFormatException ignored){}
+        if(professorType == null){
+            errorEdit("professorLevel must be a "+ Arrays.toString(ProfessorType.values()));
+            return;
+        }
+        if(professor.getProfessorType() != ProfessorType.DEAN_OF_THE_FACULTY && professorType == ProfessorType.DEAN_OF_THE_FACULTY){
+            errorEdit("you can't add new DEAN_OF_THE_FACULTY, use .json files to do it");
+            return;
+        }
+        if(professor.getProfessorType() == ProfessorType.DEAN_OF_THE_FACULTY && professorType != ProfessorType.DEAN_OF_THE_FACULTY){
+            errorEdit("you can't remove DEAN_OF_THE_FACULTY");
+            return;
+        }
+
+        if(professorType == ProfessorType.EDUCATIONAL_ASSISTANT) {
+            for (Professor professor1 : Backend.getInstance().getProfessors()) {
+                if (professor1.getCollegeId() == professor.getCollegeId() &&
+                    professor1.getProfessorType() == ProfessorType.EDUCATIONAL_ASSISTANT){
+                    errorEdit("college("+professor.getCollegeId()+") already has an EDUCATIONAL_ASSISTANT");
+                    return;
+                }
+            }
+        }
+
+        professor.setAge(age);
         professor.setPassword(passwordEditTextField.getText());
         professor.setNationalIdNumber(nationalIdNumberEditTextField.getText());
         professor.setFieldId(Integer.parseInt(fieldIdEditTextField.getText()));
         professor.setProfessorNumber(professorNumberEditTextField.getText());
-        professor.setProfessorLevel(ProfessorLevel.valueOf(professorLevelEditTextField.getText()));
-        if(professor.getId() == LoggedInUserHolder.getUser().getId()){
-            professorTypeEditTextField.setText(String.valueOf(ProfessorType.DEAN_OF_THE_FACULTY));
-        }
-        professor.setProfessorType(ProfessorType.valueOf(professorTypeEditTextField.getText()));
+        professor.setProfessorLevel(professorLevel);
+        professor.setProfessorType(professorType);
         professor.setRoomNumber(roomNumberEditTextField.getText());
         errorEdit("professor("+professor.getId()+") has been edited");
     }

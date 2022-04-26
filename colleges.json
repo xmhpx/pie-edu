@@ -1,12 +1,22 @@
 [
   {
     "id": 40001,
-    "name": "College Name 1",
-    "deanOfFacultyId": 10001
+    "name": "College Name 1"
   },
   {
     "id": 40002,
-    "name": "College Name 2",
-    "deanOfFacultyId": 10002
+    "name": "College Name 2"
+  },
+  {
+    "id": 40003,
+    "name": "College Name 3"
+  },
+  {
+    "id": 40004,
+    "name": "College Name 4"
+  },
+  {
+    "id": 40005,
+    "name": "College Name 5"
   }
 ]

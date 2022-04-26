@@ -9,7 +9,8 @@
     "semesterCreditHours": 3,
     "examDate": "4/4",
     "studentIds": [
-      20001
+      20001,
+      20002
     ],
     "classTimes": [
       {
@@ -27,9 +28,7 @@
     ],
     "reportCardIds": [
       70001,
-      70004,
-      70007,
-      70008
+      70004
     ]
   },
   {
@@ -42,7 +41,8 @@
     "semesterCreditHours": 59,
     "examDate": "4/10",
     "studentIds": [
-      20001
+      20001,
+      20002
     ],
     "classTimes": [
       {
@@ -60,24 +60,21 @@
     ],
     "reportCardIds": [
       70002,
-      70005,
-      70009,
-      70011,
-      70012,
-      70013
+      70005
     ]
   },
   {
     "id": 50003,
     "name": "littelrat",
-    "collegeId": 40001,
+    "collegeId": 40002,
     "professorId": 10001,
     "holdingSemester": "14001",
     "courseNumber": "140010103",
     "semesterCreditHours": 2,
     "examDate": "2/5",
     "studentIds": [
-      20001
+      20001,
+      20002
     ],
     "classTimes": [
       {
@@ -107,8 +104,7 @@
     ],
     "reportCardIds": [
       70003,
-      70006,
-      70010
+      70006
     ]
   },
   {
@@ -122,5 +118,109 @@
     "examDate": "4/4",
     "studentIds": [],
     "classTimes": []
+  },
+  {
+    "id": 50005,
+    "name": "cp",
+    "collegeId": 40003,
+    "professorId": 10002,
+    "holdingSemester": "14003",
+    "courseNumber": "140030304",
+    "semesterCreditHours": 4,
+    "examDate": "4/6",
+    "studentIds": [],
+    "classTimes": [
+      {
+        "weekDay": "MONDAY",
+        "startTime": {
+          "hour": 10,
+          "minute": 30
+        },
+        "endTime": {
+          "hour": 14,
+          "minute": 0
+        },
+        "courseId": 50005
+      }
+    ],
+    "reportCardIds": []
+  },
+  {
+    "id": 50006,
+    "name": "cp",
+    "collegeId": 40003,
+    "professorId": 10003,
+    "holdingSemester": "14003",
+    "courseNumber": "140030305",
+    "semesterCreditHours": 4,
+    "examDate": "4/9",
+    "studentIds": [],
+    "classTimes": [
+      {
+        "weekDay": "FRIDAY",
+        "startTime": {
+          "hour": 11,
+          "minute": 30
+        },
+        "endTime": {
+          "hour": 15,
+          "minute": 0
+        },
+        "courseId": 50006
+      }
+    ],
+    "reportCardIds": []
+  },
+  {
+    "id": 50007,
+    "name": "dp",
+    "collegeId": 40004,
+    "professorId": 10002,
+    "holdingSemester": "14002",
+    "courseNumber": "140020406",
+    "semesterCreditHours": 2,
+    "examDate": "4/19",
+    "studentIds": [],
+    "classTimes": [],
+    "reportCardIds": []
+  },
+  {
+    "id": 50008,
+    "name": "ep",
+    "collegeId": 40004,
+    "professorId": 10002,
+    "holdingSemester": "14002",
+    "courseNumber": "140020407",
+    "semesterCreditHours": 3,
+    "examDate": "4/13",
+    "studentIds": [],
+    "classTimes": [],
+    "reportCardIds": []
+  },
+  {
+    "id": 50009,
+    "name": "ep",
+    "collegeId": 40005,
+    "professorId": 10001,
+    "holdingSemester": "14002",
+    "courseNumber": "140020507",
+    "semesterCreditHours": 3,
+    "examDate": "4/17",
+    "studentIds": [],
+    "classTimes": [],
+    "reportCardIds": []
+  },
+  {
+    "id": 50010,
+    "name": "ep",
+    "collegeId": 40005,
+    "professorId": 10001,
+    "holdingSemester": "14002",
+    "courseNumber": "140020508",
+    "semesterCreditHours": 2,
+    "examDate": "4/15",
+    "studentIds": [],
+    "classTimes": [],
+    "reportCardIds": []
   }
 ]

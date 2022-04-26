@@ -17,6 +17,8 @@ import java.util.Calendar;
 public class BasicPageController {
     private static final Logger log = LogManager.getLogger(BasicPageController.class);
 
+    private static final int secondsUntilForcedPassword = 60*60*3;
+
     @FXML
     protected AnchorPane anchorPane;
 
@@ -57,7 +59,7 @@ public class BasicPageController {
             int hour2 = Integer.parseInt(lastVisitTime[0]);
 
             int deltaSeconds = (second - second2) + (minute - minute2) * 60 + (hour - hour2) * 60 * 60;
-            if (deltaSeconds > 3) {
+            if (deltaSeconds > secondsUntilForcedPassword) {
                 goToForcedChangePasswordPage();
                 return;
             }

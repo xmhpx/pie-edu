@@ -258,6 +258,8 @@ public class ProfessorTemporaryScoresForEducationalAssistantsPageController exte
             double averageWithoutFailed = sumWithoutFailed / finalCountWithoutFailed;
             averageWithoutFailedText.setText("Average Without Failed: " + averageWithoutFailed);
         }
+
+        error("");
     }
 
 

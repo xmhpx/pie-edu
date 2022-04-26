@@ -82,6 +82,7 @@ public class ProfessorPageController extends LoggedInPageController {
             addCourseMenuItem.setVisible(professor.getProfessorType() == ProfessorType.EDUCATIONAL_ASSISTANT);
             dissertationDefenceRequestMenuItem.setVisible(professor.getProfessorType() == ProfessorType.EDUCATIONAL_ASSISTANT);
             withdrawalRequestMenuItem.setVisible(professor.getProfessorType() == ProfessorType.EDUCATIONAL_ASSISTANT);
+            temporaryScoresForEducationalAssistantsMenuItem.setVisible(professor.getProfessorType() == ProfessorType.EDUCATIONAL_ASSISTANT);
 
             editProfessorsMenuItem.setVisible(professor.getProfessorType() == ProfessorType.DEAN_OF_THE_FACULTY);
         }

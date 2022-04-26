@@ -12,17 +12,7 @@
     "reportCardIds": [
       70001,
       70002,
-      70003,
-      70004,
-      70005,
-      70006,
-      70007,
-      70008,
-      70009,
-      70010,
-      70011,
-      70012,
-      70013
+      70003
     ],
     "requestIds": [
       30001,
@@ -48,7 +38,7 @@
     "age": 17,
     "hashedPassword": 1216985755,
     "nationalIdNumber": "0927132036",
-    "lastVisit": "3:37:35",
+    "lastVisit": "4:52:13",
     "profileImagePath": "C:\\Users\\Hami\\IdeaProjects\\edu\\src\\main\\resources\\profileimages\\sus.png",
     "name": "NAME",
     "email": "mhppaydar@gmail.com",
@@ -70,16 +60,24 @@
     "registrationTime": "N/A",
     "studentLevel": "PHD_STUDENT",
     "yearOfEntry": "1400",
-    "reportCardIds": [],
+    "reportCardIds": [
+      70004,
+      70005,
+      70006
+    ],
     "requestIds": [],
-    "courseIds": [],
+    "courseIds": [
+      50001,
+      50002,
+      50003
+    ],
     "type": "Student",
     "age": 40,
     "hashedPassword": 1216985755,
     "nationalIdNumber": "123123123",
     "lastVisit": "5:58:20",
     "profileImagePath": "C:\\Users\\Hami\\IdeaProjects\\edu\\src\\main\\resources\\profileimages\\default.jpg",
-    "name": "phd_student",
+    "name": "phd1",
     "email": "N/A",
     "phoneNumber": "N/A",
     "homeAddress": "N/A",
@@ -87,7 +85,7 @@
     "preferredUITheme": {
       "color": "#555555"
     },
-    "fieldId": 60002,
+    "fieldId": 60003,
     "collegeId": 40002
   },
   {
@@ -112,7 +110,7 @@
     "nationalIdNumber": "0927132035",
     "lastVisit": "9:35:21",
     "profileImagePath": "C:\\Users\\Hami\\IdeaProjects\\edu\\src\\main\\resources\\profileimages\\default.jpg",
-    "name": "mhp",
+    "name": "master1",
     "email": "N/A",
     "phoneNumber": "N/A",
     "homeAddress": "N/A",
@@ -120,7 +118,97 @@
     "preferredUITheme": {
       "color": "#555555"
     },
-    "fieldId": 60001,
+    "fieldId": 60002,
     "collegeId": 40002
+  },
+  {
+    "id": 20004,
+    "studentNumber": "111112",
+    "status": "N/A",
+    "supervisorId": 10001,
+    "registrationLicense": "N/A",
+    "registrationTime": "N/A",
+    "educationStatus": "STUDYING",
+    "studentLevel": "MASTERS_STUDENT",
+    "yearOfEntry": "1400",
+    "reportCardIds": [],
+    "requestIds": [],
+    "courseIds": [],
+    "type": "Student",
+    "age": 15,
+    "hashedPassword": 1216985755,
+    "nationalIdNumber": "0927132034",
+    "lastVisit": "",
+    "profileImagePath": "C:\\Users\\Hami\\IdeaProjects\\edu\\src\\main\\resources\\profileimages\\default.jpg",
+    "name": "master2",
+    "email": "N/A",
+    "phoneNumber": "N/A",
+    "homeAddress": "N/A",
+    "postalCode": "N/A",
+    "preferredUITheme": {
+      "color": "#555555"
+    },
+    "fieldId": 60002,
+    "collegeId": 40002
+  },
+  {
+    "id": 20005,
+    "studentNumber": "111113",
+    "status": "N/A",
+    "supervisorId": 10002,
+    "registrationLicense": "N/A",
+    "registrationTime": "N/A",
+    "educationStatus": "STUDYING",
+    "studentLevel": "PHD_STUDENT",
+    "yearOfEntry": "1400",
+    "reportCardIds": [],
+    "requestIds": [],
+    "courseIds": [],
+    "type": "Student",
+    "age": 15,
+    "hashedPassword": 1216985755,
+    "nationalIdNumber": "0927132034",
+    "lastVisit": "",
+    "profileImagePath": "C:\\Users\\Hami\\IdeaProjects\\edu\\src\\main\\resources\\profileimages\\default.jpg",
+    "name": "phd2",
+    "email": "N/A",
+    "phoneNumber": "N/A",
+    "homeAddress": "N/A",
+    "postalCode": "N/A",
+    "preferredUITheme": {
+      "color": "#555555"
+    },
+    "fieldId": 60003,
+    "collegeId": 40002
+  },
+  {
+    "id": 20006,
+    "studentNumber": "400109222",
+    "status": "statused",
+    "supervisorId": 10002,
+    "registrationLicense": "N/A",
+    "registrationTime": "N/A",
+    "educationStatus": "STUDYING",
+    "studentLevel": "UNDERGRADUATE",
+    "yearOfEntry": "1400",
+    "reportCardIds": [],
+    "requestIds": [],
+    "courseIds": [],
+    "type": "Student",
+    "age": 17,
+    "hashedPassword": 1216985755,
+    "nationalIdNumber": "0927132039",
+    "lastVisit": "",
+    "profileImagePath": "C:\\Users\\Hami\\IdeaProjects\\edu\\src\\main\\resources\\profileimages\\default.jpg",
+    "name": "under2",
+    "email": "mhppaydar@gmail.com",
+    "phoneNumber": "09944875387",
+    "homeAddress": "Mashhad",
+    "postalCode": "nadaram",
+    "preferredUITheme": {
+      "color": "#555555"
+    },
+    "fieldId": 60001,
+    "collegeId": 40001
   }
 ]

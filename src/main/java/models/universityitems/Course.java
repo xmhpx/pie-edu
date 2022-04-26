@@ -232,11 +232,12 @@ public class Course {
 
     public void validateReportCardIds(){
         HashMap<Integer, Integer> hashMap = new HashMap<>();
+        Backend backend = Backend.getInstance();
         for(int studentId : studentIds){
             hashMap.put(studentId, 1);
         }
         for(int reportCardId : reportCardIds){
-            ReportCard reportCard = Backend.getInstance().getReportCard(reportCardId);
+            ReportCard reportCard = backend.getReportCard(reportCardId);
             if(reportCard == null){
                 log.error("course("+getId()+") has a reportCardId("+reportCardId+") which doesn't exist");
                 throw new IllegalStateException("course("+getId()+") has a reportCardId("+reportCardId+") which doesn't exist");
@@ -244,29 +245,29 @@ public class Course {
 
             int studentId = reportCard.getStudentId();
 
-            if(hashMap.get(studentId) == 2){
-                log.error("course("+getId()+") has a reportCardId("+reportCardId+") which its sender("+studentId+") has another report card in as well 'reportCardIds'");
-                throw new IllegalStateException("course("+getId()+") has a reportCardId("+reportCardId+") which its sender("+studentId+") has another report card in as well 'reportCardIds'");
-            }
-            else if(hashMap.get(studentId) == 1){
-                hashMap.put(reportCardId, 2);
-            }
-            else{
+            if(hashMap.get(studentId) == null){
                 log.error("course("+getId()+") has a reportCardId("+reportCardId+") which its sender("+studentId+") doesn't exist in 'studentIds'");
                 throw new IllegalStateException("course("+getId()+") has a reportCardId("+reportCardId+") which its sender("+studentId+") doesn't exist in 'studentIds'");
+            }
+            else if(hashMap.get(studentId) == 1){
+                hashMap.put(studentId, 2);
+            }
+            else{
+                log.error("course("+getId()+") has a reportCardId("+reportCardId+") which its sender("+studentId+") has another report card in as well 'reportCardIds'");
+                throw new IllegalStateException("course("+getId()+") has a reportCardId("+reportCardId+") which its sender("+studentId+") has another report card in as well 'reportCardIds'");
             }
         }
         for(int studentId : studentIds){
             if(hashMap.get(studentId) == 1){
-                Student student = Backend.getInstance().getStudent(studentId);
+                Student student = backend.getStudent(studentId);
                 if(student == null){
                     log.error("course("+getId()+") has a studentId("+studentId+") which doesn't exist");
                     throw new IllegalStateException("course("+getId()+") has a studentId("+studentId+") which doesn't exist");
                 }
 
                 ReportCard reportCard = new ReportCard(getId(), studentId, "");
-                hashMap.put(reportCard.getId(), 2);
-                Backend.getInstance().addToReportCards(reportCard);
+                hashMap.put(studentId, 2);
+                backend.addToReportCards(reportCard);
                 student.addToReportCards(reportCard.getId());
                 addToReportCardIds(reportCard.getId());
             }
