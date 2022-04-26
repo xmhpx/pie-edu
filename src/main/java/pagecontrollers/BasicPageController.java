@@ -26,11 +26,11 @@ public class BasicPageController {
     }
 
     protected void goToForcedChangePasswordPage(){
-        goToPage("/forcedChangePasswordPage.fxml");
+        loadPage("/forcedChangePasswordPage.fxml");
     }
 
     protected void goToLoginPage(){
-        goToPage("/loginPage.fxml");
+        loadPage("/loginPage.fxml");
     }
 
     protected void goToStudentPage(String str){
@@ -42,28 +42,30 @@ public class BasicPageController {
     }
 
     protected void goToPage(String str){
-        if(!str.equals("/forcedChangePasswordPage.fxml")) {
-            if (this instanceof LoggedInPageController) {
-                if(!LoggedInUserHolder.hasUser())return;
+        if (this instanceof LoggedInPageController) {
+            if(!LoggedInUserHolder.hasUser())return;
 
-                Calendar cal = Calendar.getInstance();
+            Calendar cal = Calendar.getInstance();
 
-                int second = cal.get(Calendar.SECOND);
-                int minute = cal.get(Calendar.MINUTE);
-                int hour = cal.get(Calendar.HOUR);
+            int second = cal.get(Calendar.SECOND);
+            int minute = cal.get(Calendar.MINUTE);
+            int hour = cal.get(Calendar.HOUR);
 
-                String[] lastVisitTime = LoggedInUserHolder.getUser().getLastVisit().split(":");
-                int second2 = Integer.parseInt(lastVisitTime[2]);
-                int minute2 = Integer.parseInt(lastVisitTime[1]);
-                int hour2 = Integer.parseInt(lastVisitTime[0]);
+            String[] lastVisitTime = LoggedInUserHolder.getUser().getLastVisit().split(":");
+            int second2 = Integer.parseInt(lastVisitTime[2]);
+            int minute2 = Integer.parseInt(lastVisitTime[1]);
+            int hour2 = Integer.parseInt(lastVisitTime[0]);
 
-                int deltaSeconds = (second - second2) + (minute - minute2) * 60 + (hour - hour2) * 60 * 60;
-                if (deltaSeconds > 3*60*60) {
-                    goToForcedChangePasswordPage();
-                    return;
-                }
+            int deltaSeconds = (second - second2) + (minute - minute2) * 60 + (hour - hour2) * 60 * 60;
+            if (deltaSeconds > 3) {
+                goToForcedChangePasswordPage();
+                return;
             }
         }
+        loadPage(str);
+    }
+
+    protected void loadPage(String str){
 
         Parent root;
 

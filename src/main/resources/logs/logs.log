@@ -1,9 +1,9 @@
-2022-04-26 07:29:01:940 INFO [GuiMain.start()] - application started
-2022-04-26 07:29:02:076 INFO [logic.Backend.<init>()] - deserialization started
-2022-04-26 07:29:02:129 INFO [logic.Backend.<init>()] - deserialization finished
-2022-04-26 07:29:14:218 INFO [logic.LoggedInUserHolder.setUser()] - user(10001) logged in
-2022-04-26 07:29:14:220 INFO [models.User.setLastVisit()] - user(10001) changed lastVisit
-2022-04-26 07:29:47:826 INFO [models.User.setPassword()] - user(10001) changed password
-2022-04-26 07:29:50:694 INFO [logic.Backend.save()] - serialization started
-2022-04-26 07:29:50:702 INFO [logic.Backend.save()] - serialization ended
-2022-04-26 07:29:50:702 INFO [GuiMain.stop()] - application stopped
+2022-04-26 15:44:00:965 INFO [GuiMain.start()] - application started
+2022-04-26 15:44:01:086 INFO [logic.Backend.<init>()] - deserialization started
+2022-04-26 15:44:01:128 INFO [logic.Backend.<init>()] - deserialization finished
+2022-04-26 15:44:05:967 INFO [logic.LoggedInUserHolder.setUser()] - user(10001) logged in
+2022-04-26 15:44:05:970 INFO [models.User.setLastVisit()] - user(10001) changed lastVisit
+2022-04-26 15:44:13:382 INFO [logic.LoggedInUserHolder.logout()] - user(10001) logged out
+2022-04-26 15:44:28:168 INFO [logic.Backend.save()] - serialization started
+2022-04-26 15:44:28:176 INFO [logic.Backend.save()] - serialization ended
+2022-04-26 15:44:28:176 INFO [GuiMain.stop()] - application stopped

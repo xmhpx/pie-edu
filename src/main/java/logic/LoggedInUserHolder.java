@@ -13,6 +13,10 @@ public class LoggedInUserHolder {
     private static User user = null;
 
     public static void logout() {
+        if(!hasUser()){
+            log.error("'user' is null");
+            throw new IllegalStateException("'user' is null");
+        }
         log.info("user("+user.getId()+") logged out");
         LoggedInUserHolder.user = null;
     }

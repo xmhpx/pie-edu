@@ -33,6 +33,7 @@ public class ProfessorTemporaryScoresPageController extends ProfessorPageControl
     @FXML
     TableView<Course> coursesTableView;
 
+
     // LOAD
 
     @FXML

@@ -11,13 +11,10 @@ import logic.Backend;
 import logic.LoggedInUserHolder;
 import models.Captcha;
 import models.User;
-import models.professor.Professor;
-import models.student.Student;
-import models.student.StudentEducationStatus;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-public class ForcedChangePasswordPageController extends BasicPageController {
+public class ForcedChangePasswordPageController extends LoggedInPageController {
     private static final Logger log = LogManager.getLogger(ForcedChangePasswordPageController.class);
 
 

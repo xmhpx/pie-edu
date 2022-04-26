@@ -72,8 +72,8 @@ public class LoggedInPageController extends BasicPageController {
 
                     try {
                         sleep(990);
-                    } catch (InterruptedException ex) {
-                        //...
+                    } catch (InterruptedException ignored) {
+                        log.warn("thread for updating current time has been interrupted");
                     }
                 }
                 currentTimeText.setText("Reload To See Current Time");
