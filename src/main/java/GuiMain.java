@@ -10,6 +10,8 @@ import org.apache.log4j.Logger;
 import java.io.IOException;
 
 
+//// TODO maybe add ability to edi 'homeAddress' and 'postalCode'
+//// TODO maybe make a page to add/edit/remove class times
 
 
 public class GuiMain extends Application{

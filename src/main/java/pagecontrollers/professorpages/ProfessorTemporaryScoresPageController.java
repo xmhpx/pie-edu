@@ -119,7 +119,16 @@ public class ProfessorTemporaryScoresPageController extends ProfessorPageControl
                 error("score should be a in range [0, 20]");
                 return;
             }
-            reportCard.setScore(event.getNewValue());
+
+            if(reportCard.getStatus() == ReportCardStatus.CREDITED ||
+                    reportCard.getStatus() == ReportCardStatus.FAILED ||
+                    reportCard.getStatus() == ReportCardStatus.WITHDRAWN){
+                error("you can't change score of a CREDITED, FAILED or WITHDRAWN report card");
+                return;
+            }
+
+            score = (Math.round(score*4))/4.;
+            reportCard.setScore(String.valueOf(score));
         });
 
         TableColumn<ReportCard, String> objectionColumn = new TableColumn<>("Objection");
