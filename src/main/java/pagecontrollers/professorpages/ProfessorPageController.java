@@ -62,6 +62,9 @@ public class ProfessorPageController extends LoggedInPageController {
     protected MenuItem editProfileMenuItem;
 
     @FXML
+    protected MenuItem temporaryScoresForEducationalAssistantsMenuItem;
+
+    @FXML
     protected MenuItem temporaryScoresMenuItem;
 
     @FXML
@@ -151,6 +154,12 @@ public class ProfessorPageController extends LoggedInPageController {
     @FXML
     protected void goToProfessorWithdrawalRequestPage(ActionEvent actionEvent) {
         goToProfessorPage("professorWithdrawalRequestPage.fxml");
+    }
+
+
+    @FXML
+    protected void goToProfessorTemporaryScoresForEducationalAssistantsPage(ActionEvent actionEvent) {
+        goToProfessorPage("professorTemporaryScoresForEducationalAssistantsPage.fxml");
     }
 
 

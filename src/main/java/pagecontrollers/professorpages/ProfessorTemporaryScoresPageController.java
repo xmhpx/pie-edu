@@ -4,16 +4,21 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.text.Text;
 import logic.Backend;
 import logic.LoggedInUserHolder;
 import models.User;
 import models.professor.Professor;
 import models.student.Student;
+import models.universityitems.Course;
 import models.universityitems.ReportCard;
 import models.universityitems.ReportCardStatus;
+import models.universityitems.requests.RecommendationLetterRequest;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -26,65 +31,63 @@ public class ProfessorTemporaryScoresPageController extends ProfessorPageControl
     TableView<ReportCard> tableView;
 
     @FXML
-    TextField studentNameTextField;
+    TableView<Course> coursesTableView;
+
+    // LOAD
 
     @FXML
-    TextField studentIdTextField;
+    TextField loadCourseIdTextField;
 
     @FXML
-    TextField professorNameTextField;
+    Button loadButton;
 
-    @FXML
-    TextField professorIdTextField;
-
-    @FXML
-    TextField courseIdTextField;
-
-    @FXML
-    Button filterButton;
-
-    @FXML
-    TextField courseSummeryIdTextField;
-
-    @FXML
-    Button courseSummeryButton;
-
-    @FXML
-    Text averageText;
-
-    @FXML
-    Text failedText;
-
-    @FXML
-    Text creditedText;
-
-    @FXML
-    Text averageWithoutFailedText;
 
     @FXML
     Text errorText;
 
 
+    // FILTER
+
+    @FXML
+    TextField studentIdTextField;
+
+    @FXML
+    TextField studentNameTextField;
+
+    @FXML
+    TextField minimumScoreTextField;
+
+    @FXML
+    TextField maximumScoreTextField;
+
+    @FXML
+    Button filterButton;
+
+
+    @FXML
+    Button releaseTemporaryScoresButton;
+
+    @FXML
+    Button finalizeScoresButton;
+
+
+    private Integer courseId = null;
+
     @Override
     public void initialize(){
         super.initialize();
+
         Backend backend = Backend.getInstance();
-        ObservableList<ReportCard> data = tableView.getItems();
-        data.clear();
+
+        ObservableList<Course> coursesData = coursesTableView.getItems();
+        coursesData.clear();
+
         User user = LoggedInUserHolder.getUser();
 
         if(user instanceof Professor professor) {
-            for(ReportCard reportCard : backend.getReportCards()) {
-                Student student = backend.getStudent(reportCard.getStudentId());
-                if(student == null){
-                    log.error("reportCard("+reportCard.getId()+")'s student doesn't exist");
-                    throw new IllegalStateException("reportCard("+reportCard.getId()+")'s student doesn't exist");
-                }
-                if(student.getCollegeId() == professor.getCollegeId()) {
-                    ReportCardStatus status = reportCard.getStatus();
-                    if (status == ReportCardStatus.TEMPORARILY_SCORED) {
-                        data.add(reportCard);
-                    }
+            for(Course course : backend.getCourses()){
+                if(course.getProfessorId() == professor.getId()){
+                    coursesData.add(course);
                 }
             }
         }
@@ -92,9 +95,42 @@ public class ProfessorTemporaryScoresPageController extends ProfessorPageControl
             log.error("logged in user is not a Professor");
             throw new IllegalStateException("logged in user is not a Professor");
         }
+
+        tableView.setEditable(true);
+
+        TableColumn<ReportCard, String> scoreColumn = new TableColumn<>("Score");
+        scoreColumn.setMaxWidth(130);
+        scoreColumn.setPrefWidth(90);
+        scoreColumn.setCellValueFactory(new PropertyValueFactory<>("score"));
+        scoreColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        scoreColumn.setOnEditCommit(event -> {
+            ReportCard reportCard = event.getRowValue();
+            reportCard.setScore(event.getNewValue());
+        });
+
+
+        tableView.getColumns().add(scoreColumn);
     }
 
-    public void initialize(String studentName, String studentIdString, String professorName, String professorIdString, String courseIdString){
+    public void filter() {
+        clearFilter();
+        filter("", "", "", "");
+    }
+
+    public void filter(String studentIdString, String studentName, String minimumScoreString, String maximumScoreString){
+        Backend backend = Backend.getInstance();
+
+        if(courseId == null){
+            error("first load a course using load button");
+            return;
+        }
+
+        Course course = backend.getCourse(courseId);
+        if(course == null){
+            error("course doesn't exist");
+            return;
+        }
+
         try{
             if(studentIdString.length() > 0) Integer.parseInt(studentIdString);
         }
@@ -104,66 +140,78 @@ public class ProfessorTemporaryScoresPageController extends ProfessorPageControl
         }
 
         try{
-            if(professorIdString.length() > 0) Integer.parseInt(professorIdString);
+            if(minimumScoreString.length() > 0) Double.parseDouble(minimumScoreString);
         }
         catch (NumberFormatException numberFormatException){
-            error("professor id must be an integer");
+            error("minimum score must be a double");
             return;
         }
 
         try{
-            if(courseIdString.length() > 0) Integer.parseInt(courseIdString);
+            if(maximumScoreString.length() > 0) Double.parseDouble(maximumScoreString);
         }
         catch (NumberFormatException numberFormatException){
-            error("course id must be an integer");
+            error("maximum score must be a double");
             return;
         }
 
-        super.initialize();
+        double minimumScore = 0;
+        double maximumScore = 20;
+        if(minimumScoreString.length() > 0) minimumScore = Double.parseDouble(minimumScoreString);
+        if(maximumScoreString.length() > 0)maximumScore = Double.parseDouble(maximumScoreString);
 
-        Backend backend = Backend.getInstance();
+        if(minimumScore > maximumScore){
+            error("minimum score should be less than or equal to maximum score");
+            return;
+        }
+
         ObservableList<ReportCard> data = tableView.getItems();
         data.clear();
+
         User user = LoggedInUserHolder.getUser();
 
-        if(user instanceof Professor) {
-            for(ReportCard reportCard : backend.getReportCards()) {
+        if(user instanceof Professor professor) {
+            for (int reportCardId : course.getReportCardIds()) {
+                ReportCard reportCard = backend.getReportCard(reportCardId);
+                if (reportCard == null) {
+                    log.error("course(" + course.getId() + ") has a reportCardId(" + reportCardId + ") which doesn't exist");
+                    throw new IllegalStateException("course(" + course.getId() + ") has a reportCardId(" + reportCardId + ") which doesn't exist");
+                }
+
                 Student student = backend.getStudent(reportCard.getStudentId());
-                if(student == null){
-                    log.error("reportCard("+reportCard.getId()+")'s student doesn't exist");
-                    throw new IllegalStateException("reportCard("+reportCard.getId()+")'s student doesn't exist");
+                if (student == null) {
+                    log.error("reportCard(" + reportCard.getId() + ")'s student doesn't exist");
+                    throw new IllegalStateException("reportCard(" + reportCard.getId() + ")'s student doesn't exist");
                 }
 
-                Professor professor = backend.getProfessor(reportCard.getProfessorId());
-                if(professor == null){
-                    log.error("reportCard("+reportCard.getId()+")'s professor doesn't exist");
-                    throw new IllegalStateException("reportCard("+reportCard.getId()+")'s professor doesn't exist");
+                Double score = null;
+                if (reportCard.getScore().length() > 0) {
+                    try {
+                        score = Double.parseDouble(reportCard.getScore());
+                    } catch (NumberFormatException ignored) {}
                 }
 
-                if(student.getCollegeId() == user.getCollegeId()) {
+                if (student.getCollegeId() == professor.getCollegeId()) {
                     ReportCardStatus status = reportCard.getStatus();
                     if (status == ReportCardStatus.TEMPORARILY_SCORED) {
-                        if((studentName.equals(student.getName()) || studentName.equals("")) &&
-                                (professorName.equals(professor.getName()) || professorName.equals("")) &&
+                        if ((studentName.equals(student.getName()) || studentName.equals("")) &&
                                 (studentIdString.equals(String.valueOf(reportCard.getStudentId())) || studentIdString.equals("")) &&
-                                (professorIdString.equals(String.valueOf(reportCard.getProfessorId())) || professorIdString.equals("")) &&
-                                (courseIdString.equals(String.valueOf(reportCard.getCourseId())) || courseIdString.equals(""))){
+                                (score == null || (minimumScore <= score && score <= maximumScore))) {
                             data.add(reportCard);
                         }
                     }
                 }
             }
         }
-        else{
+        else {
             log.error("logged in user is not a Professor");
             throw new IllegalStateException("logged in user is not a Professor");
         }
 
-        if(studentName.equals("") &&
-                professorName.equals("") &&
-                studentIdString.equals("") &&
-                professorIdString.equals("") &&
-                courseIdString.equals("")){
+        if(studentIdString.equals("") &&
+                studentName.equals("") &&
+                minimumScoreString.equals("") &&
+                maximumScoreString.equals("")){
             error("");
         }
         else {
@@ -173,83 +221,162 @@ public class ProfessorTemporaryScoresPageController extends ProfessorPageControl
 
 
     @FXML
-    void filterButtonOnAction(ActionEvent actionEvent){
-        String studentName = studentNameTextField.getText();
-        String studentId = studentIdTextField.getText();
-        String professorName = professorNameTextField.getText();
-        String professorId = professorIdTextField.getText();
-        String courseId = courseIdTextField.getText();
-        initialize(studentName, studentId, professorName, professorId, courseId);
-    }
-
-    @FXML
-    void courseSummeryButtonOnAction(ActionEvent actionEvent){
+    void loadButtonOnAction(ActionEvent actionEvent){
         Backend backend = Backend.getInstance();
-        String courseSummeryIdString = courseSummeryIdTextField.getText();
-        int courseSummeryId;
+
+        String courseIdString = loadCourseIdTextField.getText();
+
         try{
-            courseSummeryId = Integer.parseInt(courseSummeryIdString);
+            if(courseIdString.length() > 0) Integer.parseInt(courseIdString);
         }
         catch (NumberFormatException numberFormatException){
-            error("course summery id must be an integer");
+            error("course id must be an integer");
             return;
         }
 
-        if(courseSummeryIdString.length() == 0){
-            error("course summery id must be an integer");
+        int courseId = Integer.parseInt(courseIdString);
+
+        Course course = backend.getCourse(courseId);
+        if(course == null){
+            error("course doesn't exist");
             return;
         }
 
-        if(!backend.hasCourse(Integer.parseInt(courseSummeryIdString))){
-            error("course id doesn't exist");
+        this.courseId = courseId;
+
+        error("course has been loaded");
+        filter();
+    }
+
+
+    @FXML
+    void filterButtonOnAction(ActionEvent actionEvent){
+        String studentId = studentIdTextField.getText();
+        String studentName = studentNameTextField.getText();
+        String minimumScoreString = minimumScoreTextField.getText();
+        String maximumScoreString = maximumScoreTextField.getText();
+        filter(studentId, studentName, minimumScoreString, maximumScoreString);
+    }
+
+
+    @FXML
+    void releaseTemporaryScoresButtonOnAction(ActionEvent actionEvent){
+        Backend backend = Backend.getInstance();
+        if(courseId == null){
+            error("first load a course using load button");
+            return;
+        }
+        Course course = backend.getCourse(courseId);
+        if(course == null){
+            error("course doesn't exist");
             return;
         }
 
-        int failedCount = 0;
-        int creditedCount = 0;
-        int finalCount = 0;
-        double sum = 0;
-        double sumWithoutFailed = 0;
+        ObservableList<ReportCard> data = tableView.getItems();
 
-        for (ReportCard reportCard : backend.getReportCards()) {
-            if (reportCard.getCourseId() == courseSummeryId) {
-                if (reportCard.getStatus() == ReportCardStatus.FAILED) {
-                    failedCount++;
-                    finalCount++;
-                }
-                if (reportCard.getStatus() == ReportCardStatus.CREDITED) {
-                    creditedCount++;
-                    finalCount++;
-                }
+        boolean released = true;
+        for(ReportCard reportCard : data){
+            if(reportCard.getStatus() == ReportCardStatus.TAKEN){
+                released = false;
+                break;
+            }
+        }
+        if(released){
+            error("all report cards of course("+courseId+") are already released");
+            return;
+        }
 
-                try{
-                    if(reportCard.getStatus() != ReportCardStatus.FAILED)
-                        sumWithoutFailed += Double.parseDouble(reportCard.getScore());
-                    sum += Double.parseDouble(reportCard.getScore());
+        for(ReportCard reportCard : data){
+            if(reportCard.getStatus() != ReportCardStatus.CREDITED &&
+                    reportCard.getStatus() != ReportCardStatus.FAILED &&
+                    reportCard.getStatus() != ReportCardStatus.WITHDRAWN) {
+                try {
+                    Double.parseDouble(reportCard.getScore());
+                } catch (Exception ignored) {
+                    error("reportCard(" + reportCard.getId() + ") of course(" + courseId + ") has a non-double score");
+                    return;
                 }
-                catch (NumberFormatException ignored){}
             }
         }
 
-
-        failedText.setText("Failed: "+failedCount);
-        creditedText.setText("Credited: "+creditedCount);
-
-        if(finalCount == 0){
-            averageText.setText("Average: N/A");
-        }
-        else {
-            double average = sum / finalCount;
-            averageText.setText("Average: " + average);
+        for(ReportCard reportCard : data){
+            if(reportCard.getStatus() != ReportCardStatus.CREDITED &&
+                    reportCard.getStatus() != ReportCardStatus.FAILED &&
+                    reportCard.getStatus() != ReportCardStatus.WITHDRAWN) {
+                reportCard.setStatus(ReportCardStatus.TEMPORARILY_SCORED);
+            }
         }
 
-        if(finalCount - failedCount == 0) {
-            averageWithoutFailedText.setText("Average Without Failed: N/A");
+        filter();
+        error("temporary scores of course("+courseId+") has been released");
+    }
+
+
+    @FXML
+    void finalizeScoresButtonOnAction(ActionEvent actionEvent){
+        Backend backend = Backend.getInstance();
+        if(courseId == null){
+            error("first load a course using load button");
+            return;
         }
-        else{
-            double averageWithoutFailed = sumWithoutFailed / (finalCount - failedCount);
-            averageWithoutFailedText.setText("Average Without Failed: " + averageWithoutFailed);
+        Course course = backend.getCourse(courseId);
+        if(course == null){
+            error("course doesn't exist");
+            return;
         }
+
+        ObservableList<ReportCard> data = tableView.getItems();
+
+        boolean released = true;
+        for(ReportCard reportCard : data){
+            if(reportCard.getStatus() == ReportCardStatus.TAKEN){
+                released = false;
+                break;
+            }
+        }
+        if(!released){
+            error("all report cards of course("+courseId+") must be released first");
+            return;
+        }
+
+        boolean finalized = true;
+        for(ReportCard reportCard : data){
+            if(reportCard.getStatus() == ReportCardStatus.TEMPORARILY_SCORED){
+                finalized = false;
+                break;
+            }
+        }
+        if(finalized){
+            error("all report cards of course("+courseId+") are already finalized");
+            return;
+        }
+
+        for(ReportCard reportCard : data){
+            if(reportCard.getStatus() != ReportCardStatus.CREDITED &&
+                    reportCard.getStatus() != ReportCardStatus.FAILED &&
+                    reportCard.getStatus() != ReportCardStatus.WITHDRAWN) {
+                try {
+                    Double.parseDouble(reportCard.getScore());
+                } catch (Exception ignored) {
+                    error("reportCard(" + reportCard.getId() + ") of course(" + courseId + ") has a non-double score");
+                    return;
+                }
+            }
+        }
+
+        for(ReportCard reportCard : data){
+            if(reportCard.getStatus() != ReportCardStatus.CREDITED &&
+                    reportCard.getStatus() != ReportCardStatus.FAILED &&
+                    reportCard.getStatus() != ReportCardStatus.WITHDRAWN) {
+                double score = Double.parseDouble(reportCard.getScore());
+
+                if(score < 10) reportCard.setStatus(ReportCardStatus.FAILED);
+                else reportCard.setStatus(ReportCardStatus.CREDITED);
+            }
+        }
+
+        filter();
+        error("scores of course("+courseId+") has been finalized");
     }
 
 
@@ -257,13 +384,11 @@ public class ProfessorTemporaryScoresPageController extends ProfessorPageControl
         errorText.setText(error);
     }
 
-    private void cleanFilter(){
-        errorText.setText("");
-        studentNameTextField.setText("");
+
+    private void clearFilter(){
         studentIdTextField.setText("");
-        professorNameTextField.setText("");
-        professorIdTextField.setText("");
-        courseIdTextField.setText("");
-        initialize();
+        studentNameTextField.setText("");
+        minimumScoreTextField.setText("");
+        maximumScoreTextField.setText("");
     }
 }

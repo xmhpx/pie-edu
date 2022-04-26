@@ -45,6 +45,7 @@
 
           <Menu mnemonicParsing="false" text="Report Card Affairs">
             <items>
+                <MenuItem fx:id="temporaryScoresForEducationalAssistantsMenuItem" mnemonicParsing="false" onAction="#goToProfessorTemporaryScoresForEducationalAssistantsPage" text="Temporary Scores For Educational Assistants" />
                 <MenuItem fx:id="temporaryScoresMenuItem" mnemonicParsing="false" onAction="#goToProfessorTemporaryScoresPage" text="Temporary Scores" />
                 <MenuItem fx:id="educationStatusMenuItem" mnemonicParsing="false" onAction="#goToProfessorEducationStatusPage" text="Education Status" />
             </items>
