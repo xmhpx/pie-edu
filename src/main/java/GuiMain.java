@@ -20,8 +20,7 @@ import java.io.IOException;
 //// DONE make withdrawal request actually functional
 //// DONE add auto response for dorm and certificate student requests
 //// TODO change dissertation defence request's response (add time to defence maybe?)
-// TODO fix dd requests (add ability to answer them)
-// TODO add ability to add objections and edit them to temporaryScoresPage
+// DONE add ability to add objections and edit them to temporaryScoresPage
 // TODO fix many things in temporaryScoresPage (doesn't exist for professors, only for educational assistants)
 //// DONE add 'number of passed SCHs' to education status for students
 //// TODO make calculating average weighted for different courses

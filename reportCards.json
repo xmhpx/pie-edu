@@ -12,7 +12,7 @@
     "id": 70002,
     "courseId": 50002,
     "studentId": 20001,
-    "status": "TEMPORARILY_SCORED",
+    "status": "CREDITED",
     "score": "20",
     "objection": "object",
     "response": ""
@@ -23,6 +23,96 @@
     "studentId": 20001,
     "status": "WITHDRAWN",
     "score": "N/A",
+    "objection": "",
+    "response": ""
+  },
+  {
+    "id": 70004,
+    "courseId": 50001,
+    "studentId": 20001,
+    "status": "TAKEN",
+    "score": "",
+    "objection": "",
+    "response": ""
+  },
+  {
+    "id": 70005,
+    "courseId": 50002,
+    "studentId": 20001,
+    "status": "TAKEN",
+    "score": "",
+    "objection": "",
+    "response": ""
+  },
+  {
+    "id": 70006,
+    "courseId": 50003,
+    "studentId": 20001,
+    "status": "TAKEN",
+    "score": "",
+    "objection": "",
+    "response": ""
+  },
+  {
+    "id": 70007,
+    "courseId": 50001,
+    "studentId": 20001,
+    "status": "TAKEN",
+    "score": "",
+    "objection": "",
+    "response": ""
+  },
+  {
+    "id": 70008,
+    "courseId": 50001,
+    "studentId": 20001,
+    "status": "TAKEN",
+    "score": "",
+    "objection": "",
+    "response": ""
+  },
+  {
+    "id": 70009,
+    "courseId": 50002,
+    "studentId": 20001,
+    "status": "TAKEN",
+    "score": "",
+    "objection": "",
+    "response": ""
+  },
+  {
+    "id": 70010,
+    "courseId": 50003,
+    "studentId": 20001,
+    "status": "TAKEN",
+    "score": "",
+    "objection": "",
+    "response": ""
+  },
+  {
+    "id": 70011,
+    "courseId": 50002,
+    "studentId": 20001,
+    "status": "TAKEN",
+    "score": "",
+    "objection": "",
+    "response": ""
+  },
+  {
+    "id": 70012,
+    "courseId": 50002,
+    "studentId": 20001,
+    "status": "TAKEN",
+    "score": "",
+    "objection": "",
+    "response": ""
+  },
+  {
+    "id": 70013,
+    "courseId": 50002,
+    "studentId": 20001,
+    "status": "TAKEN",
+    "score": "",
     "objection": "",
     "response": ""
   }
