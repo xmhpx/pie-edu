@@ -22,6 +22,10 @@ public class LoggedInUserHolder {
     // getters and setters
 
 
+    public static boolean hasUser() {
+        return user != null;
+    }
+
     public static User getUser() {
         if(user == null){
             log.error("'user' is null");

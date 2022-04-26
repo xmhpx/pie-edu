@@ -6,10 +6,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import logic.LoggedInUserHolder;
+import models.User;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
+import java.util.Calendar;
 
 public class BasicPageController {
     private static final Logger log = LogManager.getLogger(BasicPageController.class);
@@ -22,6 +25,13 @@ public class BasicPageController {
 
     }
 
+    protected void goToForcedChangePasswordPage(){
+        goToPage("/forcedChangePasswordPage.fxml");
+    }
+
+    protected void goToLoginPage(){
+        goToPage("/loginPage.fxml");
+    }
 
     protected void goToStudentPage(String str){
         goToPage("/studentpages/"+str);
@@ -32,6 +42,29 @@ public class BasicPageController {
     }
 
     protected void goToPage(String str){
+        if(!str.equals("/forcedChangePasswordPage.fxml")) {
+            if (this instanceof LoggedInPageController) {
+                if(!LoggedInUserHolder.hasUser())return;
+
+                Calendar cal = Calendar.getInstance();
+
+                int second = cal.get(Calendar.SECOND);
+                int minute = cal.get(Calendar.MINUTE);
+                int hour = cal.get(Calendar.HOUR);
+
+                String[] lastVisitTime = LoggedInUserHolder.getUser().getLastVisit().split(":");
+                int second2 = Integer.parseInt(lastVisitTime[2]);
+                int minute2 = Integer.parseInt(lastVisitTime[1]);
+                int hour2 = Integer.parseInt(lastVisitTime[0]);
+
+                int deltaSeconds = (second - second2) + (minute - minute2) * 60 + (hour - hour2) * 60 * 60;
+                if (deltaSeconds > 3*60*60) {
+                    goToForcedChangePasswordPage();
+                    return;
+                }
+            }
+        }
+
         Parent root;
 
         try {

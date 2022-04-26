@@ -1,9 +1,7 @@
 package pagecontrollers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -14,7 +12,6 @@ import models.User;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-import java.io.IOException;
 import java.util.Calendar;
 
 public class LoggedInPageController extends BasicPageController {
@@ -88,8 +85,8 @@ public class LoggedInPageController extends BasicPageController {
 
 
     @FXML
-    protected void logOutButtonClick(MouseEvent mouseEvent) throws IOException {
+    protected void logOutButtonClick(MouseEvent mouseEvent) {
         LoggedInUserHolder.logout();
-        goToPage("/loginPage.fxml");
+        goToLoginPage();
     }
 }
