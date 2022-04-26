@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.text.Text;
+import javafx.util.converter.BooleanStringConverter;
 import logic.Backend;
 import logic.LoggedInUserHolder;
 import models.User;
@@ -43,6 +44,10 @@ public class ProfessorMinorRequestPageController extends ProfessorPageController
         data.clear();
         User user = LoggedInUserHolder.getUser();
         if(user instanceof Professor professor) {
+            if(professor.getProfessorType() != ProfessorType.EDUCATIONAL_ASSISTANT){
+                log.error("logged in user is not a EDUCATIONAL_ASSISTANT");
+                throw new IllegalStateException("logged in user is not a EDUCATIONAL_ASSISTANT");
+            }
             for (Request request : backend.getRequests()) {
                 if (request instanceof MinorRequest minorRequest){
                     int destinationCollegeId = minorRequest.getDestinationCollegeId();
@@ -67,28 +72,32 @@ public class ProfessorMinorRequestPageController extends ProfessorPageController
 
         tableView.setEditable(true);
 
-        TableColumn<MinorRequest, String> statusColumn = new TableColumn<>("Status");
-        statusColumn.setMaxWidth(200);
-        statusColumn.setPrefWidth(70);
-        statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
-        statusColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        statusColumn.setOnEditCommit(event -> {
+
+        TableColumn<MinorRequest, Boolean> hasOriginCollegeAgreedColumn = new TableColumn<>("Has Origin College Agreed");
+        hasOriginCollegeAgreedColumn.setMaxWidth(250);
+        hasOriginCollegeAgreedColumn.setPrefWidth(100);
+        hasOriginCollegeAgreedColumn.setCellValueFactory(new PropertyValueFactory<>("hasOriginCollegeAgreed"));
+        hasOriginCollegeAgreedColumn.setCellFactory(TextFieldTableCell.forTableColumn(new BooleanStringConverter()));
+        hasOriginCollegeAgreedColumn.setOnEditCommit(event -> {
             MinorRequest minorRequest = event.getRowValue();
-            minorRequest.setStatus(event.getNewValue());
+            if(professor.getCollegeId() == minorRequest.getOriginCollegeId()) {
+                minorRequest.setHasOriginCollegeAgreed(event.getNewValue());
+            }
         });
 
-
-        TableColumn<MinorRequest, String> responseColumn = new TableColumn<>("Response");
-        responseColumn.setMaxWidth(500);
-        responseColumn.setPrefWidth(70);
-        responseColumn.setCellValueFactory(new PropertyValueFactory<>("response"));
-        responseColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        responseColumn.setOnEditCommit(event -> {
+        TableColumn<MinorRequest, Boolean> hasDestinationCollegeAgreedColumn = new TableColumn<>("Has Dest. College Agreed");
+        hasDestinationCollegeAgreedColumn.setMaxWidth(250);
+        hasDestinationCollegeAgreedColumn.setPrefWidth(100);
+        hasDestinationCollegeAgreedColumn.setCellValueFactory(new PropertyValueFactory<>("hasDestinationCollegeAgreed"));
+        hasDestinationCollegeAgreedColumn.setCellFactory(TextFieldTableCell.forTableColumn(new BooleanStringConverter()));
+        hasDestinationCollegeAgreedColumn.setOnEditCommit(event -> {
             MinorRequest minorRequest = event.getRowValue();
-            minorRequest.setResponse(event.getNewValue());
+            if(professor.getCollegeId() == minorRequest.getDestinationCollegeId()) {
+                minorRequest.setHasDestinationCollegeAgreed(event.getNewValue());
+            }
         });
 
-        tableView.getColumns().add(statusColumn);
-        tableView.getColumns().add(responseColumn);
+        tableView.getColumns().add(hasOriginCollegeAgreedColumn);
+        tableView.getColumns().add(hasDestinationCollegeAgreedColumn);
     }
 }

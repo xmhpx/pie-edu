@@ -79,7 +79,7 @@
 
         <Text layoutX="338.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Minor Requests" />
 
-        <GridPane alignment="CENTER" hgap="10.0" layoutX="20.0" layoutY="80.0" maxHeight="500.0" maxWidth="700.0" minHeight="0.0" minWidth="700.0" prefHeight="300.0" prefWidth="700.0" vgap="10.0">
+        <GridPane alignment="CENTER" hgap="10.0" layoutX="59.0" layoutY="80.0" maxHeight="500.0" maxWidth="700.0" minHeight="0.0" minWidth="605.0" prefHeight="300.0" prefWidth="630.0" vgap="10.0">
             <padding>
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </padding>
@@ -103,10 +103,6 @@
                     </TableColumn>
                     <TableColumn maxWidth="200" prefWidth="70" text="Status">
                         <cellValueFactory><PropertyValueFactory property="status" />
-                        </cellValueFactory>
-                    </TableColumn>
-                    <TableColumn maxWidth="500" prefWidth="70" text="Response">
-                        <cellValueFactory><PropertyValueFactory property="response" />
                         </cellValueFactory>
                     </TableColumn>
                 </columns>

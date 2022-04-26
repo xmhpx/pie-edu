@@ -9,6 +9,8 @@ public class MinorRequest extends Request{
 
     protected int destinationCollegeId;
     protected int minorFieldId;
+    protected boolean hasDestinationCollegeAgreed;
+    protected boolean hasOriginCollegeAgreed;
 
 
     public MinorRequest(String title, String body, int senderId, int destinationCollegeId, int minorFieldId) {
@@ -17,6 +19,8 @@ public class MinorRequest extends Request{
 
         setDestinationCollegeId(destinationCollegeId);
         setMinorFieldId(minorFieldId);
+        setHasDestinationCollegeAgreed(false);
+        setHasOriginCollegeAgreed(false);
     }
 
 
@@ -48,6 +52,7 @@ public class MinorRequest extends Request{
         this.minorFieldId = minorFieldId;
     }
 
+
     public int getOriginCollegeId(){
         try {
             return Backend.getInstance().getStudent(senderId).getCollegeId();
@@ -56,5 +61,31 @@ public class MinorRequest extends Request{
             log.warn("'senderId' doesn't exist in backend");
             throw new IllegalStateException("'senderId' doesn't exist in backend");
         }
+    }
+
+
+    public boolean isHasDestinationCollegeAgreed() {
+        return hasDestinationCollegeAgreed;
+    }
+
+    public void setHasDestinationCollegeAgreed(boolean hasDestinationCollegeAgreed) {
+        this.hasDestinationCollegeAgreed = hasDestinationCollegeAgreed;
+    }
+
+
+    public boolean isHasOriginCollegeAgreed() {
+        return hasOriginCollegeAgreed;
+    }
+
+    public void setHasOriginCollegeAgreed(boolean hasOriginCollegeAgreed) {
+        this.hasOriginCollegeAgreed = hasOriginCollegeAgreed;
+    }
+
+    @Override
+    public String getStatus(){
+        if(hasDestinationCollegeAgreed && hasOriginCollegeAgreed){
+            return "accepted";
+        }
+        else return super.getStatus();
     }
 }

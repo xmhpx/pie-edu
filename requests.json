@@ -38,6 +38,8 @@
   {
     "destinationCollegeId": 40001,
     "minorFieldId": 60001,
+    "hasDestinationCollegeAgreed": true,
+    "hasOriginCollegeAgreed": false,
     "type": "MinorRequest",
     "id": 30005,
     "title": "cs",
@@ -49,6 +51,8 @@
   {
     "destinationCollegeId": 40002,
     "minorFieldId": 60003,
+    "hasDestinationCollegeAgreed": true,
+    "hasOriginCollegeAgreed": false,
     "type": "MinorRequest",
     "id": 30006,
     "title": "ce",
