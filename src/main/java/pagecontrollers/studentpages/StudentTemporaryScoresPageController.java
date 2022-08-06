@@ -1,14 +1,13 @@
 package pagecontrollers.studentpages;
 
 import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import logic.Backend;
-import logic.LoggedInUserHolder;
+import server.logic.Backend;
+import models.LoggedInUserHolder;
 import models.User;
 import models.student.Student;
 import models.universityitems.ReportCard;

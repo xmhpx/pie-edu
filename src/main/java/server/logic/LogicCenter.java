@@ -1,6 +1,5 @@
-package logic;
+package server.logic;
 
-import models.User;
 import models.universityitems.Course;
 import models.universityitems.ReportCard;
 import models.universityitems.ReportCardStatus;

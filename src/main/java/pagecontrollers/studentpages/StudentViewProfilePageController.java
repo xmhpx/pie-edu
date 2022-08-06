@@ -2,8 +2,8 @@ package pagecontrollers.studentpages;
 
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
-import logic.Backend;
-import logic.LoggedInUserHolder;
+import server.logic.Backend;
+import models.LoggedInUserHolder;
 import models.User;
 import models.professor.Professor;
 import models.student.Student;

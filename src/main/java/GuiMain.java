@@ -3,7 +3,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import logic.Backend;
+import server.logic.Backend;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 

@@ -3,12 +3,11 @@ package pagecontrollers.studentpages;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
-import logic.Backend;
-import logic.LoggedInUserHolder;
+import server.logic.Backend;
+import models.LoggedInUserHolder;
 import models.User;
 import models.WeeklySchedule;
 import models.student.Student;
-import models.universityitems.Course;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 

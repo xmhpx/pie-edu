@@ -3,15 +3,13 @@ package pagecontrollers.professorpages;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
-import logic.LoggedInUserHolder;
+import models.LoggedInUserHolder;
 import models.User;
 import models.professor.Professor;
 import models.professor.ProfessorType;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import pagecontrollers.LoggedInPageController;
-
-import java.io.IOException;
 
 public class ProfessorPageController extends LoggedInPageController {
     private static final Logger log = LogManager.getLogger(ProfessorPageController.class);

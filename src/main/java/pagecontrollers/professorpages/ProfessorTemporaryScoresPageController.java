@@ -10,15 +10,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.text.Text;
-import logic.Backend;
-import logic.LoggedInUserHolder;
+import server.logic.Backend;
+import models.LoggedInUserHolder;
 import models.User;
 import models.professor.Professor;
 import models.student.Student;
 import models.universityitems.Course;
 import models.universityitems.ReportCard;
 import models.universityitems.ReportCardStatus;
-import models.universityitems.requests.RecommendationLetterRequest;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 

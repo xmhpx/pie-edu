@@ -1,4 +1,4 @@
-package logic;
+package server.logic;
 
 import com.google.gson.reflect.TypeToken;
 import models.Captcha;

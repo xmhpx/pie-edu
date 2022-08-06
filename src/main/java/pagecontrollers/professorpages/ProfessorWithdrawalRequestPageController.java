@@ -1,28 +1,21 @@
 package pagecontrollers.professorpages;
 
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.scene.text.Text;
-import logic.Backend;
-import logic.LoggedInUserHolder;
+import server.logic.Backend;
+import models.LoggedInUserHolder;
 import models.User;
 import models.professor.Professor;
 import models.student.Student;
 import models.student.StudentEducationStatus;
-import models.universityitems.requests.MinorRequest;
 import models.universityitems.requests.Request;
 import models.universityitems.requests.WithdrawalRequest;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-
-import java.io.IOException;
 
 public class ProfessorWithdrawalRequestPageController extends ProfessorPageController {
     private static final Logger log = LogManager.getLogger(ProfessorWithdrawalRequestPageController.class);

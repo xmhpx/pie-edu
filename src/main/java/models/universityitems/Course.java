@@ -1,6 +1,6 @@
 package models.universityitems;
 
-import logic.Backend;
+import server.logic.Backend;
 import models.ClassTime;
 import models.WeekDay;
 import models.student.Student;

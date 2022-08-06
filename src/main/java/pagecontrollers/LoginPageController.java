@@ -7,8 +7,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
-import logic.Backend;
-import logic.LoggedInUserHolder;
+import server.logic.Backend;
+import models.LoggedInUserHolder;
 import models.Captcha;
 import models.User;
 import models.professor.Professor;
@@ -16,8 +16,6 @@ import models.student.Student;
 import models.student.StudentEducationStatus;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-
-import java.io.IOException;
 
 public class LoginPageController extends BasicPageController {
     private static final Logger log = LogManager.getLogger(LoginPageController.class);

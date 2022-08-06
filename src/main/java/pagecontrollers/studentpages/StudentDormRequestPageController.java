@@ -7,17 +7,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import logic.Backend;
-import logic.LoggedInUserHolder;
-import logic.RequestsAutomatedResponder;
+import server.logic.Backend;
+import models.LoggedInUserHolder;
+import server.logic.RequestsAutomatedResponder;
 import models.User;
 import models.student.Student;
 import models.universityitems.requests.DormRequest;
 import models.universityitems.requests.Request;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-
-import java.io.IOException;
 
 public class StudentDormRequestPageController extends StudentPageController {
     private static final Logger log = LogManager.getLogger(StudentDormRequestPageController.class);

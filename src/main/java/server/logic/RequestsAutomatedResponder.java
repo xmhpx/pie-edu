@@ -1,4 +1,4 @@
-package logic;
+package server.logic;
 
 import models.student.Student;
 import models.student.StudentEducationStatus;

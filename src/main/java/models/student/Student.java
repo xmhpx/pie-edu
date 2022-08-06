@@ -1,9 +1,8 @@
 package models.student;
 
-import logic.Backend;
-import logic.LogicCenter;
+import server.logic.Backend;
+import server.logic.LogicCenter;
 import models.*;
-import models.professor.Professor;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 

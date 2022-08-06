@@ -1,6 +1,6 @@
 package models.universityitems;
 
-import logic.Backend;
+import server.logic.Backend;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 

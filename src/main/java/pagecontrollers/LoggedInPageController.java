@@ -6,7 +6,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
-import logic.LoggedInUserHolder;
+import models.LoggedInUserHolder;
 import models.UITheme;
 import models.User;
 import org.apache.log4j.LogManager;

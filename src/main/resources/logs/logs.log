@@ -1,12 +1,12 @@
 2022-04-26 17:26:13:922 INFO [GuiMain.start()] - application started
-2022-04-26 17:26:14:048 INFO [logic.Backend.<init>()] - deserialization started
-2022-04-26 17:26:14:096 INFO [logic.Backend.<init>()] - deserialization finished
-2022-04-26 17:26:19:156 INFO [logic.LoggedInUserHolder.setUser()] - user(10001) logged in
+2022-04-26 17:26:14:048 INFO [Backend.<init>()] - deserialization started
+2022-04-26 17:26:14:096 INFO [Backend.<init>()] - deserialization finished
+2022-04-26 17:26:19:156 INFO [LoggedInUserHolder.setUser()] - user(10001) logged in
 2022-04-26 17:26:19:158 INFO [models.User.setLastVisit()] - user(10001) changed lastVisit
 2022-04-26 17:26:29:450 INFO [models.universityitems.ReportCard.setScore()] - reportCard(70001) changed score
 2022-04-26 17:26:45:829 INFO [models.universityitems.ReportCard.setScore()] - reportCard(70001) changed score
 2022-04-26 17:26:51:966 INFO [models.universityitems.ReportCard.setScore()] - reportCard(70001) changed score
 2022-04-26 17:26:58:289 INFO [models.universityitems.ReportCard.setStatus()] - reportCard(70004) changed status
-2022-04-26 17:27:00:603 INFO [logic.Backend.save()] - serialization started
-2022-04-26 17:27:00:613 INFO [logic.Backend.save()] - serialization ended
+2022-04-26 17:27:00:603 INFO [Backend.save()] - serialization started
+2022-04-26 17:27:00:613 INFO [Backend.save()] - serialization ended
 2022-04-26 17:27:00:613 INFO [GuiMain.stop()] - application stopped

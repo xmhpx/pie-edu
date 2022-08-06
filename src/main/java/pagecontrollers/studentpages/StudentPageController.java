@@ -3,7 +3,7 @@ package pagecontrollers.studentpages;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
-import logic.LoggedInUserHolder;
+import models.LoggedInUserHolder;
 import models.User;
 import models.student.Student;
 import models.student.StudentLevel;

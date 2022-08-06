@@ -2,7 +2,7 @@ package pagecontrollers.professorpages;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import logic.LoggedInUserHolder;
+import models.LoggedInUserHolder;
 import models.UITheme;
 import models.User;
 import org.apache.log4j.LogManager;
